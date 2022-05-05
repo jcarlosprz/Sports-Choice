@@ -43,63 +43,53 @@ public class ProyectoIntegrador {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 754, 663);
+		frame.setBounds(100, 100, 800, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		frame.getContentPane().setLayout(null);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frame.getContentPane().add(tabbedPane, "name_7143046108939");
-		
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_1, null);
-		
-		JPanel panel = new JPanel();
-		tabbedPane.addTab("New tab", null, panel, null);
-		panel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Bienvenidos a");
-		lblNewLabel.setBounds(251, 27, 123, 16);
-		panel.add(lblNewLabel);
+		JLabel lblNewLabel = new JLabel("Bienvenido a");
+		lblNewLabel.setBounds(339, 37, 242, 16);
+		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Sport Choice");
-		lblNewLabel_1.setBounds(251, 55, 94, 16);
-		panel.add(lblNewLabel_1);
+		lblNewLabel_1.setBounds(339, 89, 181, 16);
+		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Tu App para practicar deporte y conocer nuevos amigos");
-		lblNewLabel_2.setBounds(155, 94, 356, 16);
-		panel.add(lblNewLabel_2);
+		JLabel lblNewLabel_2 = new JLabel("(Tu app para practicar deporte y concoer amigos)");
+		lblNewLabel_2.setBounds(294, 135, 287, 16);
+		frame.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Nombre Usuario");
-		lblNewLabel_3.setBounds(155, 139, 113, 16);
-		panel.add(lblNewLabel_3);
+		JLabel lblNewLabel_3 = new JLabel("Recordarme");
+		lblNewLabel_3.setBounds(273, 286, 104, 16);
+		frame.getContentPane().add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Password");
-		lblNewLabel_4.setBounds(155, 167, 94, 16);
-		panel.add(lblNewLabel_4);
+		JLabel lblNewLabel_5 = new JLabel("Olvidaste la contraseña");
+		lblNewLabel_5.setBounds(499, 286, 61, 16);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+		JButton btnNewButton = new JButton("Registrarse");
+		btnNewButton.setBounds(260, 314, 117, 29);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Login");
+		btnNewButton_1.setBounds(476, 314, 117, 29);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_4 = new JLabel("Nombre");
+		lblNewLabel_4.setBounds(281, 163, 61, 16);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_6 = new JLabel("Usuario");
+		lblNewLabel_6.setBounds(281, 212, 61, 16);
+		frame.getContentPane().add(lblNewLabel_6);
 		
 		textField = new JTextField();
-		textField.setBounds(300, 134, 130, 26);
-		panel.add(textField);
+		textField.setBounds(412, 163, 130, 26);
+		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(300, 167, 130, 26);
-		panel.add(passwordField);
-		
-		JLabel lblNewLabel_5 = new JLabel("Recordarme");
-		lblNewLabel_5.setBounds(145, 209, 123, 16);
-		panel.add(lblNewLabel_5);
-		
-		JLabel lblNewLabel_6 = new JLabel("¿Olvidaste la contraseña?");
-		lblNewLabel_6.setBounds(313, 209, 168, 16);
-		panel.add(lblNewLabel_6);
-		
-		JButton btnNewButton = new JButton("Registrarse");
-		btnNewButton.setBounds(132, 277, 117, 29);
-		panel.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Login");
-		btnNewButton_1.setBounds(324, 277, 117, 29);
-		panel.add(btnNewButton_1);
+		passwordField.setBounds(422, 207, 117, 26);
+		frame.getContentPane().add(passwordField);
 	}
 }

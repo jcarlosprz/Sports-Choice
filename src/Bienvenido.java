@@ -6,12 +6,31 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JToggleButton;
 import java.awt.Font;
+import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class Bienvenido {
 
 	private JFrame frame;
 	private JPanel panel;
+	private JLabel lblNombreUsuario;
+	private JTextField txtUsuario;
+	private JLabel labelSubtitulo;
+	private JLabel labelBienvenido;
+	private JLabel labelBienvenido_1;
+	private JLabel lblNombreUsuario_1;
+	private JTextField txtContraseña;
+	private JLabel lblNewLabel;
+	private JRadioButton rdbtnRecordarme;
+	private JButton btnRegistrarse;
 
 	/**
 	 * Launch the application.
@@ -48,23 +67,80 @@ public class Bienvenido {
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(0, 0, 1266, 683);
+		panel.setBounds(0, 10, 1266, 683);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel labelBienvenido_1 = new JLabel("BIENVENIDO A");
+		lblNewLabel = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
+		lblNewLabel.setFont(new Font("Dubai", Font.PLAIN, 16));
+		lblNewLabel.setBounds(611, 375, 172, 22);
+		panel.add(lblNewLabel);
+		
+		labelBienvenido = new JLabel("BIENVENIDO A");
+		labelBienvenido.setFont(new Font("Dubai", Font.BOLD, 52));
+		labelBienvenido.setBounds(454, 48, 358, 44);
+		panel.add(labelBienvenido);
+		
+		labelBienvenido_1 = new JLabel("SPORTS-CHOICE");
 		labelBienvenido_1.setFont(new Font("Dubai", Font.BOLD, 52));
-		labelBienvenido_1.setBounds(454, 35, 358, 44);
+		labelBienvenido_1.setBounds(434, 89, 398, 59);
 		panel.add(labelBienvenido_1);
 		
-		JLabel labelBienvenido_1_1 = new JLabel("SPORTS-CHOICE");
-		labelBienvenido_1_1.setFont(new Font("Dubai", Font.BOLD, 52));
-		labelBienvenido_1_1.setBounds(434, 80, 398, 59);
-		panel.add(labelBienvenido_1_1);
-		
-		JLabel labelSubtitulo = new JLabel("Tu app para practicar deporte y hacer nuevos amigos");
+		labelSubtitulo = new JLabel("Tu app para practicar deporte y hacer nuevos amigos");
 		labelSubtitulo.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 20));
-		labelSubtitulo.setBounds(392, 135, 490, 40);
+		labelSubtitulo.setBounds(390, 143, 490, 40);
 		panel.add(labelSubtitulo);
+		
+		lblNombreUsuario = new JLabel("Nombre usuario:");
+		lblNombreUsuario.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblNombreUsuario.setBounds(353, 260, 120, 44);
+		panel.add(lblNombreUsuario);
+		
+		txtUsuario = new JTextField();
+		txtUsuario.setBounds(464, 263, 319, 40);
+		panel.add(txtUsuario);
+		txtUsuario.setColumns(10);
+		
+		
+		lblNombreUsuario_1 = new JLabel("Contrase\u00F1a:");
+		lblNombreUsuario_1.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblNombreUsuario_1.setBounds(353, 327, 87, 44);
+		panel.add(lblNombreUsuario_1);
+		
+		txtContraseña = new JTextField();
+		txtContraseña.setColumns(10);
+		txtContraseña.setBounds(464, 330, 319, 40);
+		panel.add(txtContraseña);
+		
+		rdbtnRecordarme = new JRadioButton("Recordarme");
+		rdbtnRecordarme.setFont(new Font("Dubai", Font.PLAIN, 16));
+		rdbtnRecordarme.setBounds(464, 376, 142, 21);
+		panel.add(rdbtnRecordarme);
+		rdbtnRecordarme.setBackground(new Color(0,0,0,0));
+		rdbtnRecordarme.setOpaque(false);
+		
+		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.setBackground(new Color(176, 196, 222));
+		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(641, 449, 142, 59);
+		panel.add(btnNewButton);
+		
+		btnRegistrarse = new JButton("REGISTRARSE");
+		btnRegistrarse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnRegistrarse.setBackground(new Color(176, 196, 222));
+		btnRegistrarse.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnRegistrarse.setBounds(464, 449, 142, 59);
+		panel.add(btnRegistrarse);
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\U-tad\\Desktop\\Sports-Choice\\Swing Eclipse\\Imagen_deportesss_tuneada.png"));
+		lblFondo.setBounds(363, 102, 801, 588);
+		panel.add(lblFondo);
 	}
 }

@@ -71,7 +71,7 @@ public class Recuperar_Contraseña {
 		panel.add(lblRecuperarContraseña);
 		
 		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el c\u00F3digo para crear una nueva contrase\u00F1a:");
-		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 16));
 		lblIntroduceEmail.setBounds(384, 166, 498, 26);
 		panel.add(lblIntroduceEmail);
 		

@@ -16,8 +16,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import com.toedter.calendar.JCalendar;
 
-public class Bienvenido {
+public class Bienvenido_a_SportsChoice {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -39,7 +40,7 @@ public class Bienvenido {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Bienvenido window = new Bienvenido();
+					Bienvenido_a_SportsChoice window = new Bienvenido_a_SportsChoice();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +52,7 @@ public class Bienvenido {
 	/**
 	 * Create the application.
 	 */
-	public Bienvenido() {
+	public Bienvenido_a_SportsChoice() {
 		initialize();
 	}
 
@@ -67,13 +68,14 @@ public class Bienvenido {
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(0, 10, 1266, 683);
+		panel.setBounds(0, 0, 1266, 693);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		lblNewLabel = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
+		lblNewLabel.setForeground(new Color(0, 0, 204));
 		lblNewLabel.setFont(new Font("Dubai", Font.PLAIN, 16));
-		lblNewLabel.setBounds(611, 375, 172, 22);
+		lblNewLabel.setBounds(619, 375, 172, 22);
 		panel.add(lblNewLabel);
 		
 		labelBienvenido = new JLabel("BIENVENIDO A");
@@ -93,28 +95,28 @@ public class Bienvenido {
 		
 		lblNombreUsuario = new JLabel("Nombre usuario:");
 		lblNombreUsuario.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblNombreUsuario.setBounds(353, 260, 120, 44);
+		lblNombreUsuario.setBounds(363, 260, 120, 44);
 		panel.add(lblNombreUsuario);
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(464, 263, 319, 40);
+		txtUsuario.setBounds(475, 263, 316, 40);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		
 		lblNombreUsuario_1 = new JLabel("Contrase\u00F1a:");
 		lblNombreUsuario_1.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblNombreUsuario_1.setBounds(353, 327, 87, 44);
+		lblNombreUsuario_1.setBounds(363, 327, 120, 44);
 		panel.add(lblNombreUsuario_1);
 		
 		txtContraseña = new JTextField();
 		txtContraseña.setColumns(10);
-		txtContraseña.setBounds(464, 330, 319, 40);
+		txtContraseña.setBounds(475, 330, 316, 40);
 		panel.add(txtContraseña);
 		
 		rdbtnRecordarme = new JRadioButton("Recordarme");
 		rdbtnRecordarme.setFont(new Font("Dubai", Font.PLAIN, 16));
-		rdbtnRecordarme.setBounds(464, 376, 142, 21);
+		rdbtnRecordarme.setBounds(475, 376, 142, 21);
 		panel.add(rdbtnRecordarme);
 		rdbtnRecordarme.setBackground(new Color(0,0,0,0));
 		rdbtnRecordarme.setOpaque(false);
@@ -126,7 +128,7 @@ public class Bienvenido {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(641, 449, 142, 59);
+		btnNewButton.setBounds(653, 428, 142, 59);
 		panel.add(btnNewButton);
 		
 		btnRegistrarse = new JButton("REGISTRARSE");
@@ -136,11 +138,11 @@ public class Bienvenido {
 		});
 		btnRegistrarse.setBackground(new Color(176, 196, 222));
 		btnRegistrarse.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnRegistrarse.setBounds(464, 449, 142, 59);
+		btnRegistrarse.setBounds(471, 428, 142, 59);
 		panel.add(btnRegistrarse);
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setIcon(new ImageIcon("C:\\Users\\U-tad\\Desktop\\Sports-Choice\\Swing Eclipse\\Imagen_deportesss_tuneada.png"));
-		lblFondo.setBounds(363, 102, 801, 588);
+		lblFondo.setIcon(new ImageIcon("C:\\Users\\U-tad\\git\\prog---tarea-1---aplicacion-swing-pi-ratatui\\img\\Imagen_deportesss_tuneada.png"));
+		lblFondo.setBounds(363, 47, 801, 626);
 		panel.add(lblFondo);
 	}
 }

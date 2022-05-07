@@ -60,8 +60,8 @@ public class Registrarse {
 		frame.getContentPane().setLayout(null);
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(0, 10, 1266, 683);
+		panel.setBackground(new Color(255, 235, 205));
+		panel.setBounds(0, 0, 1266, 693);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		

@@ -32,6 +32,7 @@ public class Bienvenido_a_SportsChoice {
 	private JLabel lblNewLabel;
 	private JRadioButton rdbtnRecordarme;
 	private JButton btnRegistrarse;
+	private JButton btnPregunta;
 
 	/**
 	 * Launch the application.
@@ -141,8 +142,18 @@ public class Bienvenido_a_SportsChoice {
 		btnRegistrarse.setBounds(471, 428, 142, 59);
 		panel.add(btnRegistrarse);
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setIcon(new ImageIcon("C:\\Users\\U-tad\\git\\prog---tarea-1---aplicacion-swing-pi-ratatui\\img\\Imagen_deportesss_tuneada.png"));
+		lblFondo.setIcon(new ImageIcon(Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(363, 47, 801, 626);
 		panel.add(lblFondo);
+		
+		btnPregunta = new JButton("");
+		btnPregunta.setIcon(new ImageIcon(Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
+		btnPregunta.setOpaque(false);
+		btnPregunta.setForeground(Color.BLACK);
+		btnPregunta.setContentAreaFilled(false);
+		btnPregunta.setBorderPainted(false);
+		btnPregunta.setBackground(new Color(255, 204, 153));
+		btnPregunta.setBounds(951, 613, 32, 32);
+		panel.add(btnPregunta);
 	}
 }

@@ -155,6 +155,11 @@ public class Registrarse {
 		panel.add(lblFechaNac);
 		
 		JButton btnNewButton = new JButton("CREAR CUENTA");
+		btnNewButton.setBackground(new Color(176, 196, 222));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton.setBounds(779, 589, 162, 56);
 		panel.add(btnNewButton);

@@ -8,6 +8,8 @@ import java.awt.Cursor;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class _4_Nueva_Contraseña {
 
@@ -105,11 +107,16 @@ public class _4_Nueva_Contraseña {
 		panel.add(lblConsejo2);
 
 		btnFlecha = new JButton("");
+		btnFlecha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnFlecha.setIcon(new ImageIcon(_4_Nueva_Contraseña.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
 		btnFlecha.setBounds(308, 589, 106, 56);
+		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 	}
 }

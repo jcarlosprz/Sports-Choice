@@ -59,11 +59,16 @@ public class _8_Foro {
 		});
 
 		btnFlecha = new JButton("");
+		btnFlecha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
 		btnFlecha.setBounds(309, 589, 106, 56);
+		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 		btnEnviar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnEnviar.setBounds(562, 582, 142, 63);

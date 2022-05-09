@@ -131,6 +131,7 @@ public class _2_Registrarse {
 
 		btnCrearCuenta = new JButton("CREAR CUENTA");
 		btnCrearCuenta.setBackground(new Color(176, 196, 222));
+		btnCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

@@ -113,7 +113,7 @@ public class Foro {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		lblNewLabel = new JLabel("  Escribe aqui: ");
+		lblNewLabel = new JLabel("Escribe aqui: ");
 		lblNewLabel.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNewLabel.setBounds(313, 394, 167, 26);
 		panel.add(lblNewLabel);

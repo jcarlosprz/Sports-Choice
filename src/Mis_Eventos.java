@@ -120,7 +120,7 @@ public class Mis_Eventos {
 		panel.add(scrollPane);
 		
 		table = new JTable();
-		table.setIntercellSpacing(new Dimension(25, 3));
+		table.setIntercellSpacing(new Dimension(15, 3));
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		table.setShowVerticalLines(false);

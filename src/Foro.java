@@ -69,13 +69,21 @@ public class Foro {
 		panel.setLayout(null);
 
 		JButton btnNewButton = new JButton("Enviar");
-		btnNewButton.setBackground(new Color(176, 196, 222));
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		
+		JButton btnFlecha = new JButton("");
+		btnFlecha.setIcon(new ImageIcon(Foro.class.getResource("/images/back-arrow-icon-10.png")));
+		btnFlecha.setOpaque(false);
+		btnFlecha.setContentAreaFilled(false);
+		btnFlecha.setBorderPainted(false);
+		btnFlecha.setBounds(309, 589, 106, 56);
+		panel.add(btnFlecha);
 		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.setBounds(789, 587, 162, 56);
+		btnNewButton.setBounds(562, 582, 142, 63);
 		panel.add(btnNewButton);
 		
 		scrollPane = new JScrollPane();

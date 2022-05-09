@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import javax.swing.JPasswordField;
 
 
 public class Bienvenido_a_SportsChoice {
@@ -28,11 +29,11 @@ public class Bienvenido_a_SportsChoice {
 	private JLabel labelBienvenido;
 	private JLabel labelBienvenido_1;
 	private JLabel lblNombreUsuario_1;
-	private JTextField txtContraseña;
 	private JLabel lblNewLabel;
 	private JRadioButton rdbtnRecordarme;
 	private JButton btnRegistrarse;
 	private JButton btnPregunta;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -73,6 +74,10 @@ public class Bienvenido_a_SportsChoice {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(475, 326, 316, 40);
+		panel.add(passwordField);
+		
 		lblNewLabel = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
 		lblNewLabel.setForeground(new Color(0, 0, 204));
 		lblNewLabel.setFont(new Font("Dubai", Font.PLAIN, 16));
@@ -109,11 +114,6 @@ public class Bienvenido_a_SportsChoice {
 		lblNombreUsuario_1.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNombreUsuario_1.setBounds(363, 327, 120, 44);
 		panel.add(lblNombreUsuario_1);
-		
-		txtContraseña = new JTextField();
-		txtContraseña.setColumns(10);
-		txtContraseña.setBounds(475, 330, 316, 40);
-		panel.add(txtContraseña);
 		
 		rdbtnRecordarme = new JRadioButton("Recordarme");
 		rdbtnRecordarme.setFont(new Font("Dubai", Font.PLAIN, 16));

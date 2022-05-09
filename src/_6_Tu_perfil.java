@@ -1,68 +1,40 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
-
 import javax.swing.JLabel;
 import java.awt.Font;
-
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JFormattedTextField;
+import com.toedter.calendar.JDateChooser;
 
 public class _6_Tu_perfil {
 
 	private JFrame frame;
 	private JPanel panel;
-	private JLabel lblInformacinPersonal;
-	private JLabel lblNombreUsuario;
-	private JTextField txtNombreUsuario;
-	private JTextField txtNombre;
-	private JLabel lblNombre;
-	private JLabel lblApellidos;
-	private JTextField txtApellidos;
-	private JLabel lblTelefono;
-	private JTextField txtTelefono;
-	private JLabel lblEmail;
-	private JTextField txtEmail;
-	private JTextField txtPoblacion;
-	private JLabel lblPoblacion;
-	private JButton btnPregunta;
-	private JLabel lblPerfil;
-	private JButton btnPapelera;
-	private JButton btnHome;
+	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
+			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil;
+	private JTextField txtNombreUsuario, txtNombre, txtApellidos, txtTelefono, txtEmail, txtPoblacion;
+	private JButton btnPregunta, btnPapelera, btnHome, btnGuardar;
+	private JDateChooser dateChooserFechaNac;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void Perfil() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					_6_Tu_perfil window = new _6_Tu_perfil();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				_6_Tu_perfil window = new _6_Tu_perfil();
+				window.frame.setVisible(true);
 			}
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public _6_Tu_perfil() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
@@ -76,15 +48,15 @@ public class _6_Tu_perfil {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel lblTuPerfil = new JLabel("TU PERFIL");
+		lblTuPerfil = new JLabel("TU PERFIL");
 		lblTuPerfil.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblTuPerfil.setBounds(520, 10, 152, 44);
 		panel.add(lblTuPerfil);
 
-		lblInformacinPersonal = new JLabel("Informaci\u00F3n Personal: \r\n");
-		lblInformacinPersonal.setFont(new Font("Dubai", Font.BOLD, 20));
-		lblInformacinPersonal.setBounds(326, 64, 194, 31);
-		panel.add(lblInformacinPersonal);
+		lblInformacionPersonal = new JLabel("Informaci\u00F3n Personal: \r\n");
+		lblInformacionPersonal.setFont(new Font("Dubai", Font.BOLD, 20));
+		lblInformacionPersonal.setBounds(326, 64, 194, 31);
+		panel.add(lblInformacionPersonal);
 
 		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP:");
 		lblNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 15));
@@ -152,12 +124,12 @@ public class _6_Tu_perfil {
 		panel.add(txtPoblacion);
 		txtPoblacion.setColumns(10);
 
-		JLabel lblFechaNac = new JLabel("FECHA NACIMIENTO:");
+		lblFechaNac = new JLabel("FECHA NACIMIENTO:");
 		lblFechaNac.setFont(new Font("Dubai", Font.PLAIN, 15));
 		lblFechaNac.setBounds(455, 503, 192, 26);
 		panel.add(lblFechaNac);
 
-		JButton btnGuardar = new JButton("GUARDAR");
+		btnGuardar = new JButton("GUARDAR");
 		btnGuardar.setBackground(new Color(176, 196, 222));
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGuardar.addActionListener(new ActionListener() {
@@ -200,7 +172,7 @@ public class _6_Tu_perfil {
 		btnPapelera.setContentAreaFilled(false);
 		btnPapelera.setBorderPainted(false);
 		btnPapelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
+
 		btnHome = new JButton("");
 		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
@@ -215,6 +187,9 @@ public class _6_Tu_perfil {
 		btnHome.setBorderPainted(false);
 		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
+		dateChooserFechaNac = new JDateChooser();
+		dateChooserFechaNac.setBounds(455, 527, 392, 40);
+		panel.add(dateChooserFechaNac);
 
 	}
 }

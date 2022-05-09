@@ -1,23 +1,14 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
-import javax.swing.JToggleButton;
 import java.awt.Font;
-import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
 import java.awt.Cursor;
-
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
-import javax.swing.JRadioButton;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
+
 
 public class _3_Recuperar_Contraseña {
 

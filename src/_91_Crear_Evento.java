@@ -7,63 +7,45 @@ import java.awt.Cursor;
 
 import javax.swing.JLabel;
 import java.awt.Font;
-
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JFormattedTextField;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import java.awt.Dimension;
-import javax.swing.JToggleButton;
 import javax.swing.JList;
-import javax.swing.JCheckBox;
 import javax.swing.JSpinner;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
-import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JCalendar;
-import com.toedter.components.JLocaleChooser;
-import com.toedter.components.JSpinField;
+import javax.swing.border.LineBorder;
 
 public class _91_Crear_Evento {
 
 	private JFrame frame;
 	private JPanel panel;
-	private JButton btnPregunta;
+	private JButton btnPregunta, btnCrearEvento;
+	private JLabel lblHasSeleccionadoDeporte, lblSeleccionaTusPreferencias, lblHoraDosPuntos, lblUbicacion, lblHora,
+			lblFecha, lblNivel;
+	private JComboBox cbxPolideportivo;
+	private JList listNivel;
+	private JSpinner spinnerHora, spinnerMinutos;
+	private JCalendar calendar;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void Crear() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
 					_91_Crear_Evento window = new _91_Crear_Evento();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public _91_Crear_Evento() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
@@ -77,12 +59,12 @@ public class _91_Crear_Evento {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel lblTuPerfil = new JLabel("HAS SELECCIONADO: \"Deporte\"");
-		lblTuPerfil.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblTuPerfil.setBounds(417, 10, 432, 54);
-		panel.add(lblTuPerfil);
+		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: \"Deporte\"");
+		lblHasSeleccionadoDeporte.setFont(new Font("Dubai", Font.BOLD, 30));
+		lblHasSeleccionadoDeporte.setBounds(458, 10, 432, 54);
+		panel.add(lblHasSeleccionadoDeporte);
 
-		JButton btnCrearEvento = new JButton("CREA TU EVENTO");
+		btnCrearEvento = new JButton("CREA TU EVENTO");
 		btnCrearEvento.setBackground(new Color(176, 196, 222));
 		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEvento.addActionListener(new ActionListener() {
@@ -90,7 +72,7 @@ public class _91_Crear_Evento {
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnCrearEvento.setBounds(779, 589, 162, 56);
+		btnCrearEvento.setBounds(861, 588, 162, 56);
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
@@ -108,65 +90,78 @@ public class _91_Crear_Evento {
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(756, 62, 32, 52);
+		btnPregunta.setBounds(778, 60, 32, 52);
 		panel.add(btnPregunta);
-		
-		JLabel lblSeleccionaTusPreferencias = new JLabel("Selecciona tus preferencias:");
+
+		lblSeleccionaTusPreferencias = new JLabel("Selecciona tus preferencias:");
 		lblSeleccionaTusPreferencias.setFont(new Font("Dubai", Font.BOLD, 20));
-		lblSeleccionaTusPreferencias.setBounds(508, 67, 250, 40);
+		lblSeleccionaTusPreferencias.setBounds(538, 66, 250, 40);
 		panel.add(lblSeleccionaTusPreferencias);
-		
-		JComboBox cbxPolideportivo = new JComboBox();
-		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] {"-Polideportivo", "Enrique Blas", "Galapagar Sports ", "Dehesa de Navalcarb\u00F3n", "El Abaj\u00F3n", "Principe Felipe"}));
-		cbxPolideportivo.setBounds(201, 283, 189, 21);
+
+		cbxPolideportivo = new JComboBox();
+		cbxPolideportivo.setBackground(Color.WHITE);
+		cbxPolideportivo.setFont(new Font("Dubai", Font.PLAIN, 15));
+		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] { "-Polideportivo", "Enrique Blas",
+				"Galapagar Sports ", "Dehesa de Navalcarb\u00F3n", "El Abaj\u00F3n", "Principe Felipe" }));
+		cbxPolideportivo.setBounds(298, 233, 190, 21);
 		panel.add(cbxPolideportivo);
-		
-		JList list = new JList();
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setFont(new Font("Dubai", Font.PLAIN, 15));
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Principiante", "Medio", "Avanzado"};
+
+		listNivel = new JList();
+		listNivel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		listNivel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listNivel.setFont(new Font("Dubai", Font.PLAIN, 15));
+		listNivel.setModel(new AbstractListModel() {
+			String[] values = new String[] { "Principiante", "Medio", "Avanzado" };
+
 			public int getSize() {
 				return values.length;
 			}
+
 			public Object getElementAt(int index) {
 				return values[index];
 			}
 		});
-		list.setBounds(849, 258, 137, 88);
-		panel.add(list);
-		
-		JSpinner spinnerFechaDia_1_1 = new JSpinner();
-		spinnerFechaDia_1_1.setModel(new SpinnerNumberModel(0, 0, 23, 1));
-		spinnerFechaDia_1_1.setBounds(670, 282, 52, 22);
-		panel.add(spinnerFechaDia_1_1);
-		
-		JSpinner spinnerFechaDia_1_2 = new JSpinner();
-		spinnerFechaDia_1_2.setModel(new SpinnerNumberModel(0, 0, 59, 1));
-		spinnerFechaDia_1_2.setBounds(736, 281, 52, 22);
-		panel.add(spinnerFechaDia_1_2);
-		
-		JLabel lblNewLabel_1_1 = new JLabel(":");
-		lblNewLabel_1_1.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblNewLabel_1_1.setBounds(727, 283, 8, 22);
-		panel.add(lblNewLabel_1_1);
-		
-		JCalendar calendar = new JCalendar();
-		calendar.setBounds(430, 207, 206, 176);
-		panel.add(calendar);
-		
-		JLabel lblNewLabel = new JLabel("Ubicaci\u00F3n:");
-		lblNewLabel.setBounds(201, 265, 104, 14);
-		panel.add(lblNewLabel);
-		
-		JLabel lblHora = new JLabel("Hora:");
-		lblHora.setBounds(670, 265, 104, 14);
-		panel.add(lblHora);
-		
-		JLabel lblNivel = new JLabel("Nivel:");
-		lblNivel.setBounds(849, 241, 104, 14);
-		panel.add(lblNivel);
+		listNivel.setBounds(935, 233, 88, 88);
+		panel.add(listNivel);
 
+		spinnerHora = new JSpinner();
+		spinnerHora.setModel(new SpinnerNumberModel(0, 0, 23, 1));
+		spinnerHora.setBounds(778, 233, 52, 22);
+		panel.add(spinnerHora);
+
+		spinnerMinutos = new JSpinner();
+		spinnerMinutos.setModel(new SpinnerNumberModel(0, 0, 59, 1));
+		spinnerMinutos.setBounds(842, 233, 52, 22);
+		panel.add(spinnerMinutos);
+
+		lblHoraDosPuntos = new JLabel(":");
+		lblHoraDosPuntos.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblHoraDosPuntos.setBounds(833, 233, 8, 22);
+		panel.add(lblHoraDosPuntos);
+
+		calendar = new JCalendar();
+		calendar.setBounds(538, 233, 190, 190);
+		panel.add(calendar);
+
+		lblUbicacion = new JLabel("Ubicaci\u00F3n:");
+		lblUbicacion.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblUbicacion.setBounds(298, 214, 104, 14);
+		panel.add(lblUbicacion);
+
+		lblHora = new JLabel("Hora:");
+		lblHora.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblHora.setBounds(779, 214, 104, 14);
+		panel.add(lblHora);
+
+		lblFecha = new JLabel("Fecha:");
+		lblFecha.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblFecha.setBounds(538, 214, 104, 14);
+		panel.add(lblFecha);
+
+		lblNivel = new JLabel("Nivel:");
+		lblNivel.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblNivel.setBounds(935, 214, 104, 14);
+		panel.add(lblNivel);
 
 	}
 }

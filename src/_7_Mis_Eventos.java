@@ -1,19 +1,14 @@
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
-
 import javax.swing.JLabel;
 import java.awt.Font;
-
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JFormattedTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -23,37 +18,24 @@ public class _7_Mis_Eventos {
 
 	private JFrame frame;
 	private JPanel panel;
-	private JButton btnPregunta;
-	private JButton btnHome;
+	private JButton btnPregunta, btnHome, btnAbandonar, btnIrAlForo;
 	private JScrollPane scrollPane;
 	private JTable table;
+	private JLabel lblMisEventos;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void Eventos() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					_7_Mis_Eventos window = new _7_Mis_Eventos();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				_7_Mis_Eventos window = new _7_Mis_Eventos();
+				window.frame.setVisible(true);
 			}
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public _7_Mis_Eventos() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
@@ -67,12 +49,12 @@ public class _7_Mis_Eventos {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JLabel lblTuPerfil = new JLabel("MIS EVENTOS");
-		lblTuPerfil.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblTuPerfil.setBounds(528, 10, 192, 54);
-		panel.add(lblTuPerfil);
+		lblMisEventos = new JLabel("MIS EVENTOS");
+		lblMisEventos.setFont(new Font("Dubai", Font.BOLD, 30));
+		lblMisEventos.setBounds(528, 10, 192, 54);
+		panel.add(lblMisEventos);
 
-		JButton btnAbandonar = new JButton("ABANDONAR");
+		btnAbandonar = new JButton("ABANDONAR");
 		btnAbandonar.setEnabled(false);
 		btnAbandonar.setBackground(new Color(176, 196, 222));
 		btnAbandonar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -101,7 +83,7 @@ public class _7_Mis_Eventos {
 		btnPregunta.setForeground(new Color(0, 0, 0));
 		btnPregunta.setBounds(724, 10, 32, 52);
 		panel.add(btnPregunta);
-		
+
 		btnHome = new JButton("");
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,40 +96,37 @@ public class _7_Mis_Eventos {
 		btnHome.setContentAreaFilled(false);
 		btnHome.setBorderPainted(false);
 		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		
+
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
 		scrollPane.setBounds(313, 71, 640, 490);
 		panel.add(scrollPane);
-		
+
 		table = new JTable();
-		table.setIntercellSpacing(new Dimension(15, 3));
+		table.setToolTipText("");
+		table.setFocusTraversalKeysEnabled(false);
+		table.setIntercellSpacing(new Dimension(0, 0));
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		table.setShowVerticalLines(false);
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Baloncesto", "Enrique Blas", "27/05/2022", "17:00", "Avanzado", "8"},
-				{"Padel", "Galapagar Sports", "20/08/2022", "18:00", "Principiante", "4"},
-				{"F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Medio", "11"},
-				{"Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Avanzado", "2"},
-				{"Padel", "Enrique Blas", "12/09/2022", "19:00", "Principiante", "4"},
-				{"F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Avanzado", "8"},
-				{"F\u00FAtbol", "El Torre\u00F3n", "03/08/2022", "16:00", "Medio", "12"},
-				{"Tenis", "Principe Felipe", "28/08/2022", "17:00", "Avanzado", "4"},
-				{"Baloncesto", "Gal-full Stadium", "10/08/2022", "16:00", "Medio", "12"},
-				{"Baloncesto", "Enrique Blas", "03/05/2022", "19:00", "Medio", "12"},
-				{"Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Principiante", null},
-			},
-			new String[] {
-				"Deporte", "Polideportivo", "Fecha", "Hora", "Nivel", "N\u00BA Usuarios"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, String.class, String.class, String.class, String.class
-			};
+				new Object[][] { { "Baloncesto", "Enrique Blas", "27/05/2022", "17:00", "Avanzado", "8" },
+						{ "Padel", "Galapagar Sports", "20/08/2022", "18:00", "Principiante", "4" },
+						{ "F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Medio", "11" },
+						{ "Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Avanzado", "2" },
+						{ "Padel", "Enrique Blas", "12/09/2022", "19:00", "Principiante", "4" },
+						{ "F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Avanzado", "8" },
+						{ "F\u00FAtbol", "El Torre\u00F3n", "03/08/2022", "16:00", "Medio", "12" },
+						{ "Tenis", "Principe Felipe", "28/08/2022", "17:00", "Avanzado", "4" },
+						{ "Baloncesto", "Gal-full Stadium", "10/08/2022", "16:00", "Medio", "12" },
+						{ "Baloncesto", "Enrique Blas", "03/05/2022", "19:00", "Medio", "12" },
+						{ "Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Principiante", null }, },
+				new String[] { "Deporte", "Polideportivo", "Fecha", "Hora", "Nivel", "N\u00BA Usuarios" }) {
+			Class[] columnTypes = new Class[] { String.class, String.class, String.class, String.class, String.class,
+					String.class };
+
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
@@ -159,8 +138,8 @@ public class _7_Mis_Eventos {
 		table.getColumnModel().getColumn(4).setPreferredWidth(62);
 		table.getColumnModel().getColumn(5).setPreferredWidth(68);
 		scrollPane.setViewportView(table);
-		
-		JButton btnIrAlForo = new JButton("IR AL FORO");
+
+		btnIrAlForo = new JButton("IR AL FORO");
 		btnIrAlForo.setEnabled(false);
 		btnIrAlForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAlForo.addActionListener(new ActionListener() {
@@ -171,7 +150,6 @@ public class _7_Mis_Eventos {
 		btnIrAlForo.setBounds(446, 589, 162, 56);
 		btnIrAlForo.setBackground(new Color(176, 196, 222));
 		panel.add(btnIrAlForo);
-
 
 	}
 }

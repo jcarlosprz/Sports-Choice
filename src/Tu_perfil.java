@@ -201,6 +201,7 @@ public class Tu_perfil {
 		btnPapelera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		
 		btnHome = new JButton("");
+		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

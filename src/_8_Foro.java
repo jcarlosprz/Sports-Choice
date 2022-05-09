@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 import javax.swing.JSplitPane;
 
-public class Foro {
+public class _8_Foro {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -32,11 +32,11 @@ public class Foro {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Foro() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Foro window = new Foro();
+					_8_Foro window = new _8_Foro();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +48,7 @@ public class Foro {
 	/**
 	 * Create the application.
 	 */
-	public Foro() {
+	public _8_Foro() {
 		initialize();
 	}
 
@@ -68,23 +68,24 @@ public class Foro {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btnNewButton = new JButton("Enviar");
-		btnNewButton.setBackground(Color.LIGHT_GRAY);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.setBackground(Color.LIGHT_GRAY);
+		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		
 		JButton btnFlecha = new JButton("");
-		btnFlecha.setIcon(new ImageIcon(Foro.class.getResource("/images/back-arrow-icon-10.png")));
+		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
 		btnFlecha.setBounds(309, 589, 106, 56);
 		panel.add(btnFlecha);
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.setBounds(562, 582, 142, 63);
-		panel.add(btnNewButton);
+		btnEnviar.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnEnviar.setBounds(562, 582, 142, 63);
+		panel.add(btnEnviar);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
@@ -93,13 +94,14 @@ public class Foro {
 		
 		table = new JTable();
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
+		
 		table.setRowHeight(100);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"Usuario 1: Buen partido"},
-				{"Usuario 2: El usuario 1 hace trampas se inventa las reglas "},
-				{"Usuario 3: No vuelvo a jugar con los usuario 1 y 2 solo saben discutir "},
-				{"Usuario 4: El usuario 3 me ha perdido mi raqueta"},
+				{"<html>Usuario 1:<br> Buen partido </html>"},
+				{"<html>Usuario 2:<br> El usuario 1 hace trampas se inventa las reglas </html> "},
+				{"<html>Usuario 3:<br> No vuelvo a jugar con los usuario 1 y 2 solo saben discutir </html>"},
+				{"<html>Usuario 4:<br> El usuario 3 me ha perdido mi raqueta </html>"},
 			
 			},
 			new String[] {
@@ -117,7 +119,7 @@ public class Foro {
 		scrollPane.setViewportView(table);
 		
 		textField = new JTextField();
-		textField.setBounds(313, 422, 638, 122);
+		textField.setBounds(309, 431, 638, 122);
 		panel.add(textField);
 		textField.setColumns(10);
 		

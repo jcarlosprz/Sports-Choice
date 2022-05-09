@@ -8,6 +8,8 @@ import javax.swing.JToggleButton;
 import java.awt.Font;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
@@ -18,7 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
 
-public class Bienvenido_a_SportsChoice {
+public class _1_Bienvenido_a_SportsChoice {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -37,11 +39,11 @@ public class Bienvenido_a_SportsChoice {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Bienvenido() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Bienvenido_a_SportsChoice window = new Bienvenido_a_SportsChoice();
+					_1_Bienvenido_a_SportsChoice window = new _1_Bienvenido_a_SportsChoice();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +55,7 @@ public class Bienvenido_a_SportsChoice {
 	/**
 	 * Create the application.
 	 */
-	public Bienvenido_a_SportsChoice() {
+	public _1_Bienvenido_a_SportsChoice() {
 		initialize();
 	}
 
@@ -122,17 +124,20 @@ public class Bienvenido_a_SportsChoice {
 		rdbtnRecordarme.setBackground(new Color(0,0,0,0));
 		rdbtnRecordarme.setOpaque(false);
 		
-		JButton btnNewButton = new JButton("LOGIN");
-		btnNewButton.setBackground(new Color(176, 196, 222));
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnLogin = new JButton("LOGIN");
+		btnLogin.setBackground(new Color(176, 196, 222));
+		btnLogin.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogin.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(653, 428, 142, 59);
-		panel.add(btnNewButton);
+		btnLogin.setBounds(653, 428, 142, 59);
+		panel.add(btnLogin);
 		
 		btnRegistrarse = new JButton("REGISTRARSE");
+		btnRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -142,12 +147,12 @@ public class Bienvenido_a_SportsChoice {
 		btnRegistrarse.setBounds(471, 428, 142, 59);
 		panel.add(btnRegistrarse);
 		JLabel lblFondo = new JLabel("");
-		lblFondo.setIcon(new ImageIcon(Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
+		lblFondo.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(363, 47, 801, 626);
 		panel.add(lblFondo);
 		
 		btnPregunta = new JButton("");
-		btnPregunta.setIcon(new ImageIcon(Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
+		btnPregunta.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
 		btnPregunta.setOpaque(false);
 		btnPregunta.setForeground(Color.BLACK);
 		btnPregunta.setContentAreaFilled(false);

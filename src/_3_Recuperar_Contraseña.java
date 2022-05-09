@@ -8,6 +8,8 @@ import javax.swing.JToggleButton;
 import java.awt.Font;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
@@ -17,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
-public class Recuperar_Contraseña {
+public class _3_Recuperar_Contraseña {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -31,11 +33,11 @@ public class Recuperar_Contraseña {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Recuperar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Recuperar_Contraseña window = new Recuperar_Contraseña();
+					_3_Recuperar_Contraseña window = new _3_Recuperar_Contraseña();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +49,7 @@ public class Recuperar_Contraseña {
 	/**
 	 * Create the application.
 	 */
-	public Recuperar_Contraseña() {
+	public _3_Recuperar_Contraseña() {
 		initialize();
 	}
 
@@ -68,7 +70,7 @@ public class Recuperar_Contraseña {
 		panel.setLayout(null);
 		
 		btnFlecha = new JButton("");
-		btnFlecha.setIcon(new ImageIcon(Recuperar_Contraseña.class.getResource("/images/back-arrow-icon-10.png")));
+		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contraseña.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
@@ -107,6 +109,7 @@ public class Recuperar_Contraseña {
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));
 		btnValidar.setBounds(779, 589, 162, 56);
+		btnValidar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnValidar);
 		
 		btnFlecha_1 = new JButton("");

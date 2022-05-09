@@ -19,7 +19,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 
-public class Eventos_Disponibles {
+public class _9_Eventos_Disponibles {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -31,11 +31,11 @@ public class Eventos_Disponibles {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Eventos() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Eventos_Disponibles window = new Eventos_Disponibles();
+					_9_Eventos_Disponibles window = new _9_Eventos_Disponibles();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class Eventos_Disponibles {
 	/**
 	 * Create the application.
 	 */
-	public Eventos_Disponibles() {
+	public _9_Eventos_Disponibles() {
 		initialize();
 	}
 
@@ -72,15 +72,16 @@ public class Eventos_Disponibles {
 		lblTuPerfil.setBounds(464, 10, 338, 54);
 		panel.add(lblTuPerfil);
 
-		JButton btnNewButton = new JButton("CREA TU EVENTO");
-		btnNewButton.setBackground(new Color(176, 196, 222));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCrearEvento = new JButton("CREA TU EVENTO");
+		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnCrearEvento.setBackground(new Color(176, 196, 222));
+		btnCrearEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.setBounds(779, 589, 162, 56);
-		panel.add(btnNewButton);
+		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnCrearEvento.setBounds(779, 589, 162, 56);
+		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
 		btnPregunta.addActionListener(new ActionListener() {
@@ -88,7 +89,7 @@ public class Eventos_Disponibles {
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
-		btnPregunta.setIcon(new ImageIcon(Eventos_Disponibles.class.getResource("/images/pregunta-32x32.png")));
+		btnPregunta.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/pregunta-32x32.png")));
 		// Hacen que el botón sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
@@ -105,7 +106,7 @@ public class Eventos_Disponibles {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnHome.setIcon(new ImageIcon(Eventos_Disponibles.class.getResource("/images/home-icon.png")));
+		btnHome.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/home-icon.png")));
 		btnHome.setBounds(896, 10, 45, 44);
 		panel.add(btnHome);
 		btnHome.setOpaque(false);
@@ -164,16 +165,17 @@ public class Eventos_Disponibles {
 		table.getColumnModel().getColumn(5).setPreferredWidth(68);
 		scrollPane.setViewportView(table);
 		
-		JButton btnIrAlForo = new JButton("UNIRSE");
-		btnIrAlForo.setEnabled(false);
-		btnIrAlForo.addActionListener(new ActionListener() {
+		JButton btnUnirse = new JButton("UNIRSE");
+		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnUnirse.setEnabled(false);
+		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnIrAlForo.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnIrAlForo.setBounds(577, 589, 162, 56);
-		btnIrAlForo.setBackground(new Color(176, 196, 222));
-		panel.add(btnIrAlForo);
+		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnUnirse.setBounds(577, 589, 162, 56);
+		btnUnirse.setBackground(new Color(176, 196, 222));
+		panel.add(btnUnirse);
 
 
 	}

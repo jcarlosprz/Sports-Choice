@@ -19,7 +19,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 
-public class Mis_Eventos {
+public class _7_Mis_Eventos {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -31,11 +31,11 @@ public class Mis_Eventos {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Eventos() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Mis_Eventos window = new Mis_Eventos();
+					_7_Mis_Eventos window = new _7_Mis_Eventos();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class Mis_Eventos {
 	/**
 	 * Create the application.
 	 */
-	public Mis_Eventos() {
+	public _7_Mis_Eventos() {
 		initialize();
 	}
 
@@ -72,16 +72,17 @@ public class Mis_Eventos {
 		lblTuPerfil.setBounds(528, 10, 192, 54);
 		panel.add(lblTuPerfil);
 
-		JButton btnNewButton = new JButton("ABANDONAR");
-		btnNewButton.setEnabled(false);
-		btnNewButton.setBackground(new Color(176, 196, 222));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAbandonar = new JButton("ABANDONAR");
+		btnAbandonar.setEnabled(false);
+		btnAbandonar.setBackground(new Color(176, 196, 222));
+		btnAbandonar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnAbandonar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.setBounds(658, 589, 162, 56);
-		panel.add(btnNewButton);
+		btnAbandonar.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnAbandonar.setBounds(658, 589, 162, 56);
+		panel.add(btnAbandonar);
 
 		btnPregunta = new JButton("");
 		btnPregunta.addActionListener(new ActionListener() {
@@ -89,7 +90,7 @@ public class Mis_Eventos {
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
-		btnPregunta.setIcon(new ImageIcon(Mis_Eventos.class.getResource("/images/pregunta-32x32.png")));
+		btnPregunta.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/pregunta-32x32.png")));
 		// Hacen que el botón sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
@@ -106,7 +107,7 @@ public class Mis_Eventos {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnHome.setIcon(new ImageIcon(Mis_Eventos.class.getResource("/images/home-icon.png")));
+		btnHome.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/home-icon.png")));
 		btnHome.setBounds(896, 10, 45, 44);
 		panel.add(btnHome);
 		btnHome.setOpaque(false);
@@ -161,6 +162,7 @@ public class Mis_Eventos {
 		
 		JButton btnIrAlForo = new JButton("IR AL FORO");
 		btnIrAlForo.setEnabled(false);
+		btnIrAlForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAlForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

@@ -28,7 +28,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
 
-public class Pantalla_Botones {
+public class Lanzadera {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -40,7 +40,7 @@ public class Pantalla_Botones {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Pantalla_Botones window = new Pantalla_Botones();
+					Lanzadera window = new Lanzadera();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,7 +52,7 @@ public class Pantalla_Botones {
 	/**
 	 * Create the application.
 	 */
-	public Pantalla_Botones() {
+	public Lanzadera() {
 		initialize();
 	}
 
@@ -68,65 +68,126 @@ public class Pantalla_Botones {
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
-		panel.setBounds(0, 0, 1266, 693);
+		panel.setBounds(82, 11, 1266, 693);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton("CREA TU EVENTO");
-		btnNewButton.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnNewButton.setBackground(new Color(176, 196, 222));
-		btnNewButton.setBounds(95, 103, 162, 56);
-		panel.add(btnNewButton);
+		JButton btnBienvenido = new JButton("BIENVENIDO");
+		btnBienvenido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_1_Bienvenido_a_SportsChoice pantalla = new _1_Bienvenido_a_SportsChoice();
+				pantalla.Bienvenido();
+			}
+		});
+		btnBienvenido.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnBienvenido.setBackground(new Color(176, 196, 222));
+		btnBienvenido.setBounds(95, 103, 162, 56);
+		panel.add(btnBienvenido);
 		
-		JButton btnNewButton_1 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_1 = new JButton("REGISTRARSE");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_2_Registrarse pantalla = new _2_Registrarse();
+				pantalla.Registrarse();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_1.setBackground(new Color(176, 196, 222));
 		btnNewButton_1.setBounds(293, 103, 162, 56);
 		panel.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_2 = new JButton("<html>RECUPERAR<br>\r\nCONTRASE\u00D1A</html>");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_3_Recuperar_Contraseña pantalla = new _3_Recuperar_Contraseña();
+				pantalla.Recuperar();
+				
+			}
+		});
 		btnNewButton_2.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_2.setBackground(new Color(176, 196, 222));
 		btnNewButton_2.setBounds(489, 103, 162, 56);
 		panel.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_3 = new JButton("NUEVA_CONTRASE\u00D1A");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_4_Nueva_Contraseña pantalla = new _4_Nueva_Contraseña();
+				pantalla.Nueva();
+			}
+		});
 		btnNewButton_3.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_3.setBackground(new Color(176, 196, 222));
 		btnNewButton_3.setBounds(694, 103, 162, 56);
 		panel.add(btnNewButton_3);
 		
-		JButton btnNewButton_4 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_4 = new JButton("HOLA + NOMBRE");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_5_Hola_Nombre pantalla = new _5_Hola_Nombre();
+				pantalla.Hola();
+			}
+		});
 		btnNewButton_4.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_4.setBackground(new Color(176, 196, 222));
 		btnNewButton_4.setBounds(904, 103, 162, 56);
 		panel.add(btnNewButton_4);
 		
-		JButton btnNewButton_5 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_5 = new JButton("TU PERFIL");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_6_Tu_perfil pantalla = new _6_Tu_perfil();
+				pantalla.Perfil();
+			}
+		});
 		btnNewButton_5.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_5.setBackground(new Color(176, 196, 222));
 		btnNewButton_5.setBounds(95, 226, 162, 56);
 		panel.add(btnNewButton_5);
 		
-		JButton btnNewButton_5_1 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_5_1 = new JButton("MIS EVENTOS");
+		btnNewButton_5_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_7_Mis_Eventos pantalla = new _7_Mis_Eventos();
+				pantalla.Eventos();
+			}
+		});
 		btnNewButton_5_1.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_5_1.setBackground(new Color(176, 196, 222));
 		btnNewButton_5_1.setBounds(293, 226, 162, 56);
 		panel.add(btnNewButton_5_1);
 		
-		JButton btnNewButton_5_2 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_5_2 = new JButton("FORO");
+		btnNewButton_5_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_8_Foro pantalla = new _8_Foro();
+				pantalla.Foro();
+			}
+		});
 		btnNewButton_5_2.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_5_2.setBackground(new Color(176, 196, 222));
 		btnNewButton_5_2.setBounds(489, 226, 162, 56);
 		panel.add(btnNewButton_5_2);
 		
-		JButton btnNewButton_5_3 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_5_3 = new JButton("EVENTOS DISPONIBLES");
+		btnNewButton_5_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_9_Eventos_Disponibles pantalla = new _9_Eventos_Disponibles();
+				pantalla.Eventos();
+			}
+		});
 		btnNewButton_5_3.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_5_3.setBackground(new Color(176, 196, 222));
 		btnNewButton_5_3.setBounds(694, 226, 162, 56);
 		panel.add(btnNewButton_5_3);
 		
-		JButton btnNewButton_5_4 = new JButton("CREA TU EVENTO");
+		JButton btnNewButton_5_4 = new JButton("CREAR EVENTO");
+		btnNewButton_5_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				_91_Crear_Evento pantalla = new _91_Crear_Evento();
+				pantalla.Crear();
+			}
+		});
 		btnNewButton_5_4.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnNewButton_5_4.setBackground(new Color(176, 196, 222));
 		btnNewButton_5_4.setBounds(904, 226, 162, 56);

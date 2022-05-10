@@ -100,7 +100,7 @@ public class _3_Recuperar_Contraseña {
 		txtCódigo.setBorder(null);
 		txtCódigo.setToolTipText("");
 		txtCódigo.setColumns(10);
-		txtCódigo.setBounds(348, 272, 182, 40);
+		txtCódigo.setBounds(348, 272, 367, 40);
 		panel.add(txtCódigo);
 
 		JButton btnValidar = new JButton("VALIDAR");

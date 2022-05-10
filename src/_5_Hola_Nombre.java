@@ -54,7 +54,7 @@ public class _5_Hola_Nombre {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/BASKET_PEDRO.png")));
+		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
 		btnBaloncesto.setBounds(433, 121, 180, 180);
 		panel.add(btnBaloncesto);
 		btnBaloncesto.setBackground(new Color(0, 0, 0, 0));
@@ -63,7 +63,7 @@ public class _5_Hola_Nombre {
 
 		btnFutbol = new JButton("");
 		btnFutbol.setBorder(null);
-		btnFutbol.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/FootballResized.png")));
+		btnFutbol.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Futbol_resized.png")));
 		btnFutbol.setOpaque(false);
 		btnFutbol.setBackground(new Color(0, 0, 0, 0));
 		btnFutbol.setBounds(653, 121, 180, 180);
@@ -109,7 +109,7 @@ public class _5_Hola_Nombre {
 
 		lblTenis = new JLabel("TENIS");
 		lblTenis.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblTenis.setBounds(717, 501, 55, 19);
+		lblTenis.setBounds(720, 501, 55, 19);
 		panel.add(lblTenis);
 
 		lblPregunta = new JLabel("\u00BFQu\u00E9 deporte te gustar\u00EDa practicar?");

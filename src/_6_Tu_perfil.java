@@ -58,9 +58,9 @@ public class _6_Tu_perfil {
 		lblInformacionPersonal.setBounds(372, 65, 194, 31);
 		panel.add(lblInformacionPersonal);
 
-		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP:");
+		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP (Nickname):");
 		lblNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblNombreUsuario.setBounds(372, 107, 192, 26);
+		lblNombreUsuario.setBounds(372, 107, 284, 26);
 		panel.add(lblNombreUsuario);
 
 		txtNombreUsuario = new JTextField();

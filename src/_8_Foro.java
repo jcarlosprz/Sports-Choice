@@ -50,7 +50,7 @@ public class _8_Foro {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		btnEnviar = new JButton("Enviar");
+		btnEnviar = new JButton("ENVIAR");
 		btnEnviar.setBorder(null);
 		btnEnviar.setBackground(Color.LIGHT_GRAY);
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

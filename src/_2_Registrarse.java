@@ -58,9 +58,9 @@ public class _2_Registrarse {
 		lblInformacionPersonal.setBounds(387, 65, 194, 31);
 		panel.add(lblInformacionPersonal);
 
-		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP:");
+		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP (Nickname):");
 		lblNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblNombreUsuario.setBounds(389, 106, 192, 26);
+		lblNombreUsuario.setBounds(389, 106, 278, 26);
 		panel.add(lblNombreUsuario);
 
 		txtNombreUsuario = new JTextField();

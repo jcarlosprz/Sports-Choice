@@ -64,6 +64,7 @@ public class _6_Tu_perfil {
 		panel.add(lblNombreUsuario);
 
 		txtNombreUsuario = new JTextField();
+		txtNombreUsuario.setEnabled(false);
 		txtNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNombreUsuario.setBounds(455, 128, 392, 40);
 		panel.add(txtNombreUsuario);

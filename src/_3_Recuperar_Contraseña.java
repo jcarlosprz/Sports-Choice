@@ -16,12 +16,9 @@ public class _3_Recuperar_Contraseña {
 
 	private JFrame frame;
 	private JPanel panel;
-	private JLabel lblIntroduceEmail;
-	private JTextField txtEmail;
-	private JLabel lblRecuperarContraseña;
-	private JTextField txtCódigo;
-	private JButton btnFlecha;
-	private JButton btnFlecha_1;
+	private JTextField txtEmail,txtCódigo;
+	private JLabel lblRecuperarContraseña, lblIntroduceEmail;
+	private JButton btnFlecha, btnFlecha_1;
 
 	/**
 	 * Launch the application.
@@ -89,7 +86,7 @@ public class _3_Recuperar_Contraseña {
 		txtEmail = new JTextField();
 		txtEmail.setToolTipText("");
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(384, 166, 487, 40);
+		txtEmail.setBounds(384, 166, 366, 40);
 		panel.add(txtEmail);
 
 		JLabel lblIntroduceElCdigo = new JLabel("Introduce el c\u00F3digo recibido:");
@@ -116,5 +113,11 @@ public class _3_Recuperar_Contraseña {
 		btnFlecha_1.setBorderPainted(false);
 		btnFlecha_1.setBounds(308, 571, 106, 56);
 		panel.add(btnFlecha_1);
+		
+		JButton btnComprobar = new JButton("COMPROBAR");
+		btnComprobar.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnComprobar.setBackground(new Color(176, 196, 222));
+		btnComprobar.setBounds(779, 166, 162, 40);
+		panel.add(btnComprobar);
 	}
 }

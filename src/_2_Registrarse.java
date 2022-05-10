@@ -55,7 +55,7 @@ public class _2_Registrarse {
 
 		lblInformacionPersonal = new JLabel("Informaci\u00F3n Personal: \r\n");
 		lblInformacionPersonal.setFont(new Font("Dubai", Font.BOLD, 20));
-		lblInformacionPersonal.setBounds(326, 64, 194, 31);
+		lblInformacionPersonal.setBounds(387, 65, 194, 31);
 		panel.add(lblInformacionPersonal);
 
 		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP:");
@@ -128,7 +128,7 @@ public class _2_Registrarse {
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(530, 64, 32, 32);
+		btnPregunta.setBounds(591, 64, 32, 32);
 		panel.add(btnPregunta);
 
 		btnFlecha = new JButton("");
@@ -142,7 +142,7 @@ public class _2_Registrarse {
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnFlecha.setBounds(389, 574, 106, 56);
+		btnFlecha.setBounds(373, 574, 106, 56);
 		panel.add(btnFlecha);
 
 		dateChooserFechaNac = new JDateChooser();

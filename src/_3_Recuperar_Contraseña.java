@@ -69,7 +69,7 @@ public class _3_Recuperar_Contraseña {
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
-		btnFlecha.setBounds(308, 589, 106, 56);
+		btnFlecha.setBounds(328, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 
@@ -81,33 +81,33 @@ public class _3_Recuperar_Contraseña {
 		lblIntroduceEmail = new JLabel(
 				"Introduce tu email y te enviaremos el c\u00F3digo para crear una nueva contrase\u00F1a:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblIntroduceEmail.setBounds(384, 136, 549, 26);
+		lblIntroduceEmail.setBounds(349, 136, 549, 26);
 		panel.add(lblIntroduceEmail);
 
 		txtEmail = new JTextField();
 		txtEmail.setBorder(null);
 		txtEmail.setToolTipText("");
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(384, 166, 366, 40);
+		txtEmail.setBounds(349, 166, 366, 40);
 		panel.add(txtEmail);
 
 		JLabel lblIntroduceElCdigo = new JLabel("Introduce el c\u00F3digo recibido:");
 		lblIntroduceElCdigo.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblIntroduceElCdigo.setBounds(384, 242, 549, 26);
+		lblIntroduceElCdigo.setBounds(349, 243, 549, 26);
 		panel.add(lblIntroduceElCdigo);
 
 		txtCódigo = new JTextField();
 		txtCódigo.setBorder(null);
 		txtCódigo.setToolTipText("");
 		txtCódigo.setColumns(10);
-		txtCódigo.setBounds(384, 272, 182, 40);
+		txtCódigo.setBounds(348, 272, 182, 40);
 		panel.add(txtCódigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
 		btnValidar.setBorder(null);
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));
-		btnValidar.setBounds(779, 589, 162, 56);
+		btnValidar.setBounds(749, 589, 162, 56);
 		btnValidar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnValidar);
 		
@@ -122,7 +122,8 @@ public class _3_Recuperar_Contraseña {
 		btnComprobar.setBorder(null);
 		btnComprobar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnComprobar.setBackground(new Color(176, 196, 222));
-		btnComprobar.setBounds(779, 166, 162, 40);
+		btnComprobar.setBounds(749, 166, 162, 40);
+		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
 	}
 }

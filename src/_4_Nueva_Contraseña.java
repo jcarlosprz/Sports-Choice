@@ -61,7 +61,7 @@ public class _4_Nueva_Contraseña {
 		btnActualizar.setBorder(null);
 		btnActualizar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnActualizar.setBackground(new Color(176, 196, 222));
-		btnActualizar.setBounds(779, 589, 162, 56);
+		btnActualizar.setBounds(723, 589, 162, 56);
 		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnActualizar);
 
@@ -69,7 +69,7 @@ public class _4_Nueva_Contraseña {
 		txtNuevaContraseña.setBorder(null);
 		txtNuevaContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNuevaContraseña.setColumns(10);
-		txtNuevaContraseña.setBounds(468, 145, 336, 40);
+		txtNuevaContraseña.setBounds(468, 145, 417, 40);
 		panel.add(txtNuevaContraseña);
 
 		lblNuevaContraseña = new JLabel("Nueva contrase\u00F1a:");
@@ -81,7 +81,7 @@ public class _4_Nueva_Contraseña {
 		txtRepetirContraseña.setBorder(null);
 		txtRepetirContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtRepetirContraseña.setColumns(10);
-		txtRepetirContraseña.setBounds(468, 232, 336, 40);
+		txtRepetirContraseña.setBounds(468, 232, 417, 40);
 		panel.add(txtRepetirContraseña);
 
 		lblRepetirContraseña = new JLabel("Repetir contrase\u00F1a:");
@@ -91,22 +91,22 @@ public class _4_Nueva_Contraseña {
 
 		lblConsejoTitulo = new JLabel("Consejo:");
 		lblConsejoTitulo.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblConsejoTitulo.setBounds(401, 319, 67, 44);
+		lblConsejoTitulo.setBounds(336, 319, 67, 44);
 		panel.add(lblConsejoTitulo);
 
 		lblConsejo1 = new JLabel("La contrase\u00F1a debe contener al menos 6 caracteres.");
 		lblConsejo1.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblConsejo1.setBounds(468, 331, 432, 21);
+		lblConsejo1.setBounds(413, 331, 432, 21);
 		panel.add(lblConsejo1);
 
-		lblConsejo3 = new JLabel("y min\u00FAsculas, n\u00FAmeros y s\u00EDmbolos como ! \" ? $ %. ");
+		lblConsejo3 = new JLabel("n\u00FAmeros y s\u00EDmbolos como ! \" ? $ %. ");
 		lblConsejo3.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblConsejo3.setBounds(468, 376, 432, 21);
+		lblConsejo3.setBounds(413, 380, 432, 21);
 		panel.add(lblConsejo3);
 
-		lblConsejo2 = new JLabel("Para hacerla m\u00E1s fuerte se recomienda utilizar may\u00FAsculas");
+		lblConsejo2 = new JLabel("Para hacerla m\u00E1s fuerte se recomienda utilizar may\u00FAsculas y min\u00FAsculas,");
 		lblConsejo2.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblConsejo2.setBounds(462, 354, 465, 21);
+		lblConsejo2.setBounds(413, 356, 465, 21);
 		panel.add(lblConsejo2);
 
 		btnFlecha = new JButton("");
@@ -119,7 +119,7 @@ public class _4_Nueva_Contraseña {
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
-		btnFlecha.setBounds(308, 589, 106, 56);
+		btnFlecha.setBounds(317, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 	}

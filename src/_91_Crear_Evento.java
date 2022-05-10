@@ -73,7 +73,7 @@ public class _91_Crear_Evento {
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnCrearEvento.setBounds(861, 588, 162, 56);
+		btnCrearEvento.setBounds(861, 589, 162, 56);
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
@@ -105,7 +105,7 @@ public class _91_Crear_Evento {
 		cbxPolideportivo.setFont(new Font("Dubai", Font.PLAIN, 15));
 		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] { "-Polideportivo", "Enrique Blas",
 				"Galapagar Sports ", "Dehesa de Navalcarb\u00F3n", "El Abaj\u00F3n", "Principe Felipe" }));
-		cbxPolideportivo.setBounds(298, 233, 190, 21);
+		cbxPolideportivo.setBounds(281, 233, 207, 21);
 		panel.add(cbxPolideportivo);
 
 		listNivel = new JList();
@@ -147,7 +147,7 @@ public class _91_Crear_Evento {
 
 		lblUbicacion = new JLabel("Ubicaci\u00F3n:");
 		lblUbicacion.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblUbicacion.setBounds(298, 214, 104, 14);
+		lblUbicacion.setBounds(281, 214, 104, 14);
 		panel.add(lblUbicacion);
 
 		lblHora = new JLabel("Hora:");

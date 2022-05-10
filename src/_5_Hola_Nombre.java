@@ -126,7 +126,7 @@ public class _5_Hola_Nombre {
 		});
 		btnMisEventos.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMisEventos.setBackground(new Color(176, 196, 222));
-		btnMisEventos.setBounds(471, 592, 142, 59);
+		btnMisEventos.setBounds(452, 592, 142, 59);
 		panel.add(btnMisEventos);
 
 		btnMiPerfil = new JButton("MI PERFIL");
@@ -138,7 +138,7 @@ public class _5_Hola_Nombre {
 		});
 		btnMiPerfil.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMiPerfil.setBackground(new Color(176, 196, 222));
-		btnMiPerfil.setBounds(668, 592, 142, 59);
+		btnMiPerfil.setBounds(677, 592, 142, 59);
 		panel.add(btnMiPerfil);
 
 		btnLogOut = new JButton("LOG OUT");

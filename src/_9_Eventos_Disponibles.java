@@ -64,7 +64,7 @@ public class _9_Eventos_Disponibles {
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnCrearEvento.setBounds(779, 589, 162, 56);
+		btnCrearEvento.setBounds(791, 589, 162, 56);
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
@@ -93,7 +93,7 @@ public class _9_Eventos_Disponibles {
 			}
 		});
 		btnHome.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/home-icon.png")));
-		btnHome.setBounds(896, 10, 45, 44);
+		btnHome.setBounds(908, 24, 45, 44);
 		panel.add(btnHome);
 		btnHome.setOpaque(false);
 		btnHome.setContentAreaFilled(false);
@@ -155,7 +155,7 @@ public class _9_Eventos_Disponibles {
 			}
 		});
 		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnUnirse.setBounds(577, 589, 162, 56);
+		btnUnirse.setBounds(593, 589, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));
 		panel.add(btnUnirse);
 

@@ -55,6 +55,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		lblOlvidasteContraseña.setForeground(new Color(0, 0, 204));
 		lblOlvidasteContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		lblOlvidasteContraseña.setBounds(619, 375, 172, 22);
+		lblOlvidasteContraseña.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblOlvidasteContraseña);
 
 		lblBienvenido = new JLabel("BIENVENIDO A");
@@ -139,6 +140,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		btnAyuda.setBorderPainted(false);
 		btnAyuda.setBackground(new Color(255, 204, 153));
 		btnAyuda.setBounds(951, 613, 32, 32);
+		btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnAyuda);
 	}
 }

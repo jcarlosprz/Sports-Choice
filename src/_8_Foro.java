@@ -69,16 +69,16 @@ public class _8_Foro {
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
-		btnFlecha.setBounds(309, 589, 106, 56);
+		btnFlecha.setBounds(205, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 		btnEnviar.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnEnviar.setBounds(562, 582, 142, 63);
+		btnEnviar.setBounds(885, 589, 142, 63);
 		panel.add(btnEnviar);
 
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
-		scrollPane.setBounds(313, 48, 640, 322);
+		scrollPane.setBounds(223, 48, 806, 322);
 		panel.add(scrollPane);
 
 		table = new JTable();
@@ -101,13 +101,13 @@ public class _8_Foro {
 		scrollPane.setViewportView(table);
 
 		txtEscribeAqui = new JTextField();
-		txtEscribeAqui.setBounds(309, 431, 638, 122);
+		txtEscribeAqui.setBounds(223, 431, 806, 122);
 		panel.add(txtEscribeAqui);
 		txtEscribeAqui.setColumns(10);
 
 		lblEscribeAqui = new JLabel("Escribe aqui: ");
 		lblEscribeAqui.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblEscribeAqui.setBounds(313, 394, 167, 26);
+		lblEscribeAqui.setBounds(223, 405, 167, 26);
 		panel.add(lblEscribeAqui);
 
 	}

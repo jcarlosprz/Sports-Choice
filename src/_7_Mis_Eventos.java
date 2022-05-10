@@ -45,7 +45,7 @@ public class _7_Mis_Eventos {
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
-		panel.setBounds(0, 0, 1266, 693);
+		panel.setBounds(42, 0, 1266, 693);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
@@ -55,6 +55,7 @@ public class _7_Mis_Eventos {
 		panel.add(lblMisEventos);
 
 		btnAbandonar = new JButton("ABANDONAR");
+		btnAbandonar.setBorder(null);
 		btnAbandonar.setEnabled(false);
 		btnAbandonar.setBackground(new Color(176, 196, 222));
 		btnAbandonar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -67,6 +68,7 @@ public class _7_Mis_Eventos {
 		panel.add(btnAbandonar);
 
 		btnPregunta = new JButton("");
+		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -85,6 +87,7 @@ public class _7_Mis_Eventos {
 		panel.add(btnPregunta);
 
 		btnHome = new JButton("");
+		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -140,6 +143,7 @@ public class _7_Mis_Eventos {
 		scrollPane.setViewportView(table);
 
 		btnIrAlForo = new JButton("IR AL FORO");
+		btnIrAlForo.setBorder(null);
 		btnIrAlForo.setEnabled(false);
 		btnIrAlForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAlForo.addActionListener(new ActionListener() {

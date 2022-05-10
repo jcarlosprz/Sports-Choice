@@ -43,6 +43,7 @@ public class Lanzadera {
 		panel.setLayout(null);
 
 		JButton btnBienvenido = new JButton("BIENVENIDO");
+		btnBienvenido.setBorder(null);
 		btnBienvenido.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_1_Bienvenido_a_SportsChoice pantalla = new _1_Bienvenido_a_SportsChoice();
@@ -55,6 +56,7 @@ public class Lanzadera {
 		panel.add(btnBienvenido);
 
 		JButton btnNewButton_1 = new JButton("REGISTRARSE");
+		btnNewButton_1.setBorder(null);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_2_Registrarse pantalla = new _2_Registrarse();
@@ -67,6 +69,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("<html>RECUPERAR<br>\r\nCONTRASE\u00D1A</html>");
+		btnNewButton_2.setBorder(null);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_3_Recuperar_Contraseña pantalla = new _3_Recuperar_Contraseña();
@@ -80,6 +83,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_2);
 
 		JButton btnNewButton_3 = new JButton("<html>NUEVA<br>CONTRASE\u00D1A</html>");
+		btnNewButton_3.setBorder(null);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_4_Nueva_Contraseña pantalla = new _4_Nueva_Contraseña();
@@ -92,6 +96,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_3);
 
 		JButton btnNewButton_4 = new JButton("HOLA + NOMBRE");
+		btnNewButton_4.setBorder(null);
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_5_Hola_Nombre pantalla = new _5_Hola_Nombre();
@@ -104,6 +109,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_4);
 
 		JButton btnNewButton_5 = new JButton("TU PERFIL");
+		btnNewButton_5.setBorder(null);
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_6_Tu_perfil pantalla = new _6_Tu_perfil();
@@ -116,6 +122,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_5);
 
 		JButton btnNewButton_5_1 = new JButton("MIS EVENTOS");
+		btnNewButton_5_1.setBorder(null);
 		btnNewButton_5_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_7_Mis_Eventos pantalla = new _7_Mis_Eventos();
@@ -128,6 +135,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_5_1);
 
 		JButton btnNewButton_5_2 = new JButton("FORO");
+		btnNewButton_5_2.setBorder(null);
 		btnNewButton_5_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_8_Foro pantalla = new _8_Foro();
@@ -140,6 +148,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_5_2);
 
 		JButton btnNewButton_5_3 = new JButton("<html>EVENTOS<br>DISPONIBLES</html>");
+		btnNewButton_5_3.setBorder(null);
 		btnNewButton_5_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_9_Eventos_Disponibles pantalla = new _9_Eventos_Disponibles();
@@ -152,6 +161,7 @@ public class Lanzadera {
 		panel.add(btnNewButton_5_3);
 
 		JButton btnNewButton_5_4 = new JButton("CREAR EVENTO");
+		btnNewButton_5_4.setBorder(null);
 		btnNewButton_5_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_91_Crear_Evento pantalla = new _91_Crear_Evento();

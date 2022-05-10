@@ -78,6 +78,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		panel.add(lblNombreUsuario);
 
 		txtUsuario = new JTextField();
+		txtUsuario.setBorder(null);
 		txtUsuario.setBounds(475, 263, 316, 40);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
@@ -88,6 +89,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		panel.add(lblContraseña);
 
 		txtContraseña = new JTextField();
+		txtContraseña.setBorder(null);
 		txtContraseña.setColumns(10);
 		txtContraseña.setBounds(475, 330, 316, 40);
 		panel.add(txtContraseña);
@@ -100,6 +102,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		rdbtnRecordarme.setOpaque(false);
 
 		btnLogin = new JButton("LOGIN");
+		btnLogin.setBorder(null);
 		btnLogin.setBackground(new Color(176, 196, 222));
 		btnLogin.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -112,6 +115,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		panel.add(btnLogin);
 
 		btnRegistrarse = new JButton("REGISTRARSE");
+		btnRegistrarse.setBorder(null);
 		btnRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnRegistrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -60,6 +60,7 @@ public class _3_Recuperar_Contraseña {
 		panel.setLayout(null);
 		
 		btnFlecha = new JButton("");
+		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -84,6 +85,7 @@ public class _3_Recuperar_Contraseña {
 		panel.add(lblIntroduceEmail);
 
 		txtEmail = new JTextField();
+		txtEmail.setBorder(null);
 		txtEmail.setToolTipText("");
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(384, 166, 366, 40);
@@ -95,12 +97,14 @@ public class _3_Recuperar_Contraseña {
 		panel.add(lblIntroduceElCdigo);
 
 		txtCódigo = new JTextField();
+		txtCódigo.setBorder(null);
 		txtCódigo.setToolTipText("");
 		txtCódigo.setColumns(10);
 		txtCódigo.setBounds(384, 272, 182, 40);
 		panel.add(txtCódigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
+		btnValidar.setBorder(null);
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));
 		btnValidar.setBounds(779, 589, 162, 56);
@@ -115,6 +119,7 @@ public class _3_Recuperar_Contraseña {
 		panel.add(btnFlecha_1);
 		
 		JButton btnComprobar = new JButton("COMPROBAR");
+		btnComprobar.setBorder(null);
 		btnComprobar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnComprobar.setBackground(new Color(176, 196, 222));
 		btnComprobar.setBounds(779, 166, 162, 40);

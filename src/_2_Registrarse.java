@@ -64,6 +64,7 @@ public class _2_Registrarse {
 		panel.add(lblNombreUsuario);
 
 		txtNombreUsuario = new JTextField();
+		txtNombreUsuario.setBorder(null);
 		txtNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNombreUsuario.setBounds(388, 130, 492, 40);
 		panel.add(txtNombreUsuario);
@@ -100,6 +101,7 @@ public class _2_Registrarse {
 		panel.add(lblFechaNac);
 
 		btnCrearCuenta = new JButton("CREAR CUENTA");
+		btnCrearCuenta.setBorder(null);
 		btnCrearCuenta.setBackground(new Color(176, 196, 222));
 		btnCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearCuenta.addActionListener(new ActionListener() {
@@ -111,6 +113,8 @@ public class _2_Registrarse {
 		panel.add(btnCrearCuenta);
 
 		btnPregunta = new JButton("");
+		btnPregunta.setContentAreaFilled(false);
+		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -119,7 +123,6 @@ public class _2_Registrarse {
 		btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
 		// Hacen que el botón sea transparente.
 		btnPregunta.setOpaque(false);
-		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);
 		// Cambia el puntero del rator a pointer cursor.
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -129,6 +132,7 @@ public class _2_Registrarse {
 		panel.add(btnPregunta);
 
 		btnFlecha = new JButton("");
+		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -142,34 +146,40 @@ public class _2_Registrarse {
 		panel.add(btnFlecha);
 
 		dateChooserFechaNac = new JDateChooser();
+		dateChooserFechaNac.setBorder(null);
 		dateChooserFechaNac.setBounds(389, 416, 491, 40);
 		panel.add(dateChooserFechaNac);
 		
 		txtTfno = new JTextField();
+		txtTfno.setBorder(null);
 		txtTfno.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtTfno.setColumns(10);
 		txtTfno.setBounds(389, 341, 226, 40);
 		panel.add(txtTfno);
 		
 		txtNombre = new JTextField();
+		txtNombre.setBorder(null);
 		txtNombre.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(389, 193, 226, 40);
 		panel.add(txtNombre);
 		
 		txtContraseña = new JTextField();
+		txtContraseña.setBorder(null);
 		txtContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtContraseña.setColumns(10);
 		txtContraseña.setBounds(389, 265, 226, 40);
 		panel.add(txtContraseña);
 		
 		txtApellidos = new JTextField();
+		txtApellidos.setBorder(null);
 		txtApellidos.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtApellidos.setColumns(10);
 		txtApellidos.setBounds(654, 193, 226, 40);
 		panel.add(txtApellidos);
 		
 		txtConfirmarContraseña = new JTextField();
+		txtConfirmarContraseña.setBorder(null);
 		txtConfirmarContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtConfirmarContraseña.setColumns(10);
 		txtConfirmarContraseña.setBounds(654, 265, 226, 40);
@@ -181,12 +191,14 @@ public class _2_Registrarse {
 		panel.add(lblPoblacion_1);
 		
 		txtPoblacion = new JTextField();
+		txtPoblacion.setBorder(null);
 		txtPoblacion.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtPoblacion.setColumns(10);
 		txtPoblacion.setBounds(654, 341, 226, 40);
 		panel.add(txtPoblacion);
 		
 		txtEmail = new JTextField();
+		txtEmail.setBorder(null);
 		txtEmail.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(388, 490, 492, 40);

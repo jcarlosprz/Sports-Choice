@@ -118,6 +118,7 @@ public class _5_Hola_Nombre {
 		panel.add(lblPregunta);
 
 		btnMisEventos = new JButton("MIS EVENTOS");
+		btnMisEventos.setBorder(null);
 		btnMisEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,6 +130,7 @@ public class _5_Hola_Nombre {
 		panel.add(btnMisEventos);
 
 		btnMiPerfil = new JButton("MI PERFIL");
+		btnMiPerfil.setBorder(null);
 		btnMiPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,6 +142,7 @@ public class _5_Hola_Nombre {
 		panel.add(btnMiPerfil);
 
 		btnLogOut = new JButton("LOG OUT");
+		btnLogOut.setBorder(null);
 		btnLogOut.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnLogOut.setBackground(new Color(250, 128, 114));
 		btnLogOut.setBounds(38, 611, 105, 40);

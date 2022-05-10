@@ -65,6 +65,7 @@ public class _91_Crear_Evento {
 		panel.add(lblHasSeleccionadoDeporte);
 
 		btnCrearEvento = new JButton("CREA TU EVENTO");
+		btnCrearEvento.setBorder(null);
 		btnCrearEvento.setBackground(new Color(176, 196, 222));
 		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEvento.addActionListener(new ActionListener() {
@@ -76,6 +77,7 @@ public class _91_Crear_Evento {
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
+		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

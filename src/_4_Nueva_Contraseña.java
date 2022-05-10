@@ -58,6 +58,7 @@ public class _4_Nueva_Contraseña {
 		panel.add(lblNuevaContraseñaTitulo);
 
 		btnActualizar = new JButton("ACTUALIZAR");
+		btnActualizar.setBorder(null);
 		btnActualizar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnActualizar.setBackground(new Color(176, 196, 222));
 		btnActualizar.setBounds(779, 589, 162, 56);
@@ -65,6 +66,7 @@ public class _4_Nueva_Contraseña {
 		panel.add(btnActualizar);
 
 		txtNuevaContraseña = new JTextField();
+		txtNuevaContraseña.setBorder(null);
 		txtNuevaContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNuevaContraseña.setColumns(10);
 		txtNuevaContraseña.setBounds(468, 145, 336, 40);
@@ -76,6 +78,7 @@ public class _4_Nueva_Contraseña {
 		panel.add(lblNuevaContraseña);
 
 		txtRepetirContraseña = new JTextField();
+		txtRepetirContraseña.setBorder(null);
 		txtRepetirContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtRepetirContraseña.setColumns(10);
 		txtRepetirContraseña.setBounds(468, 232, 336, 40);
@@ -107,6 +110,7 @@ public class _4_Nueva_Contraseña {
 		panel.add(lblConsejo2);
 
 		btnFlecha = new JButton("");
+		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

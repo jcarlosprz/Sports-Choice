@@ -56,6 +56,7 @@ public class _9_Eventos_Disponibles {
 		panel.add(lblEventosDisponibles);
 
 		btnCrearEvento = new JButton("CREA TU EVENTO");
+		btnCrearEvento.setBorder(null);
 		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEvento.setBackground(new Color(176, 196, 222));
 		btnCrearEvento.addActionListener(new ActionListener() {
@@ -67,6 +68,7 @@ public class _9_Eventos_Disponibles {
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
+		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -85,6 +87,7 @@ public class _9_Eventos_Disponibles {
 		panel.add(btnPregunta);
 
 		btnHome = new JButton("");
+		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -144,6 +147,7 @@ public class _9_Eventos_Disponibles {
 		scrollPane.setViewportView(table);
 
 		btnUnirse = new JButton("UNIRSE");
+		btnUnirse.setBorder(null);
 		btnUnirse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirse.setEnabled(false);
 		btnUnirse.addActionListener(new ActionListener() {

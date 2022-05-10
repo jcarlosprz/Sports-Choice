@@ -51,6 +51,7 @@ public class _8_Foro {
 		panel.setLayout(null);
 
 		btnEnviar = new JButton("Enviar");
+		btnEnviar.setBorder(null);
 		btnEnviar.setBackground(Color.LIGHT_GRAY);
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnEnviar.addActionListener(new ActionListener() {
@@ -59,6 +60,7 @@ public class _8_Foro {
 		});
 
 		btnFlecha = new JButton("");
+		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

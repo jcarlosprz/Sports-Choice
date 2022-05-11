@@ -23,7 +23,7 @@ import javax.swing.border.LineBorder;
 
 public class _91_Crear_Evento {
 
-	private JFrame frame;
+	private JFrame frmCrearEvento;
 	private JPanel panel;
 	private JButton btnPregunta, btnCrearEvento;
 	private JLabel lblHasSeleccionadoDeporte, lblSeleccionaTusPreferencias, lblHoraDosPuntos, lblUbicacion, lblHora,
@@ -37,7 +37,7 @@ public class _91_Crear_Evento {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 					_91_Crear_Evento window = new _91_Crear_Evento();
-					window.frame.setVisible(true);
+					window.frmCrearEvento.setVisible(true);
 			}
 		});
 	}
@@ -47,16 +47,17 @@ public class _91_Crear_Evento {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmCrearEvento = new JFrame();
+		frmCrearEvento.setTitle("CREAR EVENTO");
+		frmCrearEvento.setResizable(false);
+		frmCrearEvento.setBounds(140, 50, 1280, 720);
+		frmCrearEvento.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCrearEvento.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmCrearEvento.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: \"Deporte\"");

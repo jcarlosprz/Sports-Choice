@@ -14,7 +14,7 @@ import com.toedter.calendar.JDateChooser;
 
 public class _6_Tu_perfil {
 
-	private JFrame frame;
+	private JFrame frmTuPerfil;
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
 			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil;
@@ -26,7 +26,7 @@ public class _6_Tu_perfil {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				_6_Tu_perfil window = new _6_Tu_perfil();
-				window.frame.setVisible(true);
+				window.frmTuPerfil.setVisible(true);
 			}
 		});
 	}
@@ -36,16 +36,17 @@ public class _6_Tu_perfil {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmTuPerfil = new JFrame();
+		frmTuPerfil.setTitle("TU PERFIL");
+		frmTuPerfil.setResizable(false);
+		frmTuPerfil.setBounds(140, 50, 1280, 720);
+		frmTuPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTuPerfil.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmTuPerfil.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblTuPerfil = new JLabel("TU PERFIL");

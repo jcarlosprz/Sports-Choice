@@ -14,11 +14,11 @@ import java.awt.event.ActionEvent;
 
 public class _1_Bienvenido_a_SportsChoice {
 
-	private JFrame frame;
+	private JFrame frmBienvenido;
 	private JPanel panel;
-	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContraseña,
-			lblOlvidasteContraseña, lblFondo;
-	private JTextField txtUsuario, txtContraseña;
+	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
+			lblOlvidasteContrasena, lblFondo;
+	private JTextField txtUsuario, txtContrasena;
 	private JRadioButton rdbtnRecordarme;
 	private JButton btnRegistrarse, btnAyuda, btnLogin;
 
@@ -29,7 +29,7 @@ public class _1_Bienvenido_a_SportsChoice {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				_1_Bienvenido_a_SportsChoice window = new _1_Bienvenido_a_SportsChoice();
-				window.frame.setVisible(true);
+				window.frmBienvenido.setVisible(true);
 			}
 		});
 	}
@@ -39,24 +39,24 @@ public class _1_Bienvenido_a_SportsChoice {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmBienvenido = new JFrame();
+		frmBienvenido.setTitle("BIENVENIDO");
+		frmBienvenido.setBounds(140, 50, 1280, 720);
+		frmBienvenido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBienvenido.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmBienvenido.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		lblOlvidasteContraseña = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
-		lblOlvidasteContraseña.setForeground(new Color(0, 0, 204));
-		lblOlvidasteContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
-		lblOlvidasteContraseña.setBounds(619, 375, 172, 22);
-		lblOlvidasteContraseña.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		panel.add(lblOlvidasteContraseña);
+		lblOlvidasteContrasena = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
+		lblOlvidasteContrasena.setForeground(new Color(0, 0, 204));
+		lblOlvidasteContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
+		lblOlvidasteContrasena.setBounds(619, 375, 172, 22);
+		lblOlvidasteContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		panel.add(lblOlvidasteContrasena);
 
 		lblBienvenido = new JLabel("BIENVENIDO A");
 		lblBienvenido.setFont(new Font("Dubai", Font.BOLD, 52));
@@ -84,16 +84,16 @@ public class _1_Bienvenido_a_SportsChoice {
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
-		lblContraseña = new JLabel("Contrase\u00F1a:");
-		lblContraseña.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblContraseña.setBounds(363, 327, 120, 44);
-		panel.add(lblContraseña);
+		lblContrasena = new JLabel("Contrase\u00F1a:");
+		lblContrasena.setFont(new Font("Dubai", Font.BOLD, 15));
+		lblContrasena.setBounds(363, 327, 120, 44);
+		panel.add(lblContrasena);
 
-		txtContraseña = new JTextField();
-		txtContraseña.setBorder(null);
-		txtContraseña.setColumns(10);
-		txtContraseña.setBounds(475, 330, 316, 40);
-		panel.add(txtContraseña);
+		txtContrasena = new JTextField();
+		txtContrasena.setBorder(null);
+		txtContrasena.setColumns(10);
+		txtContrasena.setBounds(475, 330, 316, 40);
+		panel.add(txtContrasena);
 
 		rdbtnRecordarme = new JRadioButton("Recordarme");
 		rdbtnRecordarme.setFont(new Font("Dubai", Font.PLAIN, 16));

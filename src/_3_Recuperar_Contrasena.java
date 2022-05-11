@@ -12,12 +12,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class _3_Recuperar_Contraseña {
+public class _3_Recuperar_Contrasena {
 
-	private JFrame frame;
+	private JFrame frmRecuperarContrasena;
 	private JPanel panel;
-	private JTextField txtEmail,txtCódigo;
-	private JLabel lblRecuperarContraseña, lblIntroduceEmail;
+	private JTextField txtEmail,txtCodigo;
+	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
 	private JButton btnFlecha, btnFlecha_1;
 
 	/**
@@ -27,8 +27,8 @@ public class _3_Recuperar_Contraseña {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					_3_Recuperar_Contraseña window = new _3_Recuperar_Contraseña();
-					window.frame.setVisible(true);
+					_3_Recuperar_Contrasena window = new _3_Recuperar_Contrasena();
+					window.frmRecuperarContrasena.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,7 +39,7 @@ public class _3_Recuperar_Contraseña {
 	/**
 	 * Create the application.
 	 */
-	public _3_Recuperar_Contraseña() {
+	public _3_Recuperar_Contrasena() {
 		initialize();
 	}
 
@@ -47,16 +47,17 @@ public class _3_Recuperar_Contraseña {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmRecuperarContrasena = new JFrame();
+		frmRecuperarContrasena.setTitle("RECUPERAR CONTRASENA");
+		frmRecuperarContrasena.setResizable(false);
+		frmRecuperarContrasena.setBounds(140, 50, 1280, 720);
+		frmRecuperarContrasena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRecuperarContrasena.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmRecuperarContrasena.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		btnFlecha = new JButton("");
@@ -65,7 +66,7 @@ public class _3_Recuperar_Contraseña {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contraseña.class.getResource("/images/back-arrow-icon-10.png")));
+		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
@@ -73,13 +74,13 @@ public class _3_Recuperar_Contraseña {
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 
-		lblRecuperarContraseña = new JLabel("RECUPERAR CONTRASE\u00D1A");
-		lblRecuperarContraseña.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblRecuperarContraseña.setBounds(445, 17, 376, 60);
-		panel.add(lblRecuperarContraseña);
+		lblRecuperarContrasena = new JLabel("RECUPERAR CONTRASE\u00D1A");
+		lblRecuperarContrasena.setFont(new Font("Dubai", Font.BOLD, 30));
+		lblRecuperarContrasena.setBounds(445, 17, 376, 60);
+		panel.add(lblRecuperarContrasena);
 
 		lblIntroduceEmail = new JLabel(
-				"Introduce tu email y te enviaremos el c\u00F3digo para crear una nueva contrase\u00F1a:");
+				"Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceEmail.setBounds(349, 136, 549, 26);
 		panel.add(lblIntroduceEmail);
@@ -91,17 +92,17 @@ public class _3_Recuperar_Contraseña {
 		txtEmail.setBounds(349, 166, 366, 40);
 		panel.add(txtEmail);
 
-		JLabel lblIntroduceElCdigo = new JLabel("Introduce el c\u00F3digo recibido:");
+		JLabel lblIntroduceElCdigo = new JLabel("Introduce el codigo recibido:");
 		lblIntroduceElCdigo.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceElCdigo.setBounds(349, 243, 549, 26);
 		panel.add(lblIntroduceElCdigo);
 
-		txtCódigo = new JTextField();
-		txtCódigo.setBorder(null);
-		txtCódigo.setToolTipText("");
-		txtCódigo.setColumns(10);
-		txtCódigo.setBounds(348, 272, 367, 40);
-		panel.add(txtCódigo);
+		txtCodigo = new JTextField();
+		txtCodigo.setBorder(null);
+		txtCodigo.setToolTipText("");
+		txtCodigo.setColumns(10);
+		txtCodigo.setBounds(348, 272, 367, 40);
+		panel.add(txtCodigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
 		btnValidar.setBorder(null);

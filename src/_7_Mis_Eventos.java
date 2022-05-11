@@ -16,7 +16,7 @@ import java.awt.Dimension;
 
 public class _7_Mis_Eventos {
 
-	private JFrame frame;
+	private JFrame frmMisEventos;
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnAbandonar, btnIrAlForo;
 	private JScrollPane scrollPane;
@@ -27,7 +27,7 @@ public class _7_Mis_Eventos {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				_7_Mis_Eventos window = new _7_Mis_Eventos();
-				window.frame.setVisible(true);
+				window.frmMisEventos.setVisible(true);
 			}
 		});
 	}
@@ -37,16 +37,17 @@ public class _7_Mis_Eventos {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmMisEventos = new JFrame();
+		frmMisEventos.setTitle("MIS EVENTOS");
+		frmMisEventos.setResizable(false);
+		frmMisEventos.setBounds(140, 50, 1280, 720);
+		frmMisEventos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMisEventos.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(42, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmMisEventos.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblMisEventos = new JLabel("MIS EVENTOS");

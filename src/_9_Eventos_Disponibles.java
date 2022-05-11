@@ -16,7 +16,7 @@ import java.awt.Dimension;
 
 public class _9_Eventos_Disponibles {
 
-	private JFrame frame;
+	private JFrame frmEventosDisponibles;
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnCrearEvento, btnUnirse;
 	private JScrollPane scrollPane;
@@ -27,7 +27,7 @@ public class _9_Eventos_Disponibles {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 					_9_Eventos_Disponibles window = new _9_Eventos_Disponibles();
-					window.frame.setVisible(true);
+					window.frmEventosDisponibles.setVisible(true);
 
 			}
 		});
@@ -38,16 +38,17 @@ public class _9_Eventos_Disponibles {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmEventosDisponibles = new JFrame();
+		frmEventosDisponibles.setTitle("EVENTOS DISPONIBLES");
+		frmEventosDisponibles.setResizable(false);
+		frmEventosDisponibles.setBounds(140, 50, 1280, 720);
+		frmEventosDisponibles.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmEventosDisponibles.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmEventosDisponibles.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblEventosDisponibles = new JLabel("EVENTOS DISPONIBLES:");

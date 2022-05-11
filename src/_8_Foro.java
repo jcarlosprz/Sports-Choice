@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class _8_Foro {
 
-	private JFrame frame;
+	private JFrame frmForo;
 	private JPanel panel;
 	private JScrollPane scrollPane;
 	private JTextField txtEscribeAqui;
@@ -28,7 +28,7 @@ public class _8_Foro {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				_8_Foro window = new _8_Foro();
-				window.frame.setVisible(true);
+				window.frmForo.setVisible(true);
 			}
 		});
 	}
@@ -38,16 +38,17 @@ public class _8_Foro {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmForo = new JFrame();
+		frmForo.setTitle("FORO");
+		frmForo.setResizable(false);
+		frmForo.setBounds(140, 50, 1280, 720);
+		frmForo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmForo.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmForo.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		btnEnviar = new JButton("ENVIAR");

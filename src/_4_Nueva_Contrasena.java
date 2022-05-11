@@ -11,20 +11,20 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class _4_Nueva_Contraseña {
+public class _4_Nueva_Contrasena {
 
-	private JFrame frame;
+	private JFrame frmNuevaContrasena;
 	private JPanel panel;
-	private JLabel lblNuevaContraseñaTitulo, lblNuevaContraseña, lblRepetirContraseña, lblConsejoTitulo, lblConsejo1,
+	private JLabel lblNuevaContrasenaTitulo, lblNuevaContrasena, lblRepetirContrasena, lblConsejoTitulo, lblConsejo1,
 			lblConsejo2, lblConsejo3;
-	private JTextField txtNuevaContraseña, txtRepetirContraseña;
+	private JTextField txtNuevaContrasena, txtRepetirContrasena;
 	private JButton btnFlecha, btnActualizar;
 
 	public static void Nueva() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				_4_Nueva_Contraseña window = new _4_Nueva_Contraseña();
-				window.frame.setVisible(true);
+				_4_Nueva_Contrasena window = new _4_Nueva_Contrasena();
+				window.frmNuevaContrasena.setVisible(true);
 			}
 		});
 	}
@@ -32,7 +32,7 @@ public class _4_Nueva_Contraseña {
 	/**
 	 * Create the application.
 	 */
-	public _4_Nueva_Contraseña() {
+	public _4_Nueva_Contrasena() {
 		initialize();
 	}
 
@@ -40,22 +40,23 @@ public class _4_Nueva_Contraseña {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmNuevaContrasena = new JFrame();
+		frmNuevaContrasena.setTitle("NUEVA CONTRASENA");
+		frmNuevaContrasena.setResizable(false);
+		frmNuevaContrasena.setBounds(140, 50, 1280, 720);
+		frmNuevaContrasena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmNuevaContrasena.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmNuevaContrasena.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		lblNuevaContraseñaTitulo = new JLabel("NUEVA CONTRASE\u00D1A");
-		lblNuevaContraseñaTitulo.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblNuevaContraseñaTitulo.setBounds(479, 17, 308, 60);
-		panel.add(lblNuevaContraseñaTitulo);
+		lblNuevaContrasenaTitulo = new JLabel("NUEVA CONTRASE\u00D1A");
+		lblNuevaContrasenaTitulo.setFont(new Font("Dubai", Font.BOLD, 30));
+		lblNuevaContrasenaTitulo.setBounds(479, 17, 308, 60);
+		panel.add(lblNuevaContrasenaTitulo);
 
 		btnActualizar = new JButton("ACTUALIZAR");
 		btnActualizar.setBorder(null);
@@ -65,29 +66,29 @@ public class _4_Nueva_Contraseña {
 		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnActualizar);
 
-		txtNuevaContraseña = new JTextField();
-		txtNuevaContraseña.setBorder(null);
-		txtNuevaContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtNuevaContraseña.setColumns(10);
-		txtNuevaContraseña.setBounds(478, 145, 407, 40);
-		panel.add(txtNuevaContraseña);
+		txtNuevaContrasena = new JTextField();
+		txtNuevaContrasena.setBorder(null);
+		txtNuevaContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
+		txtNuevaContrasena.setColumns(10);
+		txtNuevaContrasena.setBounds(478, 145, 407, 40);
+		panel.add(txtNuevaContrasena);
 
-		lblNuevaContraseña = new JLabel("Nueva contrase\u00F1a:");
-		lblNuevaContraseña.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 15));
-		lblNuevaContraseña.setBounds(336, 144, 122, 44);
-		panel.add(lblNuevaContraseña);
+		lblNuevaContrasena = new JLabel("Nueva contrase\u00F1a:");
+		lblNuevaContrasena.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 15));
+		lblNuevaContrasena.setBounds(336, 144, 122, 44);
+		panel.add(lblNuevaContrasena);
 
-		txtRepetirContraseña = new JTextField();
-		txtRepetirContraseña.setBorder(null);
-		txtRepetirContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtRepetirContraseña.setColumns(10);
-		txtRepetirContraseña.setBounds(478, 232, 407, 40);
-		panel.add(txtRepetirContraseña);
+		txtRepetirContrasena = new JTextField();
+		txtRepetirContrasena.setBorder(null);
+		txtRepetirContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
+		txtRepetirContrasena.setColumns(10);
+		txtRepetirContrasena.setBounds(478, 232, 407, 40);
+		panel.add(txtRepetirContrasena);
 
-		lblRepetirContraseña = new JLabel("Repetir contrase\u00F1a:");
-		lblRepetirContraseña.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 15));
-		lblRepetirContraseña.setBounds(336, 231, 128, 44);
-		panel.add(lblRepetirContraseña);
+		lblRepetirContrasena = new JLabel("Repetir contrase\u00F1a:");
+		lblRepetirContrasena.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 15));
+		lblRepetirContrasena.setBounds(336, 231, 128, 44);
+		panel.add(lblRepetirContrasena);
 
 		lblConsejoTitulo = new JLabel("Consejo:");
 		lblConsejoTitulo.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -115,7 +116,7 @@ public class _4_Nueva_Contraseña {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnFlecha.setIcon(new ImageIcon(_4_Nueva_Contraseña.class.getResource("/images/back-arrow-icon-10.png")));
+		btnFlecha.setIcon(new ImageIcon(_4_Nueva_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);

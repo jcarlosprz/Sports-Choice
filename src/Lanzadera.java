@@ -10,14 +10,14 @@ import java.awt.event.ActionEvent;
 
 public class Lanzadera {
 
-	private JFrame frame;
+	private JFrame frmLanzadera;
 	private JPanel panel;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				Lanzadera window = new Lanzadera();
-				window.frame.setVisible(true);
+				window.frmLanzadera.setVisible(true);
 			}
 		});
 	}
@@ -30,16 +30,17 @@ public class Lanzadera {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmLanzadera = new JFrame();
+		frmLanzadera.setTitle("LANZADERA");
+		frmLanzadera.setResizable(false);
+		frmLanzadera.setBounds(140, 50, 1280, 720);
+		frmLanzadera.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLanzadera.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(-41, 0, 1348, 704);
-		frame.getContentPane().add(panel);
+		frmLanzadera.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		JButton btnBienvenido = new JButton("BIENVENIDO");
@@ -72,7 +73,7 @@ public class Lanzadera {
 		btnNewButton_2.setBorder(null);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				_3_Recuperar_Contraseña pantalla = new _3_Recuperar_Contraseña();
+				_3_Recuperar_Contrasena pantalla = new _3_Recuperar_Contrasena();
 				pantalla.Recuperar();
 
 			}
@@ -86,7 +87,7 @@ public class Lanzadera {
 		btnNewButton_3.setBorder(null);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				_4_Nueva_Contraseña pantalla = new _4_Nueva_Contraseña();
+				_4_Nueva_Contrasena pantalla = new _4_Nueva_Contrasena();
 				pantalla.Nueva();
 			}
 		});

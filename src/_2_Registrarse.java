@@ -14,19 +14,19 @@ import com.toedter.calendar.JDateChooser;
 
 public class _2_Registrarse {
 
-	private JFrame frame;
+	private JFrame frmRegistrarse;
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
 			lblPoblacion, lblRegistrarse, lblFechaNac;
 	private JButton btnPregunta, btnFlecha, btnCrearCuenta;
 	private JDateChooser dateChooserFechaNac;
-	private JTextField txtNombreUsuario,txtTfno, txtNombre, txtContraseña, txtApellidos, txtConfirmarContraseña, txtPoblacion, txtEmail;
+	private JTextField txtNombreUsuario,txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena, txtPoblacion, txtEmail;
 
 	public static void Registrarse() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				_2_Registrarse window = new _2_Registrarse();
-				window.frame.setVisible(true);
+				window.frmRegistrarse.setVisible(true);
 			}
 		});
 	}
@@ -36,16 +36,17 @@ public class _2_Registrarse {
 	}
 
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(140, 50, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmRegistrarse = new JFrame();
+		frmRegistrarse.setTitle("REGISTRARSE");
+		frmRegistrarse.setResizable(false);
+		frmRegistrarse.setBounds(140, 50, 1280, 720);
+		frmRegistrarse.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRegistrarse.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frame.getContentPane().add(panel);
+		frmRegistrarse.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblRegistrarse = new JLabel("REGISTRARSE");
@@ -164,12 +165,12 @@ public class _2_Registrarse {
 		txtNombre.setBounds(389, 193, 226, 40);
 		panel.add(txtNombre);
 		
-		txtContraseña = new JTextField();
-		txtContraseña.setBorder(null);
-		txtContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtContraseña.setColumns(10);
-		txtContraseña.setBounds(389, 265, 226, 40);
-		panel.add(txtContraseña);
+		txtContrasena = new JTextField();
+		txtContrasena.setBorder(null);
+		txtContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
+		txtContrasena.setColumns(10);
+		txtContrasena.setBounds(389, 265, 226, 40);
+		panel.add(txtContrasena);
 		
 		txtApellidos = new JTextField();
 		txtApellidos.setBorder(null);
@@ -178,12 +179,12 @@ public class _2_Registrarse {
 		txtApellidos.setBounds(654, 193, 226, 40);
 		panel.add(txtApellidos);
 		
-		txtConfirmarContraseña = new JTextField();
-		txtConfirmarContraseña.setBorder(null);
-		txtConfirmarContraseña.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtConfirmarContraseña.setColumns(10);
-		txtConfirmarContraseña.setBounds(654, 265, 226, 40);
-		panel.add(txtConfirmarContraseña);
+		txtConfirmarContrasena = new JTextField();
+		txtConfirmarContrasena.setBorder(null);
+		txtConfirmarContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
+		txtConfirmarContrasena.setColumns(10);
+		txtConfirmarContrasena.setBounds(654, 265, 226, 40);
+		panel.add(txtConfirmarContrasena);
 		
 		JLabel lblPoblacion_1 = new JLabel("POBLACI\u00D3N:");
 		lblPoblacion_1.setFont(new Font("Dubai", Font.PLAIN, 15));

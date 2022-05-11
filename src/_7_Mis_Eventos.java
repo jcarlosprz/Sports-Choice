@@ -40,19 +40,19 @@ public class _7_Mis_Eventos {
 		frmMisEventos = new JFrame();
 		frmMisEventos.setTitle("MIS EVENTOS");
 		frmMisEventos.setResizable(false);
-		frmMisEventos.setBounds(140, 50, 1280, 720);
+		frmMisEventos.setBounds(140, 50, 850, 720);
 		frmMisEventos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMisEventos.getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
-		panel.setBounds(42, 0, 1266, 693);
+		panel.setBounds(0, 0, 1266, 693);
 		frmMisEventos.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblMisEventos = new JLabel("MIS EVENTOS");
 		lblMisEventos.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblMisEventos.setBounds(528, 10, 192, 54);
+		lblMisEventos.setBounds(327, 8, 192, 54);
 		panel.add(lblMisEventos);
 
 		btnAbandonar = new JButton("ABANDONAR");
@@ -65,7 +65,7 @@ public class _7_Mis_Eventos {
 			}
 		});
 		btnAbandonar.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnAbandonar.setBounds(679, 589, 162, 56);
+		btnAbandonar.setBounds(457, 580, 162, 56);
 		panel.add(btnAbandonar);
 
 		btnPregunta = new JButton("");
@@ -84,7 +84,7 @@ public class _7_Mis_Eventos {
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(724, 10, 32, 52);
+		btnPregunta.setBounds(528, 8, 32, 52);
 		panel.add(btnPregunta);
 
 		btnHome = new JButton("");
@@ -103,7 +103,7 @@ public class _7_Mis_Eventos {
 
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
-		scrollPane.setBounds(313, 71, 640, 490);
+		scrollPane.setBounds(105, 65, 640, 490);
 		panel.add(scrollPane);
 
 		table = new JTable();
@@ -152,7 +152,7 @@ public class _7_Mis_Eventos {
 			}
 		});
 		btnIrAlForo.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnIrAlForo.setBounds(427, 589, 162, 56);
+		btnIrAlForo.setBounds(240, 580, 162, 56);
 		btnIrAlForo.setBackground(new Color(176, 196, 222));
 		panel.add(btnIrAlForo);
 

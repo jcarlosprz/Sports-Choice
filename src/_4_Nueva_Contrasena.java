@@ -29,21 +29,15 @@ public class _4_Nueva_Contrasena {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public _4_Nueva_Contrasena() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmNuevaContrasena = new JFrame();
 		frmNuevaContrasena.setTitle("NUEVA CONTRASENA");
 		frmNuevaContrasena.setResizable(false);
-		frmNuevaContrasena.setBounds(140, 50, 1280, 720);
+		frmNuevaContrasena.setBounds(140, 50, 850, 720);
 		frmNuevaContrasena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmNuevaContrasena.getContentPane().setLayout(null);
 
@@ -55,14 +49,14 @@ public class _4_Nueva_Contrasena {
 
 		lblNuevaContrasenaTitulo = new JLabel("NUEVA CONTRASE\u00D1A");
 		lblNuevaContrasenaTitulo.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblNuevaContrasenaTitulo.setBounds(479, 17, 308, 60);
+		lblNuevaContrasenaTitulo.setBounds(279, 10, 308, 60);
 		panel.add(lblNuevaContrasenaTitulo);
 
 		btnActualizar = new JButton("ACTUALIZAR");
 		btnActualizar.setBorder(null);
 		btnActualizar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnActualizar.setBackground(new Color(176, 196, 222));
-		btnActualizar.setBounds(723, 589, 162, 56);
+		btnActualizar.setBounds(532, 589, 162, 56);
 		btnActualizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnActualizar);
 
@@ -70,44 +64,44 @@ public class _4_Nueva_Contrasena {
 		txtNuevaContrasena.setBorder(null);
 		txtNuevaContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNuevaContrasena.setColumns(10);
-		txtNuevaContrasena.setBounds(478, 145, 407, 40);
+		txtNuevaContrasena.setBounds(287, 145, 407, 40);
 		panel.add(txtNuevaContrasena);
 
 		lblNuevaContrasena = new JLabel("Nueva contrase\u00F1a:");
 		lblNuevaContrasena.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 15));
-		lblNuevaContrasena.setBounds(336, 144, 122, 44);
+		lblNuevaContrasena.setBounds(155, 144, 122, 44);
 		panel.add(lblNuevaContrasena);
 
 		txtRepetirContrasena = new JTextField();
 		txtRepetirContrasena.setBorder(null);
 		txtRepetirContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtRepetirContrasena.setColumns(10);
-		txtRepetirContrasena.setBounds(478, 232, 407, 40);
+		txtRepetirContrasena.setBounds(287, 231, 407, 40);
 		panel.add(txtRepetirContrasena);
 
 		lblRepetirContrasena = new JLabel("Repetir contrase\u00F1a:");
 		lblRepetirContrasena.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 15));
-		lblRepetirContrasena.setBounds(336, 231, 128, 44);
+		lblRepetirContrasena.setBounds(149, 230, 128, 44);
 		panel.add(lblRepetirContrasena);
 
 		lblConsejoTitulo = new JLabel("Consejo:");
 		lblConsejoTitulo.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblConsejoTitulo.setBounds(397, 319, 67, 44);
+		lblConsejoTitulo.setBounds(210, 319, 67, 44);
 		panel.add(lblConsejoTitulo);
 
 		lblConsejo1 = new JLabel("La contrase\u00F1a debe contener al menos 6 caracteres.");
 		lblConsejo1.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblConsejo1.setBounds(479, 331, 432, 21);
+		lblConsejo1.setBounds(287, 331, 432, 21);
 		panel.add(lblConsejo1);
 
 		lblConsejo3 = new JLabel("y min\u00FAsculas, n\u00FAmeros y s\u00EDmbolos como ! \" ? $ %. ");
 		lblConsejo3.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblConsejo3.setBounds(479, 375, 432, 21);
+		lblConsejo3.setBounds(291, 381, 432, 21);
 		panel.add(lblConsejo3);
 
 		lblConsejo2 = new JLabel("Para hacerla m\u00E1s fuerte se recomienda utilizar may\u00FAsculas ");
 		lblConsejo2.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblConsejo2.setBounds(479, 352, 465, 21);
+		lblConsejo2.setBounds(287, 356, 465, 21);
 		panel.add(lblConsejo2);
 
 		btnFlecha = new JButton("");
@@ -120,7 +114,7 @@ public class _4_Nueva_Contrasena {
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
-		btnFlecha.setBounds(317, 589, 106, 56);
+		btnFlecha.setBounds(133, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 	}

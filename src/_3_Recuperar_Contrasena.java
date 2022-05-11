@@ -20,37 +20,24 @@ public class _3_Recuperar_Contrasena {
 	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
 	private JButton btnFlecha, btnFlecha_1;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void Recuperar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
 					_3_Recuperar_Contrasena window = new _3_Recuperar_Contrasena();
 					window.frmRecuperarContrasena.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	public _3_Recuperar_Contrasena() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmRecuperarContrasena = new JFrame();
 		frmRecuperarContrasena.setTitle("RECUPERAR CONTRASENA");
 		frmRecuperarContrasena.setResizable(false);
-		frmRecuperarContrasena.setBounds(140, 50, 1280, 720);
+		frmRecuperarContrasena.setBounds(140, 50, 850, 720);
 		frmRecuperarContrasena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRecuperarContrasena.getContentPane().setLayout(null);
 
@@ -70,45 +57,45 @@ public class _3_Recuperar_Contrasena {
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
-		btnFlecha.setBounds(328, 589, 106, 56);
+		btnFlecha.setBounds(149, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 
 		lblRecuperarContrasena = new JLabel("RECUPERAR CONTRASE\u00D1A");
 		lblRecuperarContrasena.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblRecuperarContrasena.setBounds(445, 17, 376, 60);
+		lblRecuperarContrasena.setBounds(229, 21, 376, 60);
 		panel.add(lblRecuperarContrasena);
 
 		lblIntroduceEmail = new JLabel(
 				"Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblIntroduceEmail.setBounds(349, 136, 549, 26);
+		lblIntroduceEmail.setBounds(175, 131, 549, 26);
 		panel.add(lblIntroduceEmail);
 
 		txtEmail = new JTextField();
 		txtEmail.setBorder(null);
 		txtEmail.setToolTipText("");
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(349, 166, 366, 40);
+		txtEmail.setBounds(175, 167, 336, 40);
 		panel.add(txtEmail);
 
 		JLabel lblIntroduceElCdigo = new JLabel("Introduce el codigo recibido:");
 		lblIntroduceElCdigo.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblIntroduceElCdigo.setBounds(349, 243, 549, 26);
+		lblIntroduceElCdigo.setBounds(175, 237, 549, 26);
 		panel.add(lblIntroduceElCdigo);
 
 		txtCodigo = new JTextField();
 		txtCodigo.setBorder(null);
 		txtCodigo.setToolTipText("");
 		txtCodigo.setColumns(10);
-		txtCodigo.setBounds(348, 272, 367, 40);
+		txtCodigo.setBounds(175, 273, 336, 40);
 		panel.add(txtCodigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
 		btnValidar.setBorder(null);
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));
-		btnValidar.setBounds(749, 589, 162, 56);
+		btnValidar.setBounds(536, 589, 162, 56);
 		btnValidar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnValidar);
 		
@@ -120,10 +107,14 @@ public class _3_Recuperar_Contrasena {
 		panel.add(btnFlecha_1);
 		
 		JButton btnComprobar = new JButton("COMPROBAR");
+		btnComprobar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnComprobar.setBorder(null);
 		btnComprobar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnComprobar.setBackground(new Color(176, 196, 222));
-		btnComprobar.setBounds(749, 166, 162, 40);
+		btnComprobar.setBounds(536, 167, 162, 40);
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
 	}

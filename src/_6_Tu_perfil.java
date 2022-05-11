@@ -39,7 +39,7 @@ public class _6_Tu_perfil {
 		frmTuPerfil = new JFrame();
 		frmTuPerfil.setTitle("TU PERFIL");
 		frmTuPerfil.setResizable(false);
-		frmTuPerfil.setBounds(140, 50, 1280, 720);
+		frmTuPerfil.setBounds(140, 50, 850, 720);
 		frmTuPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTuPerfil.getContentPane().setLayout(null);
 
@@ -51,90 +51,90 @@ public class _6_Tu_perfil {
 
 		lblTuPerfil = new JLabel("TU PERFIL");
 		lblTuPerfil.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblTuPerfil.setBounds(520, 10, 152, 44);
+		lblTuPerfil.setBounds(345, 11, 152, 44);
 		panel.add(lblTuPerfil);
 
 		lblInformacionPersonal = new JLabel("Informaci\u00F3n Personal: \r\n");
 		lblInformacionPersonal.setFont(new Font("Dubai", Font.BOLD, 20));
-		lblInformacionPersonal.setBounds(372, 65, 194, 31);
+		lblInformacionPersonal.setBounds(163, 65, 433, 31);
 		panel.add(lblInformacionPersonal);
 
 		lblNombreUsuario = new JLabel("NOMBRE USUARIO EN APP (Nickname):");
 		lblNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblNombreUsuario.setBounds(372, 107, 284, 26);
+		lblNombreUsuario.setBounds(163, 105, 284, 26);
 		panel.add(lblNombreUsuario);
 
 		txtNombreUsuario = new JTextField();
 		txtNombreUsuario.setBorder(null);
 		txtNombreUsuario.setEnabled(false);
 		txtNombreUsuario.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtNombreUsuario.setBounds(372, 128, 525, 40);
+		txtNombreUsuario.setBounds(163, 128, 525, 40);
 		panel.add(txtNombreUsuario);
 		txtNombreUsuario.setColumns(10);
 
 		lblNombre = new JLabel("NOMBRE:");
 		lblNombre.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblNombre.setBounds(372, 168, 192, 26);
+		lblNombre.setBounds(163, 177, 192, 26);
 		panel.add(lblNombre);
 
 		txtNombre = new JTextField();
 		txtNombre.setBorder(null);
 		txtNombre.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(372, 193, 525, 40);
+		txtNombre.setBounds(163, 200, 525, 40);
 		panel.add(txtNombre);
 
 		lblApellidos = new JLabel("APELLIDOS:");
 		lblApellidos.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblApellidos.setBounds(372, 236, 192, 26);
+		lblApellidos.setBounds(163, 247, 192, 26);
 		panel.add(lblApellidos);
 
 		txtApellidos = new JTextField();
 		txtApellidos.setBorder(null);
 		txtApellidos.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtApellidos.setColumns(10);
-		txtApellidos.setBounds(372, 261, 525, 40);
+		txtApellidos.setBounds(163, 267, 525, 40);
 		panel.add(txtApellidos);
 
 		lblTelefono = new JLabel("TEL\u00C9FONO:");
 		lblTelefono.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblTelefono.setBounds(372, 300, 192, 26);
+		lblTelefono.setBounds(163, 317, 192, 26);
 		panel.add(lblTelefono);
 
 		txtTelefono = new JTextField();
 		txtTelefono.setBorder(null);
 		txtTelefono.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtTelefono.setBounds(372, 322, 525, 40);
+		txtTelefono.setBounds(163, 340, 525, 40);
 		panel.add(txtTelefono);
 		txtTelefono.setColumns(10);
 
 		lblEmail = new JLabel("EMAIL:");
 		lblEmail.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblEmail.setBounds(372, 363, 192, 26);
+		lblEmail.setBounds(163, 387, 192, 26);
 		panel.add(lblEmail);
 
 		txtEmail = new JTextField();
 		txtEmail.setBorder(null);
 		txtEmail.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtEmail.setBounds(372, 388, 525, 40);
+		txtEmail.setBounds(163, 410, 525, 40);
 		panel.add(txtEmail);
 		txtEmail.setColumns(10);
 
 		lblPoblacion = new JLabel("POBLACI\u00D3N:");
 		lblPoblacion.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblPoblacion.setBounds(372, 428, 192, 26);
+		lblPoblacion.setBounds(163, 525, 192, 26);
 		panel.add(lblPoblacion);
 
 		txtPoblacion = new JTextField();
 		txtPoblacion.setBorder(null);
 		txtPoblacion.setFont(new Font("Dubai", Font.PLAIN, 16));
-		txtPoblacion.setBounds(372, 452, 525, 40);
+		txtPoblacion.setBounds(163, 550, 525, 40);
 		panel.add(txtPoblacion);
 		txtPoblacion.setColumns(10);
 
 		lblFechaNac = new JLabel("FECHA NACIMIENTO:");
 		lblFechaNac.setFont(new Font("Dubai", Font.PLAIN, 15));
-		lblFechaNac.setBounds(372, 504, 192, 26);
+		lblFechaNac.setBounds(163, 457, 192, 26);
 		panel.add(lblFechaNac);
 
 		btnGuardar = new JButton("GUARDAR");
@@ -146,7 +146,7 @@ public class _6_Tu_perfil {
 			}
 		});
 		btnGuardar.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnGuardar.setBounds(735, 599, 162, 56);
+		btnGuardar.setBounds(526, 611, 162, 56);
 		panel.add(btnGuardar);
 
 		btnPregunta = new JButton("");
@@ -165,19 +165,19 @@ public class _6_Tu_perfil {
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(576, 65, 32, 32);
+		btnPregunta.setBounds(367, 60, 32, 32);
 		panel.add(btnPregunta);
 
 		lblPerfil = new JLabel("");
 		lblPerfil.setBorder(null);
 		lblPerfil.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/profile-icon.png")));
-		lblPerfil.setBounds(682, 10, 45, 44);
+		lblPerfil.setBounds(496, 10, 45, 44);
 		panel.add(lblPerfil);
 
 		btnPapelera = new JButton("");
 		btnPapelera.setBorder(null);
 		btnPapelera.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/papelera.png")));
-		btnPapelera.setBounds(372, 599, 51, 56);
+		btnPapelera.setBounds(163, 611, 51, 56);
 		panel.add(btnPapelera);
 
 		btnPapelera.setOpaque(false);
@@ -201,7 +201,7 @@ public class _6_Tu_perfil {
 
 		dateChooserFechaNac = new JDateChooser();
 		dateChooserFechaNac.setBorder(null);
-		dateChooserFechaNac.setBounds(372, 527, 525, 40);
+		dateChooserFechaNac.setBounds(163, 480, 525, 40);
 		panel.add(dateChooserFechaNac);
 
 	}

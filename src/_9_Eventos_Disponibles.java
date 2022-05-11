@@ -41,7 +41,7 @@ public class _9_Eventos_Disponibles {
 		frmEventosDisponibles = new JFrame();
 		frmEventosDisponibles.setTitle("EVENTOS DISPONIBLES");
 		frmEventosDisponibles.setResizable(false);
-		frmEventosDisponibles.setBounds(140, 50, 1280, 720);
+		frmEventosDisponibles.setBounds(140, 50, 850, 720);
 		frmEventosDisponibles.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmEventosDisponibles.getContentPane().setLayout(null);
 
@@ -53,7 +53,7 @@ public class _9_Eventos_Disponibles {
 
 		lblEventosDisponibles = new JLabel("EVENTOS DISPONIBLES:");
 		lblEventosDisponibles.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblEventosDisponibles.setBounds(464, 10, 338, 54);
+		lblEventosDisponibles.setBounds(254, 8, 338, 54);
 		panel.add(lblEventosDisponibles);
 
 		btnCrearEvento = new JButton("CREA TU EVENTO");
@@ -65,7 +65,7 @@ public class _9_Eventos_Disponibles {
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnCrearEvento.setBounds(791, 589, 162, 56);
+		btnCrearEvento.setBounds(430, 580, 162, 56);
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
@@ -84,7 +84,7 @@ public class _9_Eventos_Disponibles {
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(797, 10, 32, 52);
+		btnPregunta.setBounds(591, 10, 32, 52);
 		panel.add(btnPregunta);
 
 		btnHome = new JButton("");
@@ -103,7 +103,7 @@ public class _9_Eventos_Disponibles {
 
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
-		scrollPane.setBounds(313, 71, 640, 490);
+		scrollPane.setBounds(105, 65, 640, 490);
 		panel.add(scrollPane);
 
 		table = new JTable();
@@ -156,7 +156,7 @@ public class _9_Eventos_Disponibles {
 			}
 		});
 		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnUnirse.setBounds(593, 589, 162, 56);
+		btnUnirse.setBounds(222, 580, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));
 		panel.add(btnUnirse);
 

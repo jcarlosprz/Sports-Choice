@@ -34,7 +34,7 @@ public class _5_Hola_Nombre {
 		frmHolaNombre = new JFrame();
 		frmHolaNombre.setTitle("HOLA + NOMBRE");
 		frmHolaNombre.setResizable(false);
-		frmHolaNombre.setBounds(140, 50, 1280, 720);
+		frmHolaNombre.setBounds(140, 50, 850, 720);
 		frmHolaNombre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmHolaNombre.getContentPane().setLayout(null);
 
@@ -46,7 +46,7 @@ public class _5_Hola_Nombre {
 
 		lblHolaNombre = new JLabel("HOLA + \"NOMBRE\"");
 		lblHolaNombre.setFont(new Font("Dubai", Font.BOLD, 45));
-		lblHolaNombre.setBounds(442, 23, 589, 60);
+		lblHolaNombre.setBounds(246, 21, 589, 60);
 		panel.add(lblHolaNombre);
 
 		btnBaloncesto = new JButton("");
@@ -56,18 +56,22 @@ public class _5_Hola_Nombre {
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
-		btnBaloncesto.setBounds(433, 121, 180, 180);
+		btnBaloncesto.setBounds(226, 136, 180, 180);
 		panel.add(btnBaloncesto);
 		btnBaloncesto.setBackground(new Color(0, 0, 0, 0));
 		btnBaloncesto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBaloncesto.setOpaque(false);
 
 		btnFutbol = new JButton("");
+		btnFutbol.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnFutbol.setBorder(null);
 		btnFutbol.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Futbol_resized.png")));
 		btnFutbol.setOpaque(false);
 		btnFutbol.setBackground(new Color(0, 0, 0, 0));
-		btnFutbol.setBounds(653, 121, 180, 180);
+		btnFutbol.setBounds(452, 136, 180, 180);
 		btnFutbol.setBackground(new Color(0, 0, 0, 0));
 		btnFutbol.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFutbol.setOpaque(false);
@@ -78,7 +82,7 @@ public class _5_Hola_Nombre {
 		btnPadel.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/padel_resized.png")));
 		btnPadel.setOpaque(false);
 		btnPadel.setBackground(new Color(0, 0, 0, 0));
-		btnPadel.setBounds(442, 340, 180, 180);
+		btnPadel.setBounds(226, 340, 180, 180);
 		btnPadel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnPadel.setOpaque(false);
 		panel.add(btnPadel);
@@ -87,7 +91,7 @@ public class _5_Hola_Nombre {
 		btnTenis.setBorder(null);
 		btnTenis.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/tennis_ball_resized.png")));
 		btnTenis.setOpaque(false);
-		btnTenis.setBounds(653, 340, 180, 180);
+		btnTenis.setBounds(452, 340, 180, 180);
 		btnTenis.setBackground(new Color(0, 0, 0, 0));
 		btnTenis.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnTenis.setOpaque(false);
@@ -95,27 +99,27 @@ public class _5_Hola_Nombre {
 
 		lblBaloncesto = new JLabel("BALONCESTO");
 		lblBaloncesto.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblBaloncesto.setBounds(483, 282, 105, 19);
+		lblBaloncesto.setBounds(272, 297, 105, 19);
 		panel.add(lblBaloncesto);
 
 		lblFutbol = new JLabel("F\u00DATBOL");
 		lblFutbol.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblFutbol.setBounds(717, 282, 64, 19);
+		lblFutbol.setBounds(516, 297, 64, 19);
 		panel.add(lblFutbol);
 
 		lblPadel = new JLabel("PADEL");
 		lblPadel.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblPadel.setBounds(514, 501, 55, 19);
+		lblPadel.setBounds(299, 501, 55, 19);
 		panel.add(lblPadel);
 
 		lblTenis = new JLabel("TENIS");
 		lblTenis.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblTenis.setBounds(720, 501, 55, 19);
+		lblTenis.setBounds(525, 501, 55, 19);
 		panel.add(lblTenis);
 
 		lblPregunta = new JLabel("\u00BFQu\u00E9 deporte te gustar\u00EDa practicar?");
 		lblPregunta.setFont(new Font("Dubai", Font.BOLD | Font.ITALIC, 23));
-		lblPregunta.setBounds(452, 72, 367, 40);
+		lblPregunta.setBounds(246, 71, 367, 40);
 		panel.add(lblPregunta);
 
 		btnMisEventos = new JButton("MIS EVENTOS");
@@ -127,7 +131,7 @@ public class _5_Hola_Nombre {
 		});
 		btnMisEventos.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMisEventos.setBackground(new Color(176, 196, 222));
-		btnMisEventos.setBounds(452, 592, 142, 59);
+		btnMisEventos.setBounds(250, 602, 142, 59);
 		panel.add(btnMisEventos);
 
 		btnMiPerfil = new JButton("MI PERFIL");
@@ -139,14 +143,14 @@ public class _5_Hola_Nombre {
 		});
 		btnMiPerfil.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMiPerfil.setBackground(new Color(176, 196, 222));
-		btnMiPerfil.setBounds(677, 592, 142, 59);
+		btnMiPerfil.setBounds(471, 602, 142, 59);
 		panel.add(btnMiPerfil);
 
 		btnLogOut = new JButton("LOG OUT");
 		btnLogOut.setBorder(null);
 		btnLogOut.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnLogOut.setBackground(new Color(250, 128, 114));
-		btnLogOut.setBounds(38, 611, 105, 40);
+		btnLogOut.setBounds(36, 621, 105, 40);
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnLogOut);
 	}

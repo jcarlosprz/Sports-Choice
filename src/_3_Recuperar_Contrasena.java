@@ -57,33 +57,33 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		lblIntroduceEmail = new JLabel(
 				"Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblIntroduceEmail.setBounds(175, 131, 549, 26);
+		lblIntroduceEmail.setBounds(175, 163, 549, 26);
 		panel.add(lblIntroduceEmail);
 
 		txtEmail = new JTextField();
 		txtEmail.setBorder(null);
 		txtEmail.setToolTipText("");
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(175, 167, 336, 59);
+		txtEmail.setBounds(175, 200, 336, 59);
 		panel.add(txtEmail);
 
 		JLabel lblIntroduceElCdigo = new JLabel("Introduce el codigo recibido:");
 		lblIntroduceElCdigo.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblIntroduceElCdigo.setBounds(175, 237, 549, 26);
+		lblIntroduceElCdigo.setBounds(175, 324, 549, 26);
 		panel.add(lblIntroduceElCdigo);
 
 		txtCodigo = new JTextField();
 		txtCodigo.setBorder(null);
 		txtCodigo.setToolTipText("");
 		txtCodigo.setColumns(10);
-		txtCodigo.setBounds(175, 273, 336, 60);
+		txtCodigo.setBounds(175, 361, 336, 60);
 		panel.add(txtCodigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
 		btnValidar.setBorder(null);
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));
-		btnValidar.setBounds(536, 274, 162, 59);
+		btnValidar.setBounds(536, 362, 162, 59);
 		btnValidar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnValidar);
 		
@@ -102,7 +102,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnComprobar.setBorder(null);
 		btnComprobar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnComprobar.setBackground(new Color(176, 196, 222));
-		btnComprobar.setBounds(536, 167, 162, 59);
+		btnComprobar.setBounds(536, 200, 162, 59);
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
 	}

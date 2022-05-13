@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
+import java.awt.Component;
 
 public class _2_Bienvenido_admin extends JFrame {
 
@@ -25,6 +26,7 @@ public class _2_Bienvenido_admin extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JButton btnLogOut;
 
 	public _2_Bienvenido_admin() {
 		setTitle("BIENVENIDO ADMINISTRADOR");
@@ -63,35 +65,42 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(scrollPane);
 
 		table = new JTable();
-		table.setSurrendersFocusOnKeystroke(true);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setShowVerticalLines(false);
+		table.setSurrendersFocusOnKeystroke(true);
 		table.setIntercellSpacing(new Dimension(0, 0));
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 		table.setModel(new DefaultTableModel(
-				new Object[][] { { "JPS", "Jaime", "P\u00E9rez S\u00E1nchez", "japesa@hotmail.com" },
-						{ "DGP", "Daniel", "Gonz\u00E1lez P\u00E9rez", "dangonper@hotmail.com" },
-						{ "JPR", "Jos\u00E9", "Pascual Rodr\u00EDguez", "joparo@gmail.com" },
-						{ "IMG", "In\u00E9s", "Mart\u00EDnez Guti\u00E9rrez", "inmargut@gmail.com" },
-						{ "RRM", "Rodrigo", "Rodr\u00EDguez Moreno", "rodromo@gmail.com" },
-						{ "MSE", "Mar\u00EDa", "Salda\u00F1a Espinosa", "masalesp@yahoo.es" },
-						{ "MBC", "Manuel", "Berbis Campos", "manberca@gmail.com" },
-						{ "PFO", "Pedro", "Flores Ortiz", "peflortiz@yahoo.es" },
-						{ "SBP", "Susana", "Ben\u00EDte Prado", "subepra@gmail.com" },
-						{ "CAE", "Clara", "Alonso Espina", "clalonespi@yahoo.es" },
-						{ "NSF", "Nacho", "S\u00E1nchez Fern\u00E1ndez", "nasafer@hotmail.com" }, },
-				new String[] { "Nickname", "Nombre", "Apellidos", "E-mail" }) {
-			Class[] columnTypes = new Class[] { String.class, String.class, String.class, String.class };
-
+			new Object[][] {
+				{"JPS", "Jaime", "P\u00E9rez S\u00E1nchez", "japesa@hotmail.com"},
+				{"DGP", "Daniel", "Gonz\u00E1lez P\u00E9rez", "dangonper@hotmail.com"},
+				{"JPR", "Jos\u00E9", "Pascual Rodr\u00EDguez", "joparo@gmail.com"},
+				{"IMG", "In\u00E9s", "Mart\u00EDnez Guti\u00E9rrez", "inmargut@gmail.com"},
+				{"RRM", "Rodrigo", "Rodr\u00EDguez Moreno", "rodromo@gmail.com"},
+				{"MSE", "Mar\u00EDa", "Salda\u00F1a Espinosa", "masalesp@yahoo.es"},
+				{"MBC", "Manuel", "Berbis Campos", "manberca@gmail.com"},
+				{"PFO", "Pedro", "Flores Ortiz", "peflortiz@yahoo.es"},
+				{"SBP", "Susana", "Ben\u00EDte Prado", "subepra@gmail.com"},
+				{"CAE", "Clara", "Alonso Espina", "clalonespi@yahoo.es"},
+				{"NSF", "Nacho", "S\u00E1nchez Fern\u00E1ndez", "nasafer@hotmail.com"},
+			},
+			new String[] {
+				"Nickname", "Nombre", "Apellidos", "E-mail"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, String.class, String.class
+			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(59);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setPreferredWidth(63);
-		table.getColumnModel().getColumn(3).setPreferredWidth(37);
+		table.getColumnModel().getColumn(0).setPreferredWidth(110); //Nickname
+		table.getColumnModel().getColumn(1).setPreferredWidth(120); //Nombre
+		table.getColumnModel().getColumn(2).setPreferredWidth(160); //Apellidos
+		table.getColumnModel().getColumn(3).setPreferredWidth(330); //Email
 		scrollPane.setViewportView(table);
 
 		btnUnirse = new JButton("DESBLOQUEAR");
@@ -103,11 +112,20 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnUnirse);
 
 		JButton btnUnirse_1 = new JButton("BLOQUEAR");
+		btnUnirse_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnUnirse_1.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnUnirse_1.setBorder(null);
 		btnUnirse_1.setBackground(new Color(176, 196, 222));
 		btnUnirse_1.setBounds(433, 589, 162, 56);
 		panel.add(btnUnirse_1);
+		
+		btnLogOut = new JButton("LOG OUT");
+		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogOut.setFont(new Font("Dubai", Font.BOLD, 15));
+		btnLogOut.setBorder(null);
+		btnLogOut.setBackground(new Color(250, 128, 114));
+		btnLogOut.setBounds(46, 590, 163, 54);
+		panel.add(btnLogOut);
 
 	}
 

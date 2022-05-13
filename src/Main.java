@@ -19,7 +19,7 @@ public class Main {
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
 		
 		miControlador.setModelo(miModelo);
-		miControlador.setVentanas();
+		miControlador.setPantallas();
 		
 		miModelo.setBienvenida(bienvenida);
 		miModelo.setBienvenidaAdmin(bienvenidaAdmin);

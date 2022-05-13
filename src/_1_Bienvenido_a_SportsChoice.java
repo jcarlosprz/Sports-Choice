@@ -16,13 +16,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
-			lblOlvidasteContrasena, lblFondo;
+			lblOlvidasteContrasena, lblFondo, lblRegistrarse;
 	private JTextField txtUsuario, txtContrasena;
-	private JRadioButton rdbtnRecordarme;
-	private JButton btnRegistrarse, btnAyuda, btnLogin;
+	private JButton btnAyuda, btnLogin;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblNoTienesCuenta;
 	
 
 	public _1_Bienvenido_a_SportsChoice() {
@@ -37,11 +37,35 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setBounds(0, 0, 856, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+				btnAyuda = new JButton("");
+				btnAyuda.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
+				btnAyuda.setOpaque(false);
+				btnAyuda.setForeground(Color.BLACK);
+				btnAyuda.setContentAreaFilled(false);
+				btnAyuda.setBorderPainted(false);
+				btnAyuda.setBackground(new Color(255, 204, 153));
+				btnAyuda.setBounds(551, 595, 32, 32);
+				btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				panel.add(btnAyuda);
+		
+		lblNoTienesCuenta = new JLabel("\u00BFNo tienes una cuenta?");
+		lblNoTienesCuenta.setForeground(Color.BLACK);
+		lblNoTienesCuenta.setFont(new Font("Dubai", Font.PLAIN, 17));
+		lblNoTienesCuenta.setBounds(295, 552, 186, 22);
+		panel.add(lblNoTienesCuenta);
+		
+		lblRegistrarse = new JLabel("Registrarse");
+		lblRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblRegistrarse.setForeground(new Color(0, 0, 204));
+		lblRegistrarse.setFont(new Font("Dubai", Font.PLAIN, 17));
+		lblRegistrarse.setBounds(468, 552, 100, 22);
+		panel.add(lblRegistrarse);
 
 		lblOlvidasteContrasena = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
 		lblOlvidasteContrasena.setForeground(new Color(0, 0, 204));
-		lblOlvidasteContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
-		lblOlvidasteContrasena.setBounds(411, 375, 172, 22);
+		lblOlvidasteContrasena.setFont(new Font("Dubai", Font.PLAIN, 17));
+		lblOlvidasteContrasena.setBounds(394, 375, 206, 22);
 		lblOlvidasteContrasena.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblOlvidasteContrasena);
 
@@ -82,13 +106,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		txtContrasena.setBounds(267, 330, 316, 40);
 		panel.add(txtContrasena);
 
-		rdbtnRecordarme = new JRadioButton("Recordarme");
-		rdbtnRecordarme.setFont(new Font("Dubai", Font.PLAIN, 16));
-		rdbtnRecordarme.setBounds(267, 376, 142, 21);
-		panel.add(rdbtnRecordarme);
-		rdbtnRecordarme.setBackground(new Color(0, 0, 0, 0));
-		rdbtnRecordarme.setOpaque(false);
-
 		btnLogin = new JButton("LOGIN");
 		btnLogin.setBorder(null);
 		btnLogin.setBackground(new Color(176, 196, 222));
@@ -101,36 +118,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				
 			}
 		});
-		btnLogin.setBounds(441, 428, 142, 59);
+		btnLogin.setBounds(267, 427, 316, 59);
 		panel.add(btnLogin);
-
-		btnRegistrarse = new JButton("REGISTRARSE");
-		btnRegistrarse.setBorder(null);
-		btnRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnRegistrarse.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnRegistrarse.setBackground(new Color(176, 196, 222));
-		btnRegistrarse.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnRegistrarse.setBounds(267, 428, 142, 59);
-		panel.add(btnRegistrarse);
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
-
-		btnAyuda = new JButton("");
-		btnAyuda.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
-		btnAyuda.setOpaque(false);
-		btnAyuda.setForeground(Color.BLACK);
-		btnAyuda.setContentAreaFilled(false);
-		btnAyuda.setBorderPainted(false);
-		btnAyuda.setBackground(new Color(255, 204, 153));
-		btnAyuda.setBounds(951, 613, 32, 32);
-		btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		panel.add(btnAyuda);
 	}
 
 	public void setMiControlador(Controlador miControlador) {

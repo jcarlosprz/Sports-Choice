@@ -64,7 +64,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		txtEmail.setBorder(null);
 		txtEmail.setToolTipText("");
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(175, 167, 336, 40);
+		txtEmail.setBounds(175, 167, 336, 59);
 		panel.add(txtEmail);
 
 		JLabel lblIntroduceElCdigo = new JLabel("Introduce el codigo recibido:");
@@ -76,14 +76,14 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		txtCodigo.setBorder(null);
 		txtCodigo.setToolTipText("");
 		txtCodigo.setColumns(10);
-		txtCodigo.setBounds(175, 273, 336, 40);
+		txtCodigo.setBounds(175, 273, 336, 60);
 		panel.add(txtCodigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
 		btnValidar.setBorder(null);
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));
-		btnValidar.setBounds(536, 589, 162, 56);
+		btnValidar.setBounds(536, 274, 162, 59);
 		btnValidar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnValidar);
 		
@@ -94,7 +94,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnFlecha_1.setBounds(308, 571, 106, 56);
 		panel.add(btnFlecha_1);
 		
-		JButton btnComprobar = new JButton("COMPROBAR");
+		JButton btnComprobar = new JButton("ENVIAR");
 		btnComprobar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -102,7 +102,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnComprobar.setBorder(null);
 		btnComprobar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnComprobar.setBackground(new Color(176, 196, 222));
-		btnComprobar.setBounds(536, 167, 162, 40);
+		btnComprobar.setBounds(536, 167, 162, 59);
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
 	}

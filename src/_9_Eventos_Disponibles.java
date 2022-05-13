@@ -52,7 +52,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnCrearEvento.setBounds(430, 580, 162, 56);
+		btnCrearEvento.setBounds(457, 591, 162, 56);
 		panel.add(btnCrearEvento);
 
 		btnPregunta = new JButton("");
@@ -81,7 +81,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 			}
 		});
 		btnHome.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/home-icon.png")));
-		btnHome.setBounds(908, 24, 45, 44);
+		btnHome.setBounds(686, 38, 45, 44);
 		panel.add(btnHome);
 		btnHome.setOpaque(false);
 		btnHome.setContentAreaFilled(false);
@@ -90,7 +90,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
-		scrollPane.setBounds(105, 65, 640, 490);
+		scrollPane.setBounds(106, 93, 640, 476);
 		panel.add(scrollPane);
 
 		table = new JTable();
@@ -143,7 +143,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 			}
 		});
 		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnUnirse.setBounds(222, 580, 162, 56);
+		btnUnirse.setBounds(240, 591, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));
 		panel.add(btnUnirse);
 	}

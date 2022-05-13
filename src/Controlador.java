@@ -24,7 +24,7 @@ public class Controlador {
 		pantallas[numero2].setVisible(true);
 	}
 	
-	public void setVentanas() {
+	public void setPantallas() {
 		pantallas[0] = bienvenida;
 		pantallas[1] = bienvenidaAdmin;
 		pantallas[2] = registrarse;

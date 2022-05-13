@@ -10,38 +10,26 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class _5_Hola_Nombre {
+public class _5_Hola_Nombre extends JFrame {
 
-	private JFrame frmHolaNombre;
 	private JPanel panel;
 	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
 	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta;
 
-	public static void Hola() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_5_Hola_Nombre window = new _5_Hola_Nombre();
-				window.frmHolaNombre.setVisible(true);
-			}
-		});
-	}
+	private Controlador miControlador;
+	private Modelo miModelo;
 
 	public _5_Hola_Nombre() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmHolaNombre = new JFrame();
-		frmHolaNombre.setTitle("HOLA + NOMBRE");
-		frmHolaNombre.setResizable(false);
-		frmHolaNombre.setBounds(140, 50, 850, 720);
-		frmHolaNombre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmHolaNombre.getContentPane().setLayout(null);
+		setTitle("HOLA + NOMBRE");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmHolaNombre.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblHolaNombre = new JLabel("HOLA + \"NOMBRE\"");
@@ -153,5 +141,13 @@ public class _5_Hola_Nombre {
 		btnLogOut.setBounds(36, 621, 105, 40);
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnLogOut);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

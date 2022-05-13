@@ -21,9 +21,8 @@ import javax.swing.SpinnerNumberModel;
 import com.toedter.calendar.JCalendar;
 import javax.swing.border.LineBorder;
 
-public class _91_Crear_Evento {
+public class _91_Crear_Evento extends JFrame {
 
-	private JFrame frmCrearEvento;
 	private JPanel panel;
 	private JButton btnPregunta, btnCrearEvento;
 	private JLabel lblHasSeleccionadoDeporte, lblSeleccionaTusPreferencias, lblHoraDosPuntos, lblUbicacion, lblHora,
@@ -33,31 +32,20 @@ public class _91_Crear_Evento {
 	private JSpinner spinnerHora, spinnerMinutos;
 	private JCalendar calendar;
 
-	public static void Crear() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-					_91_Crear_Evento window = new _91_Crear_Evento();
-					window.frmCrearEvento.setVisible(true);
-			}
-		});
-	}
-
+	private Controlador miControlador;
+	private Modelo miModelo;
+	
 	public _91_Crear_Evento() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmCrearEvento = new JFrame();
-		frmCrearEvento.setTitle("CREAR EVENTO");
-		frmCrearEvento.setResizable(false);
-		frmCrearEvento.setBounds(140, 50, 850, 720);
-		frmCrearEvento.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCrearEvento.getContentPane().setLayout(null);
+		setTitle("CREAR EVENTO");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmCrearEvento.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: \"Deporte\"");
@@ -165,6 +153,13 @@ public class _91_Crear_Evento {
 		lblNivel.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNivel.setBounds(677, 214, 104, 14);
 		panel.add(lblNivel);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
 
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

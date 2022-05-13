@@ -12,39 +12,27 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class _3_Recuperar_Contrasena {
+public class _3_Recuperar_Contrasena extends JFrame {
 
-	private JFrame frmRecuperarContrasena;
 	private JPanel panel;
 	private JTextField txtEmail,txtCodigo;
 	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
 	private JButton btnFlecha, btnFlecha_1;
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 
-	public static void Recuperar() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-					_3_Recuperar_Contrasena window = new _3_Recuperar_Contrasena();
-					window.frmRecuperarContrasena.setVisible(true);
-			}
-		});
-	}
 	public _3_Recuperar_Contrasena() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmRecuperarContrasena = new JFrame();
-		frmRecuperarContrasena.setTitle("RECUPERAR CONTRASENA");
-		frmRecuperarContrasena.setResizable(false);
-		frmRecuperarContrasena.setBounds(140, 50, 850, 720);
-		frmRecuperarContrasena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmRecuperarContrasena.getContentPane().setLayout(null);
+		setTitle("RECUPERAR CONTRASENA");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmRecuperarContrasena.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		btnFlecha = new JButton("");
@@ -117,5 +105,13 @@ public class _3_Recuperar_Contrasena {
 		btnComprobar.setBounds(536, 167, 162, 40);
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

@@ -11,40 +11,28 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class _4_Nueva_Contrasena {
+public class _4_Nueva_Contrasena extends JFrame {
 
-	private JFrame frmNuevaContrasena;
 	private JPanel panel;
 	private JLabel lblNuevaContrasenaTitulo, lblNuevaContrasena, lblRepetirContrasena, lblConsejoTitulo, lblConsejo1,
 			lblConsejo2, lblConsejo3;
 	private JTextField txtNuevaContrasena, txtRepetirContrasena;
 	private JButton btnFlecha, btnActualizar;
 
-	public static void Nueva() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_4_Nueva_Contrasena window = new _4_Nueva_Contrasena();
-				window.frmNuevaContrasena.setVisible(true);
-			}
-		});
-	}
-
+	private Controlador miControlador;
+	private Modelo miModelo;
+	
 	public _4_Nueva_Contrasena() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmNuevaContrasena = new JFrame();
-		frmNuevaContrasena.setTitle("NUEVA CONTRASENA");
-		frmNuevaContrasena.setResizable(false);
-		frmNuevaContrasena.setBounds(140, 50, 850, 720);
-		frmNuevaContrasena.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmNuevaContrasena.getContentPane().setLayout(null);
+		setTitle("NUEVA CONTRASENA");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmNuevaContrasena.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblNuevaContrasenaTitulo = new JLabel("NUEVA CONTRASE\u00D1A");
@@ -117,5 +105,13 @@ public class _4_Nueva_Contrasena {
 		btnFlecha.setBounds(133, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

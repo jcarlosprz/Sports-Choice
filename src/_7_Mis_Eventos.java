@@ -14,40 +14,28 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 
-public class _7_Mis_Eventos {
+public class _7_Mis_Eventos extends JFrame {
 
-	private JFrame frmMisEventos;
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnAbandonar, btnIrAlForo;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private JLabel lblMisEventos;
 
-	public static void Eventos() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_7_Mis_Eventos window = new _7_Mis_Eventos();
-				window.frmMisEventos.setVisible(true);
-			}
-		});
-	}
+	private Controlador miControlador;
+	private Modelo miModelo;
 
 	public _7_Mis_Eventos() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmMisEventos = new JFrame();
-		frmMisEventos.setTitle("MIS EVENTOS");
-		frmMisEventos.setResizable(false);
-		frmMisEventos.setBounds(140, 50, 850, 720);
-		frmMisEventos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmMisEventos.getContentPane().setLayout(null);
+		setTitle("MIS EVENTOS");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmMisEventos.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblMisEventos = new JLabel("MIS EVENTOS");
@@ -155,6 +143,13 @@ public class _7_Mis_Eventos {
 		btnIrAlForo.setBounds(240, 580, 162, 56);
 		btnIrAlForo.setBackground(new Color(176, 196, 222));
 		panel.add(btnIrAlForo);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
 
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

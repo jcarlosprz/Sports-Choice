@@ -14,9 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class _8_Foro {
+public class _8_Foro extends JFrame {
 
-	private JFrame frmForo;
 	private JPanel panel;
 	private JScrollPane scrollPane;
 	private JTextField txtEscribeAqui;
@@ -24,31 +23,20 @@ public class _8_Foro {
 	private JLabel lblEscribeAqui;
 	private JButton btnFlecha, btnEnviar;
 
-	public static void Foro() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_8_Foro window = new _8_Foro();
-				window.frmForo.setVisible(true);
-			}
-		});
-	}
+	private Controlador miControlador;
+	private Modelo miModelo;
 
 	public _8_Foro() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmForo = new JFrame();
-		frmForo.setTitle("FORO");
-		frmForo.setResizable(false);
-		frmForo.setBounds(140, 50, 850, 720);
-		frmForo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmForo.getContentPane().setLayout(null);
+		setTitle("FORO");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmForo.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		btnEnviar = new JButton("ENVIAR");
@@ -110,6 +98,13 @@ public class _8_Foro {
 		lblEscribeAqui.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblEscribeAqui.setBounds(47, 405, 167, 26);
 		panel.add(lblEscribeAqui);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
 
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

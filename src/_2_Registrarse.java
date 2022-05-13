@@ -12,9 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
 
-public class _2_Registrarse {
+public class _2_Registrarse extends JFrame {
 
-	private JFrame frmRegistrarse;
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
 			lblPoblacion, lblRegistrarse, lblFechaNac;
@@ -22,31 +21,20 @@ public class _2_Registrarse {
 	private JDateChooser dateChooserFechaNac;
 	private JTextField txtNombreUsuario,txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena, txtPoblacion, txtEmail;
 
-	public static void Registrarse() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_2_Registrarse window = new _2_Registrarse();
-				window.frmRegistrarse.setVisible(true);
-			}
-		});
-	}
+	private Controlador miControlador;
+	private Modelo miModelo;
 
 	public _2_Registrarse() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmRegistrarse = new JFrame();
-		frmRegistrarse.setTitle("REGISTRARSE");
-		frmRegistrarse.setResizable(false);
-		frmRegistrarse.setBounds(140, 50, 850, 720);
-		frmRegistrarse.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmRegistrarse.getContentPane().setLayout(null);
+		setTitle("REGISTRARSE");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmRegistrarse.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblRegistrarse = new JLabel("REGISTRARSE");
@@ -209,5 +197,13 @@ public class _2_Registrarse {
 		lblEmail_1.setFont(new Font("Dubai", Font.PLAIN, 15));
 		lblEmail_1.setBounds(179, 385, 192, 26);
 		panel.add(lblEmail_1);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

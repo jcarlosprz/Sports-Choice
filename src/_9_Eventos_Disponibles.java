@@ -14,41 +14,28 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 
-public class _9_Eventos_Disponibles {
+public class _9_Eventos_Disponibles extends JFrame {
 
-	private JFrame frmEventosDisponibles;
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnCrearEvento, btnUnirse;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private JLabel lblEventosDisponibles;
 
-	public static void Eventos() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-					_9_Eventos_Disponibles window = new _9_Eventos_Disponibles();
-					window.frmEventosDisponibles.setVisible(true);
-
-			}
-		});
-	}
-
+	private Controlador miControlador;
+	private Modelo miModelo;
+	
 	public _9_Eventos_Disponibles() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmEventosDisponibles = new JFrame();
-		frmEventosDisponibles.setTitle("EVENTOS DISPONIBLES");
-		frmEventosDisponibles.setResizable(false);
-		frmEventosDisponibles.setBounds(140, 50, 850, 720);
-		frmEventosDisponibles.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmEventosDisponibles.getContentPane().setLayout(null);
+		setTitle("EVENTOS DISPONIBLES");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmEventosDisponibles.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblEventosDisponibles = new JLabel("EVENTOS DISPONIBLES:");
@@ -159,6 +146,13 @@ public class _9_Eventos_Disponibles {
 		btnUnirse.setBounds(222, 580, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));
 		panel.add(btnUnirse);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
 
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

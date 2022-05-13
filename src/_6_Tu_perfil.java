@@ -12,9 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
 
-public class _6_Tu_perfil {
+public class _6_Tu_perfil extends JFrame {
 
-	private JFrame frmTuPerfil;
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
 			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil;
@@ -22,31 +21,20 @@ public class _6_Tu_perfil {
 	private JButton btnPregunta, btnPapelera, btnHome, btnGuardar;
 	private JDateChooser dateChooserFechaNac;
 
-	public static void Perfil() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_6_Tu_perfil window = new _6_Tu_perfil();
-				window.frmTuPerfil.setVisible(true);
-			}
-		});
-	}
+	private Controlador miControlador;
+	private Modelo miModelo;
 
 	public _6_Tu_perfil() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmTuPerfil = new JFrame();
-		frmTuPerfil.setTitle("TU PERFIL");
-		frmTuPerfil.setResizable(false);
-		frmTuPerfil.setBounds(140, 50, 850, 720);
-		frmTuPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmTuPerfil.getContentPane().setLayout(null);
+		setTitle("TU PERFIL");
+		setResizable(false);
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 235, 205));
 		panel.setBounds(0, 0, 1266, 693);
-		frmTuPerfil.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblTuPerfil = new JLabel("TU PERFIL");
@@ -203,6 +191,13 @@ public class _6_Tu_perfil {
 		dateChooserFechaNac.setBorder(null);
 		dateChooserFechaNac.setBounds(163, 480, 525, 40);
 		panel.add(dateChooserFechaNac);
+	}
+	
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
 
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

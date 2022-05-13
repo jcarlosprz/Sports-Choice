@@ -12,9 +12,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class _1_Bienvenido_a_SportsChoice {
+public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
-	private JFrame frmBienvenido;
 	private JPanel panel;
 	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
 			lblOlvidasteContrasena, lblFondo;
@@ -22,34 +21,21 @@ public class _1_Bienvenido_a_SportsChoice {
 	private JRadioButton rdbtnRecordarme;
 	private JButton btnRegistrarse, btnAyuda, btnLogin;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void Bienvenido() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				_1_Bienvenido_a_SportsChoice window = new _1_Bienvenido_a_SportsChoice();
-				window.frmBienvenido.setVisible(true);
-			}
-		});
-	}
+	private Controlador miControlador;
+	private Modelo miModelo;
+	
 
 	public _1_Bienvenido_a_SportsChoice() {
-		initialize();
-	}
-
-	private void initialize() {
-		frmBienvenido = new JFrame();
-		frmBienvenido.setResizable(false);
-		frmBienvenido.setTitle("BIENVENIDO");
-		frmBienvenido.setBounds(140, 50, 850, 720);
-		frmBienvenido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmBienvenido.getContentPane().setLayout(null);
+		setResizable(false);
+		setTitle("BIENVENIDO");
+		setBounds(140, 50, 850, 720);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(0, 0, 856, 693);
-		frmBienvenido.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 
 		lblOlvidasteContrasena = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
@@ -143,5 +129,13 @@ public class _1_Bienvenido_a_SportsChoice {
 		btnAyuda.setBounds(951, 613, 32, 32);
 		btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnAyuda);
+	}
+
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 }

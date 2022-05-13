@@ -1,3 +1,6 @@
+import java.util.Iterator;
+
+import javax.swing.JFrame;
 
 public class Controlador {
 	private Modelo miModelo;
@@ -12,45 +15,31 @@ public class Controlador {
 	private _8_Foro foro;
 	private _9_Eventos_Disponibles eventosDisponibles;
 	private _91_Crear_Evento crearEvento;
+
+	private JFrame[] pantallas = { bienvenida, bienvenidaAdmin, registrarse, recuperarContrasena, nuevaContrasena,
+			holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
+
+	public void cambiarPantalla(int numero1, int numero2) {
+		pantallas[numero1].setVisible(false);
+		pantallas[numero2].setVisible(true);
+	}
 	
+	public void setVentanas() {
+		pantallas[0] = bienvenida;
+		pantallas[1] = bienvenidaAdmin;
+		pantallas[2] = registrarse;
+		pantallas[3] = recuperarContrasena;
+		pantallas[4] = nuevaContrasena;
+		pantallas[5] = holaNombre;
+		pantallas[6] = tuPerfil;
+		pantallas[7] = misEventos;
+		pantallas[8] = foro;
+		pantallas[9] = eventosDisponibles;
+		pantallas[10] = crearEvento;
+	}
+
 	public void setModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
-	public void setBienvenida(_1_Bienvenido_a_SportsChoice bienvenida) {
-		this.bienvenida = bienvenida;
-	}
-	public void setBienvenidaAdmin(_2_Bienvenido_admin bienvenidaAdmin) {
-		this.bienvenidaAdmin = bienvenidaAdmin;
-	}	
-	public void setRegistrarse(_2_Registrarse registrarse) {
-		this.registrarse = registrarse;
-	}
-	public void setRecuperarContrasena(_3_Recuperar_Contrasena recuperarContrasena) {
-		this.recuperarContrasena = recuperarContrasena;
-	}
-	public void setNuevaContrasena(_4_Nueva_Contrasena nuevaContrasena) {
-		this.nuevaContrasena = nuevaContrasena;
-	}
-	public void setHolaNombre(_5_Hola_Nombre holaNombre) {
-		this.holaNombre = holaNombre;
-	}
-	public void setTuPerfil(_6_Tu_perfil tuPerfil) {
-		this.tuPerfil = tuPerfil;
-	}
-	public void setMisEventos(_7_Mis_Eventos misEventos) {
-		this.misEventos = misEventos;
-	}
-	public void setForo(_8_Foro foro) {
-		this.foro = foro;
-	}
-	public void setEventosDisponibles(_9_Eventos_Disponibles eventosDisponibles) {
-		this.eventosDisponibles = eventosDisponibles;
-	}
-	public void setCrearEvento(_91_Crear_Evento crearEvento) {
-		this.crearEvento = crearEvento;
-	}
-	
-	
-	
 	
 }

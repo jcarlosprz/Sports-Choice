@@ -2,7 +2,9 @@ public class Main {
 
 
 	public static void main(String[] args) {
+		
 		Controlador miControlador = new Controlador();
+		
 		Modelo miModelo = new Modelo();
 		_1_Bienvenido_a_SportsChoice bienvenida = new _1_Bienvenido_a_SportsChoice();
 		_2_Bienvenido_admin bienvenidaAdmin = new _2_Bienvenido_admin();
@@ -16,20 +18,8 @@ public class Main {
 		_9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
 		
-		
 		miControlador.setModelo(miModelo);
-		miControlador.setBienvenida(bienvenida);
-		miControlador.setBienvenidaAdmin(bienvenidaAdmin);
-		miControlador.setRegistrarse(registrarse);
-		miControlador.setRecuperarContrasena(recuperarContrasena);
-		miControlador.setNuevaContrasena(nuevaContrasena);
-		miControlador.setHolaNombre(holaNombre);
-		miControlador.setTuPerfil(tuPerfil);
-		miControlador.setMisEventos(misEventos);
-		miControlador.setForo(foro);
-		miControlador.setEventosDisponibles(eventosDisponibles);
-		miControlador.setCrearEvento(crearEvento);
-		
+		miControlador.setVentanas();
 		
 		miModelo.setBienvenida(bienvenida);
 		miModelo.setBienvenidaAdmin(bienvenidaAdmin);
@@ -68,7 +58,5 @@ public class Main {
 		crearEvento.setMiModelo(miModelo);
 		
 		bienvenida.setVisible(true);
-		
 	}
-	
 }

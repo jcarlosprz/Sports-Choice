@@ -16,13 +16,12 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
-			lblOlvidasteContrasena, lblFondo, lblRegistrarse;
+			lblOlvidasteContrasena, lblFondo, lblRegistrarse,lblNoTienesCuenta;
 	private JTextField txtUsuario, txtContrasena;
 	private JButton btnAyuda, btnLogin;
-
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblNoTienesCuenta;
+	
 	
 
 	public _1_Bienvenido_a_SportsChoice() {

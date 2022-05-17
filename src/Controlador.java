@@ -4,17 +4,17 @@ import javax.swing.JFrame;
 
 public class Controlador {
 	private Modelo miModelo;
-	private _1_Bienvenido_a_SportsChoice bienvenida;
-	private _2_Bienvenido_admin bienvenidaAdmin;
-	private _2_Registrarse registrarse;
-	private _3_Recuperar_Contrasena recuperarContrasena;
-	private _4_Nueva_Contrasena nuevaContrasena;
-	private _5_Hola_Nombre holaNombre;
-	private _6_Tu_perfil tuPerfil;
-	private _7_Mis_Eventos misEventos;
-	private _8_Foro foro;
-	private _9_Eventos_Disponibles eventosDisponibles;
-	private _91_Crear_Evento crearEvento;
+	private _1_Bienvenido_a_SportsChoice bienvenida = new _1_Bienvenido_a_SportsChoice();
+	private _2_Bienvenido_admin bienvenidaAdmin = new _2_Bienvenido_admin();
+	private _2_Registrarse registrarse = new _2_Registrarse();
+	private _3_Recuperar_Contrasena recuperarContrasena = new _3_Recuperar_Contrasena();
+	private _4_Nueva_Contrasena nuevaContrasena = new _4_Nueva_Contrasena();
+	private _5_Hola_Nombre holaNombre = new _5_Hola_Nombre();
+	private _6_Tu_perfil tuPerfil = new _6_Tu_perfil();
+	private _7_Mis_Eventos misEventos = new _7_Mis_Eventos();
+	private _8_Foro foro = new _8_Foro();
+	private _9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
+	private _91_Crear_Evento crearEvento = new _91_Crear_Evento();
 
 	private JFrame[] pantallas = { bienvenida, bienvenidaAdmin, registrarse, recuperarContrasena, nuevaContrasena,
 			holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
@@ -23,7 +23,7 @@ public class Controlador {
 		pantallas[numero1].setVisible(false);
 		pantallas[numero2].setVisible(true);
 	}
-	
+
 	public void setPantallas() {
 		pantallas[0] = bienvenida;
 		pantallas[1] = bienvenidaAdmin;
@@ -41,5 +41,5 @@ public class Controlador {
 	public void setModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
-	
+
 }

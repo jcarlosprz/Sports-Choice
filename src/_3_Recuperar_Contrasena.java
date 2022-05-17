@@ -11,11 +11,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class _3_Recuperar_Contrasena extends JFrame {
 
 	private JPanel panel;
-	private JTextField txtEmail,txtCodigo;
+	private JTextField txtEmail, txtCodigo;
 	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
 	private JButton btnFlecha, btnFlecha_1;
 
@@ -34,11 +33,12 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		btnFlecha = new JButton("");
 		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(3, 0);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));
@@ -54,8 +54,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		lblRecuperarContrasena.setBounds(229, 21, 376, 60);
 		panel.add(lblRecuperarContrasena);
 
-		lblIntroduceEmail = new JLabel(
-				"Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
+		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceEmail.setBounds(175, 163, 549, 26);
 		panel.add(lblIntroduceEmail);
@@ -86,14 +85,14 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnValidar.setBounds(536, 362, 162, 59);
 		btnValidar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnValidar);
-		
+
 		btnFlecha_1 = new JButton("");
 		btnFlecha_1.setOpaque(false);
 		btnFlecha_1.setContentAreaFilled(false);
 		btnFlecha_1.setBorderPainted(false);
 		btnFlecha_1.setBounds(308, 571, 106, 56);
 		panel.add(btnFlecha_1);
-		
+
 		JButton btnComprobar = new JButton("ENVIAR");
 		btnComprobar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,7 +105,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

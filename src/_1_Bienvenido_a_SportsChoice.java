@@ -11,18 +11,18 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
-			lblOlvidasteContrasena, lblFondo, lblRegistrarse,lblNoTienesCuenta;
+			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta;
 	private JTextField txtUsuario, txtContrasena;
 	private JButton btnAyuda, btnLogin;
 	private Controlador miControlador;
 	private Modelo miModelo;
-	
-	
 
 	public _1_Bienvenido_a_SportsChoice() {
 		setResizable(false);
@@ -36,25 +36,31 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setBounds(0, 0, 856, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
-				btnAyuda = new JButton("");
-				btnAyuda.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
-				btnAyuda.setOpaque(false);
-				btnAyuda.setForeground(Color.BLACK);
-				btnAyuda.setContentAreaFilled(false);
-				btnAyuda.setBorderPainted(false);
-				btnAyuda.setBackground(new Color(255, 204, 153));
-				btnAyuda.setBounds(551, 595, 32, 32);
-				btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				panel.add(btnAyuda);
-		
+
+		btnAyuda = new JButton("");
+		btnAyuda.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
+		btnAyuda.setOpaque(false);
+		btnAyuda.setForeground(Color.BLACK);
+		btnAyuda.setContentAreaFilled(false);
+		btnAyuda.setBorderPainted(false);
+		btnAyuda.setBackground(new Color(255, 204, 153));
+		btnAyuda.setBounds(551, 595, 32, 32);
+		btnAyuda.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		panel.add(btnAyuda);
+
 		lblNoTienesCuenta = new JLabel("\u00BFNo tienes una cuenta?");
 		lblNoTienesCuenta.setForeground(Color.BLACK);
 		lblNoTienesCuenta.setFont(new Font("Dubai", Font.PLAIN, 17));
 		lblNoTienesCuenta.setBounds(295, 552, 186, 22);
 		panel.add(lblNoTienesCuenta);
-		
+
 		lblRegistrarse = new JLabel("Registrarse");
+		lblRegistrarse.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				miControlador.cambiarPantalla(0, 2);
+			}
+		});
 		lblRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblRegistrarse.setForeground(new Color(0, 0, 204));
 		lblRegistrarse.setFont(new Font("Dubai", Font.PLAIN, 17));
@@ -62,6 +68,12 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.add(lblRegistrarse);
 
 		lblOlvidasteContrasena = new JLabel("\u00BFOlvidaste tu contrase\u00F1a?");
+		lblOlvidasteContrasena.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				miControlador.cambiarPantalla(0, 3);
+			}
+		});
 		lblOlvidasteContrasena.setForeground(new Color(0, 0, 204));
 		lblOlvidasteContrasena.setFont(new Font("Dubai", Font.PLAIN, 17));
 		lblOlvidasteContrasena.setBounds(394, 375, 206, 22);
@@ -114,7 +126,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(0, 5);
-				
+
 			}
 		});
 		btnLogin.setBounds(267, 427, 316, 59);
@@ -133,5 +145,5 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
-	
+
 }

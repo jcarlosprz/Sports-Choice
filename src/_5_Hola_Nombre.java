@@ -142,7 +142,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnLogOut);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

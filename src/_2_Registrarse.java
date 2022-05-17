@@ -19,7 +19,8 @@ public class _2_Registrarse extends JFrame {
 			lblPoblacion, lblRegistrarse, lblFechaNac;
 	private JButton btnPregunta, btnFlecha, btnCrearCuenta;
 	private JDateChooser dateChooserFechaNac;
-	private JTextField txtNombreUsuario,txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena, txtPoblacion, txtEmail;
+	private JTextField txtNombreUsuario, txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena,
+			txtPoblacion, txtEmail;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -138,67 +139,67 @@ public class _2_Registrarse extends JFrame {
 		dateChooserFechaNac.setBorder(null);
 		dateChooserFechaNac.setBounds(179, 410, 491, 40);
 		panel.add(dateChooserFechaNac);
-		
+
 		txtTfno = new JTextField();
 		txtTfno.setBorder(null);
 		txtTfno.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtTfno.setColumns(10);
 		txtTfno.setBounds(179, 340, 226, 40);
 		panel.add(txtTfno);
-		
+
 		txtNombre = new JTextField();
 		txtNombre.setBorder(null);
 		txtNombre.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(179, 200, 226, 40);
 		panel.add(txtNombre);
-		
+
 		txtContrasena = new JTextField();
 		txtContrasena.setBorder(null);
 		txtContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtContrasena.setColumns(10);
 		txtContrasena.setBounds(179, 270, 226, 40);
 		panel.add(txtContrasena);
-		
+
 		txtApellidos = new JTextField();
 		txtApellidos.setBorder(null);
 		txtApellidos.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtApellidos.setColumns(10);
 		txtApellidos.setBounds(445, 200, 226, 40);
 		panel.add(txtApellidos);
-		
+
 		txtConfirmarContrasena = new JTextField();
 		txtConfirmarContrasena.setBorder(null);
 		txtConfirmarContrasena.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtConfirmarContrasena.setColumns(10);
 		txtConfirmarContrasena.setBounds(446, 270, 226, 40);
 		panel.add(txtConfirmarContrasena);
-		
+
 		JLabel lblPoblacion_1 = new JLabel("POBLACI\u00D3N:");
 		lblPoblacion_1.setFont(new Font("Dubai", Font.PLAIN, 15));
 		lblPoblacion_1.setBounds(446, 318, 192, 26);
 		panel.add(lblPoblacion_1);
-		
+
 		txtPoblacion = new JTextField();
 		txtPoblacion.setBorder(null);
 		txtPoblacion.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtPoblacion.setColumns(10);
 		txtPoblacion.setBounds(446, 340, 226, 40);
 		panel.add(txtPoblacion);
-		
+
 		txtEmail = new JTextField();
 		txtEmail.setBorder(null);
 		txtEmail.setFont(new Font("Dubai", Font.PLAIN, 16));
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(179, 480, 492, 40);
 		panel.add(txtEmail);
-		
+
 		JLabel lblEmail_1 = new JLabel("FECHA DE NACIMIENTO:");
 		lblEmail_1.setFont(new Font("Dubai", Font.PLAIN, 15));
 		lblEmail_1.setBounds(179, 385, 192, 26);
 		panel.add(lblEmail_1);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

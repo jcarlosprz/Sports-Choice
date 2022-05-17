@@ -120,7 +120,7 @@ public class _5_Hola_Nombre extends JFrame {
 		});
 		btnMisEventos.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMisEventos.setBackground(new Color(176, 196, 222));
-		btnMisEventos.setBounds(250, 602, 142, 59);
+		btnMisEventos.setBounds(264, 602, 142, 59);
 		panel.add(btnMisEventos);
 
 		btnMiPerfil = new JButton("MI PERFIL");

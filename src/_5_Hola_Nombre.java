@@ -18,6 +18,7 @@ public class _5_Hola_Nombre extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 
 	public _5_Hola_Nombre() {
 		setTitle("HOLA + NOMBRE");
@@ -141,6 +142,11 @@ public class _5_Hola_Nombre extends JFrame {
 		btnLogOut.setBounds(36, 621, 105, 40);
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnLogOut);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-104, 0, 939, 683);
+		panel.add(lblFondo);
 	}
 
 	public void setMiControlador(Controlador miControlador) {

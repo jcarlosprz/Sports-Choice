@@ -34,6 +34,7 @@ public class _91_Crear_Evento extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 	
 	public _91_Crear_Evento() {
 		setTitle("CREAR EVENTO");
@@ -153,6 +154,11 @@ public class _91_Crear_Evento extends JFrame {
 		lblNivel.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNivel.setBounds(677, 214, 104, 14);
 		panel.add(lblNivel);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-112, 0, 979, 723);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

@@ -24,6 +24,7 @@ public class _7_Mis_Eventos extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 
 	public _7_Mis_Eventos() {
 		setTitle("MIS EVENTOS");
@@ -143,6 +144,11 @@ public class _7_Mis_Eventos extends JFrame {
 		btnIrAlForo.setBounds(240, 591, 162, 56);
 		btnIrAlForo.setBackground(new Color(176, 196, 222));
 		panel.add(btnIrAlForo);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-93, 0, 939, 683);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

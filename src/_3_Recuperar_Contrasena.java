@@ -20,6 +20,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 
 	public _3_Recuperar_Contrasena() {
 		setTitle("RECUPERAR CONTRASENA");
@@ -104,6 +105,11 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnComprobar.setBounds(536, 200, 162, 59);
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-103, 0, 939, 683);
+		panel.add(lblFondo);
 	}
 
 	public void setMiControlador(Controlador miControlador) {

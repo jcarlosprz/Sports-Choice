@@ -25,11 +25,12 @@ public class _8_Foro extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 
 	public _8_Foro() {
 		setTitle("FORO");
 		setResizable(false);
-		setBounds(140, 50, 850, 720);
+		setBounds(140, 50, 893, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
@@ -98,6 +99,11 @@ public class _8_Foro extends JFrame {
 		lblEscribeAqui.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblEscribeAqui.setBounds(47, 405, 167, 26);
 		panel.add(lblEscribeAqui);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-87, 0, 969, 693);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

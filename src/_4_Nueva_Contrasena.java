@@ -21,6 +21,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 	
 	public _4_Nueva_Contrasena() {
 		setTitle("NUEVA CONTRASENA");
@@ -105,6 +106,11 @@ public class _4_Nueva_Contrasena extends JFrame {
 		btnFlecha.setBounds(133, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_4_Nueva_Contrasena.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-124, 0, 939, 693);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

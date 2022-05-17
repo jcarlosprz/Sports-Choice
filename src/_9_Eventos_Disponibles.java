@@ -24,6 +24,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 	
 	public _9_Eventos_Disponibles() {
 		setTitle("EVENTOS DISPONIBLES");
@@ -146,6 +147,11 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnUnirse.setBounds(240, 591, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));
 		panel.add(btnUnirse);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-134, -10, 969, 693);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

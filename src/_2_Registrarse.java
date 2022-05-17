@@ -24,6 +24,7 @@ public class _2_Registrarse extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 
 	public _2_Registrarse() {
 		setTitle("REGISTRARSE");
@@ -198,6 +199,11 @@ public class _2_Registrarse extends JFrame {
 		lblEmail_1.setFont(new Font("Dubai", Font.PLAIN, 15));
 		lblEmail_1.setBounds(179, 385, 192, 26);
 		panel.add(lblEmail_1);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-98, 0, 939, 683);
+		panel.add(lblFondo);
 	}
 
 	public void setMiControlador(Controlador miControlador) {

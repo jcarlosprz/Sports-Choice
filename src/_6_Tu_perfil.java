@@ -23,6 +23,7 @@ public class _6_Tu_perfil extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblFondo;
 
 	public _6_Tu_perfil() {
 		setTitle("TU PERFIL");
@@ -191,6 +192,11 @@ public class _6_Tu_perfil extends JFrame {
 		dateChooserFechaNac.setBorder(null);
 		dateChooserFechaNac.setBounds(163, 480, 525, 40);
 		panel.add(dateChooserFechaNac);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-99, 0, 939, 683);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

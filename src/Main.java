@@ -1,10 +1,9 @@
 public class Main {
 
-
 	public static void main(String[] args) {
-		
+
 		Controlador miControlador = new Controlador();
-		
+
 		Modelo miModelo = new Modelo();
 		_1_Bienvenido_a_SportsChoice bienvenida = new _1_Bienvenido_a_SportsChoice();
 		_2_Bienvenido_admin bienvenidaAdmin = new _2_Bienvenido_admin();
@@ -17,10 +16,10 @@ public class Main {
 		_8_Foro foro = new _8_Foro();
 		_9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
-		
+
 		miControlador.setModelo(miModelo);
 		miControlador.setPantallas();
-		
+
 		miModelo.setBienvenida(bienvenida);
 		miModelo.setBienvenidaAdmin(bienvenidaAdmin);
 		miModelo.setRegistrarse(registrarse);
@@ -32,7 +31,7 @@ public class Main {
 		miModelo.setForo(foro);
 		miModelo.setEventosDisponibles(eventosDisponibles);
 		miModelo.setCrearEvento(crearEvento);
-		
+
 		bienvenida.setMiControlador(miControlador);
 		bienvenidaAdmin.setMiControlador(miControlador);
 		registrarse.setMiControlador(miControlador);
@@ -44,7 +43,7 @@ public class Main {
 		foro.setMiControlador(miControlador);
 		eventosDisponibles.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
-		
+
 		bienvenida.setMiModelo(miModelo);
 		bienvenidaAdmin.setMiModelo(miModelo);
 		registrarse.setMiModelo(miModelo);
@@ -56,7 +55,7 @@ public class Main {
 		foro.setMiModelo(miModelo);
 		eventosDisponibles.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
-		
+
 		bienvenida.setVisible(true);
 	}
 }

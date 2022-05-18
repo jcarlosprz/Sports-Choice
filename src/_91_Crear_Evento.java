@@ -48,6 +48,20 @@ public class _91_Crear_Evento extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		JButton btnFlecha = new JButton("");
+		btnFlecha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(10, 9);
+			}
+		});
+		btnFlecha.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/back-arrow-icon-10.png")));
+		btnFlecha.setOpaque(false);
+		btnFlecha.setContentAreaFilled(false);
+		btnFlecha.setBorderPainted(false);
+		btnFlecha.setBorder(null);
+		btnFlecha.setBounds(54, 587, 106, 56);
+		panel.add(btnFlecha);
 
 		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: \"Deporte\"");
 		lblHasSeleccionadoDeporte.setFont(new Font("Dubai", Font.BOLD, 30));
@@ -60,6 +74,7 @@ public class _91_Crear_Evento extends JFrame {
 		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(10, 7);
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));

@@ -132,6 +132,8 @@ public class _6_Tu_perfil extends JFrame {
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(6, 5);
+
 			}
 		});
 		btnGuardar.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -164,6 +166,11 @@ public class _6_Tu_perfil extends JFrame {
 		panel.add(lblPerfil);
 
 		btnPapelera = new JButton("");
+		btnPapelera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(6, 0);
+			}
+		});
 		btnPapelera.setBorder(null);
 		btnPapelera.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/papelera.png")));
 		btnPapelera.setBounds(163, 611, 51, 56);
@@ -178,10 +185,11 @@ public class _6_Tu_perfil extends JFrame {
 		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(6, 5);
 			}
 		});
 		btnHome.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/home-icon.png")));
-		btnHome.setBounds(850, 65, 45, 44);
+		btnHome.setBounds(645, 65, 45, 44);
 		panel.add(btnHome);
 		btnHome.setOpaque(false);
 		btnHome.setContentAreaFilled(false);

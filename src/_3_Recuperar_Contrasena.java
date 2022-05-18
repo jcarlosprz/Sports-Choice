@@ -80,6 +80,11 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		panel.add(txtCodigo);
 
 		JButton btnValidar = new JButton("VALIDAR");
+		btnValidar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(3, 4);
+			}
+		});
 		btnValidar.setBorder(null);
 		btnValidar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnValidar.setBackground(new Color(176, 196, 222));

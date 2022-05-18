@@ -127,7 +127,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(0, 5);
-
 			}
 		});
 		btnLogin.setBounds(267, 427, 316, 59);

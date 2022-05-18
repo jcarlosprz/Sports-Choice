@@ -44,15 +44,12 @@ public class _8_Foro extends JFrame {
 		btnEnviar.setBorder(null);
 		btnEnviar.setBackground(Color.LIGHT_GRAY);
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnEnviar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 
 		btnFlecha = new JButton("");
 		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(8, 7);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));

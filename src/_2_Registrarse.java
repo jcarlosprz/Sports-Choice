@@ -127,6 +127,7 @@ public class _2_Registrarse extends JFrame {
 		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(2, 0);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/back-arrow-icon-10.png")));

@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -17,8 +19,11 @@ public class Main {
 		_9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
 
+		JFrame[] pantallas = { bienvenida, bienvenidaAdmin, registrarse, recuperarContrasena, nuevaContrasena,
+				holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
+		
 		miControlador.setModelo(miModelo);
-		miControlador.setPantallas();
+		miControlador.setPantallas(pantallas);
 
 		miModelo.setBienvenida(bienvenida);
 		miModelo.setBienvenidaAdmin(bienvenidaAdmin);
@@ -56,6 +61,8 @@ public class Main {
 		eventosDisponibles.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
 
+		
+		
 		bienvenida.setVisible(true);
 	}
 }

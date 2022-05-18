@@ -24,18 +24,10 @@ public class Controlador {
 		pantallas[numero2].setVisible(true);
 	}
 
-	public void setPantallas() {
-		pantallas[0] = bienvenida;
-		pantallas[1] = bienvenidaAdmin;
-		pantallas[2] = registrarse;
-		pantallas[3] = recuperarContrasena;
-		pantallas[4] = nuevaContrasena;
-		pantallas[5] = holaNombre;
-		pantallas[6] = tuPerfil;
-		pantallas[7] = misEventos;
-		pantallas[8] = foro;
-		pantallas[9] = eventosDisponibles;
-		pantallas[10] = crearEvento;
+	public void setPantallas(JFrame [] pantallas) {
+		for (int i = 0; i < pantallas.length; i++) {
+			this.pantallas[i] = pantallas[i];
+		}
 	}
 
 	public void setModelo(Modelo miModelo) {

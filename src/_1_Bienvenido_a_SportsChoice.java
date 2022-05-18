@@ -100,7 +100,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 		lblNombreUsuario = new JLabel("Nombre usuario:");
 		lblNombreUsuario.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblNombreUsuario.setBounds(156, 260, 120, 44);
+		lblNombreUsuario.setBounds(145, 259, 120, 44);
 		panel.add(lblNombreUsuario);
 
 		txtUsuario = new JTextField();
@@ -111,7 +111,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 		lblContrasena = new JLabel("Contrase\u00F1a:");
 		lblContrasena.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblContrasena.setBounds(156, 327, 120, 44);
+		lblContrasena.setBounds(145, 326, 120, 44);
 		panel.add(lblContrasena);
 
 		txtContrasena = new JPasswordField();

@@ -8,9 +8,12 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 
@@ -94,6 +97,24 @@ public class _7_Mis_Eventos extends JFrame {
 		panel.add(scrollPane);
 
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if(table.getSelectedRow() == -1) {
+					btnIrAlForo.setEnabled(false);
+					btnAbandonar.setEnabled(false);
+				} else {
+					btnIrAlForo.setEnabled(true);
+					btnAbandonar.setEnabled(true);
+				}
+			}
+		});
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		table.setDefaultRenderer(String.class, centerRenderer);
+		
+		table.getTableHeader().setReorderingAllowed(false);
+		table.setDefaultEditor(Object.class, null);
 		table.setToolTipText("");
 		table.setFocusTraversalKeysEnabled(false);
 		table.setIntercellSpacing(new Dimension(0, 0));
@@ -145,6 +166,14 @@ public class _7_Mis_Eventos extends JFrame {
 		panel.add(btnIrAlForo);
 		
 		lblFondo = new JLabel("");
+		lblFondo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnAbandonar.setEnabled(false);
+				btnIrAlForo.setEnabled(false);
+				table.clearSelection();
+			}
+		});
 		lblFondo.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-93, 0, 939, 683);
 		panel.add(lblFondo);

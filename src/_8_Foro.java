@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.SystemColor;
 
 public class _8_Foro extends JFrame {
 
@@ -41,8 +44,9 @@ public class _8_Foro extends JFrame {
 		panel.setLayout(null);
 
 		btnEnviar = new JButton("ENVIAR");
+		btnEnviar.setEnabled(false);
 		btnEnviar.setBorder(null);
-		btnEnviar.setBackground(Color.LIGHT_GRAY);
+		btnEnviar.setBackground(SystemColor.activeCaption);
 		btnEnviar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnFlecha = new JButton("");
@@ -56,7 +60,7 @@ public class _8_Foro extends JFrame {
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
 		btnFlecha.setBorderPainted(false);
-		btnFlecha.setBounds(33, 596, 106, 56);
+		btnFlecha.setBounds(52, 596, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 		btnEnviar.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -65,7 +69,7 @@ public class _8_Foro extends JFrame {
 
 		scrollPane = new JScrollPane();
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
-		scrollPane.setBounds(47, 45, 750, 322);
+		scrollPane.setBounds(85, 45, 712, 322);
 		panel.add(scrollPane);
 
 		table = new JTable();
@@ -88,13 +92,24 @@ public class _8_Foro extends JFrame {
 		scrollPane.setViewportView(table);
 
 		txtEscribeAqui = new JTextField();
-		txtEscribeAqui.setBounds(47, 430, 750, 122);
+		txtEscribeAqui.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				if (txtEscribeAqui.getText().equals("")) {
+					btnEnviar.setEnabled(false);
+				} else {
+					btnEnviar.setEnabled(true);
+				}
+			}
+		});
+		txtEscribeAqui.setBounds(85, 430, 712, 122);
 		panel.add(txtEscribeAqui);
 		txtEscribeAqui.setColumns(10);
 
 		lblEscribeAqui = new JLabel("Escribe aqui: ");
 		lblEscribeAqui.setFont(new Font("Dubai", Font.BOLD, 15));
-		lblEscribeAqui.setBounds(47, 405, 167, 26);
+		lblEscribeAqui.setBounds(88, 404, 167, 26);
 		panel.add(lblEscribeAqui);
 		
 		lblFondo = new JLabel("");

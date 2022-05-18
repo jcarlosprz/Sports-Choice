@@ -8,9 +8,13 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Dimension;
 
@@ -97,6 +101,22 @@ public class _9_Eventos_Disponibles extends JFrame {
 		panel.add(scrollPane);
 
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if(table.getSelectedRow() == -1) {
+					btnUnirse.setEnabled(false);
+				} else {
+					btnUnirse.setEnabled(true);
+				}
+			}
+		});				
+		
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		table.setDefaultRenderer(String.class, centerRenderer);
+		table.getTableHeader().setReorderingAllowed(false);
+		table.setDefaultEditor(Object.class, null);
 		table.setIntercellSpacing(new Dimension(0, 0));
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -152,6 +172,15 @@ public class _9_Eventos_Disponibles extends JFrame {
 		panel.add(btnUnirse);
 		
 		lblFondo = new JLabel("");
+		
+		lblFondo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnUnirse.setEnabled(false);
+				table.clearSelection();
+			}
+		});
+		
 		lblFondo.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-134, -10, 969, 693);
 		panel.add(lblFondo);

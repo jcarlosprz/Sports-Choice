@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -19,7 +20,8 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	private JPanel panel;
 	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
 			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta;
-	private JTextField txtUsuario, txtContrasena;
+	private JTextField txtUsuario;
+	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin;
 	
 	private Controlador miControlador;
@@ -112,7 +114,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		lblContrasena.setBounds(156, 327, 120, 44);
 		panel.add(lblContrasena);
 
-		txtContrasena = new JTextField();
+		txtContrasena = new JPasswordField();
 		txtContrasena.setBorder(null);
 		txtContrasena.setColumns(10);
 		txtContrasena.setBounds(267, 330, 316, 40);
@@ -125,10 +127,17 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.addActionListener(new ActionListener() {
 
+			
+			
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(0, 5);
+				if(txtUsuario.getText().equals("admin")  && txtContrasena.getText().equals("admin") ) {
+					miControlador.cambiarPantalla(0, 1);
+				} else {
+					miControlador.cambiarPantalla(0, 5);
+				}
 			}
 		});
+		
 		btnLogin.setBounds(267, 427, 316, 59);
 		panel.add(btnLogin);
 		lblFondo = new JLabel("");

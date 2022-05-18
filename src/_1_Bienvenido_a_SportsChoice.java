@@ -21,6 +21,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta;
 	private JTextField txtUsuario, txtContrasena;
 	private JButton btnAyuda, btnLogin;
+	
 	private Controlador miControlador;
 	private Modelo miModelo;
 

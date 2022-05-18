@@ -120,6 +120,11 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnUnirse_1);
 		
 		btnLogOut = new JButton("LOG OUT");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogOut.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnLogOut.setBorder(null);

@@ -97,6 +97,7 @@ public class _2_Registrarse extends JFrame {
 		btnCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(2, 0);
 			}
 		});
 		btnCrearCuenta.setFont(new Font("Dubai", Font.BOLD, 15));

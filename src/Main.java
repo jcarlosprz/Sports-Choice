@@ -31,7 +31,7 @@ public class Main {
 		miModelo.setForo(foro);
 		miModelo.setEventosDisponibles(eventosDisponibles);
 		miModelo.setCrearEvento(crearEvento);
-
+		
 		bienvenida.setMiControlador(miControlador);
 		bienvenidaAdmin.setMiControlador(miControlador);
 		registrarse.setMiControlador(miControlador);

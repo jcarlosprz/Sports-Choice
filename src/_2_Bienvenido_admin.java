@@ -131,6 +131,11 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut.setBackground(new Color(250, 128, 114));
 		btnLogOut.setBounds(46, 590, 163, 54);
 		panel.add(btnLogOut);
+		
+		JLabel lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-104, 0, 939, 683);
+		panel.add(lblFondo);
 
 	}
 

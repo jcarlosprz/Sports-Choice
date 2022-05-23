@@ -1,3 +1,5 @@
+import java.sql.Connection;
+
 public class Modelo {
 
 	private _1_Bienvenido_a_SportsChoice bienvenida;
@@ -11,6 +13,13 @@ public class Modelo {
 	private _8_Foro foro;
 	private _9_Eventos_Disponibles eventosDisponibles;
 	private _91_Crear_Evento crearEvento;
+	
+	//Atributos de la clase
+		private String bd = "proyecto";
+		private String login = "root";
+		private String pwd = "";
+		private String url = "jdbc:mysql://localhost/" + bd;
+		private Connection conexion;
 	
 	public void setBienvenida(_1_Bienvenido_a_SportsChoice bienvenida) {
 		this.bienvenida = bienvenida;

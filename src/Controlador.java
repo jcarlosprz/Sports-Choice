@@ -34,4 +34,17 @@ public class Controlador {
 		this.miModelo = miModelo;
 	}
 
+	//Añadido javi
+	public void login() {
+		String usr = bienvenida.getUsr();
+		String pwd = bienvenida.getPwd();
+		miModelo.login(usr,pwd);
+		
+	}
+	
+	public void bienvenida() {
+		_1_Bienvenido_a_SportsChoice.setVisible(false);
+		_5_Hola_Nombre.setVisible(true);
+	}
+	//FIN
 }

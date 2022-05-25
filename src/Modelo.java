@@ -16,10 +16,8 @@ public class Modelo {
 	private _9_Eventos_Disponibles eventosDisponibles;
 	private _91_Crear_Evento crearEvento;
 	
-	//Añadido por javi
 	private String resultado;
 	private int fallos;
-	//FIN
 
 	// Atributos de la clase
 	private String bd = "proyecto";
@@ -91,7 +89,6 @@ public class Modelo {
 		this.crearEvento = crearEvento;
 	}
 
-	//Añadido por javi
 	public void login(String usr, String pwd) {
 		if (this.usr.equals(usr) && this.pwd.equals(pwd)) {
 			resultado = "Correcto";
@@ -109,6 +106,5 @@ public class Modelo {
 	public String getResultado() {
 		return this.resultado;
 	}
-	//fin
 	
 }

@@ -34,7 +34,6 @@ public class Controlador {
 		this.miModelo = miModelo;
 	}
 
-	//Añadido javi
 	public void login() {
 		String usr = bienvenida.getUsr();
 		String pwd = bienvenida.getPwd();
@@ -46,5 +45,5 @@ public class Controlador {
 //		_1_Bienvenido_a_SportsChoice.setVisible(false);
 //		_5_Hola_Nombre.setVisible(true);
 	}
-	//FIN
+
 }

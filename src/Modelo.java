@@ -1,6 +1,9 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Modelo {
 
@@ -19,22 +22,24 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 
-
 	// Atributos de la clase
-	private String bd = "proyecto";
+	private String bd = "proyecto_Integrador";
 	private String login = "root";
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
+
 	private String usr;
 	private String pwdusr;
+	private String rol;
+
+	private String estado;
 
 	// Constructor que crea la conexion
 	public Modelo() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conexion = DriverManager.getConnection(url, login, pwd);
-
 			System.out.println(" - Conexion con MySQL establecida -\n");
 		} catch (ClassNotFoundException e) {
 			System.out.println(" -> Driver JDBC no encontrado \n");
@@ -92,20 +97,48 @@ public class Modelo {
 		this.crearEvento = crearEvento;
 	}
 
+	public String Consulta(String query, String usr, String nombreColumna) {
+		String aux = "";
+		System.out.println("consula metodo");
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(query);
+			pstmt.setString(1, usr);
+			ResultSet rset = pstmt.executeQuery();
+			while (rset.next()) {
+				aux = rset.getString(nombreColumna);
+				System.out.println("While");
+				System.out.println(aux);
+			}
+			rset.close();
+			pstmt.close();
+
+		} catch (SQLException s) {
+			s.printStackTrace();
+		}
+		return aux;
+	}
 
 	public void login(String usr, String pwd) {
+		this.usr = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "nombre_usuario");
+		this.pwdusr = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "contraseña");
+		this.rol = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "rol");
+		System.out.println("Atributos: " + this.usr + " " + this.pwdusr);
+		System.out.println("Locales: " + usr + " " + pwd);
+		
+		System.out.println(rol);
+		
 		if (this.usr.equals(usr) && this.pwdusr.equals(pwd)) {
-			resultado = "Correcto";
-			fallos = 0;
-		} else {
-			fallos++;
-			if (fallos == 3) {
-				resultado = "Cerrar";
-			} else
-				resultado = "Incorrecto";
-		}
-		bienvenida.actualizar();
-	}
+            resultado = "Correcto";
+            fallos = 0;
+           bienvenida.actualizar(rol);	
+        } else {
+            fallos++; 
+            if(fallos == 3) {
+                resultado = "Cerrar";
+            }else
+                resultado =  "Incorrecto";
+        }
+    }
 
 	public String getResultado() {
 		return this.resultado;

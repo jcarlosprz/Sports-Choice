@@ -24,10 +24,9 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin;
 
-	private JLabel lblRespuesta;
-
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblRespuesta;
 
 	public _1_Bienvenido_a_SportsChoice() {
 		setResizable(false);
@@ -130,12 +129,8 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				miControlador.login();
-//				if (txtUsuario.getText().equals("admin") && txtContrasena.getPassword().equals("admin")) {
-//					miControlador.cambiarPantalla(0, 1);
-//				} else {
-//					miControlador.cambiarPantalla(0, 5);
-//				}
+				miControlador.login(txtUsuario.getText(), String.valueOf(txtContrasena.getPassword()));
+
 			}
 		});
 
@@ -146,12 +141,11 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
-
-		// Añadido javi
+		
 		lblRespuesta = new JLabel("");
-		lblRespuesta.setForeground(Color.RED);
-		lblRespuesta.setBounds(60, 148, 212, 14);
-		getContentPane().add(lblRespuesta);
+		lblRespuesta.setBackground(Color.RED);
+		lblRespuesta.setBounds(346, 408, 171, 14);
+		panel.add(lblRespuesta);
 		// Fin
 	}
 
@@ -171,16 +165,20 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		return String.valueOf(txtContrasena.getPassword());
 	}
 
-	public void actualizar() {
+	public void actualizar(String rol) {
 		String resultado = miModelo.getResultado();
+
 		if (resultado.equals("Correcto")) {
-			miControlador.bienvenida();
+			if (rol.equals("administrador")) {
+				miControlador.cambiarPantalla(0, 1);
+			} else {
+				miControlador.cambiarPantalla(0, 5);
+			}
 		} else if (resultado.equals("Incorrecto")) {
-			lblRespuesta.setText("Usuario o contrasena incorrectos");
+			lblRespuesta.setText("Usuario o contraseña incorrectos");
 		} else {
 			System.exit(0);
 		}
 
 	}
-
 }

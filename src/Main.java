@@ -65,7 +65,12 @@ public class Main {
 		
 		
 		//La conexion 
-		Modelo conexion = new Modelo();
 
+
+		
+		
+		
+		
+		
 	}
 }

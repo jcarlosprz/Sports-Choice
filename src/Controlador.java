@@ -34,16 +34,10 @@ public class Controlador {
 		this.miModelo = miModelo;
 	}
 
-	public void login() {
-		String usr = bienvenida.getUsr();
-		String pwd = bienvenida.getPwd();
+	public void login(String usrV, String pwdV) {
+		String usr = usrV;
+		String pwd = pwdV;
 		miModelo.login(usr,pwd);
-		
-	}
-	
-	public void bienvenida() {
-//		_1_Bienvenido_a_SportsChoice.setVisible(false);
-//		_5_Hola_Nombre.setVisible(true);
 	}
 
 }

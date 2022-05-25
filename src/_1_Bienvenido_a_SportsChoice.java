@@ -23,10 +23,10 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin;
-	//Añadido javi
+	// Añadido javi
 	private JLabel lblRespuesta;
-	//FIN
-	
+	// FIN
+
 	private Controlador miControlador;
 	private Modelo miModelo;
 
@@ -130,17 +130,16 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.addActionListener(new ActionListener() {
 
-			
-			
 			public void actionPerformed(ActionEvent e) {
-				if(txtUsuario.getText().equals("admin")  && txtContrasena.getText().equals("admin") ) {
-					miControlador.cambiarPantalla(0, 1);
-				} else {
-					miControlador.cambiarPantalla(0, 5);
-				}
+				miControlador.login();
+//				if (txtUsuario.getText().equals("admin") && txtContrasena.getPassword().equals("admin")) {
+//					miControlador.cambiarPantalla(0, 1);
+//				} else {
+//					miControlador.cambiarPantalla(0, 5);
+//				}
 			}
 		});
-		
+
 		btnLogin.setBounds(267, 427, 316, 59);
 		panel.add(btnLogin);
 		lblFondo = new JLabel("");
@@ -148,13 +147,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
-		
-		//Añadido javi
+
+		// Añadido javi
 		lblRespuesta = new JLabel("");
 		lblRespuesta.setForeground(Color.RED);
 		lblRespuesta.setBounds(60, 148, 212, 14);
 		getContentPane().add(lblRespuesta);
-		//Fin
+		// Fin
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -165,7 +164,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	//Añadido por javi
+	// Añadido por javi
 	public String getUsr() {
 		return txtUsuario.getText();
 	}
@@ -173,7 +172,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	public String getPwd() {
 		return String.valueOf(txtContrasena.getPassword());
 	}
-	
+
 	public void actualizar() {
 		String resultado = miModelo.getResultado();
 		if (resultado.equals("Correcto")) {
@@ -183,8 +182,8 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		} else {
 			System.exit(0);
 		}
-		
+
 	}
-	//FIN
-	
+	// FIN
+
 }

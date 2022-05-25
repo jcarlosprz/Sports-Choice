@@ -15,11 +15,11 @@ public class Modelo {
 	private _8_Foro foro;
 	private _9_Eventos_Disponibles eventosDisponibles;
 	private _91_Crear_Evento crearEvento;
-	
-	//Añadido por javi
+
+
 	private String resultado;
 	private int fallos;
-	//FIN
+
 
 	// Atributos de la clase
 	private String bd = "proyecto";
@@ -27,6 +27,8 @@ public class Modelo {
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
+	private String usr;
+	private String pwdusr;
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -91,9 +93,9 @@ public class Modelo {
 		this.crearEvento = crearEvento;
 	}
 
-	//Añadido por javi
+	// Añadido por javi
 	public void login(String usr, String pwd) {
-		if (this.usr.equals(usr) && this.pwd.equals(pwd)) {
+		if (this.usr.equals(usr) && this.pwdusr.equals(pwd)) {
 			resultado = "Correcto";
 			fallos = 0;
 		} else {
@@ -109,6 +111,6 @@ public class Modelo {
 	public String getResultado() {
 		return this.resultado;
 	}
-	//fin
-	
+	// fin
+
 }

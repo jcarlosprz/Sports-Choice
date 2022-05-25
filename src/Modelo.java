@@ -97,9 +97,12 @@ public class Modelo {
 		this.crearEvento = crearEvento;
 	}
 
+	public String getResultado() {
+		return this.resultado;
+	}
+
 	public String Consulta(String query, String usr, String nombreColumna) {
 		String aux = "";
-		System.out.println("consula metodo");
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(query);
 			pstmt.setString(1, usr);
@@ -124,24 +127,25 @@ public class Modelo {
 		this.rol = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "rol");
 		System.out.println("Atributos: " + this.usr + " " + this.pwdusr);
 		System.out.println("Locales: " + usr + " " + pwd);
-		
-		System.out.println(rol);
-		
-		if (this.usr.equals(usr) && this.pwdusr.equals(pwd)) {
-            resultado = "Correcto";
-            fallos = 0;
-           bienvenida.actualizar(rol);	
-        } else {
-            fallos++; 
-            if(fallos == 3) {
-                resultado = "Cerrar";
-            }else
-                resultado =  "Incorrecto";
-        }
-    }
 
-	public String getResultado() {
-		return this.resultado;
+		if (this.usr.equals(usr) && this.pwdusr.equals(pwd) && !this.usr.equals("") && !this.pwdusr.equals("")) {
+			resultado = "Correcto";
+			fallos = 0;
+			bienvenida.actualizar(rol);
+		} else {
+			fallos++;
+			if (fallos == 3) {
+				resultado = "Cerrar";
+				bienvenida.actualizar(rol);
+			} else {
+				if (usr.equals("") && pwd.equals("")) {
+					resultado = "Vacio";
+					bienvenida.actualizar(rol);
+				} else {
+				resultado = "Incorrecto";
+				bienvenida.actualizar(rol);
+				}
+			}
+		}
 	}
-
 }

@@ -14,19 +14,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.SystemColor;
 
 public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
-			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta;
+			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta, lblRespuesta;
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblRespuesta;
 
 	public _1_Bienvenido_a_SportsChoice() {
 		setResizable(false);
@@ -40,6 +40,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setBounds(0, 0, 856, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+
+		lblRespuesta = new JLabel("");
+		lblRespuesta.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblRespuesta.setForeground(Color.RED);
+		lblRespuesta.setBackground(Color.WHITE);
+		lblRespuesta.setBounds(267, 400, 357, 27);
+		panel.add(lblRespuesta);
 
 		btnAyuda = new JButton("");
 		btnAyuda.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
@@ -134,18 +141,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			}
 		});
 
-		btnLogin.setBounds(267, 427, 316, 59);
+		btnLogin.setBounds(267, 438, 316, 59);
 		panel.add(btnLogin);
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
-		
-		lblRespuesta = new JLabel("");
-		lblRespuesta.setBackground(Color.RED);
-		lblRespuesta.setBounds(346, 408, 171, 14);
-		panel.add(lblRespuesta);
 		// Fin
 	}
 
@@ -167,18 +169,21 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	public void actualizar(String rol) {
 		String resultado = miModelo.getResultado();
-
+		
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("administrador")) {
 				miControlador.cambiarPantalla(0, 1);
 			} else {
 				miControlador.cambiarPantalla(0, 5);
 			}
-		} else if (resultado.equals("Incorrecto")) {
-			lblRespuesta.setText("Usuario o contraseña incorrectos");
 		} else {
-			System.exit(0);
+			if (resultado.equals("Incorrecto")) {
+				lblRespuesta.setText("Usuario o contraseña incorrectos");
+			} else if (resultado.equals("Vacio")) {
+				lblRespuesta.setText("Campo usuario o contraseña vacíos");
+			} else {
+				System.exit(0);
+			}
 		}
-
 	}
 }

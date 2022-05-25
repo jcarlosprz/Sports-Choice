@@ -23,7 +23,7 @@ public class Modelo {
 	private int fallos;
 
 	// Atributos de la clase
-	private String bd = "proyecto_Integrador";
+	private String bd = "proyectoIntegrador";
 	private String login = "root";
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
@@ -122,9 +122,9 @@ public class Modelo {
 	}
 
 	public void login(String usr, String pwd) {
-		this.usr = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "nombre_usuario");
-		this.pwdusr = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "contraseña");
-		this.rol = Consulta("SELECT * FROM usuario WHERE nombre_usuario=?", usr, "rol");
+		this.usr = Consulta("SELECT * FROM users WHERE usr=?", usr, "usr");
+		this.pwdusr = Consulta("SELECT * FROM users WHERE usr=?", usr, "pwd");
+		this.rol = Consulta("SELECT * FROM users WHERE usr=?", usr, "rol");
 		System.out.println("Atributos: " + this.usr + " " + this.pwdusr);
 		System.out.println("Locales: " + usr + " " + pwd);
 

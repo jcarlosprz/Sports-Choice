@@ -15,6 +15,11 @@ public class Modelo {
 	private _8_Foro foro;
 	private _9_Eventos_Disponibles eventosDisponibles;
 	private _91_Crear_Evento crearEvento;
+	
+	//Añadido por javi
+	private String resultado;
+	private int fallos;
+	//FIN
 
 	// Atributos de la clase
 	private String bd = "proyecto";
@@ -86,4 +91,24 @@ public class Modelo {
 		this.crearEvento = crearEvento;
 	}
 
+	//Añadido por javi
+	public void login(String usr, String pwd) {
+		if (this.usr.equals(usr) && this.pwd.equals(pwd)) {
+			resultado = "Correcto";
+			fallos = 0;
+		} else {
+			fallos++;
+			if (fallos == 3) {
+				resultado = "Cerrar";
+			} else
+				resultado = "Incorrecto";
+		}
+		miVista.actualizar();
+	}
+
+	public String getResultado() {
+		return this.resultado;
+	}
+	//fin
+	
 }

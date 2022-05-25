@@ -23,6 +23,9 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin;
+	//Añadido javi
+	private JLabel lblRespuesta;
+	//FIN
 	
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -145,6 +148,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
+		
+		//Añadido javi
+		lblRespuesta = new JLabel("");
+		lblRespuesta.setForeground(Color.RED);
+		lblRespuesta.setBounds(60, 148, 212, 14);
+		getContentPane().add(lblRespuesta);
+		//Fin
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -155,4 +165,26 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		this.miModelo = miModelo;
 	}
 
+	//Añadido por javi
+	public String getUsr() {
+		return txtUsuario.getText();
+	}
+
+	public String getPwd() {
+		return String.valueOf(txtContrasena.getPassword());
+	}
+	
+	public void actualizar() {
+		String resultado = miModelo.getResultado();
+		if (resultado.equals("Correcto")) {
+			miControlador.bienvenida();
+		} else if (resultado.equals("Incorrecto")) {
+			lblRespuesta.setText("Usuario o contrasena incorrectos");
+		} else {
+			System.exit(0);
+		}
+		
+	}
+	//FIN
+	
 }

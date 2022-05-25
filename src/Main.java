@@ -62,5 +62,10 @@ public class Main {
 		crearEvento.setMiModelo(miModelo);
 
 		bienvenida.setVisible(true);
+		
+		
+		//La conexion 
+		Modelo conexion = new Modelo();
+
 	}
 }

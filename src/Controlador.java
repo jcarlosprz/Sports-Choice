@@ -43,8 +43,8 @@ public class Controlador {
 	}
 	
 	public void bienvenida() {
-		_1_Bienvenido_a_SportsChoice.setVisible(false);
-		_5_Hola_Nombre.setVisible(true);
+//		_1_Bienvenido_a_SportsChoice.setVisible(false);
+//		_5_Hola_Nombre.setVisible(true);
 	}
 	//FIN
 }

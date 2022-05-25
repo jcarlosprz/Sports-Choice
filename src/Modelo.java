@@ -16,7 +16,6 @@ public class Modelo {
 	private _9_Eventos_Disponibles eventosDisponibles;
 	private _91_Crear_Evento crearEvento;
 
-
 	private String resultado;
 	private int fallos;
 
@@ -93,7 +92,7 @@ public class Modelo {
 		this.crearEvento = crearEvento;
 	}
 
-	// Añadido por javi
+
 	public void login(String usr, String pwd) {
 		if (this.usr.equals(usr) && this.pwdusr.equals(pwd)) {
 			resultado = "Correcto";
@@ -105,12 +104,11 @@ public class Modelo {
 			} else
 				resultado = "Incorrecto";
 		}
-		miVista.actualizar();
+		bienvenida.actualizar();
 	}
 
 	public String getResultado() {
 		return this.resultado;
 	}
-	// fin
 
 }

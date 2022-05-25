@@ -23,9 +23,8 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin;
-	// Añadido javi
+
 	private JLabel lblRespuesta;
-	// FIN
 
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -164,7 +163,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	// Añadido por javi
 	public String getUsr() {
 		return txtUsuario.getText();
 	}
@@ -184,6 +182,5 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		}
 
 	}
-	// FIN
 
 }

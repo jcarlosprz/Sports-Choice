@@ -169,10 +169,32 @@ INSERT INTO deportes VALUES (null, 'Padel');
 
 -- INSERTAMOS EVENTOS:
 INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 1);
-INSERT INTO Eventos VALUES (null, '2022-10-14', '19:00', 'La Granadilla', 'Principiante', 2);
-INSERT INTO Eventos VALUES (null, '2022-11-12', '13:00', 'El Torreón', 'Medio', 3);
-INSERT INTO Eventos VALUES (null, '2022-10-20', '15:00', 'Enrique Blas', 'Avanzado', 4);
-INSERT INTO Eventos VALUES (null, '2022-11-18', '19:00', 'El Torreón', 'Medio', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 1);
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 1);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 1);
+
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 2);
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 2);
+
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 3);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 3);
+
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 4);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 4);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 4);
 
 -- INSERTAMOS FORO:
 INSERT INTO Foro VALUES (null, 1);

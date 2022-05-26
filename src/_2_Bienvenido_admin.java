@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +24,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
 import java.awt.event.WindowListener;
 
 public class _2_Bienvenido_admin extends JFrame {
@@ -144,6 +146,23 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
 
+		
+		
+		
+		
+
+		
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		scrollPane.setViewportView(table);
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				table.setModel(miModelo.getTabla());
+			}
+		});
 	}
 
 	public void setMiControlador(Controlador miControlador) {

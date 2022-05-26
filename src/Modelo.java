@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
+
 public class Modelo {
 
 	private _1_Bienvenido_a_SportsChoice bienvenida;
@@ -30,14 +31,15 @@ public class Modelo {
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
-
+	
+	
 	private String usr;
 	private String pwdusr;
 	private String rol;
 	private String estado;
-	// Consultas tablas
-	private DefaultTableModel miTabla;
-	private String sqlTable = "Select usr,nombre,apellidos, email from users";
+
+	private DefaultTableModel table;
+	private String sqlTablaAdmin= "Select usr, nombre, apellidos, email from users";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -55,7 +57,8 @@ public class Modelo {
 			System.out.println(" -> Error general de conexión \n");
 			e.printStackTrace();
 		}
-		cargarTabla();
+		cargarTabla2();
+
 	}
 
 	public void setBienvenida(_1_Bienvenido_a_SportsChoice bienvenida) {
@@ -148,37 +151,37 @@ public class Modelo {
 			}
 		}
 	}
-
-	private void cargarTabla() {
-		miTabla = new DefaultTableModel();
-		int numColumnas = getNumColumnas(sqlTable);
+	
+	private void cargarTabla2() {
+		table = new DefaultTableModel();
+		int numColumnas = getNumColumnas(sqlTablaAdmin);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
-			pstmt = conexion.prepareStatement(sqlTable);
+			pstmt = conexion.prepareStatement(sqlTablaAdmin);
 			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = (ResultSetMetaData) rset.getMetaData();
+			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
-				miTabla.addColumn(rsmd.getColumnName(i + 1));
+				table.addColumn(rsmd.getColumnName(i+1));
 			}
 			while (rset.next()) {
 				for (int col = 1; col <= numColumnas; col++) {
 					contenido[col - 1] = rset.getString(col);
 				}
-				miTabla.addRow(contenido);
+				table.addRow(contenido);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
 	}
-
+	
 	private int getNumColumnas(String sql) {
 		int num = 0;
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
 			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = (ResultSetMetaData) rset.getMetaData();
+			ResultSetMetaData rsmd = rset.getMetaData();
 			num = rsmd.getColumnCount();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -200,6 +203,8 @@ public class Modelo {
 	}
 
 	public DefaultTableModel getTabla() {
-		return miTabla;
+		return table;
 	}
+
+
 }

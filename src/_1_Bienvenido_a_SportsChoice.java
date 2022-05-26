@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.SystemColor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
@@ -42,10 +44,10 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setLayout(null);
 
 		lblRespuesta = new JLabel("");
-		lblRespuesta.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblRespuesta.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblRespuesta.setForeground(Color.RED);
 		lblRespuesta.setBackground(Color.WHITE);
-		lblRespuesta.setBounds(267, 400, 357, 27);
+		lblRespuesta.setBounds(308, 400, 316, 27);
 		panel.add(lblRespuesta);
 
 		btnAyuda = new JButton("");
@@ -112,6 +114,16 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.add(lblNombreUsuario);
 
 		txtUsuario = new JTextField();
+		txtUsuario.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (txtUsuario.getText().isEmpty()|| String.valueOf(txtContrasena.getPassword()).isEmpty() ) {
+                    btnLogin.setEnabled(false);
+                } else {
+                    btnLogin.setEnabled(true);
+                }
+			}
+		});
 		txtUsuario.setBorder(null);
 		txtUsuario.setBounds(267, 263, 316, 40);
 		panel.add(txtUsuario);
@@ -123,32 +135,37 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.add(lblContrasena);
 
 		txtContrasena = new JPasswordField();
+		txtContrasena.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (txtUsuario.getText().isEmpty() || String.valueOf(txtContrasena.getPassword()).isEmpty() ) {
+                    btnLogin.setEnabled(false);
+                } else {
+                    btnLogin.setEnabled(true);
+                }
+			}
+		});
 		txtContrasena.setBorder(null);
 		txtContrasena.setColumns(10);
 		txtContrasena.setBounds(267, 330, 316, 40);
 		panel.add(txtContrasena);
 
 		btnLogin = new JButton("LOGIN");
+		btnLogin.setEnabled(false);
 		btnLogin.setBorder(null);
 		btnLogin.setBackground(new Color(176, 196, 222));
 		btnLogin.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent e) {
-				miControlador.login(txtUsuario.getText(), String.valueOf(txtContrasena.getPassword()));
+	public void actionPerformed(ActionEvent e) {
+		miControlador.login(txtUsuario.getText(), String.valueOf(txtContrasena.getPassword()));
+	}
 
-			}
-		});
+	});
 
-		btnLogin.setBounds(267, 438, 316, 59);
-		panel.add(btnLogin);
-		lblFondo = new JLabel("");
-		lblFondo.setIcon(
-				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
-		lblFondo.setBounds(156, 48, 801, 626);
-		panel.add(lblFondo);
-		// Fin
+	btnLogin.setBounds(267,438,316,59);panel.add(btnLogin);lblFondo=new JLabel("");lblFondo.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));lblFondo.setBounds(156,48,801,626);panel.add(lblFondo);
+	// Fin
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -169,7 +186,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	public void actualizar(String rol) {
 		String resultado = miModelo.getResultado();
-		
+
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("administrador")) {
 				miControlador.cambiarPantalla(0, 1);

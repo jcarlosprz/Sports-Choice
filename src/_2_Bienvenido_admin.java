@@ -14,6 +14,9 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+
+import com.mysql.cj.xdevapi.Table;
+
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Component;
@@ -21,6 +24,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import java.awt.event.WindowListener;
 
 public class _2_Bienvenido_admin extends JFrame {
 
@@ -63,7 +68,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if(table.getSelectedRow() == -1) {
+				if (table.getSelectedRow() == -1) {
 					btnBloquear.setEnabled(false);
 					btnDesbloquear.setEnabled(false);
 				} else {
@@ -71,9 +76,19 @@ public class _2_Bienvenido_admin extends JFrame {
 					btnDesbloquear.setEnabled(true);
 				}
 			}
+
 		});
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				table.setModel(miModelo.getTabla());
+			}
+		});
+
+		scrollPane.setViewportView(table);
+
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		table.setDefaultRenderer(String.class, centerRenderer);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
@@ -84,31 +99,8 @@ public class _2_Bienvenido_admin extends JFrame {
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
-		table.setModel(new DefaultTableModel(
-				new Object[][] { { "JPS", "Jaime", "P\u00E9rez S\u00E1nchez", "japesa@hotmail.com" },
-						{ "DGP", "Daniel", "Gonz\u00E1lez P\u00E9rez", "dangonper@hotmail.com" },
-						{ "JPR", "Jos\u00E9", "Pascual Rodr\u00EDguez", "joparo@gmail.com" },
-						{ "IMG", "In\u00E9s", "Mart\u00EDnez Guti\u00E9rrez", "inmargut@gmail.com" },
-						{ "RRM", "Rodrigo", "Rodr\u00EDguez Moreno", "rodromo@gmail.com" },
-						{ "MSE", "Mar\u00EDa", "Salda\u00F1a Espinosa", "masalesp@yahoo.es" },
-						{ "MBC", "Manuel", "Berbis Campos", "manberca@gmail.com" },
-						{ "PFO", "Pedro", "Flores Ortiz", "peflortiz@yahoo.es" },
-						{ "SBP", "Susana", "Ben\u00EDte Prado", "subepra@gmail.com" },
-						{ "CAE", "Clara", "Alonso Espina", "clalonespi@yahoo.es" },
-						{ "NSF", "Nacho", "S\u00E1nchez Fern\u00E1ndez", "nasafer@hotmail.com" }, },
-				new String[] { "Nickname", "Nombre", "Apellidos", "E-mail" }) {
-			Class[] columnTypes = new Class[] { String.class, String.class, String.class, String.class };
-
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(110); // Nickname
-		table.getColumnModel().getColumn(1).setPreferredWidth(120); // Nombre
-		table.getColumnModel().getColumn(2).setPreferredWidth(160); // Apellidos
-		table.getColumnModel().getColumn(3).setPreferredWidth(330); // Email
+	
 		scrollPane.setViewportView(table);
-
 		btnDesbloquear = new JButton("DESBLOQUEAR");
 		btnDesbloquear.setEnabled(false);
 		btnDesbloquear.setBorder(null);
@@ -117,7 +109,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnDesbloquear.setBounds(627, 589, 162, 56);
 		btnDesbloquear.setBackground(new Color(176, 196, 222));
 		panel.add(btnDesbloquear);
-
 		btnBloquear = new JButton("BLOQUEAR");
 		btnBloquear.setEnabled(false);
 		btnBloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -141,7 +132,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnLogOut);
 
 		JLabel lblFondo = new JLabel("");
-		
+
 		lblFondo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -150,7 +141,7 @@ public class _2_Bienvenido_admin extends JFrame {
 				table.clearSelection();
 			}
 		});
-		
+
 		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);

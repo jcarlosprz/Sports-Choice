@@ -169,10 +169,32 @@ INSERT INTO deportes VALUES (null, 'Padel');
 
 -- INSERTAMOS EVENTOS:
 INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 1);
-INSERT INTO Eventos VALUES (null, '2022-10-14', '19:00', 'La Granadilla', 'Principiante', 2);
-INSERT INTO Eventos VALUES (null, '2022-11-12', '13:00', 'El Torreón', 'Medio', 3);
-INSERT INTO Eventos VALUES (null, '2022-10-20', '15:00', 'Enrique Blas', 'Avanzado', 4);
-INSERT INTO Eventos VALUES (null, '2022-11-18', '19:00', 'El Torreón', 'Medio', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 1);
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 1);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 1);
+
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 2);
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 2);
+
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 3);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 3);
+
+INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 4);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 4);
+INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 4);
 
 -- INSERTAMOS FORO:
 INSERT INTO Foro VALUES (null, 1);
@@ -185,8 +207,10 @@ INSERT INTO Mensaje VALUES (null, 'Nos vemos allí a las 18:00', 1, 'JCMUÑ');
 -- INSTRUCCIONES NECESARIAS POR CADA PANTALLA DE LA APP:
 
 -- BIENVENIDO:
-select usr, pwd from users where usr = 'DGP' && pwd = 'dangonper' && estado = 'activo'; -- OK
-select usr, pwd from users where usr = 'DGP' && pwd = 'dangonperez' && estado = 'activo'; -- ERROR
+-- A continuación se muestran las SELECT necesarias para recoger y posteriormente comparar los datos:
+-- 'SELECT usr FROM users WHERE usr=?', usr, "usr"
+-- 'SELECT pwd FROM users WHERE usr=?', usr, "pwd"
+-- 'SELECT rol FROM users WHERE usr=?', usr, "rol"
 
 -- BINEVENIDO ADMIN:
 update users set estado = 'inactivo' where usr = 'JPR'; -- Ejemplo 'JPR'. Dejariamos bloqueado a este usuario.

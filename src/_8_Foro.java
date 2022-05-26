@@ -94,9 +94,9 @@ public class _8_Foro extends JFrame {
 		txtEscribeAqui = new JTextField();
 		txtEscribeAqui.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
+			public void keyReleased(KeyEvent e) {
 				
-				if (txtEscribeAqui.getText().equals("")) {
+				if (txtEscribeAqui.getText().isEmpty()) {
 					btnEnviar.setEnabled(false);
 				} else {
 					btnEnviar.setEnabled(true);

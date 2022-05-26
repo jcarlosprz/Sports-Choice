@@ -116,8 +116,8 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		txtUsuario = new JTextField();
 		txtUsuario.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
-				if (txtUsuario.getText().length() == 0 || String.valueOf(txtContrasena.getPassword()).length() == 0 ) {
+			public void keyReleased(KeyEvent e) {
+				if (txtUsuario.getText().isEmpty()|| String.valueOf(txtContrasena.getPassword()).isEmpty() ) {
                     btnLogin.setEnabled(false);
                 } else {
                     btnLogin.setEnabled(true);
@@ -137,8 +137,8 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		txtContrasena = new JPasswordField();
 		txtContrasena.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyTyped(KeyEvent e) {
-				if (txtUsuario.getText().length() == 0 || String.valueOf(txtContrasena.getPassword()).length() == 0 ) {
+			public void keyReleased(KeyEvent e) {
+				if (txtUsuario.getText().isEmpty() || String.valueOf(txtContrasena.getPassword()).isEmpty() ) {
                     btnLogin.setEnabled(false);
                 } else {
                     btnLogin.setEnabled(true);

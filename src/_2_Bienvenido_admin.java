@@ -145,17 +145,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
-
-		
-		
-		
-		
-
-		
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-		scrollPane.setViewportView(table);
 		
 		addWindowListener(new WindowAdapter() {
 			@Override

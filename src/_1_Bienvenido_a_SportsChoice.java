@@ -42,10 +42,10 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setLayout(null);
 
 		lblRespuesta = new JLabel("");
-		lblRespuesta.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblRespuesta.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblRespuesta.setForeground(Color.RED);
 		lblRespuesta.setBackground(Color.WHITE);
-		lblRespuesta.setBounds(267, 400, 357, 27);
+		lblRespuesta.setBounds(308, 400, 316, 27);
 		panel.add(lblRespuesta);
 
 		btnAyuda = new JButton("");

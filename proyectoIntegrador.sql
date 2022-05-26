@@ -185,8 +185,10 @@ INSERT INTO Mensaje VALUES (null, 'Nos vemos allí a las 18:00', 1, 'JCMUÑ');
 -- INSTRUCCIONES NECESARIAS POR CADA PANTALLA DE LA APP:
 
 -- BIENVENIDO:
-select usr, pwd from users where usr = 'DGP' && pwd = 'dangonper' && estado = 'activo'; -- OK
-select usr, pwd from users where usr = 'DGP' && pwd = 'dangonperez' && estado = 'activo'; -- ERROR
+-- A continuación se muestran las SELECT necesarias para recoger y posteriormente comparar los datos:
+-- 'SELECT usr FROM users WHERE usr=?', usr, "usr"
+-- 'SELECT pwd FROM users WHERE usr=?', usr, "pwd"
+-- 'SELECT rol FROM users WHERE usr=?', usr, "rol"
 
 -- BINEVENIDO ADMIN:
 update users set estado = 'inactivo' where usr = 'JPR'; -- Ejemplo 'JPR'. Dejariamos bloqueado a este usuario.

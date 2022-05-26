@@ -90,14 +90,13 @@ public class _2_Bienvenido_admin extends JFrame {
 		table.setDefaultRenderer(String.class, centerRenderer);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.setShowVerticalLines(false);
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setIntercellSpacing(new Dimension(0, 0));
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
-	
 		scrollPane.setViewportView(table);
 		btnDesbloquear = new JButton("DESBLOQUEAR");
 		btnDesbloquear.setEnabled(false);
@@ -107,6 +106,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnDesbloquear.setBounds(627, 589, 162, 56);
 		btnDesbloquear.setBackground(new Color(176, 196, 222));
 		panel.add(btnDesbloquear);
+
 		btnBloquear = new JButton("BLOQUEAR");
 		btnBloquear.setEnabled(false);
 		btnBloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

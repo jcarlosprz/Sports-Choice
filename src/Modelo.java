@@ -106,20 +106,17 @@ public class Modelo {
 		return this.resultado;
 	}
 
-	public String Consulta(String query, String usr, String nombreColumna) {
+	public String LoginSQL(String query, String usr, String nombreColumna) {
 		String aux = "";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(query);
 			pstmt.setString(1, usr);
 			ResultSet rset = pstmt.executeQuery();
-			while (rset.next()) {
+			if (rset.next()) {
 				aux = rset.getString(nombreColumna);
-				System.out.println("While");
-				System.out.println(aux);
 			}
 			rset.close();
 			pstmt.close();
-
 		} catch (SQLException s) {
 			s.printStackTrace();
 		}
@@ -127,11 +124,9 @@ public class Modelo {
 	}
 
 	public void login(String usr, String pwd) {
-		this.usr = Consulta("SELECT * FROM users WHERE usr=?", usr, "usr");
-		this.pwdusr = Consulta("SELECT * FROM users WHERE usr=?", usr, "pwd");
-		this.rol = Consulta("SELECT * FROM users WHERE usr=?", usr, "rol");
-		System.out.println("Atributos: " + this.usr + " " + this.pwdusr);
-		System.out.println("Locales: " + usr + " " + pwd);
+		this.usr = LoginSQL("SELECT usr FROM users WHERE usr=?", usr, "usr");
+		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
+		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 
 		if (this.usr.equals(usr) && this.pwdusr.equals(pwd) && !this.usr.equals("") && !this.pwdusr.equals("")) {
 			resultado = "Correcto";

@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
-
 public class Modelo {
 
 	private _1_Bienvenido_a_SportsChoice bienvenida;
@@ -31,15 +30,14 @@ public class Modelo {
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
-	
-	
+
 	private String usr;
 	private String pwdusr;
 	private String rol;
 	private String estado;
 
 	private DefaultTableModel table;
-	private String sqlTablaAdmin= "Select usr, nombre, apellidos, email from users";
+	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email from users";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -141,17 +139,13 @@ public class Modelo {
 				resultado = "Cerrar";
 				bienvenida.actualizar(rol);
 			} else {
-				if (usr.equals("") && pwd.equals("")) {
-					resultado = "Vacio";
-					bienvenida.actualizar(rol);
-				} else {
-					resultado = "Incorrecto";
-					bienvenida.actualizar(rol);
-				}
+				resultado = "Incorrecto";
+				bienvenida.actualizar(rol);
 			}
 		}
+
 	}
-	
+
 	private void cargarTabla2() {
 		table = new DefaultTableModel();
 		int numColumnas = getNumColumnas(sqlTablaAdmin);
@@ -162,7 +156,7 @@ public class Modelo {
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
-				table.addColumn(rsmd.getColumnName(i+1));
+				table.addColumn(rsmd.getColumnName(i + 1));
 			}
 			while (rset.next()) {
 				for (int col = 1; col <= numColumnas; col++) {
@@ -173,9 +167,9 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	private int getNumColumnas(String sql) {
 		int num = 0;
 		try {
@@ -205,6 +199,5 @@ public class Modelo {
 	public DefaultTableModel getTabla() {
 		return table;
 	}
-
 
 }

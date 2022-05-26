@@ -117,11 +117,11 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		txtUsuario.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (txtUsuario.getText().isEmpty()|| String.valueOf(txtContrasena.getPassword()).isEmpty() ) {
-                    btnLogin.setEnabled(false);
-                } else {
-                    btnLogin.setEnabled(true);
-                }
+				if (txtUsuario.getText().isEmpty() || String.valueOf(txtContrasena.getPassword()).isEmpty()) {
+					btnLogin.setEnabled(false);
+				} else {
+					btnLogin.setEnabled(true);
+				}
 			}
 		});
 		txtUsuario.setBorder(null);
@@ -138,11 +138,11 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		txtContrasena.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (txtUsuario.getText().isEmpty() || String.valueOf(txtContrasena.getPassword()).isEmpty() ) {
-                    btnLogin.setEnabled(false);
-                } else {
-                    btnLogin.setEnabled(true);
-                }
+				if (txtUsuario.getText().isEmpty() || String.valueOf(txtContrasena.getPassword()).isEmpty()) {
+					btnLogin.setEnabled(false);
+				} else {
+					btnLogin.setEnabled(true);
+				}
 			}
 		});
 		txtContrasena.setBorder(null);
@@ -158,14 +158,20 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.addActionListener(new ActionListener() {
 
-	public void actionPerformed(ActionEvent e) {
-		miControlador.login(txtUsuario.getText(), String.valueOf(txtContrasena.getPassword()));
-	}
+			public void actionPerformed(ActionEvent e) {
+				miControlador.login(txtUsuario.getText(), String.valueOf(txtContrasena.getPassword()));
+			}
 
-	});
+		});
 
-	btnLogin.setBounds(267,438,316,59);panel.add(btnLogin);lblFondo=new JLabel("");lblFondo.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));lblFondo.setBounds(156,48,801,626);panel.add(lblFondo);
-	// Fin
+		btnLogin.setBounds(267, 438, 316, 59);
+		panel.add(btnLogin);
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(
+				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
+		lblFondo.setBounds(156, 48, 801, 626);
+		panel.add(lblFondo);
+		// Fin
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -196,8 +202,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		} else {
 			if (resultado.equals("Incorrecto")) {
 				lblRespuesta.setText("Usuario o contraseña incorrectos");
-			} else if (resultado.equals("Vacio")) {
-				lblRespuesta.setText("Campo usuario o contraseña vacíos");
 			} else {
 				System.exit(0);
 			}

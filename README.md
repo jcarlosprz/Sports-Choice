@@ -96,7 +96,7 @@ Puedes encontrar mucho más acerca de Eclipse y Window Builder en los siguientes
 * **Álaro Pérez Rivas** 
 * **Javier Guerra Grange** 
 * **Pedro González López**
-* **Juan Carlosp Pérez Romero**
+* **Juan Carlos Pérez Romero**
 * **Jaime Martí Moreno**
 
 ## Expresiones de Gratitud 🎁

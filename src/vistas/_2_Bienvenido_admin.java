@@ -125,7 +125,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut = new JButton("LOG OUT");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				miControlador.cambiarPantalla(1, 0);
 			}
 		});
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

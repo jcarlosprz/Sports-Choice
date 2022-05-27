@@ -158,7 +158,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnLogOut = new JButton("LOG OUT");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				miControlador.cambiarPantalla(5, 0);
 			}
 		});
 		btnLogOut.setBorder(null);

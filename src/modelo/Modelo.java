@@ -120,8 +120,12 @@ public class Modelo {
 	public String getResultado() {
 		return this.resultado;
 	}
+	
+	public String getRol() {
+		return rol;
+	}	
 
-	public String LoginSQL(String query, String usr, String nombreColumna) {
+	private String LoginSQL(String query, String usr, String nombreColumna) {
 		String aux = "";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(query);
@@ -146,15 +150,15 @@ public class Modelo {
 		if (this.usr.equals(usr) && this.pwdusr.equals(pwd) && !this.usr.equals("") && !this.pwdusr.equals("")) {
 			resultado = "Correcto";
 			fallos = 0;
-			bienvenida.actualizar(rol);
+			bienvenida.actualizar();
 		} else {
 			fallos++;
 			if (fallos == 3) {
 				resultado = "Cerrar";
-				bienvenida.actualizar(rol);
+				bienvenida.actualizar();
 			} else {
 				resultado = "Incorrecto";
-				bienvenida.actualizar(rol);
+				bienvenida.actualizar();
 			}
 		}
 

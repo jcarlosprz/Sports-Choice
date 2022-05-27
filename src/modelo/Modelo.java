@@ -1,4 +1,5 @@
 package modelo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -50,7 +51,7 @@ public class Modelo {
 	private String estado;
 
 	private DefaultTableModel table;
-	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email from users";
+	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email from users WHERE rol='usuario'";
 
 	// Constructor que crea la conexion
 	public Modelo() {

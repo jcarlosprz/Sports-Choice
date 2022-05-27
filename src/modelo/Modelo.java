@@ -51,6 +51,7 @@ public class Modelo {
 
 	private DefaultTableModel table;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email from users";
+	private String sqlTablaMensajes = "Select usr, mensaje from mensaje";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -68,7 +69,8 @@ public class Modelo {
 			System.out.println(" -> Error general de conexión \n");
 			e.printStackTrace();
 		}
-		cargarTabla2();
+		cargarTabla2(sqlTablaAdmin);
+		cargarTabla2(sqlTablaMensajes);
 
 	}
 
@@ -159,13 +161,13 @@ public class Modelo {
 
 	}
 
-	private void cargarTabla2() {
+	private void cargarTabla2(String tabla) {
 		table = new DefaultTableModel();
-		int numColumnas = getNumColumnas(sqlTablaAdmin);
+		int numColumnas = getNumColumnas(tabla);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
-			pstmt = conexion.prepareStatement(sqlTablaAdmin);
+			pstmt = conexion.prepareStatement(tabla);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {

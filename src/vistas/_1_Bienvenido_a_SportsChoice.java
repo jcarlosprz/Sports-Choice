@@ -164,7 +164,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				miControlador.login(txtUsuario.getText(), String.valueOf(txtContrasena.getPassword()));
+				miControlador.login();
 			}
 
 		});
@@ -195,8 +195,9 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		return String.valueOf(txtContrasena.getPassword());
 	}
 
-	public void actualizar(String rol) {
+	public void actualizar() {
 		String resultado = miModelo.getResultado();
+		String rol = miModelo.getRol();
 
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("administrador")) {
@@ -207,6 +208,9 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		} else {
 			if (resultado.equals("Incorrecto")) {
 				lblRespuesta.setText("Usuario o contraseña incorrectos");
+				txtContrasena.setText("");
+				txtUsuario.setText("");
+				btnLogin.setEnabled(false);
 			} else {
 				System.exit(0);
 			}

@@ -1,3 +1,4 @@
+package VISTAS;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,6 +17,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.mysql.cj.xdevapi.Table;
+
+import Controlador.Controlador;
+import Modelo.Modelo;
 
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;

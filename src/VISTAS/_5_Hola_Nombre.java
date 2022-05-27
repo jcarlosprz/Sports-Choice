@@ -1,6 +1,11 @@
+package VISTAS;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import Controlador.Controlador;
+import Modelo.Modelo;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;

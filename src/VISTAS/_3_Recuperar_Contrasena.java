@@ -1,3 +1,4 @@
+package VISTAS;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -6,6 +7,10 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JTextField;
+
+import Controlador.Controlador;
+import Modelo.Modelo;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -55,7 +60,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		lblRecuperarContrasena.setBounds(229, 21, 376, 60);
 		panel.add(lblRecuperarContrasena);
 
-		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
+		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el codigo para crear una nueva contraseï¿½a:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceEmail.setBounds(175, 163, 549, 26);
 		panel.add(lblIntroduceEmail);

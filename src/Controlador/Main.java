@@ -1,4 +1,18 @@
+package Controlador;
 import javax.swing.JFrame;
+
+import Modelo.Modelo;
+import VISTAS._1_Bienvenido_a_SportsChoice;
+import VISTAS._2_Bienvenido_admin;
+import VISTAS._2_Registrarse;
+import VISTAS._3_Recuperar_Contrasena;
+import VISTAS._4_Nueva_Contrasena;
+import VISTAS._5_Hola_Nombre;
+import VISTAS._6_Tu_perfil;
+import VISTAS._7_Mis_Eventos;
+import VISTAS._8_Foro;
+import VISTAS._91_Crear_Evento;
+import VISTAS._9_Eventos_Disponibles;
 
 public class Main {
 

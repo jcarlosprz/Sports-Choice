@@ -1,3 +1,4 @@
+package VISTAS;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,6 +20,10 @@ import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
 import com.toedter.calendar.JCalendar;
+
+import Controlador.Controlador;
+import Modelo.Modelo;
+
 import javax.swing.border.LineBorder;
 
 public class _91_Crear_Evento extends JFrame {
@@ -89,7 +94,7 @@ public class _91_Crear_Evento extends JFrame {
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/pregunta-32x32.png")));
-		// Hacen que el botón sea transparente.
+		// Hacen que el botï¿½n sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);

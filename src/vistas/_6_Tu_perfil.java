@@ -1,4 +1,4 @@
-package VISTAS;
+package vistas;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,8 +13,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
 
-import Controlador.Controlador;
-import Modelo.Modelo;
+import controlador.Controlador;
+import modelo.Modelo;
 
 public class _6_Tu_perfil extends JFrame {
 

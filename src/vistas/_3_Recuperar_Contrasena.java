@@ -1,4 +1,4 @@
-package VISTAS;
+package vistas;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,8 +8,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JTextField;
 
-import Controlador.Controlador;
-import Modelo.Modelo;
+import controlador.Controlador;
+import modelo.Modelo;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

@@ -1,4 +1,5 @@
 package modelo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,9 +50,9 @@ public class Modelo {
 	private String rol;
 	private String estado;
 
+
 	private DefaultTableModel table;
-	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email from users";
-	private String sqlTablaMensajes = "Select usr, mensaje from mensaje";
+	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -69,8 +70,8 @@ public class Modelo {
 			System.out.println(" -> Error general de conexión \n");
 			e.printStackTrace();
 		}
-		cargarTabla2(sqlTablaAdmin);
-		cargarTabla2(sqlTablaMensajes);
+
+		tablaAdmin();
 
 	}
 
@@ -122,7 +123,15 @@ public class Modelo {
 		return this.resultado;
 	}
 
-	public String LoginSQL(String query, String usr, String nombreColumna) {
+	public String getRol() {
+		return rol;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	private String LoginSQL(String query, String usr, String nombreColumna) {
 		String aux = "";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(query);
@@ -143,31 +152,41 @@ public class Modelo {
 		this.usr = LoginSQL("SELECT usr FROM users WHERE usr=?", usr, "usr");
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
+		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
 
-		if (this.usr.equals(usr) && this.pwdusr.equals(pwd) && !this.usr.equals("") && !this.pwdusr.equals("")) {
-			resultado = "Correcto";
-			fallos = 0;
-			bienvenida.actualizar(rol);
-		} else {
+		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
 				resultado = "Cerrar";
-				bienvenida.actualizar(rol);
+				bienvenida.actualizar();
 			} else {
-				resultado = "Incorrecto";
-				bienvenida.actualizar(rol);
+				bienvenida.inactivoError();
+			}
+		} else {
+			if (this.usr.equals(usr) && this.pwdusr.equals(pwd)) {
+				resultado = "Correcto";
+				fallos = 0;
+				bienvenida.actualizar();
+			} else {
+				fallos++;
+				if (fallos == 3) {
+					resultado = "Cerrar";
+					bienvenida.actualizar();
+				} else {
+					resultado = "Incorrecto";
+					bienvenida.actualizar();
+				}
 			}
 		}
-
 	}
 
-	private void cargarTabla2(String tabla) {
+	private void tablaAdmin() {
 		table = new DefaultTableModel();
-		int numColumnas = getNumColumnas(tabla);
+		int numColumnas = getNumColumnas(sqlTablaAdmin);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
-			pstmt = conexion.prepareStatement(tabla);
+			pstmt = conexion.prepareStatement(sqlTablaAdmin);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {

@@ -194,6 +194,13 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	public String getPwd() {
 		return String.valueOf(txtContrasena.getPassword());
 	}
+	
+	public void inactivoError() {
+		lblRespuesta.setText("Este usuario está bloqueado");
+		txtContrasena.setText("");
+		txtUsuario.setText("");
+		btnLogin.setEnabled(false);
+	}
 
 	public void actualizar() {
 		String resultado = miModelo.getResultado();
@@ -216,4 +223,5 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			}
 		}
 	}
+	
 }

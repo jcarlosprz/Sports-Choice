@@ -102,7 +102,7 @@ ON UPDATE CASCADE ON DELETE CASCADE
 
 -- INSERTAMOS DATOS DE USUARIOS:
 INSERT INTO users VALUES ('DGP', 'Daniel','González Pérez','656345678','dangonper@hotmail.com','Villalba','1997-03-20', 'usuario', 'dangonper', 'activo', null);
-INSERT INTO users VALUES ('JPR','José','Pascual Rodríguez','658902345','joparod@gmail.com','Galapagar','1990-07-13','usuario', 'joparod', 'activo', null);
+INSERT INTO users VALUES ('JPR','José','Pascual Rodríguez','658902345','joparod@gmail.com','Galapagar','1990-07-13','usuario', 'joparod', 'inactivo', null);
 INSERT INTO users VALUES ('IMG','Inés','Martínez Gutiérrez','656882675','inmargut@gmail.com','Las Rozas','1992-12-03', 'usuario', 'inmargut', 'activo', null);
 INSERT INTO users VALUES ('RRM','Rodrigo','Rodríguez Moreno','659382245','rodromo@gmail.com','Torrelodones','1995-08-23', 'usuario', 'rodromo', 'activo', null);
 INSERT INTO users VALUES ('MSE','María','Saldaña Espinosa','651923490','masalesp@yahoo.es','Villalba','2000-02-02', 'usuario', 'masalesp', 'activo', null);
@@ -213,8 +213,8 @@ INSERT INTO Mensaje VALUES (null, 'Nos vemos allí a las 18:00', 1, 'JCMUÑ');
 -- 'SELECT rol FROM users WHERE usr=?', usr, "rol"
 
 -- BINEVENIDO ADMIN:
-update users set estado = 'inactivo' where usr = 'JPR'; -- Ejemplo 'JPR'. Dejariamos bloqueado a este usuario.
-update users set estado = 'activo' where usr = 'JPR'; -- Ejemplo 'JPR'. Volveríamos a dejar activo a este usuario.
+update users set estado = 'inactivo' where usr = 'IMG'; -- Ejemplo 'JPR'. Dejariamos bloqueado a este usuario.
+update users set estado = 'activo' where usr = 'IMG'; -- Ejemplo 'JPR'. Volveríamos a dejar activo a este usuario.
 
 -- REGISTRARSE:
 select usr from users where usr = 'RPSANT'; -- Comprueba si está el nickname 

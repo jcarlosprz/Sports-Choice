@@ -6,9 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
-
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Bienvenido_admin;
 import vistas._2_Registrarse;
@@ -49,9 +47,10 @@ public class Modelo {
 	private String pwdusr;
 	private String rol;
 	private String estado;
-
-	private DefaultTableModel table;
+	private DefaultTableModel tablaAdmin;
+	private DefaultTableModel tablaMisEventos;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
+	private String sqlTablaMisEventos = " Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -69,7 +68,8 @@ public class Modelo {
 			System.out.println(" -> Error general de conexión \n");
 			e.printStackTrace();
 		}
-		tablaAdmin();
+
+		
 
 	}
 
@@ -151,7 +151,7 @@ public class Modelo {
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
-
+System.out.println("LOGIN:"+this.usr);
 		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
@@ -165,6 +165,9 @@ public class Modelo {
 				resultado = "Correcto";
 				fallos = 0;
 				bienvenida.actualizar();
+				TablaAdmin();
+				TablaMisEventos();
+
 			} else {
 				fallos++;
 				if (fallos == 3) {
@@ -178,8 +181,9 @@ public class Modelo {
 		}
 	}
 
-	private void tablaAdmin() {
-		table = new DefaultTableModel();
+	private void TablaAdmin() {
+		tablaAdmin = new DefaultTableModel();
+
 		int numColumnas = getNumColumnas(sqlTablaAdmin);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
@@ -188,24 +192,64 @@ public class Modelo {
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
-				table.addColumn(rsmd.getColumnName(i + 1));
+				tablaAdmin.addColumn(rsmd.getColumnName(i + 1));
 			}
 			while (rset.next()) {
 				for (int col = 1; col <= numColumnas; col++) {
 					contenido[col - 1] = rset.getString(col);
 				}
-				table.addRow(contenido);
+				tablaAdmin.addRow(contenido);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
 
+	private void TablaMisEventos() {
+		tablaMisEventos = new DefaultTableModel();
+//usrregistro=MisEventosSQL(",usr2, "usr");
+		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
+			
+			pstmt.setString(1, usr);
+			System.out.println("METODO: "+usr);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaMisEventos.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaMisEventos.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			num = rsmd.getColumnCount();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	private int getNumColumnas2(String sql, String usr) {
+		int num = 0;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sql);
+			pstmt.setString(1, usr);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			num = rsmd.getColumnCount();
@@ -228,8 +272,11 @@ public class Modelo {
 		return numFilas;
 	}
 
-	public DefaultTableModel getTabla() {
-		return table;
+	public DefaultTableModel getTablaAdmin() {
+		return tablaAdmin;
 	}
 
+	public DefaultTableModel getTablaMisEventos() {
+		return tablaMisEventos;
+	}
 }

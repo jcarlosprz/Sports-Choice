@@ -38,6 +38,7 @@ public class Controlador {
 		String usr = ((_1_Bienvenido_a_SportsChoice)pantallas[0]).getUsr();
 		String pwd = ((_1_Bienvenido_a_SportsChoice)pantallas[0]).getPwd();
 		miModelo.login(usr,pwd);
+
 	}
 
 }

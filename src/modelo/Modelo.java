@@ -51,7 +51,7 @@ public class Modelo {
 	private String estado;
 
 	private DefaultTableModel table;
-	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users";
+	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 
 	// Constructor que crea la conexion
 	public Modelo() {

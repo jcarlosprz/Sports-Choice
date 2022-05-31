@@ -122,6 +122,7 @@ public class _7_Mis_Eventos extends JFrame {
 				table.setModel(miModelo.getTablaMisEventos());
 			}
 		});
+	
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
 		table.setDefaultRenderer(String.class, centerRenderer);

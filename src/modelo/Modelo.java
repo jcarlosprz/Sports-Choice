@@ -50,6 +50,7 @@ public class Modelo {
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
+	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
 
@@ -58,7 +59,8 @@ public class Modelo {
 
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
-
+	private String sqlForo ="Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
+	
 	// Constructor que crea la conexion
 	public Modelo() {
 		try {
@@ -172,6 +174,7 @@ public class Modelo {
 				bienvenida.actualizar();
 				TablaAdmin();
 				TablaMisEventos();
+				TablaForo();
 
 			} else {
 				fallos++;
@@ -332,6 +335,30 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+	public void TablaForo() {
+		tablaForo = new DefaultTableModel();
+
+		int numColumnas = getNumColumnas(sqlForo);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlForo);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaForo.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaForo.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
@@ -395,5 +422,8 @@ public class Modelo {
 
 	public String getSqlTablaEventosPadel() {
 		return sqlTablaEventosPadel;
+	}
+	public DefaultTableModel getTablaForo() {
+		return tablaForo;
 	}
 }

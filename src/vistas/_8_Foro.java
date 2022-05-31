@@ -82,7 +82,7 @@ public class _8_Foro extends JFrame {
 		table = new JTable();
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 
-		table.setRowHeight(100);
+		table.setRowHeight(50);
 		
 		scrollPane.setViewportView(table);
 

@@ -61,6 +61,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.TablaEventosFutbol();
 				miControlador.cambiarPantalla(5, 9);
 			}
 		});
@@ -77,6 +78,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnPadel = new JButton("");
 		btnPadel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.TablaEventosPadel();;
 				miControlador.cambiarPantalla(5, 9);
 			}
 		});
@@ -92,6 +94,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnTenis = new JButton("");
 		btnTenis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.TablaEventosTenis();
 				miControlador.cambiarPantalla(5, 9);
 			}
 		});

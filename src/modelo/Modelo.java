@@ -52,7 +52,12 @@ public class Modelo {
 	private DefaultTableModel tablaEventosBaloncesto;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
+
+	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
+
+	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
+	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -256,6 +261,78 @@ public class Modelo {
 		}
 	}
 
+	public void TablaEventosFutbol() {
+		tablaEventosBaloncesto = new DefaultTableModel();
+
+		int numColumnas = getNumColumnas(sqlTablaEventosFutbol);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTablaEventosFutbol);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaEventosBaloncesto.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void TablaEventosPadel() {
+		tablaEventosBaloncesto = new DefaultTableModel();
+
+		int numColumnas = getNumColumnas(sqlTablaEventosPadel);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTablaEventosPadel);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaEventosBaloncesto.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void TablaEventosTenis() {
+		tablaEventosBaloncesto = new DefaultTableModel();
+
+		int numColumnas = getNumColumnas(sqlTablaEventosTenis);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTablaEventosTenis);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaEventosBaloncesto.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private int getNumColumnas(String sql) {
 		int num = 0;
 		try {
@@ -306,5 +383,17 @@ public class Modelo {
 
 	public DefaultTableModel getTablaEventosBaloncesto() {
 		return tablaEventosBaloncesto;
+	}
+
+	public String getSqlTablaEventosFutbol() {
+		return sqlTablaEventosFutbol;
+	}
+
+	public String getSqlTablaEventosTenis() {
+		return sqlTablaEventosTenis;
+	}
+
+	public String getSqlTablaEventosPadel() {
+		return sqlTablaEventosPadel;
 	}
 }

@@ -122,7 +122,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				table.setModel(miModelo.getTablaEventosDisponibles());
+
 			}
 		});
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();

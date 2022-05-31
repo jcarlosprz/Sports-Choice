@@ -49,10 +49,10 @@ public class Modelo {
 	private String estado;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
-	private DefaultTableModel tablaEventosDisponibles;
+	private DefaultTableModel tablaEventosBaloncesto;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
-	private String sqlTablaMisEventos = " Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
-
+	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
+	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 
 	// Constructor que crea la conexion
 	public Modelo() {
@@ -232,6 +232,29 @@ public class Modelo {
 		}
 	}
 
+	public void TablaEventosBaloncesto() {
+		tablaEventosBaloncesto = new DefaultTableModel();
+
+		int numColumnas = getNumColumnas(sqlTablaEventosBaloncesto);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTablaEventosBaloncesto);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaEventosBaloncesto.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
@@ -279,5 +302,9 @@ public class Modelo {
 
 	public DefaultTableModel getTablaMisEventos() {
 		return tablaMisEventos;
+	}
+
+	public DefaultTableModel getTablaEventosBaloncesto() {
+		return tablaEventosBaloncesto;
 	}
 }

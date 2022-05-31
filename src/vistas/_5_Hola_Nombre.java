@@ -47,6 +47,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.TablaEventosBaloncesto();
 				miControlador.cambiarPantalla(5, 9);
 			}
 		});

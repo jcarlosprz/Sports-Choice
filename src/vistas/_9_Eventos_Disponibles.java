@@ -122,12 +122,13 @@ public class _9_Eventos_Disponibles extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-
+				table.setModel(miModelo.getTablaEventosBaloncesto());
 			}
 		});
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		table.setDefaultRenderer(String.class, centerRenderer);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setIntercellSpacing(new Dimension(0, 0));
@@ -137,7 +138,6 @@ public class _9_Eventos_Disponibles extends JFrame {
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 
-	
 		scrollPane.setViewportView(table);
 
 		btnUnirse = new JButton("UNIRSE");

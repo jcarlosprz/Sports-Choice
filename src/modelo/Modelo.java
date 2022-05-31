@@ -156,7 +156,7 @@ public class Modelo {
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
-		System.out.println("LOGIN:" + this.usr);
+//		System.out.println("LOGIN:" + this.usr);
 		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
@@ -221,7 +221,7 @@ public class Modelo {
 			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
 
 			pstmt.setString(1, usr);
-			System.out.println("METODO: " + usr);
+//			System.out.println("METODO: " + usr);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {

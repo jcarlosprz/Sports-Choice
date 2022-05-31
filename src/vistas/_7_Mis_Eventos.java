@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -114,6 +116,13 @@ public class _7_Mis_Eventos extends JFrame {
 				}
 			}
 		});
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				table.setModel(miModelo.getTablaMisEventos());
+			}
+		});
+	
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
 		table.setDefaultRenderer(String.class, centerRenderer);
@@ -128,32 +137,6 @@ public class _7_Mis_Eventos extends JFrame {
 		table.setShowVerticalLines(false);
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
-		table.setModel(new DefaultTableModel(
-				new Object[][] { { "Baloncesto", "Enrique Blas", "27/05/2022", "17:00", "Avanzado", "8" },
-						{ "Padel", "Galapagar Sports", "20/08/2022", "18:00", "Principiante", "4" },
-						{ "F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Medio", "11" },
-						{ "Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Avanzado", "2" },
-						{ "Padel", "Enrique Blas", "12/09/2022", "19:00", "Principiante", "4" },
-						{ "F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Avanzado", "8" },
-						{ "F\u00FAtbol", "El Torre\u00F3n", "03/08/2022", "16:00", "Medio", "12" },
-						{ "Tenis", "Principe Felipe", "28/08/2022", "17:00", "Avanzado", "4" },
-						{ "Baloncesto", "Gal-full Stadium", "10/08/2022", "16:00", "Medio", "12" },
-						{ "Baloncesto", "Enrique Blas", "03/05/2022", "19:00", "Medio", "12" },
-						{ "Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Principiante", null }, },
-				new String[] { "Deporte", "Polideportivo", "Fecha", "Hora", "Nivel", "N\u00BA Usuarios" }) {
-			Class[] columnTypes = new Class[] { String.class, String.class, String.class, String.class, String.class,
-					String.class };
-
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(59);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setPreferredWidth(63);
-		table.getColumnModel().getColumn(3).setPreferredWidth(37);
-		table.getColumnModel().getColumn(4).setPreferredWidth(62);
-		table.getColumnModel().getColumn(5).setPreferredWidth(68);
 		scrollPane.setViewportView(table);
 
 		btnIrAlForo = new JButton("IR AL FORO");

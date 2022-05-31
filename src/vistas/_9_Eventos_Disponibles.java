@@ -1,4 +1,5 @@
 package vistas;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,6 +12,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -34,7 +37,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblFondo;
-	
+
 	public _9_Eventos_Disponibles() {
 		setTitle("EVENTOS DISPONIBLES");
 		setResizable(false);
@@ -109,17 +112,23 @@ public class _9_Eventos_Disponibles extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if(table.getSelectedRow() == -1) {
+				if (table.getSelectedRow() == -1) {
 					btnUnirse.setEnabled(false);
 				} else {
 					btnUnirse.setEnabled(true);
 				}
 			}
-		});				
-		
+		});
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				table.setModel(miModelo.getTablaEventosBaloncesto());
+			}
+		});
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		table.setDefaultRenderer(String.class, centerRenderer);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setIntercellSpacing(new Dimension(0, 0));
@@ -128,38 +137,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		table.setShowVerticalLines(false);
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
-		table.setModel(new DefaultTableModel(
-				new Object[][] { { "Baloncesto", "Enrique Blas", "27/05/2022", "17:00", "Avanzado", "8" },
-						{ "Padel", "Galapagar Sports", "20/08/2022", "18:00", "Principiante", "4" },
-						{ "F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Medio", "11" },
-						{ "Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Avanzado", "2" },
-						{ "Padel", "Enrique Blas", "12/09/2022", "19:00", "Principiante", "4" },
-						{ "F\u00FAtbol", "La Granadilla", "03/05/2022", "17:00", "Avanzado", "8" },
-						{ "F\u00FAtbol", "El Torre\u00F3n", "03/08/2022", "16:00", "Medio", "12" },
-						{ "Tenis", "Principe Felipe", "28/08/2022", "17:00", "Avanzado", "4" },
-						{ "Baloncesto", "Gal-full Stadium", "10/08/2022", "16:00", "Medio", "12" },
-						{ "Baloncesto", "Enrique Blas", "03/05/2022", "19:00", "Medio", "12" },
-						{ "Tenis", "El Torre\u00F3n", "10/05/2022", "19:00", "Principiante", "4" }, },
-				new String[] { "Deporte", "Polideportivo", "Fecha", "Hora", "Nivel", "N\u00BA Usuarios" }) {
-			Class[] columnTypes = new Class[] { String.class, String.class, String.class, String.class, String.class,
-					String.class };
 
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-
-			boolean[] columnEditables = new boolean[] { false, true, true, true, true, true };
-
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(59);
-		table.getColumnModel().getColumn(1).setPreferredWidth(100);
-		table.getColumnModel().getColumn(2).setPreferredWidth(63);
-		table.getColumnModel().getColumn(3).setPreferredWidth(37);
-		table.getColumnModel().getColumn(4).setPreferredWidth(62);
-		table.getColumnModel().getColumn(5).setPreferredWidth(68);
 		scrollPane.setViewportView(table);
 
 		btnUnirse = new JButton("UNIRSE");
@@ -175,9 +153,9 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnUnirse.setBounds(240, 591, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));
 		panel.add(btnUnirse);
-		
+
 		lblFondo = new JLabel("");
-		
+
 		lblFondo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -185,12 +163,12 @@ public class _9_Eventos_Disponibles extends JFrame {
 				table.clearSelection();
 			}
 		});
-		
+
 		lblFondo.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-134, -10, 969, 693);
 		panel.add(lblFondo);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

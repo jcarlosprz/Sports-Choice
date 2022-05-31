@@ -85,7 +85,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				table.setModel(miModelo.getTabla());
+				table.setModel(miModelo.getTablaAdmin());
 			}
 		});
 
@@ -153,7 +153,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				table.setModel(miModelo.getTabla());
+				table.setModel(miModelo.getTablaAdmin());
 			}
 		});
 	}

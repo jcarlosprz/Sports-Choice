@@ -50,11 +50,6 @@ public class Modelo {
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosDisponibles;
-
-	public DefaultTableModel getTablaEventosDisponibles() {
-		return tablaEventosDisponibles;
-	}
-
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = " Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
 
@@ -237,33 +232,6 @@ public class Modelo {
 		}
 	}
 
-	public void ElegirDeporte(int codigoDeporte) {
-
-	}
-
-	private void TablaEventosDisponibles(String tabla) {
-		tablaEventosDisponibles = new DefaultTableModel();
-
-		int numColumnas = getNumColumnas(tabla);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(tabla);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaEventosDisponibles.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaEventosDisponibles.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
 
 	private int getNumColumnas(String sql) {
 		int num = 0;

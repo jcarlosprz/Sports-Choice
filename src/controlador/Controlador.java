@@ -1,20 +1,9 @@
 package controlador;
-import java.util.Iterator;
 
 import javax.swing.JFrame;
 
 import modelo.Modelo;
 import vistas._1_Bienvenido_a_SportsChoice;
-import vistas._2_Bienvenido_admin;
-import vistas._2_Registrarse;
-import vistas._3_Recuperar_Contrasena;
-import vistas._4_Nueva_Contrasena;
-import vistas._5_Hola_Nombre;
-import vistas._6_Tu_perfil;
-import vistas._7_Mis_Eventos;
-import vistas._8_Foro;
-import vistas._91_Crear_Evento;
-import vistas._9_Eventos_Disponibles;
 
 public class Controlador {
 	private Modelo miModelo;

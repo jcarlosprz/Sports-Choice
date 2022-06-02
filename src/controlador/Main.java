@@ -77,5 +77,6 @@ public class Main {
 
 		bienvenida.setVisible(true);
 		//Seguir
+		//prueba rama alvaro2
 	}
 }

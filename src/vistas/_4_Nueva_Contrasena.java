@@ -49,7 +49,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 		btnActualizar = new JButton("ACTUALIZAR");
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(4, 0);
+				miControlador.cambiarPantalla(5, 0);
 			}
 		});
 		btnActualizar.setBorder(null);
@@ -107,7 +107,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(4, 3);
+				miControlador.cambiarPantalla(5, 4);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_4_Nueva_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));

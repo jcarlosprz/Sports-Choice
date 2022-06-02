@@ -85,7 +85,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(7, 5);
+				miControlador.cambiarPantalla(8, 6);
 			}
 		});
 		btnHome.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/home-icon.png")));
@@ -162,7 +162,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnIrAlForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAlForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(7, 8);
+				miControlador.cambiarPantalla(8, 9);
 			}
 		});
 		btnIrAlForo.setFont(new Font("Dubai", Font.BOLD, 15));

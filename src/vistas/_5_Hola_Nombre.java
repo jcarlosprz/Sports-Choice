@@ -47,7 +47,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 9);
+				miControlador.cambiarPantalla(6, 10);
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
@@ -60,7 +60,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 9);
+				miControlador.cambiarPantalla(6, 10);
 			}
 		});
 		btnFutbol.setBorder(null);
@@ -76,7 +76,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnPadel = new JButton("");
 		btnPadel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 9);
+				miControlador.cambiarPantalla(6, 10);
 			}
 		});
 		btnPadel.setBorder(null);
@@ -91,7 +91,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnTenis = new JButton("");
 		btnTenis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 9);
+				miControlador.cambiarPantalla(6, 10);
 			}
 		});
 		btnTenis.setBorder(null);
@@ -133,7 +133,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMisEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 7);
+				miControlador.cambiarPantalla(6, 8);
 
 			}
 		});
@@ -147,7 +147,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMiPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 6);
+				miControlador.cambiarPantalla(6, 7);
 			}
 		});
 		btnMiPerfil.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -158,7 +158,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnLogOut = new JButton("LOG OUT");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 0);
+				miControlador.cambiarPantalla(6, 0);
 			}
 		});
 		btnLogOut.setBorder(null);

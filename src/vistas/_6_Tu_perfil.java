@@ -136,7 +136,7 @@ public class _6_Tu_perfil extends JFrame {
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(6, 5);
+				miControlador.cambiarPantalla(7, 6);
 
 			}
 		});
@@ -172,7 +172,7 @@ public class _6_Tu_perfil extends JFrame {
 		btnPapelera = new JButton("");
 		btnPapelera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(6, 0);
+				miControlador.cambiarPantalla(7, 0);
 			}
 		});
 		btnPapelera.setBorder(null);
@@ -189,7 +189,7 @@ public class _6_Tu_perfil extends JFrame {
 		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(6, 5);
+				miControlador.cambiarPantalla(7, 6);
 			}
 		});
 		btnHome.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/home-icon.png")));

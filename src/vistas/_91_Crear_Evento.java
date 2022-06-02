@@ -57,7 +57,7 @@ public class _91_Crear_Evento extends JFrame {
 		JButton btnFlecha = new JButton("");
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(10, 9);
+				miControlador.cambiarPantalla(11, 10);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/back-arrow-icon-10.png")));
@@ -79,7 +79,7 @@ public class _91_Crear_Evento extends JFrame {
 		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(10, 7);
+				miControlador.cambiarPantalla(11, 8);
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));

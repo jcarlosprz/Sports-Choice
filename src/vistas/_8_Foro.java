@@ -58,7 +58,7 @@ public class _8_Foro extends JFrame {
 		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(8, 7);
+				miControlador.cambiarPantalla(9, 8);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));

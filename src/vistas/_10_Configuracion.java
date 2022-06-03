@@ -91,16 +91,20 @@ public class _10_Configuracion extends JFrame {
 		txtUsuarioConexion.setBounds(145, 71, 247, 20);
 		contentPane.add(txtUsuarioConexion);
 		txtUsuarioConexion.setColumns(10);
+		txtPasswordConexion.setText(miModelo.getConfig().getProperty("username"));
+
 
 		txtPasswordConexion = new JTextField();
 		txtPasswordConexion.setColumns(10);
 		txtPasswordConexion.setBounds(145, 102, 247, 20);
 		contentPane.add(txtPasswordConexion);
+		txtPasswordConexion.setText(miModelo.getConfig().getProperty("pwd"));
 
 		txtUrlConexion = new JTextField();
 		txtUrlConexion.setColumns(10);
 		txtUrlConexion.setBounds(145, 133, 247, 20);
 		contentPane.add(txtUrlConexion);
+		txtUrlConexion.setText(miModelo.getConfig().getProperty("url"));
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -126,5 +130,6 @@ public class _10_Configuracion extends JFrame {
 	public String getPwd (){
 		return txtPasswordConexion.getText();
 	}
+	
 	
 }

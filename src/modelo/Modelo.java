@@ -13,7 +13,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.Properties;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._10_Configuracion;
@@ -512,7 +515,7 @@ public class Modelo {
 		}
 		configuracion.actualizar();
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}
@@ -535,6 +538,14 @@ public class Modelo {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Properties getConfig() {
+		return config;
+	}
+
+	public void setConfig(Properties config) {
+		this.config = config;
 	}
 
 }

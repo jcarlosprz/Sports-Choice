@@ -51,8 +51,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnConfiguracion = new JButton("");
 		btnConfiguracion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(0, 1);
-								
+				miControlador.cambiarPantalla(0, 1);								
 			}
 		});
 		btnConfiguracion.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/rueda (1).png")));

@@ -1,5 +1,4 @@
 package vistas;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -7,10 +6,8 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JTextField;
-
 import controlador.Controlador;
 import modelo.Modelo;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -23,7 +20,6 @@ public class _4_Nueva_Contrasena extends JFrame {
 			lblConsejo2, lblConsejo3;
 	private JTextField txtNuevaContrasena, txtRepetirContrasena;
 	private JButton btnFlecha, btnActualizar;
-
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblFondo;

@@ -1,11 +1,8 @@
 package vistas;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import controlador.Controlador;
 import modelo.Modelo;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -20,7 +17,7 @@ public class _5_Hola_Nombre extends JFrame {
 	private JPanel panel;
 	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
 	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta, lblFondo;
-
+	
 	private Controlador miControlador;
 	private Modelo miModelo;
 

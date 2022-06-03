@@ -1,5 +1,4 @@
 package vistas;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -12,7 +11,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
-
 import controlador.Controlador;
 import modelo.Modelo;
 
@@ -25,7 +23,6 @@ public class _2_Registrarse extends JFrame {
 	private JDateChooser dateChooserFechaNac;
 	private JTextField txtNombreUsuario, txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena,
 			txtPoblacion, txtEmail;
-
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblFondo;

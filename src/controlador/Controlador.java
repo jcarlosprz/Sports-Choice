@@ -32,8 +32,12 @@ public class Controlador {
 	}
 	
 	public void guardar(){
-		String[] datos = {miModelo.getUsername(), miModelo.getPwd(), miModelo.getUrl()};
-		miModelo.getUsername();
-	}
+        String[] datosConexion = {
+                ((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(), 
+                ((_10_Configuracion) pantallas[1]).getTxtUsuarioConexion().getText(),
+                ((_10_Configuracion) pantallas[1]).getTxtPasswordConexion().getText()
+        };
+                miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
 
+        }
 }

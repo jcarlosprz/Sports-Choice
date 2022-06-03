@@ -135,6 +135,5 @@ public class _10_Configuracion extends JFrame {
 	public String getPwd (){
 		return txtPasswordConexion.getText();
 	}
-	
-	
+		
 }

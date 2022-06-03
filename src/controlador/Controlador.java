@@ -8,7 +8,7 @@ import vistas._1_Bienvenido_a_SportsChoice;
 
 public class Controlador {
 	private Modelo miModelo;
-	
+
 	private JFrame[] pantallas;
 
 	public void cambiarPantalla(int numero1, int numero2) {
@@ -16,8 +16,8 @@ public class Controlador {
 		pantallas[numero2].setVisible(true);
 	}
 
-	public void setPantallas(JFrame [] pantallas) {
-		this.pantallas=pantallas;
+	public void setPantallas(JFrame[] pantallas) {
+		this.pantallas = pantallas;
 	}
 
 	public void setModelo(Modelo miModelo) {
@@ -25,23 +25,17 @@ public class Controlador {
 	}
 
 	public void login() {
-		String usr = ((_1_Bienvenido_a_SportsChoice)pantallas[0]).getUsr();
-		String pwd = ((_1_Bienvenido_a_SportsChoice)pantallas[0]).getPwd();
-		miModelo.login(usr,pwd);
+		String usr = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getUsr();
+		String pwd = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getPwd();
+		miModelo.login(usr, pwd);
 
 	}
-	
-	public void guardar(){
-		miModelo.getUsername();
-	}
-	
-//	public void borrar (){
-//		miModelo.borrar(_10_Configuracion.getBillete());
-//	}
-//	
-//	public void comprobar (){
-//		miModelo.comprobar(_10_Configuracion.getBillete());
-//	}
-	
 
+	public void guardar() {
+		String[] datosConexion = { ((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(),
+				((_10_Configuracion) pantallas[1]).getTxtUsuarioConexion().getText(),
+				((_10_Configuracion) pantallas[1]).getTxtPasswordConexion().getText() };
+		miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
+
+	}
 }

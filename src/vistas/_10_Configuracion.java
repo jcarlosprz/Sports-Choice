@@ -22,15 +22,15 @@ import controlador.Controlador;
 import modelo.Modelo;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class _10_Configuracion extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-
 	private JPanel contentPane;
 	private JLabel lblResultado;
-	private JButton btnModificar;
 	private JButton btnEscribe3;
 	private JLabel lblInfo;
 	private JLabel lblUsuarioConexion;
@@ -39,8 +39,17 @@ public class _10_Configuracion extends JFrame {
 	private JTextField txtUsuarioConexion;
 	private JTextField txtPasswordConexion;
 	private JTextField txtUrlConexion;
+	private String [] keys = {"url", "username", "pwd"};
 
 	public _10_Configuracion() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				txtUsuarioConexion.setText(miModelo.getConfig().getProperty("username"));
+				txtPasswordConexion.setText(miModelo.getConfig().getProperty("pwd"));
+				txtUrlConexion.setText(miModelo.getConfig().getProperty("url"));
+			}
+		});
 		setTitle("Configuración de conexión");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -49,27 +58,19 @@ public class _10_Configuracion extends JFrame {
 		contentPane.setLayout(null);
 
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(204, 191, 89, 23);
+		btnGuardar.setBounds(303, 191, 89, 39);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				miModelo.guardar(getUrl(), getUrl());
+				miControlador.guardar();
+				lblResultado.setText("Cambios guardados. Reinicia la app.");
 			}
 		});
 		contentPane.add(btnGuardar);
 
 		lblResultado = new JLabel("");
-		lblResultado.setBounds(20, 241, 299, 14);
+		lblResultado.setBounds(20, 225, 299, 30);
 		lblResultado.setForeground(Color.RED);
 		contentPane.add(lblResultado);
-
-		btnModificar = new JButton("Modificar");
-		btnModificar.setBounds(303, 191, 89, 23);
-		btnModificar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// LLAMAR METODO MODIFICAR
-			}
-		});
-		contentPane.add(btnModificar);
 
 		lblInfo = new JLabel("Configuración actual:");
 		lblInfo.setBounds(20, 11, 288, 23);
@@ -126,5 +127,20 @@ public class _10_Configuracion extends JFrame {
 	public String getPwd (){
 		return txtPasswordConexion.getText();
 	}
-	
+
+	public JTextField getTxtUsuarioConexion() {
+		return txtUsuarioConexion;
+	}
+
+	public JTextField getTxtPasswordConexion() {
+		return txtPasswordConexion;
+	}
+
+	public JTextField getTxtUrlConexion() {
+		return txtUrlConexion;
+	}
+
+	public String[] getKeys() {
+		return keys;
+	}
 }

@@ -20,6 +20,8 @@ import modelo.Modelo;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.SystemColor;
 
 public class _8_Foro extends JFrame {
@@ -80,20 +82,8 @@ public class _8_Foro extends JFrame {
 		table = new JTable();
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 
-		table.setRowHeight(100);
-		table.setModel(new DefaultTableModel(new Object[][] { { "<html>Usuario 1:<br> Buen partido </html>" },
-				{ "<html>Usuario 2:<br> El usuario 1 hace trampas se inventa las reglas </html> " },
-				{ "<html>Usuario 3:<br> No vuelvo a jugar con los usuario 1 y 2 solo saben discutir </html>" },
-				{ "<html>Usuario 4:<br> El usuario 3 me ha perdido mi raqueta </html>" },
-
-		}, new String[] { "Foro" }) {
-			Class[] columnTypes = new Class[] { String.class };
-
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		table.getColumnModel().getColumn(0).setPreferredWidth(615);
+		table.setRowHeight(50);
+		
 		scrollPane.setViewportView(table);
 
 		txtEscribeAqui = new JTextField();
@@ -106,6 +96,12 @@ public class _8_Foro extends JFrame {
 				} else {
 					btnEnviar.setEnabled(true);
 				}
+			}
+		});
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				table.setModel(miModelo.getTablaForo());
 			}
 		});
 		txtEscribeAqui.setBounds(85, 430, 712, 122);

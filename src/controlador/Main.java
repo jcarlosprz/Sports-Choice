@@ -85,10 +85,14 @@ public class Main {
 		crearEvento.setMiModelo(miModelo);
 
 		bienvenida.setVisible(true);
+<<<<<<< HEAD
 		
 		
 		
 		
+=======
+		//Seguir
+>>>>>>> refs/remotes/origin/master
 	}
 	
 

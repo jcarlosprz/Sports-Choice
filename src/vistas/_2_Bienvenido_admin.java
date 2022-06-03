@@ -25,12 +25,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-<<<<<<< HEAD
-import java.awt.event.WindowListener;
-=======
 import java.awt.event.WindowListener;
 
->>>>>>> refs/remotes/origin/Pedro
+
+
 
 public class _2_Bienvenido_admin extends JFrame {
 

@@ -60,7 +60,7 @@ public class _10_Configuracion extends JFrame {
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.setBounds(303, 191, 89, 39);
 		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent) {
+			public void actionPerformed(ActionEvent arg0) {
 				miControlador.guardar();
 				lblResultado.setText("Cambios guardados. Reinicia la app.");
 			}

@@ -117,10 +117,8 @@ public class _2_Registrarse extends JFrame {
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
-		// Hacen que el bot�n sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setBorderPainted(false);
-		// Cambia el puntero del rator a pointer cursor.
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));

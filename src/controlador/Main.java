@@ -77,7 +77,6 @@ public class Main {
 
 
 		bienvenida.setVisible(true);
-		//Seguir
-
+		
 	}
 }

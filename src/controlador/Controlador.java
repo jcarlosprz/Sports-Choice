@@ -3,6 +3,7 @@ package controlador;
 import javax.swing.JFrame;
 
 import modelo.Modelo;
+import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
 
 public class Controlador {
@@ -29,5 +30,18 @@ public class Controlador {
 		miModelo.login(usr,pwd);
 
 	}
+	
+	public void guardar(){
+		miModelo.getUsername();
+	}
+	
+//	public void borrar (){
+//		miModelo.borrar(_10_Configuracion.getBillete());
+//	}
+//	
+//	public void comprobar (){
+//		miModelo.comprobar(_10_Configuracion.getBillete());
+//	}
+	
 
 }

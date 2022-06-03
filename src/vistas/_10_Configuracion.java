@@ -22,12 +22,13 @@ import controlador.Controlador;
 import modelo.Modelo;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class _10_Configuracion extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-
 	private JPanel contentPane;
 	private JLabel lblResultado;
 	private JButton btnModificar;
@@ -41,6 +42,14 @@ public class _10_Configuracion extends JFrame {
 	private JTextField txtUrlConexion;
 
 	public _10_Configuracion() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				txtUsuarioConexion.setText(miModelo.getConfig().getProperty("username"));
+				txtPasswordConexion.setText(miModelo.getConfig().getProperty("pwd"));
+				txtUrlConexion.setText(miModelo.getConfig().getProperty("url"));
+			}
+		});
 		setTitle("Configuración de conexión");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -126,5 +135,5 @@ public class _10_Configuracion extends JFrame {
 	public String getPwd (){
 		return txtPasswordConexion.getText();
 	}
-	
+		
 }

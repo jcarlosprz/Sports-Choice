@@ -1,13 +1,25 @@
 package modelo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Date;
+import java.util.Properties;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import vistas._1_Bienvenido_a_SportsChoice;
+import vistas._10_Configuracion;
 import vistas._2_Bienvenido_admin;
 import vistas._2_Registrarse;
 import vistas._3_Recuperar_Contrasena;
@@ -22,6 +34,7 @@ import vistas._9_Eventos_Disponibles;
 public class Modelo {
 
 	private _1_Bienvenido_a_SportsChoice bienvenida;
+	private _10_Configuracion configuracion;
 	private _2_Bienvenido_admin bienvenidaAdmin;
 	private _2_Registrarse registrarse;
 	private _3_Recuperar_Contrasena recuperarContrasena;
@@ -37,10 +50,10 @@ public class Modelo {
 	private int fallos;
 
 	// Atributos de la clase
-	private String bd = "proyectoIntegrador";
-	private String login = "root";
-	private String pwd = "";
-	private String url = "jdbc:mysql://localhost/" + bd;
+	private String bd; // bd = "proyectoIntegrador"
+	private String username; // login = "root"
+	private String pwd; // pwd = ""
+	private String url; // url = url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
 
 	private String usr;
@@ -53,18 +66,41 @@ public class Modelo {
 	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
-
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
 
-	// Constructor que crea la conexion
+	private Properties config;
+	private File miFichero;
+	private InputStream entrada;
+	private OutputStream salida;
+	private String respuesta;
+	private final String FILE = "config.ini";
+
 	public Modelo() {
+		config = new Properties();
+		try {
+			miFichero = new File(FILE);
+			if (miFichero.exists()) {
+				entrada = new FileInputStream(miFichero);
+				config.load(entrada);
+			} else {
+				System.err.println("Fichero no encontrado");
+				System.exit(1);
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	// Constructor que crea la conexion
+	public void Conexion() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, login, pwd);
+			conexion = DriverManager.getConnection(config.getProperty("url"), config.getProperty("username"),
+					config.getProperty("pwd"));
 			System.out.println(" - Conexion con MySQL establecida -\n");
 		} catch (ClassNotFoundException e) {
 			System.out.println(" -> Driver JDBC no encontrado \n");
@@ -76,11 +112,14 @@ public class Modelo {
 			System.out.println(" -> Error general de conexión \n");
 			e.printStackTrace();
 		}
-
 	}
 
 	public void setBienvenida(_1_Bienvenido_a_SportsChoice bienvenida) {
 		this.bienvenida = bienvenida;
+	}
+
+	public void setConfiguracion(_10_Configuracion configuracion) {
+		this.configuracion = configuracion;
 	}
 
 	public void setBienvenidaAdmin(_2_Bienvenido_admin bienvenidaAdmin) {
@@ -135,6 +174,10 @@ public class Modelo {
 		return estado;
 	}
 
+	public String getRespuesta() {
+		return respuesta;
+	}
+
 	private String LoginSQL(String query, String usr, String nombreColumna) {
 		String aux = "";
 		try {
@@ -153,11 +196,12 @@ public class Modelo {
 	}
 
 	public void login(String usr, String pwd) {
+		Conexion();
 		this.usr = LoginSQL("SELECT usr FROM users WHERE usr=?", usr, "usr");
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
-		System.out.println("LOGIN:" + this.usr);
+
 		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
@@ -174,7 +218,6 @@ public class Modelo {
 				TablaAdmin();
 				TablaMisEventos();
 				TablaForo();
-
 			} else {
 				fallos++;
 				if (fallos == 3) {
@@ -190,7 +233,6 @@ public class Modelo {
 
 	private void TablaAdmin() {
 		tablaAdmin = new DefaultTableModel();
-
 		int numColumnas = getNumColumnas(sqlTablaAdmin);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
@@ -210,11 +252,11 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	private void TablaMisEventos() {
 		tablaMisEventos = new DefaultTableModel();
-//usrregistro=MisEventosSQL(",usr2, "usr");
 		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
@@ -426,4 +468,77 @@ public class Modelo {
 	public DefaultTableModel getTablaForo() {
 		return tablaForo;
 	}
+
+	public void guardar(String key, String valor) {
+		try {
+			config.setProperty(url, valor);
+//			config.setProperty(username, valor);
+//			config.setProperty(pwd, valor);
+			salida = new FileOutputStream(miFichero);
+			config.store(salida, "Ultima operacion: Guardado");
+			respuesta = "Guardado";
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		configuracion.actualizar();
+	}
+
+	public void borrar(String key) {
+		if (!config.containsKey(key)) {
+			respuesta = "No Encontrado";
+		} else {
+			config.remove(key);
+			try {
+				salida = new FileOutputStream(miFichero);
+				config.store(salida, "Ultima operacion: Borrado");
+				respuesta = "Borrado";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		configuracion.actualizar();
+	}
+
+	public void comprobar(String key) {
+		String valor = config.getProperty(key);
+		if (valor == null) {
+			respuesta = "No Encontrado";
+		} else {
+			respuesta = valor;
+		}
+		configuracion.actualizar();
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public Properties getConfig() {
+		return config;
+	}
+
+	public void setConfig(Properties config) {
+		this.config = config;
+	}
+
 }

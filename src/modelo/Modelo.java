@@ -467,42 +467,17 @@ public class Modelo {
         return tablaForo;
     }
 
-	public void guardar(String key, String valor) {
+	public void guardar(String[] datosConexion, String[] keys) {
+
 		try {
-			config.setProperty(url, valor);
-//			config.setProperty(username, valor);
-//			config.setProperty(pwd, valor);
-			salida = new FileOutputStream(miFichero);
-			config.store(salida, "Ultima operacion: Guardado");
-			respuesta = "Guardado";
+			for (int i = 0; i < keys.length; i++) {
+				config.setProperty(keys[i], datosConexion[i]);
+				salida = new FileOutputStream(miFichero);
+				config.store(salida, "Ultima operacion: Guardado");
+				respuesta = "Guardado";
+			}	
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		configuracion.actualizar();
-	}
-
-	public void borrar(String key) {
-		if (!config.containsKey(key)) {
-			respuesta = "No Encontrado";
-		} else {
-			config.remove(key);
-			try {
-				salida = new FileOutputStream(miFichero);
-				config.store(salida, "Ultima operacion: Borrado");
-				respuesta = "Borrado";
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		configuracion.actualizar();
-	}
-
-	public void comprobar(String key) {
-		String valor = config.getProperty(key);
-		if (valor == null) {
-			respuesta = "No Encontrado";
-		} else {
-			respuesta = valor;
 		}
 		configuracion.actualizar();
 	}

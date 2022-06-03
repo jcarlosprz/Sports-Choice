@@ -79,8 +79,6 @@ public class Modelo {
 	private String respuesta;
 	private final String FILE = "config.ini";
 
-	//private DefaultTableModel table;
-
 	public Modelo() {
 		config = new Properties();
 		try {
@@ -259,7 +257,6 @@ public class Modelo {
 	
 	private void TablaMisEventos() {
         tablaMisEventos = new DefaultTableModel();
-//usrregistro=MisEventosSQL(",usr2, "usr");
         int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
         Object[] contenido = new Object[numColumnas];
         PreparedStatement pstmt;
@@ -403,8 +400,6 @@ public class Modelo {
         }
     }
 
-	
-	
     private int getNumColumnas(String sql) {
         int num = 0;
         try {
@@ -471,10 +466,6 @@ public class Modelo {
     public DefaultTableModel getTablaForo() {
         return tablaForo;
     }
-
-//	public DefaultTableModel getTabla() {
-//		return table;
-//	}
 
 	public void guardar(String key, String valor) {
 		try {

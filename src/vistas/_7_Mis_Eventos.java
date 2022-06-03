@@ -72,11 +72,9 @@ public class _7_Mis_Eventos extends JFrame {
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/pregunta-32x32.png")));
-		// Hacen que el bot�n sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);
-		// Cambia el puntero del rator a pointer cursor.
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));

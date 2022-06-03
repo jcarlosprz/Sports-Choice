@@ -106,12 +106,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnTenis = new JButton("");
 		btnTenis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 				miControlador.cambiarPantalla(6, 10);
-=======
 				miModelo.TablaEventosTenis();
-				miControlador.cambiarPantalla(5, 9);
->>>>>>> refs/remotes/origin/master
 			}
 		});
 		btnTenis.setBorder(null);

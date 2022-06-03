@@ -276,8 +276,8 @@ public class Modelo {
 	public void guardar(String key, String valor) {
 		try {
 			config.setProperty(url, valor);
-			config.setProperty(username, valor);
-			config.setProperty(pwd, valor);
+//			config.setProperty(username, valor);
+//			config.setProperty(pwd, valor);
 			salida = new FileOutputStream(miFichero);
 			config.store(salida, "Ultima operacion: Guardado");
 			respuesta = "Guardado";

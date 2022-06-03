@@ -19,11 +19,11 @@ public class _5_Hola_Nombre extends JFrame {
 
 	private JPanel panel;
 	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
-	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta;
+	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta, lblFondo;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
+
 
 	public _5_Hola_Nombre() {
 		setTitle("HOLA + NOMBRE");

@@ -52,7 +52,7 @@ public class _10_Configuracion extends JFrame {
 		btnGuardar.setBounds(204, 191, 89, 23);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// LLAMAR METODO GUARDAR
+				miModelo.guardar(getUrl(), getUrl());
 			}
 		});
 		contentPane.add(btnGuardar);
@@ -115,5 +115,16 @@ public class _10_Configuracion extends JFrame {
 		lblInfo.setText(miModelo.getRespuesta());
 	}
 
+	public String getUrl (){
+		return txtUrlConexion.getText();
+	}
+	
+	public String getUsername (){
+		return txtUsuarioConexion.getText();
+	}
+	
+	public String getPwd (){
+		return txtPasswordConexion.getText();
+	}
 	
 }

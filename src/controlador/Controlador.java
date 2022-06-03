@@ -1,7 +1,6 @@
 package controlador;
 
 import javax.swing.JFrame;
-
 import modelo.Modelo;
 import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;

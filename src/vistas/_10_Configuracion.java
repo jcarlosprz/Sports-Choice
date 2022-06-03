@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -17,7 +16,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
 import controlador.Controlador;
 import modelo.Modelo;
 import javax.swing.JTextField;
@@ -131,7 +129,6 @@ public class _10_Configuracion extends JFrame {
 	public JTextField getTxtUsuarioConexion() {
 		return txtUsuarioConexion;
 	}
-
 
 	public JTextField getTxtPasswordConexion() {
 		return txtPasswordConexion;

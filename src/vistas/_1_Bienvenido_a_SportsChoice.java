@@ -8,10 +8,8 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JTextField;
-
 import controlador.Controlador;
 import modelo.Modelo;
-
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;

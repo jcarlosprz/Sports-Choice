@@ -32,16 +32,8 @@ public class Controlador {
 	}
 	
 	public void guardar(){
+		String[] datos = {miModelo.getUsername(), miModelo.getPwd(), miModelo.getUrl()};
 		miModelo.getUsername();
 	}
-	
-//	public void borrar (){
-//		miModelo.borrar(_10_Configuracion.getBillete());
-//	}
-//	
-//	public void comprobar (){
-//		miModelo.comprobar(_10_Configuracion.getBillete());
-//	}
-	
 
 }

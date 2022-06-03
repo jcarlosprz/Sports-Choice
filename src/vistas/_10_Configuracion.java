@@ -73,11 +73,6 @@ public class _10_Configuracion extends JFrame {
 
 		btnModificar = new JButton("Modificar");
 		btnModificar.setBounds(303, 191, 89, 23);
-		btnModificar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// LLAMAR METODO MODIFICAR
-			}
-		});
 		contentPane.add(btnModificar);
 
 		lblInfo = new JLabel("Configuración actual:");
@@ -113,27 +108,44 @@ public class _10_Configuracion extends JFrame {
 	}
 
 	public void setMiControlador(Controlador miControlador) {
-		this.miControlador = miControlador;
-	}
+        this.miControlador = miControlador;
+    }
 
-	public void setMiModelo(Modelo miModelo) {
-		this.miModelo = miModelo;
-	}
-	
-	public void actualizar () {
-		lblInfo.setText(miModelo.getRespuesta());
-	}
+    public void setMiModelo(Modelo miModelo) {
+        this.miModelo = miModelo;
+    }
 
-	public String getUrl (){
-		return txtUrlConexion.getText();
-	}
-	
-	public String getUsername (){
-		return txtUsuarioConexion.getText();
-	}
-	
-	public String getPwd (){
-		return txtPasswordConexion.getText();
-	}
+    public void actualizar () {
+        lblInfo.setText(miModelo.getRespuesta());
+    }
+
+    public String getUrl (){
+        return txtUrlConexion.getText();
+    }
+
+    public String getUsername (){
+        return txtUsuarioConexion.getText();
+    }
+
+    public String getPwd (){
+        return txtPasswordConexion.getText();
+    }
+
+    public JTextField getTxtUsuarioConexion() {
+        return txtUsuarioConexion;
+    }
+
+
+    public JTextField getTxtPasswordConexion() {
+        return txtPasswordConexion;
+    }
+
+    public JTextField getTxtUrlConexion() {
+        return txtUrlConexion;
+    }
+
+    public String[] getKeys() {
+        return keys;
+    }
 		
 }

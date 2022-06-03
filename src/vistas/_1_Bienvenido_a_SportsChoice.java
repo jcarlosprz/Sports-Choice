@@ -188,7 +188,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
-		// Fin
 	}
 
 	public void setMiControlador(Controlador miControlador) {

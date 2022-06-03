@@ -1,7 +1,6 @@
 package controlador;
 
 import javax.swing.JFrame;
-
 import modelo.Modelo;
 import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
@@ -31,11 +30,14 @@ public class Controlador {
 
 	}
 
-	public void guardar() {
-		String[] datosConexion = { ((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(),
+	public void guardar(){
+		String[] datosConexion = {
+				((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(), 
 				((_10_Configuracion) pantallas[1]).getTxtUsuarioConexion().getText(),
-				((_10_Configuracion) pantallas[1]).getTxtPasswordConexion().getText() };
-		miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
+				((_10_Configuracion) pantallas[1]).getTxtPasswordConexion().getText()
+		};
+				miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
+		
+		}
 
-	}
 }

@@ -279,212 +279,206 @@ public class Modelo {
 		}
 	}
 
-	public void TablaEventosBaloncesto() {
-		tablaEventosBaloncesto = new DefaultTableModel();
+    public void TablaEventosBaloncesto() {
+        tablaEventosBaloncesto = new DefaultTableModel();
 
-		int numColumnas = getNumColumnas(sqlTablaEventosBaloncesto);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlTablaEventosBaloncesto);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaEventosBaloncesto.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+        int numColumnas = getNumColumnas(sqlTablaEventosBaloncesto);
+        Object[] contenido = new Object[numColumnas];
+        PreparedStatement pstmt;
+        try {
+            pstmt = conexion.prepareStatement(sqlTablaEventosBaloncesto);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            for (int i = 0; i < numColumnas; i++) {
+                tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+            }
+            while (rset.next()) {
+                for (int col = 1; col <= numColumnas; col++) {
+                    contenido[col - 1] = rset.getString(col);
+                }
+                tablaEventosBaloncesto.addRow(contenido);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void TablaEventosFutbol() {
+        tablaEventosBaloncesto = new DefaultTableModel();
 
-	public void TablaEventosFutbol() {
-		tablaEventosBaloncesto = new DefaultTableModel();
+        int numColumnas = getNumColumnas(sqlTablaEventosFutbol);
+        Object[] contenido = new Object[numColumnas];
+        PreparedStatement pstmt;
+        try {
+            pstmt = conexion.prepareStatement(sqlTablaEventosFutbol);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            for (int i = 0; i < numColumnas; i++) {
+                tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+            }
+            while (rset.next()) {
+                for (int col = 1; col <= numColumnas; col++) {
+                    contenido[col - 1] = rset.getString(col);
+                }
+                tablaEventosBaloncesto.addRow(contenido);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-		int numColumnas = getNumColumnas(sqlTablaEventosFutbol);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlTablaEventosFutbol);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaEventosBaloncesto.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+    public void TablaEventosPadel() {
+        tablaEventosBaloncesto = new DefaultTableModel();
 
-	public void TablaEventosPadel() {
-		tablaEventosBaloncesto = new DefaultTableModel();
+        int numColumnas = getNumColumnas(sqlTablaEventosPadel);
+        Object[] contenido = new Object[numColumnas];
+        PreparedStatement pstmt;
+        try {
+            pstmt = conexion.prepareStatement(sqlTablaEventosPadel);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            for (int i = 0; i < numColumnas; i++) {
+                tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+            }
+            while (rset.next()) {
+                for (int col = 1; col <= numColumnas; col++) {
+                    contenido[col - 1] = rset.getString(col);
+                }
+                tablaEventosBaloncesto.addRow(contenido);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void TablaEventosTenis() {
+        tablaEventosBaloncesto = new DefaultTableModel();
 
-		int numColumnas = getNumColumnas(sqlTablaEventosPadel);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlTablaEventosPadel);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaEventosBaloncesto.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+        int numColumnas = getNumColumnas(sqlTablaEventosTenis);
+        Object[] contenido = new Object[numColumnas];
+        PreparedStatement pstmt;
+        try {
+            pstmt = conexion.prepareStatement(sqlTablaEventosTenis);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            for (int i = 0; i < numColumnas; i++) {
+                tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
+            }
+            while (rset.next()) {
+                for (int col = 1; col <= numColumnas; col++) {
+                    contenido[col - 1] = rset.getString(col);
+                }
+                tablaEventosBaloncesto.addRow(contenido);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void TablaForo() {
+        tablaForo = new DefaultTableModel();
 
-	public void TablaEventosTenis() {
-		tablaEventosBaloncesto = new DefaultTableModel();
+        int numColumnas = getNumColumnas(sqlForo);
+        Object[] contenido = new Object[numColumnas];
+        PreparedStatement pstmt;
+        try {
+            pstmt = conexion.prepareStatement(sqlForo);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            for (int i = 0; i < numColumnas; i++) {
+                tablaForo.addColumn(rsmd.getColumnName(i + 1));
+            }
+            while (rset.next()) {
+                for (int col = 1; col <= numColumnas; col++) {
+                    contenido[col - 1] = rset.getString(col);
+                }
+                tablaForo.addRow(contenido);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
-		int numColumnas = getNumColumnas(sqlTablaEventosTenis);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlTablaEventosTenis);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaEventosBaloncesto.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaEventosBaloncesto.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+    private int getNumColumnas(String sql) {
+        int num = 0;
+        try {
+            PreparedStatement pstmt = conexion.prepareStatement(sql);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            num = rsmd.getColumnCount();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return num;
+    }
 
-	public void TablaForo() {
-		tablaForo = new DefaultTableModel();
+    private int getNumColumnas2(String sql, String usr) {
+        int num = 0;
+        try {
+            PreparedStatement pstmt = conexion.prepareStatement(sql);
+            pstmt.setString(1, usr);
+            ResultSet rset = pstmt.executeQuery();
+            ResultSetMetaData rsmd = rset.getMetaData();
+            num = rsmd.getColumnCount();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return num;
+    }
 
-		int numColumnas = getNumColumnas(sqlForo);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlForo);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaForo.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaForo.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+    private int getNumFilas(String sql) {
+        int numFilas = 0;
+        try {
+            PreparedStatement pstmt = conexion.prepareStatement(sql);
+            ResultSet rset = pstmt.executeQuery();
+            while (rset.next())
+                numFilas++;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return numFilas;
+    }
 
-	private int getNumColumnas(String sql) {
-		int num = 0;
-		try {
-			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			num = rsmd.getColumnCount();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return num;
-	}
+    public DefaultTableModel getTablaAdmin() {
+        return tablaAdmin;
+    }
 
-	private int getNumColumnas2(String sql, String usr) {
-		int num = 0;
-		try {
-			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			pstmt.setString(1, usr);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			num = rsmd.getColumnCount();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return num;
-	}
+    public DefaultTableModel getTablaMisEventos() {
+        return tablaMisEventos;
+    }
 
-	private int getNumFilas(String sql) {
-		int numFilas = 0;
-		try {
-			PreparedStatement pstmt = conexion.prepareStatement(sql);
-			ResultSet rset = pstmt.executeQuery();
-			while (rset.next())
-				numFilas++;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return numFilas;
-	}
+    public DefaultTableModel getTablaEventosBaloncesto() {
+        return tablaEventosBaloncesto;
+    }
 
-	public DefaultTableModel getTablaAdmin() {
-		return tablaAdmin;
-	}
+    public String getSqlTablaEventosFutbol() {
+        return sqlTablaEventosFutbol;
+    }
 
-	public DefaultTableModel getTablaMisEventos() {
-		return tablaMisEventos;
-	}
+    public String getSqlTablaEventosTenis() {
+        return sqlTablaEventosTenis;
+    }
 
-	public DefaultTableModel getTablaEventosBaloncesto() {
-		return tablaEventosBaloncesto;
-	}
+    public String getSqlTablaEventosPadel() {
+        return sqlTablaEventosPadel;
+    }
+    public DefaultTableModel getTablaForo() {
+        return tablaForo;
+    }
 
-	public String getSqlTablaEventosFutbol() {
-		return sqlTablaEventosFutbol;
-	}
+    public void guardar(String[] datosConexion, String[] keys) {
 
-	public String getSqlTablaEventosTenis() {
-		return sqlTablaEventosTenis;
-	}
-
-	public String getSqlTablaEventosPadel() {
-		return sqlTablaEventosPadel;
-	}
-
-	public DefaultTableModel getTablaForo() {
-		return tablaForo;
-	}
-
-	public void guardar(String[] datosConexion, String[] keys) {
-
-		try {
-			for (int i = 0; i < keys.length; i++) {
-				config.setProperty(keys[i], datosConexion[i]);
-				salida = new FileOutputStream(miFichero);
-				config.store(salida, "Ultima operacion: Guardado");
-				respuesta = "Guardado";
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		configuracion.actualizar();
-	}
-
-	public String getUsername() {
-		return username;
-	}
+        try {
+            for (int i = 0; i < keys.length; i++) {
+                config.setProperty(keys[i], datosConexion[i]);
+                salida = new FileOutputStream(miFichero);
+                config.store(salida, "Ultima operacion: Guardado");
+                respuesta = "Guardado";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        configuracion.actualizar();
+    }
 
 	public void setUsername(String username) {
 		this.username = username;

@@ -62,7 +62,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnCrearEvento.setBackground(new Color(176, 196, 222));
 		btnCrearEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(9, 10);
+				miControlador.cambiarPantalla(10, 11);
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -92,7 +92,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnHome.setBorder(null);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(9, 5);
+				miControlador.cambiarPantalla(10, 6);
 			}
 		});
 		btnHome.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/home-icon.png")));
@@ -146,7 +146,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnUnirse.setEnabled(false);
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(9, 7);
+				miControlador.cambiarPantalla(10, 8);
 			}
 		});
 		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));

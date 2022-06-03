@@ -44,7 +44,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnFlecha.setBorder(null);
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(3, 0);
+				miControlador.cambiarPantalla(4, 0);
 			}
 		});
 		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));
@@ -87,7 +87,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		JButton btnValidar = new JButton("VALIDAR");
 		btnValidar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(3, 4);
+				miControlador.cambiarPantalla(4, 5);
 			}
 		});
 		btnValidar.setBorder(null);

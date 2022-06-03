@@ -19,11 +19,11 @@ public class _5_Hola_Nombre extends JFrame {
 
 	private JPanel panel;
 	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
-	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta;
+	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta, lblFondo;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
+
 
 	public _5_Hola_Nombre() {
 		setTitle("HOLA + NOMBRE");
@@ -47,8 +47,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosBaloncesto();
-				miControlador.cambiarPantalla(5, 9);
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
@@ -61,8 +61,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosFutbol();
-				miControlador.cambiarPantalla(5, 9);
 			}
 		});
 		btnFutbol.setBorder(null);
@@ -78,8 +78,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnPadel = new JButton("");
 		btnPadel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.TablaEventosPadel();;
-				miControlador.cambiarPantalla(5, 9);
+				miControlador.cambiarPantalla(6, 10);
+				miModelo.TablaEventosPadel();
 			}
 		});
 		btnPadel.setBorder(null);
@@ -94,8 +94,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnTenis = new JButton("");
 		btnTenis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosTenis();
-				miControlador.cambiarPantalla(5, 9);
 			}
 		});
 		btnTenis.setBorder(null);
@@ -137,7 +137,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMisEventos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 7);
+				miControlador.cambiarPantalla(6, 8);
 
 			}
 		});
@@ -151,7 +151,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMiPerfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 6);
+				miControlador.cambiarPantalla(6, 7);
 			}
 		});
 		btnMiPerfil.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -162,7 +162,7 @@ public class _5_Hola_Nombre extends JFrame {
 		btnLogOut = new JButton("LOG OUT");
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 0);
+				miControlador.cambiarPantalla(6, 0);
 			}
 		});
 		btnLogOut.setBorder(null);

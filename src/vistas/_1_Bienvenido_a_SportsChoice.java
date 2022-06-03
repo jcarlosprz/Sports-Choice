@@ -30,7 +30,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta, lblRespuesta;
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
-	private JButton btnAyuda, btnLogin;
+	private JButton btnAyuda, btnLogin, btnConfiguracion;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -47,6 +47,18 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setBounds(0, 0, 856, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		btnConfiguracion = new JButton("");
+		btnConfiguracion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.cambiarPantalla(0, 1);
+								
+			}
+		});
+		btnConfiguracion.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/rueda (1).png")));
+		btnConfiguracion.setBounds(591, 595, 32, 32);
+		btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		panel.add(btnConfiguracion);
 
 		lblRespuesta = new JLabel("");
 		lblRespuesta.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -76,7 +88,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		lblRegistrarse.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				miControlador.cambiarPantalla(0, 2);
+				miControlador.cambiarPantalla(0, 3);
 			}
 		});
 		lblRegistrarse.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -89,7 +101,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		lblOlvidasteContrasena.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				miControlador.cambiarPantalla(0, 3);
+				miControlador.cambiarPantalla(0, 4);
 			}
 		});
 		lblOlvidasteContrasena.setForeground(new Color(0, 0, 204));
@@ -176,7 +188,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/Imagen_deportesss_tuneada.png")));
 		lblFondo.setBounds(156, 48, 801, 626);
 		panel.add(lblFondo);
-		// Fin
 	}
 
 	public void setMiControlador(Controlador miControlador) {
@@ -208,9 +219,9 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("administrador")) {
-				miControlador.cambiarPantalla(0, 1);
+				miControlador.cambiarPantalla(0, 2);
 			} else {
-				miControlador.cambiarPantalla(0, 5);
+				miControlador.cambiarPantalla(0, 6);
 			}
 		} else {
 			if (resultado.equals("Incorrecto")) {

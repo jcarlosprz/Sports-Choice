@@ -47,12 +47,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 				miControlador.cambiarPantalla(6, 10);
-=======
 				miModelo.TablaEventosBaloncesto();
-				miControlador.cambiarPantalla(5, 9);
->>>>>>> refs/remotes/origin/master
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
@@ -65,12 +61,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 				miControlador.cambiarPantalla(6, 10);
-=======
 				miModelo.TablaEventosFutbol();
-				miControlador.cambiarPantalla(5, 9);
->>>>>>> refs/remotes/origin/master
 			}
 		});
 		btnFutbol.setBorder(null);
@@ -86,12 +78,8 @@ public class _5_Hola_Nombre extends JFrame {
 		btnPadel = new JButton("");
 		btnPadel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 				miControlador.cambiarPantalla(6, 10);
-=======
-				miModelo.TablaEventosPadel();;
-				miControlador.cambiarPantalla(5, 9);
->>>>>>> refs/remotes/origin/master
+				miModelo.TablaEventosPadel();
 			}
 		});
 		btnPadel.setBorder(null);

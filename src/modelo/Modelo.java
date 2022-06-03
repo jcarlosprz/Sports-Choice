@@ -484,22 +484,6 @@ public class Modelo {
 		configuracion.actualizar();
 	}
 
-	public void borrar(String key) {
-		if (!config.containsKey(key)) {
-			respuesta = "No Encontrado";
-		} else {
-			config.remove(key);
-			try {
-				salida = new FileOutputStream(miFichero);
-				config.store(salida, "Ultima operacion: Borrado");
-				respuesta = "Borrado";
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		configuracion.actualizar();
-	}
-
 	public String getUsername() {
 		return username;
 	}

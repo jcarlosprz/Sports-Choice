@@ -32,16 +32,12 @@ public class Controlador {
 	}
 	
 	public void guardar(){
-		miModelo.getUsername();
-	}
-	
-//	public void borrar (){
-//		miModelo.borrar(_10_Configuracion.getBillete());
-//	}
-//	
-//	public void comprobar (){
-//		miModelo.comprobar(_10_Configuracion.getBillete());
-//	}
-	
+        String[] datosConexion = {
+                ((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(), 
+                ((_10_Configuracion) pantallas[1]).getTxtUsuarioConexion().getText(),
+                ((_10_Configuracion) pantallas[1]).getTxtPasswordConexion().getText()
+        };
+                miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
 
+        }
 }

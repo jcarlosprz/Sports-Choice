@@ -8,10 +8,8 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JTextField;
-
 import controlador.Controlador;
 import modelo.Modelo;
-
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
@@ -52,7 +50,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnConfiguracion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(0, 1);	
-				
 			}
 		});
 		btnConfiguracion.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/rueda (1).png")));
@@ -178,7 +175,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.login();
 			}
-
 		});
 
 		btnLogin.setBounds(267, 438, 316, 59);

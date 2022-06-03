@@ -15,12 +15,9 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
 import com.mysql.cj.xdevapi.Table;
-
 import controlador.Controlador;
 import modelo.Modelo;
-
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Component;
@@ -28,7 +25,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
 import java.awt.event.WindowListener;
 
 public class _2_Bienvenido_admin extends JFrame {

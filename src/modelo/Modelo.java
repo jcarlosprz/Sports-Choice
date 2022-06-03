@@ -468,36 +468,22 @@ public class Modelo {
 	public DefaultTableModel getTablaForo() {
 		return tablaForo;
 	}
+ 
+    
+	public void guardar(String[] datosConexion, String[] keys) {
 
-//    public void actualizar() {
-////	_10_Configuracion.txt
-//    	
-//    	
-//    	
-//    	
-//    
-//    }
-    
-    
-	public void guardar(String key, String valor) {
-		try {
-			
-//			for (int i = 0; i < valor.length; i++) {
-//				config.setProperty(key[i], valor[i]);
-//				
-//			}
-			
-			config.setProperty(url, valor);
-			config.setProperty(username, valor);
-			config.setProperty(pwd, valor);
-			salida = new FileOutputStream(miFichero);
-			config.store(salida, "Ultima operacion: Guardado");
-			respuesta = "Guardado";
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		//configuracion.actualizar();
-	}
+        try {
+            for (int i = 0; i < keys.length; i++) {
+                config.setProperty(keys[i], datosConexion[i]);
+                salida = new FileOutputStream(miFichero);
+                config.store(salida, "Ultima operacion: Guardado");
+                respuesta = "Guardado";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        configuracion.actualizar();
+    }
 
 
 	public void borrar(String key) {

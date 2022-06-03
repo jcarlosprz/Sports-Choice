@@ -23,7 +23,7 @@ public class Controlador {
 		this.miModelo = miModelo;
 	}
 
-	public void login() {
+	public void login() { //Metodo login
 		String usr = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getUsr();
 		String pwd = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getPwd();
 		miModelo.login(usr, pwd);

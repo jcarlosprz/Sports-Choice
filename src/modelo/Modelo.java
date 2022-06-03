@@ -468,23 +468,21 @@ public class Modelo {
 	public DefaultTableModel getTablaForo() {
 		return tablaForo;
 	}
- 
-    
+
 	public void guardar(String[] datosConexion, String[] keys) {
 
-        try {
-            for (int i = 0; i < keys.length; i++) {
-                config.setProperty(keys[i], datosConexion[i]);
-                salida = new FileOutputStream(miFichero);
-                config.store(salida, "Ultima operacion: Guardado");
-                respuesta = "Guardado";
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        configuracion.actualizar();
-    }
-
+		try {
+			for (int i = 0; i < keys.length; i++) {
+				config.setProperty(keys[i], datosConexion[i]);
+				salida = new FileOutputStream(miFichero);
+				config.store(salida, "Ultima operacion: Guardado");
+				respuesta = "Guardado";
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		configuracion.actualizar();
+	}
 
 	public void borrar(String key) {
 		if (!config.containsKey(key)) {
@@ -498,16 +496,6 @@ public class Modelo {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-		configuracion.actualizar();
-	}
-
-	public void comprobar(String key) {
-		String valor = config.getProperty(key);
-		if (valor == null) {
-			respuesta = "No Encontrado";
-		} else {
-			respuesta = valor;
 		}
 		configuracion.actualizar();
 	}
@@ -540,12 +528,7 @@ public class Modelo {
 		return config;
 	}
 
-	public _10_Configuracion getConfiguracion() {
-		return configuracion;
-	}
-
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
-
 }

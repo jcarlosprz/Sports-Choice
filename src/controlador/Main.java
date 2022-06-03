@@ -75,7 +75,9 @@ public class Main {
 		eventosDisponibles.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
 
+
 		bienvenida.setVisible(true);
 		//Seguir
+
 	}
 }

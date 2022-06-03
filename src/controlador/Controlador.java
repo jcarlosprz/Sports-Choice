@@ -4,7 +4,6 @@ import java.util.Iterator;
 import javax.swing.JFrame;
 
 import modelo.Modelo;
-import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Bienvenido_admin;
 import vistas._2_Registrarse;
@@ -41,18 +40,5 @@ public class Controlador {
 		miModelo.login(usr,pwd);
 
 	}
-	
-	public void guardar(){
-		miModelo.getUsername();
-	}
-	
-//	public void borrar (){
-//		miModelo.borrar(_10_Configuracion.getBillete());
-//	}
-//	
-//	public void comprobar (){
-//		miModelo.comprobar(_10_Configuracion.getBillete());
-//	}
-	
 
 }

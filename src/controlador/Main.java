@@ -1,13 +1,7 @@
 package controlador;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import modelo.Modelo;
-import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Bienvenido_admin;
 import vistas._2_Registrarse;
@@ -28,7 +22,6 @@ public class Main {
 
 		Modelo miModelo = new Modelo();
 		_1_Bienvenido_a_SportsChoice bienvenida = new _1_Bienvenido_a_SportsChoice();
-		_10_Configuracion configuracion = new _10_Configuracion();
 		_2_Bienvenido_admin bienvenidaAdmin = new _2_Bienvenido_admin();
 		_2_Registrarse registrarse = new _2_Registrarse();
 		_3_Recuperar_Contrasena recuperarContrasena = new _3_Recuperar_Contrasena();
@@ -40,13 +33,13 @@ public class Main {
 		_9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
 
-		JFrame[] pantallas = { bienvenida, configuracion, bienvenidaAdmin, registrarse, recuperarContrasena, nuevaContrasena,
+		JFrame[] pantallas = { bienvenida, bienvenidaAdmin, registrarse, recuperarContrasena, nuevaContrasena,
 				holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
 		
 		miControlador.setModelo(miModelo);
 		miControlador.setPantallas(pantallas);
+
 		miModelo.setBienvenida(bienvenida);
-		miModelo.setConfiguracion(configuracion);
 		miModelo.setBienvenidaAdmin(bienvenidaAdmin);
 		miModelo.setRegistrarse(registrarse);
 		miModelo.setRecuperarContrasena(recuperarContrasena);
@@ -59,7 +52,6 @@ public class Main {
 		miModelo.setCrearEvento(crearEvento);
 		
 		bienvenida.setMiControlador(miControlador);
-		configuracion.setMiControlador(miControlador);
 		bienvenidaAdmin.setMiControlador(miControlador);
 		registrarse.setMiControlador(miControlador);
 		recuperarContrasena.setMiControlador(miControlador);
@@ -72,7 +64,6 @@ public class Main {
 		crearEvento.setMiControlador(miControlador);
 
 		bienvenida.setMiModelo(miModelo);
-		configuracion.setMiModelo(miModelo);
 		bienvenidaAdmin.setMiModelo(miModelo);
 		registrarse.setMiModelo(miModelo);
 		recuperarContrasena.setMiModelo(miModelo);
@@ -85,7 +76,6 @@ public class Main {
 		crearEvento.setMiModelo(miModelo);
 
 		bienvenida.setVisible(true);
-
+		//Seguir
 	}
-
 }

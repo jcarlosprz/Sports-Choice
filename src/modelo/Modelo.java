@@ -469,19 +469,36 @@ public class Modelo {
 		return tablaForo;
 	}
 
+//    public void actualizar() {
+////	_10_Configuracion.txt
+//    	
+//    	
+//    	
+//    	
+//    
+//    }
+    
+    
 	public void guardar(String key, String valor) {
 		try {
+			
+//			for (int i = 0; i < valor.length; i++) {
+//				config.setProperty(key[i], valor[i]);
+//				
+//			}
+			
 			config.setProperty(url, valor);
-//			config.setProperty(username, valor);
-//			config.setProperty(pwd, valor);
+			config.setProperty(username, valor);
+			config.setProperty(pwd, valor);
 			salida = new FileOutputStream(miFichero);
 			config.store(salida, "Ultima operacion: Guardado");
 			respuesta = "Guardado";
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		configuracion.actualizar();
+		//configuracion.actualizar();
 	}
+
 
 	public void borrar(String key) {
 		if (!config.containsKey(key)) {
@@ -535,6 +552,10 @@ public class Modelo {
 
 	public Properties getConfig() {
 		return config;
+	}
+
+	public _10_Configuracion getConfiguracion() {
+		return configuracion;
 	}
 
 	public void setConfig(Properties config) {

@@ -143,6 +143,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnDownload.setBorder(null);
 		btnDownload.setBackground(new Color(176, 196, 222));
 		btnDownload.setBounds(336, 590, 68, 56);
+		btnDownload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnDownload);
 		btnDownload.addActionListener(new ActionListener() {
             public void actionPerformed (final ActionEvent d) {
@@ -154,6 +155,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setBorder(null);
 		btnUpload.setBackground(new Color(176, 196, 222));
 		btnUpload.setBounds(246, 589, 68, 56);
+		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
 
 		JLabel lblFondo = new JLabel("");

@@ -485,7 +485,7 @@ public class Modelo {
     public void guardaTabla(){
         try {
 
-            String sucursalesCSVFile = "DatosTablaAdmin.txt";
+            String sucursalesCSVFile = "datosTablaAdmin.dat";
             BufferedWriter bfw = new BufferedWriter(new FileWriter(sucursalesCSVFile ));
 
             for (int i = 0 ; i < tablaAdmin.getRowCount(); i++) //realiza un barrido por filas.

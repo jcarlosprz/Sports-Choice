@@ -1,4 +1,5 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -30,7 +31,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 
 public class _2_Bienvenido_admin extends JFrame {
 
@@ -137,36 +137,40 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut.setBackground(new Color(250, 128, 114));
 		btnLogOut.setBounds(46, 590, 163, 54);
 		panel.add(btnLogOut);
-		
+
 		btnDownload = new JButton("Download");
 		btnDownload.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnDownload.setBorder(null);
 		btnDownload.setBackground(new Color(176, 196, 222));
 		btnDownload.setBounds(336, 590, 68, 56);
 		panel.add(btnDownload);
-								
-								btnUpload = new JButton("Upload");
-								btnUpload.setFont(new Font("Dubai", Font.BOLD, 12));
-								btnUpload.setBorder(null);
-								btnUpload.setBackground(new Color(176, 196, 222));
-								btnUpload.setBounds(246, 589, 68, 56);
-								panel.add(btnUpload);
-								
-										JLabel lblFondo = new JLabel("");
-										
-												lblFondo.addMouseListener(new MouseAdapter() {
-													@Override
-													public void mouseReleased(MouseEvent e) {
-														btnBloquear.setEnabled(false);
-														btnDesbloquear.setEnabled(false);
-														table.clearSelection();
-													}
-												});
-												
-														lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
-														lblFondo.setBounds(-104, 0, 939, 683);
-														panel.add(lblFondo);
-		
+		btnDownload.addActionListener(new ActionListener() {
+            public void actionPerformed (final ActionEvent d) {
+                miModelo.guardaTabla();
+            }});
+
+		btnUpload = new JButton("Upload");
+		btnUpload.setFont(new Font("Dubai", Font.BOLD, 12));
+		btnUpload.setBorder(null);
+		btnUpload.setBackground(new Color(176, 196, 222));
+		btnUpload.setBounds(246, 589, 68, 56);
+		panel.add(btnUpload);
+
+		JLabel lblFondo = new JLabel("");
+
+		lblFondo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnBloquear.setEnabled(false);
+				btnDesbloquear.setEnabled(false);
+				table.clearSelection();
+			}
+		});
+
+		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-104, 0, 939, 683);
+		panel.add(lblFondo);
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -183,4 +187,3 @@ public class _2_Bienvenido_admin extends JFrame {
 		this.miModelo = miModelo;
 	}
 }
-

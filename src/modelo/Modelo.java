@@ -482,7 +482,7 @@ public class Modelo {
         configuracion.actualizar();
     }
     
-    private void guardaTabla(){
+    public void guardaTabla(){
         try {
 
             String sucursalesCSVFile = "DatosTablaAdmin.txt";

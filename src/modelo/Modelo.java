@@ -1,9 +1,11 @@
 package modelo;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -485,8 +487,8 @@ public class Modelo {
     public void guardaTabla(){
         try {
 
-            String sucursalesCSVFile = "datosTablaAdmin.dat";
-            BufferedWriter bfw = new BufferedWriter(new FileWriter(sucursalesCSVFile ));
+            String datosTablaAdmin = "datosTablaAdmin.dat";
+            BufferedWriter bfw = new BufferedWriter(new FileWriter(datosTablaAdmin ));
 
             for (int i = 0 ; i < tablaAdmin.getRowCount(); i++) //realiza un barrido por filas.
             {
@@ -506,6 +508,36 @@ public class Modelo {
             System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
         }
     }
+    
+    
+    
+    
+    public void cargarTabla(){
+        try {
+
+            String datosTablaAdmin = "datosTablaAdmin.dat";
+            BufferedReader bfw = new BufferedReader(new FileReader(datosTablaAdmin ));
+
+            for (int i = 0 ; i < tablaAdmin.getRowCount(); i++) //realiza un barrido por filas.
+            {
+                for(int j = 0 ; j < tablaAdmin.getColumnCount();j++) //realiza un barrido por columnas.
+                {
+                    bfw.read();
+                    if (j < tablaAdmin.getColumnCount() -1) { //agrega separador "," si no es el ultimo elemento de la fila.
+                        bfw.read();
+                    }
+                }
+                bfw.readLine(); //inserta nueva linea.
+            }
+
+            bfw.close(); //cierra archivo!
+            System.out.println("El archivo fue salvado correctamente!");
+        } catch (IOException e) {
+            System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
+        }
+    }
+    
+    
     
 
 	public void setUsername(String username) {

@@ -1,8 +1,10 @@
 package modelo;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -479,6 +481,32 @@ public class Modelo {
         }
         configuracion.actualizar();
     }
+    
+    private void guardaTabla(){
+        try {
+
+            String sucursalesCSVFile = "DatosTablaAdmin.txt";
+            BufferedWriter bfw = new BufferedWriter(new FileWriter(sucursalesCSVFile ));
+
+            for (int i = 0 ; i < tablaAdmin.getRowCount(); i++) //realiza un barrido por filas.
+            {
+                for(int j = 0 ; j < tablaAdmin.getColumnCount();j++) //realiza un barrido por columnas.
+                {
+                    bfw.write((String)(tablaAdmin.getValueAt(i,j)));
+                    if (j < tablaAdmin.getColumnCount() -1) { //agrega separador "," si no es el ultimo elemento de la fila.
+                        bfw.write(",");
+                    }
+                }
+                bfw.newLine(); //inserta nueva linea.
+            }
+
+            bfw.close(); //cierra archivo!
+            System.out.println("El archivo fue salvado correctamente!");
+        } catch (IOException e) {
+            System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
+        }
+    }
+    
 
 	public void setUsername(String username) {
 		this.username = username;

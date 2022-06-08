@@ -153,7 +153,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnDownload);
 		btnDownload.addActionListener(new ActionListener() {
             public void actionPerformed (final ActionEvent d) {
-                miModelo.guardaTabla();
+                miModelo.guardarObjeto();
             }});
 
 		btnUpload = new JButton("Upload");
@@ -163,6 +163,10 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setBounds(246, 589, 68, 56);
 		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
+		btnUpload.addActionListener(new ActionListener() {
+            public void actionPerformed (final ActionEvent d) {
+            	miModelo.cargarObjeto();
+            }});
 		
 
 		JLabel lblFondo = new JLabel("");
@@ -189,4 +193,15 @@ public class _2_Bienvenido_admin extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
+	}
+
 }

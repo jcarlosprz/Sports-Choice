@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.ScrollPane;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,6 +10,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,6 +20,9 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.JFileChooser;
@@ -34,6 +40,7 @@ import vistas._7_Mis_Eventos;
 import vistas._8_Foro;
 import vistas._91_Crear_Evento;
 import vistas._9_Eventos_Disponibles;
+import vistas.tablas;
 
 public class Modelo {
 
@@ -486,30 +493,45 @@ public class Modelo {
 		configuracion.actualizar();
 	}
 
-	public void guardaTabla() {
-		try {
 
-			String sucursalesCSVFile = "datosTablaAdmin.dat";
-			BufferedWriter bfw = new BufferedWriter(new FileWriter(sucursalesCSVFile));
-
-			for (int i = 0; i < tablaAdmin.getRowCount(); i++) // realiza un barrido por filas.
-			{
-				for (int j = 0; j < tablaAdmin.getColumnCount(); j++) // realiza un barrido por columnas.
-				{
-					bfw.write((String) (tablaAdmin.getValueAt(i, j)));
-					if (j < tablaAdmin.getColumnCount() - 1) { // agrega separador "," si no es el ultimo elemento de la
-																// fila.
-						bfw.write(",");
-					}
-				}
-				bfw.newLine(); // inserta nueva linea.
-			}
-
-			bfw.close(); // cierra archivo!
-			System.out.println("El archivo fue salvado correctamente!");
-		} catch (IOException e) {
-			System.out.println("ERROR: Ocurrio un problema al salvar el archivo!" + e.getMessage());
+	public void guardarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showSaveDialog(bienvenidaAdmin.getScrollPane());
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			File fichero = fc.getSelectedFile();
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				tablas misTablas  = new tablas (tablaAdmin);
+				oos.writeObject(tablaAdmin);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} 
 		}
+	}
+	
+	public void cargarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				tablas misTablas  = (tablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 	

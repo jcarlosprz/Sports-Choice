@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +17,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+
 import controlador.Controlador;
 import modelo.Modelo;
 import java.awt.Dimension;
@@ -23,9 +27,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -157,6 +163,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setBounds(246, 589, 68, 56);
 		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
+		
 
 		JLabel lblFondo = new JLabel("");
 
@@ -176,11 +183,39 @@ public class _2_Bienvenido_admin extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
-				table.setModel(miModelo.getTablaAdmin());
+				cargaTabla();
 			}
 		});
 	}
 
+	public void cargaTabla() {
+		
+		String filepath = "datosTablaAdmin.dat";
+		File file = new File(filepath);
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+			Object[] lines = reader.lines().toArray();
+
+			for (int i = 1; i < lines.length - 1; i++) {
+				String[] row = lines[i].toString().split(" ");
+				for (int j = 1; j < row.length; j++) {
+					if (row[i].equals(" ")) {
+						table.setValueAt(null, i, j);
+					} else {
+						table.setValueAt(Double.parseDouble(row[j]), i, j);
+					}
+				}
+			}
+
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+
+	}
+	
+	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

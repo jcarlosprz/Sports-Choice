@@ -179,40 +179,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
-
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowActivated(WindowEvent e) {
-				cargaTabla();
-			}
-		});
-	}
-
-	public void cargaTabla() {
-		
-		String filepath = "datosTablaAdmin.dat";
-		File file = new File(filepath);
-
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-			Object[] lines = reader.lines().toArray();
-
-			for (int i = 1; i < lines.length - 1; i++) {
-				String[] row = lines[i].toString().split(" ");
-				for (int j = 1; j < row.length; j++) {
-					if (row[i].equals(" ")) {
-						table.setValueAt(null, i, j);
-					} else {
-						table.setValueAt(Double.parseDouble(row[j]), i, j);
-					}
-				}
-			}
-
-		} catch (Exception ex) {
-			JOptionPane.showMessageDialog(null, "Error");
-		}
-
 	}
 	
 	

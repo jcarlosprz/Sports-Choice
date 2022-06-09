@@ -42,7 +42,6 @@ import vistas._8_Foro;
 import vistas._91_Crear_Evento;
 import vistas._9_Eventos_Disponibles;
 
-
 public class Modelo {
 
 	private _1_Bienvenido_a_SportsChoice bienvenida;

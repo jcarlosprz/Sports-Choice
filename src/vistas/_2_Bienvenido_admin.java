@@ -18,9 +18,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import controlador.Controlador;
 import modelo.Modelo;
+import modelo.exportarTablas;
+
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.MouseAdapter;
@@ -30,10 +33,12 @@ import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -185,7 +190,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(lblFondo);
 	}
 	
-	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -202,6 +206,16 @@ public class _2_Bienvenido_admin extends JFrame {
 
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
+	}
+
+
+	public JTable getTable() {
+		return table;
+	}
+
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 
 }

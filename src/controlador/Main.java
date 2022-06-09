@@ -7,6 +7,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import modelo.Modelo;
+import modelo.exportarTablas;
 import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Bienvenido_admin;
@@ -19,7 +20,6 @@ import vistas._7_Mis_Eventos;
 import vistas._8_Foro;
 import vistas._91_Crear_Evento;
 import vistas._9_Eventos_Disponibles;
-import vistas.tablas;
 
 public class Main {
 

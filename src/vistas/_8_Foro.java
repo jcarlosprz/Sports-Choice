@@ -31,7 +31,7 @@ public class _8_Foro extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
+	private JLabel lblFondo, lblConfirmacion;
 	private JButton btnUploadForo;
 
 	public _8_Foro() {
@@ -77,12 +77,12 @@ public class _8_Foro extends JFrame {
 		btnDownload.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnDownload.setBorder(null);
 		btnDownload.setBackground(new Color(176, 196, 222));
-		btnDownload.setBounds(529, 589, 68, 56);
+		btnDownload.setBounds(530, 600, 68, 56);
 		panel.add(btnDownload);
 		btnUploadForo.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnUploadForo.setBorder(null);
 		btnUploadForo.setBackground(new Color(176, 196, 222));
-		btnUploadForo.setBounds(431, 589, 68, 56);
+		btnUploadForo.setBounds(436, 600, 68, 56);
 		panel.add(btnUploadForo);
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
@@ -92,7 +92,7 @@ public class _8_Foro extends JFrame {
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 		btnEnviar.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnEnviar.setBounds(655, 589, 142, 63);
+		btnEnviar.setBounds(655, 593, 142, 63);
 		panel.add(btnEnviar);
 
 		scrollPane = new JScrollPane();
@@ -138,6 +138,12 @@ public class _8_Foro extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-87, 0, 969, 693);
 		panel.add(lblFondo);
+		
+		lblConfirmacion = new JLabel("New label");
+		lblConfirmacion.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+		lblConfirmacion.setForeground(Color.RED);
+		lblConfirmacion.setBounds(436, 563, 220, 26);
+		panel.add(lblConfirmacion);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

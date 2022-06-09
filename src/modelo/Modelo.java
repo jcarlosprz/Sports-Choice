@@ -505,8 +505,10 @@ public class Modelo {
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
 				oos.writeObject(misTablas);
+			    bienvenidaAdmin.getLblConfirmacion().setText("Archivo guardado con éxito");
 				fos.close();
 				oos.close();
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (NumberFormatException e) {
@@ -525,6 +527,7 @@ public class Modelo {
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
+			    bienvenidaAdmin.getLblConfirmacion().setText("Archivo cargado con éxito");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

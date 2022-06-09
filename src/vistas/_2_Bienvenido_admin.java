@@ -49,14 +49,12 @@ public class _2_Bienvenido_admin extends JFrame {
 	private JButton btnDesbloquear;
 	private JScrollPane scrollPane;
 	private JTable table;
-	private JLabel lblBienvenidoAdmin;
+	private JLabel lblBienvenidoAdmin, lblConfirmacion;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JButton btnLogOut;
-	private JButton btnBloquear;
-	private JButton btnDownload;
-	private JButton btnUpload;
+	private JButton btnLogOut, btnBloquear, btnDownload, btnUpload;
+	
 
 	public _2_Bienvenido_admin() {
 		setTitle("BIENVENIDO ADMINISTRADOR");
@@ -123,7 +121,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnDesbloquear.setBorder(null);
 		btnDesbloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnDesbloquear.setFont(new Font("Dubai", Font.BOLD, 15));
-		btnDesbloquear.setBounds(627, 589, 162, 56);
+		btnDesbloquear.setBounds(627, 602, 162, 56);
 		btnDesbloquear.setBackground(new Color(176, 196, 222));
 		panel.add(btnDesbloquear);
 
@@ -133,7 +131,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnBloquear.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnBloquear.setBorder(null);
 		btnBloquear.setBackground(new Color(176, 196, 222));
-		btnBloquear.setBounds(433, 589, 162, 56);
+		btnBloquear.setBounds(432, 602, 162, 56);
 		panel.add(btnBloquear);
 
 		btnLogOut = new JButton("LOG OUT");
@@ -146,14 +144,14 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(new Color(250, 128, 114));
-		btnLogOut.setBounds(46, 590, 163, 54);
+		btnLogOut.setBounds(46, 603, 163, 54);
 		panel.add(btnLogOut);
 
 		btnDownload = new JButton("Download");
 		btnDownload.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnDownload.setBorder(null);
 		btnDownload.setBackground(new Color(176, 196, 222));
-		btnDownload.setBounds(336, 590, 68, 56);
+		btnDownload.setBounds(336, 602, 68, 56);
 		btnDownload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnDownload);
 		btnDownload.addActionListener(new ActionListener() {
@@ -165,7 +163,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnUpload.setBorder(null);
 		btnUpload.setBackground(new Color(176, 196, 222));
-		btnUpload.setBounds(246, 589, 68, 56);
+		btnUpload.setBounds(246, 602, 68, 56);
 		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
 		btnUpload.addActionListener(new ActionListener() {
@@ -188,7 +186,15 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
+		
+		lblConfirmacion = new JLabel("");
+		lblConfirmacion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblConfirmacion.setForeground(Color.RED);
+		lblConfirmacion.setBounds(246, 568, 348, 23);
+		panel.add(lblConfirmacion);
 	}
+	
+	
 	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
@@ -214,4 +220,12 @@ public class _2_Bienvenido_admin extends JFrame {
 		this.table = table;
 	}
 
+	public JLabel getLblConfirmacion() {
+		return lblConfirmacion;
+	}
+
+	public void setLblConfirmacion(JLabel lblConfirmacion) {
+		this.lblConfirmacion = lblConfirmacion;
+	}
+	
 }

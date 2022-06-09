@@ -32,6 +32,7 @@ public class _8_Foro extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblFondo;
+	private JButton btnUploadForo;
 
 	public _8_Foro() {
 		setTitle("FORO");
@@ -59,6 +60,30 @@ public class _8_Foro extends JFrame {
 				miControlador.cambiarPantalla(9, 8);
 			}
 		});
+		
+		btnUploadForo = new JButton("Upload");
+		btnUploadForo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.guardarObjetoForo();
+			}
+		});
+		
+		JButton btnDownload = new JButton("Download");
+		btnDownload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.cargarObjetoForo();
+			}
+		});
+		btnDownload.setFont(new Font("Dubai", Font.BOLD, 12));
+		btnDownload.setBorder(null);
+		btnDownload.setBackground(new Color(176, 196, 222));
+		btnDownload.setBounds(529, 589, 68, 56);
+		panel.add(btnDownload);
+		btnUploadForo.setFont(new Font("Dubai", Font.BOLD, 12));
+		btnUploadForo.setBorder(null);
+		btnUploadForo.setBackground(new Color(176, 196, 222));
+		btnUploadForo.setBounds(431, 589, 68, 56);
+		panel.add(btnUploadForo);
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
@@ -121,5 +146,9 @@ public class _8_Foro extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
 	}
 }

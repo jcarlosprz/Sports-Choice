@@ -64,14 +64,14 @@ public class _8_Foro extends JFrame {
 		btnUploadForo = new JButton("Upload");
 		btnUploadForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.guardarObjetoForo();
+				miModelo.cargarObjetoForo();
 			}
 		});
 		
 		JButton btnDownload = new JButton("Download");
 		btnDownload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.cargarObjetoForo();
+				miModelo.guardarObjetoForo();
 			}
 		});
 		btnDownload.setFont(new Font("Dubai", Font.BOLD, 12));

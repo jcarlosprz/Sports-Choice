@@ -516,7 +516,7 @@ public class Modelo {
 		}
 	}
 	
-	public void cargarObjeto() {
+	public void cargarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
 		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
@@ -555,6 +555,26 @@ public class Modelo {
 				e.printStackTrace();
 			} 
 		}
+	}
+	
+	
+	public void cargarObjetoForo() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(foro.getContentPane());
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 	

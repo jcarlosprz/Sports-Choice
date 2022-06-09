@@ -158,7 +158,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnDownload);
 		btnDownload.addActionListener(new ActionListener() {
             public void actionPerformed (final ActionEvent d) {
-                miModelo.guardarObjeto(2,table);
+                miModelo.guardarObjetoAdmin();
             }});
 
 		btnUpload = new JButton("Upload");
@@ -170,7 +170,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnUpload);
 		btnUpload.addActionListener(new ActionListener() {
             public void actionPerformed (final ActionEvent d) {
-            	miModelo.cargarObjeto();
+            	miModelo.cargarObjetoAdmin();
             }});
 		
 

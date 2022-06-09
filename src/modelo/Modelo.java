@@ -548,7 +548,7 @@ public class Modelo {
 			try {
 				FileOutputStream fos = new FileOutputStream(fichero);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
-				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
+				exportarTablas misTablas  = new exportarTablas (tablaForo);
 				oos.writeObject(misTablas);
 				foro.getLblConfirmacion().setText("Archivo guardado con éxito");
 				fos.close();
@@ -582,12 +582,19 @@ public class Modelo {
 		
 	}
 
-	
 
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
+	public String getUsr() {
+		return usr;
+	}
+
+	public void setUsr(String usr) {
+		this.usr = usr;
+	}
+	
 	public String getPwd() {
 		return pwd;
 	}
@@ -611,4 +618,5 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
+
 }

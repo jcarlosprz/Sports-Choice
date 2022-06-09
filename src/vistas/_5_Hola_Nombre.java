@@ -23,7 +23,7 @@ public class _5_Hola_Nombre extends JFrame {
 
 
 	public _5_Hola_Nombre() {
-		setTitle("HOLA + NOMBRE");
+		setTitle("HOLA");
 		setResizable(false);
 		setBounds(140, 50, 850, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

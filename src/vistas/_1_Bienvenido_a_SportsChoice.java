@@ -29,6 +29,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private String personaNombre;
 
 	public _1_Bienvenido_a_SportsChoice() {
 		setResizable(false);
@@ -216,6 +217,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			} else {
 				miControlador.cambiarPantalla(0, 6);
 			}
+			personaNombre = miModelo.getUsr();
 		} else {
 			if (resultado.equals("Incorrecto")) {
 				lblRespuesta.setText("Usuario o contraseña incorrectos");
@@ -226,6 +228,10 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				System.exit(0);
 			}
 		}
+	}
+
+	public String getPersonaNombre() {
+		return personaNombre;
 	}
 	
 }

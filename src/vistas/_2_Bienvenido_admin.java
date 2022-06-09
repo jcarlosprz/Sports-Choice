@@ -198,21 +198,17 @@ public class _2_Bienvenido_admin extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-
 	public JScrollPane getScrollPane() {
 		return scrollPane;
 	}
-
 
 	public void setScrollPane(JScrollPane scrollPane) {
 		this.scrollPane = scrollPane;
 	}
 
-
 	public JTable getTable() {
 		return table;
 	}
-
 
 	public void setTable(JTable table) {
 		this.table = table;

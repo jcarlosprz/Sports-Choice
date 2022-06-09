@@ -505,7 +505,7 @@ public class Modelo {
 				FileOutputStream fos = new FileOutputStream(fichero);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
-				oos.writeObject(tablaAdmin);
+				oos.writeObject(misTablas);
 				fos.close();
 				oos.close();
 			} catch (IOException e) {
@@ -546,7 +546,7 @@ public class Modelo {
 				FileOutputStream fos = new FileOutputStream(fichero);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
-				oos.writeObject(tablaAdmin);
+				oos.writeObject(misTablas);
 				fos.close();
 				oos.close();
 			} catch (IOException e) {

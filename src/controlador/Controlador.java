@@ -1,5 +1,7 @@
 package controlador;
 
+import java.io.Serializable;
+
 import javax.swing.JFrame;
 import modelo.Modelo;
 import vistas._10_Configuracion;
@@ -39,5 +41,9 @@ public class Controlador {
 				miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
 		
 		}
+
+	public JFrame getPantallas(int indice) {
+		return pantallas[indice];
+	}
 
 }

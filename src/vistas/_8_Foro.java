@@ -122,4 +122,8 @@ public class _8_Foro extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
 }

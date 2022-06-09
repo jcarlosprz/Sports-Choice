@@ -29,8 +29,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._10_Configuracion;
 import vistas._2_Bienvenido_admin;
@@ -43,6 +41,7 @@ import vistas._7_Mis_Eventos;
 import vistas._8_Foro;
 import vistas._91_Crear_Evento;
 import vistas._9_Eventos_Disponibles;
+
 
 public class Modelo {
 
@@ -452,72 +451,6 @@ public class Modelo {
 		return numFilas;
 	}
 
-	public void guardar(String[] datosConexion, String[] keys) {
-
-		try {
-			for (int i = 0; i < keys.length; i++) {
-				config.setProperty(keys[i], datosConexion[i]);
-				salida = new FileOutputStream(miFichero);
-				config.store(salida, "Ultima operacion: Guardado");
-				respuesta = "Guardado";
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		configuracion.actualizar();
-	}
-
-	public void guardarObjeto() {
-		File rutaProyecto = new File(System.getProperty("user.dir"));
-		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showSaveDialog(bienvenidaAdmin.getScrollPane());
-		if (seleccion == JFileChooser.APPROVE_OPTION) {
-			File fichero = fc.getSelectedFile();
-			try {
-				FileOutputStream fos = new FileOutputStream(fichero);
-				ObjectOutputStream oos = new ObjectOutputStream(fos);
-				exportarTablas misTablas = new exportarTablas(tablaAdmin);
-				oos.writeObject(misTablas);
-				fos.close();
-				oos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	public void cargarObjeto() {
-		File rutaProyecto = new File(System.getProperty("user.dir"));
-		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
-		if (seleccion == JFileChooser.APPROVE_OPTION) {
-			try {
-				File fichero = fc.getSelectedFile();
-				FileInputStream fis = new FileInputStream(fichero);
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace
-																				// falta ponerle new
-				ois.close();
-				fis.close();
-				igualarTablas((DefaultTableModel) misTablas.getTabla());
-				System.out.println("Objeto cargado con éxito");
-				bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-	}
-
-	public void igualarTablas(DefaultTableModel defaultTableModel) {
-
-		tablaAdmin = defaultTableModel;
-	}
-
 	public DefaultTableModel getTablaAdmin() {
 		return tablaAdmin;
 	}
@@ -546,6 +479,86 @@ public class Modelo {
 		return tablaForo;
 	}
 
+	public void guardar(String[] datosConexion, String[] keys) {
+
+		try {
+			for (int i = 0; i < keys.length; i++) {
+				config.setProperty(keys[i], datosConexion[i]);
+				salida = new FileOutputStream(miFichero);
+				config.store(salida, "Ultima operacion: Guardado");
+				respuesta = "Guardado";
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		configuracion.actualizar();
+	}
+
+
+	public void guardarObjetoAdmin() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showSaveDialog(bienvenidaAdmin.getScrollPane());
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			File fichero = fc.getSelectedFile();
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
+				oos.writeObject(tablaAdmin);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} 
+		}
+	}
+	
+	public void cargarObjeto() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			try {
+				File fichero = fc.getSelectedFile();
+				FileInputStream fis = new FileInputStream(fichero);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	
+	public void guardarObjetoForo() {
+		File rutaProyecto = new File(System.getProperty("user.dir"));
+		JFileChooser fc = new JFileChooser(rutaProyecto);
+		int seleccion = fc.showSaveDialog(foro.getScrollPane());
+		if (seleccion == JFileChooser.APPROVE_OPTION) {
+			File fichero = fc.getSelectedFile();
+			try {
+				FileOutputStream fos = new FileOutputStream(fichero);
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
+				oos.writeObject(tablaAdmin);
+				fos.close();
+				oos.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} 
+		}
+	}
+
+	
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
@@ -573,5 +586,4 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
-
 }

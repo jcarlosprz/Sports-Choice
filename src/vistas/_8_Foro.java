@@ -139,7 +139,7 @@ public class _8_Foro extends JFrame {
 		lblFondo.setBounds(-87, 0, 969, 693);
 		panel.add(lblFondo);
 		
-		lblConfirmacion = new JLabel("New label");
+		lblConfirmacion = new JLabel("");
 		lblConfirmacion.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		lblConfirmacion.setForeground(Color.RED);
 		lblConfirmacion.setBounds(436, 563, 220, 26);
@@ -156,5 +156,13 @@ public class _8_Foro extends JFrame {
 
 	public JScrollPane getScrollPane() {
 		return scrollPane;
+	}
+
+	public JLabel getLblConfirmacion() {
+		return lblConfirmacion;
+	}
+
+	public void setLblConfirmacion(JLabel lblConfirmacion) {
+		this.lblConfirmacion = lblConfirmacion;
 	}
 }

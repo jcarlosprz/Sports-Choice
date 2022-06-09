@@ -29,6 +29,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._10_Configuracion;
 import vistas._2_Bienvenido_admin;
@@ -89,6 +90,7 @@ public class Modelo {
 	private OutputStream salida;
 	private String respuesta;
 	private final String FILE = "config.ini";
+
 
 	public Modelo() {
 		config = new Properties();
@@ -537,7 +539,6 @@ public class Modelo {
 		
 	}
 	
-	
 	public void guardarObjetoForo() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
@@ -549,6 +550,7 @@ public class Modelo {
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
 				oos.writeObject(misTablas);
+				foro.getLblConfirmacion().setText("Archivo guardado con éxito");
 				fos.close();
 				oos.close();
 			} catch (IOException e) {
@@ -570,6 +572,7 @@ public class Modelo {
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
+				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

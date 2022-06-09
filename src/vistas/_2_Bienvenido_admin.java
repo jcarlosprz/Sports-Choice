@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,19 +17,28 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 import controlador.Controlador;
 import modelo.Modelo;
+import modelo.exportarTablas;
+
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -147,7 +158,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnDownload);
 		btnDownload.addActionListener(new ActionListener() {
             public void actionPerformed (final ActionEvent d) {
-                miModelo.guardaTabla();
+                miModelo.guardarObjeto();
             }});
 
 		btnUpload = new JButton("Upload");
@@ -157,6 +168,11 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setBounds(246, 589, 68, 56);
 		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
+		btnUpload.addActionListener(new ActionListener() {
+            public void actionPerformed (final ActionEvent d) {
+            	miModelo.cargarObjeto();
+            }});
+		
 
 		JLabel lblFondo = new JLabel("");
 
@@ -172,15 +188,8 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
-
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowActivated(WindowEvent e) {
-				table.setModel(miModelo.getTablaAdmin());
-			}
-		});
 	}
-
+	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -188,4 +197,25 @@ public class _2_Bienvenido_admin extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+
+	public void setScrollPane(JScrollPane scrollPane) {
+		this.scrollPane = scrollPane;
+	}
+
+
+	public JTable getTable() {
+		return table;
+	}
+
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
+
 }

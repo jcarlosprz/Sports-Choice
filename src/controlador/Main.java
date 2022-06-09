@@ -7,6 +7,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import modelo.Modelo;
+import modelo.exportarTablas;
 import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Bienvenido_admin;

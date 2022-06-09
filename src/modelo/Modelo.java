@@ -495,7 +495,8 @@ public class Modelo {
 		configuracion.actualizar();
 	}
 
-
+	
+	
 	public void guardarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
@@ -618,5 +619,5 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
-
+	
 }

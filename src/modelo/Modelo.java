@@ -531,6 +531,7 @@ public class Modelo {
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
 			    bienvenidaAdmin.getLblConfirmacion().setText("Archivo cargado con éxito");
+			    igualarTablas((DefaultTableModel) misTablas.getTabla());
 			    bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -541,6 +542,10 @@ public class Modelo {
 		
 	}
 	
+	public void igualarTablas(DefaultTableModel defaultTableModel) {
+		tablaAdmin = defaultTableModel;
+	}
+
 	public void guardarObjetoForo() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);

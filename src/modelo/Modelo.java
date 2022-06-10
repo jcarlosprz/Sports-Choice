@@ -91,7 +91,6 @@ public class Modelo {
 	private String respuesta;
 	private final String FILE = "config.ini";
 
-
 	public Modelo() {
 		config = new Properties();
 		try {
@@ -495,8 +494,6 @@ public class Modelo {
 		configuracion.actualizar();
 	}
 
-	
-	
 	public void guardarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
@@ -506,20 +503,20 @@ public class Modelo {
 			try {
 				FileOutputStream fos = new FileOutputStream(fichero);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
-				exportarTablas misTablas  = new exportarTablas (tablaAdmin);
+				exportarTablas misTablas = new exportarTablas(tablaAdmin);
 				oos.writeObject(misTablas);
-			    bienvenidaAdmin.getLblConfirmacion().setText("Archivo guardado con éxito");
+				bienvenidaAdmin.getLblConfirmacion().setText("Archivo guardado con éxito");
 				fos.close();
 				oos.close();
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-			} 
+			}
 		}
 	}
-	
+
 	public void cargarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
@@ -529,19 +526,20 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
-			    bienvenidaAdmin.getLblConfirmacion().setText("Archivo cargado con éxito");
-			    igualarTablas((DefaultTableModel) misTablas.getTabla());
-			    bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
+				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace
+																				// falta ponerle new
+				bienvenidaAdmin.getLblConfirmacion().setText("Archivo cargado con éxito");
+				igualarTablas((DefaultTableModel) misTablas.getTabla());
+				bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 	public void igualarTablas(DefaultTableModel defaultTableModel) {
 		tablaAdmin = defaultTableModel;
 	}
@@ -555,7 +553,7 @@ public class Modelo {
 			try {
 				FileOutputStream fos = new FileOutputStream(fichero);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
-				exportarTablas misTablas  = new exportarTablas (tablaForo);
+				exportarTablas misTablas = new exportarTablas(tablaForo);
 				oos.writeObject(misTablas);
 				foro.getLblConfirmacion().setText("Archivo guardado con éxito");
 				fos.close();
@@ -564,11 +562,10 @@ public class Modelo {
 				e.printStackTrace();
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
-			} 
+			}
 		}
 	}
-	
-	
+
 	public void cargarObjetoForo() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
@@ -578,18 +575,18 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
+				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace falta new																// falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
-			    bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
+				igualarTablas((DefaultTableModel) misTablas.getTabla());
+				bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-	}
 
+	}
 
 	public void setUsername(String username) {
 		this.username = username;
@@ -602,7 +599,7 @@ public class Modelo {
 	public void setUsr(String usr) {
 		this.usr = usr;
 	}
-	
+
 	public String getPwd() {
 		return pwd;
 	}
@@ -626,5 +623,5 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
-	
+
 }

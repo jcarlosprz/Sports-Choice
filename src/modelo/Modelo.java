@@ -542,6 +542,7 @@ public class Modelo {
 
 	public void igualarTablas(DefaultTableModel defaultTableModel) {
 		tablaAdmin = defaultTableModel;
+		tablaForo = defaultTableModel;
 	}
 
 	public void guardarObjetoForo() {
@@ -578,7 +579,7 @@ public class Modelo {
 				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace falta new																// falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
 				igualarTablas((DefaultTableModel) misTablas.getTabla());
-				bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
+				foro.getTable().setModel(misTablas.getTabla());
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

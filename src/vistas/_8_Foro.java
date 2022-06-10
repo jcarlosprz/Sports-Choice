@@ -165,4 +165,12 @@ public class _8_Foro extends JFrame {
 	public void setLblConfirmacion(JLabel lblConfirmacion) {
 		this.lblConfirmacion = lblConfirmacion;
 	}
+
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
 }

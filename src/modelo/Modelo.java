@@ -575,6 +575,7 @@ public class Modelo {
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				exportarTablas misTablas  = (exportarTablas) ois.readObject();  // readObject crea el objeto. No hace falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
+			    bienvenidaAdmin.getTable().setModel(misTablas.getTabla());
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {

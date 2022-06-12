@@ -242,6 +242,35 @@ public class Modelo {
 		}
 	}
 
+	//Método Registro
+	public void Registro(String usr, String nombre, String apellidos, String telefono, String email, String poblacion,
+			String fecha_nacimiento, String pwd, String confirmarpwd) {
+		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			if (pwd.equals(confirmarpwd)) {
+				Conexion();
+				pstmt = conexion.prepareStatement(RegistroSql);
+				pstmt.setString(1, usr);
+				pstmt.setString(2, nombre);
+				pstmt.setString(3, apellidos);
+				pstmt.setString(4, telefono);
+				pstmt.setString(5, email);
+				pstmt.setString(6, poblacion);
+				pstmt.setString(7,fecha_nacimiento);
+				pstmt.setString(8, "usuario");
+				pstmt.setString(9, pwd);
+				pstmt.setString(10, "activo");
+				pstmt.setString(11, null);
+				pstmt.executeUpdate();
+				System.out.println("Se ha registrado correctamente");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
 	private void TablaAdmin() {
 		tablaAdmin = new DefaultTableModel();
 		int numColumnas = getNumColumnas(sqlTablaAdmin);
@@ -520,7 +549,7 @@ public class Modelo {
 	public void cargarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
+		int seleccion = fc.showOpenDialog(null);
 		if (seleccion == JFileChooser.APPROVE_OPTION) {
 			try {
 				File fichero = fc.getSelectedFile();
@@ -576,7 +605,8 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace falta new																// falta ponerle new
+				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace
+																				// falta new // falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
 				igualarTablas((DefaultTableModel) misTablas.getTabla());
 				foro.getTable().setModel(misTablas.getTabla());

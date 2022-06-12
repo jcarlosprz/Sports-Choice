@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
 import controlador.Controlador;
@@ -98,6 +99,7 @@ public class _2_Registrarse extends JFrame {
 		btnCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.DatosRegistro();
 				miControlador.cambiarPantalla(3, 0);
 			}
 		});
@@ -206,7 +208,43 @@ public class _2_Registrarse extends JFrame {
 		lblFondo.setBounds(-98, 0, 939, 683);
 		panel.add(lblFondo);
 	}
+/**Getters y Setters de los campos del formulario*/
+	public String getNombreUsuario() {
+		return txtNombreUsuario.getText();
+	}
+	
+	public String getNombre() {
+		return txtNombre.getText();
+	}
+	
+	public String getApellidos() {
+		return txtApellidos.getText();
+	}
+	
+	public Date getFechaNacimiento() {
+		return dateChooserFechaNac.getDate();
+	}
+	
+	public String getTelefono() {
+		return txtTfno.getText();
+	}
 
+	public String getContrasena() {
+		return txtContrasena.getText();
+	}
+	public String getConfirmarContrasena() {
+		return txtConfirmarContrasena.getText();
+	}
+
+	public String getPoblacion() {
+		return txtPoblacion.getText();
+	}
+	
+	public String getEmail() {
+		return txtEmail.getText();
+	}
+
+	/**Getters y Setters del controlador y modelo*/
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

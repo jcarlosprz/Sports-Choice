@@ -210,6 +210,30 @@ public class _6_Tu_perfil extends JFrame {
 		panel.add(lblFondo);
 	}
 	
+	
+	
+	public void actualizarsePerfil() {
+		String nombre = miModelo.getNombre();
+		txtNombre.setText(nombre);
+		
+		String apellido = miModelo.getApellido();
+		txtApellidos.setText(apellido);
+		
+		String telefono = miModelo.getTelefono();
+		txtTelefono.setText(telefono);
+		
+		String email = miModelo.getEmail();
+		txtEmail.setText(email);
+		
+		//String fechaNacimmiento
+		
+		String poblacion = miModelo.getPoblacion();
+		txtPoblacion.setText(poblacion);
+		
+		
+		
+	}
+	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

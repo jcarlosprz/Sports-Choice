@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Component;
 import java.awt.ScrollPane;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -83,6 +84,59 @@ public class Modelo {
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
+	
+	
+	private String usrPerfil;
+	private String nombrePerfil;
+	private String apellidoPerfil;
+	private String telefonoPerfil;
+	private String emailPerfil;
+	private String poblacionPerfil;
+	//private Date fechaPerfil; 
+	
+
+public void tuPerfil() {
+	String sqlPerfil = "select usr, nombre, apellidos, telefono, email,  fecha_nacimiento, poblacion from users where usr = ? ";
+
+	try {
+		PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
+		pstmt.setString(1,usr);
+		ResultSet rset = pstmt.executeQuery();
+		rset.next();
+		//usrPerfil = rset.getString(1);
+		nombrePerfil = rset.getString(2);
+		apellidoPerfil = rset.getString(3);
+		telefonoPerfil = rset.getString(4);
+		emailPerfil = rset.getString(5);
+		// fecha
+		poblacionPerfil = rset.getString(7);
+		
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	
+	}
+	tuPerfil.actualizarsePerfil();
+}
+
+
+
+//				TablaPerfil.addColumn(rsmd.getColumnName(i + 1));
+//			}
+//			while (rset.next()) {
+//				for (int col = 1; col <= numColumnas; col++) {
+//					contenido[col - 1] = rset.getString(col);
+//				}
+//				TablaPerfil.addRow(contenido);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		
+//		}
+//		return sqlPerfilTabla;
+//	}
+//	
+	
 
 	private Properties config;
 	private File miFichero;
@@ -624,5 +678,37 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
+
+	
+	
+	
+	
+	
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return nombrePerfil;
+	}
+
+	public String getApellido() {
+		// TODO Auto-generated method stub
+		return apellidoPerfil;
+	}
+
+	public String getTelefono() {
+		// TODO Auto-generated method stub
+		return telefonoPerfil;
+	}
+
+	public String getEmail() {
+		// TODO Auto-generated method stub
+		return emailPerfil;
+	}
+
+	public String getPoblacion() {
+		// TODO Auto-generated method stub
+		return poblacionPerfil;
+	}
+
+
 
 }

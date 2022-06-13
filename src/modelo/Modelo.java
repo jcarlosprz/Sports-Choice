@@ -299,28 +299,28 @@ public class Modelo {
 	
 	public void BorrarFilaTablaMisEventos() {
 		borrarFilaTablaMisEventos = new DefaultTableModel();
-		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
-
-			pstmt.setString(1, usr);
-			System.out.println("METODO: " + usr);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaMisEventos.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaMisEventos.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
+//		Object[] contenido = new Object[numColumnas];
+//		PreparedStatement pstmt;
+//		try {
+//			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
+//
+//			pstmt.setString(1, usr);
+//			System.out.println("METODO: " + usr);
+//			ResultSet rset = pstmt.executeQuery();
+//			ResultSetMetaData rsmd = rset.getMetaData();
+//			for (int i = 0; i < numColumnas; i++) {
+//				tablaMisEventos.addColumn(rsmd.getColumnName(i + 1));
+//			}
+//			while (rset.next()) {
+//				for (int col = 1; col <= numColumnas; col++) {
+//					contenido[col - 1] = rset.getString(col);
+//				}
+//				tablaMisEventos.addRow(contenido);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	public void TablaEventosBaloncesto() {

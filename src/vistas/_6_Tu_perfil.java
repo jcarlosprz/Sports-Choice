@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -42,6 +44,29 @@ public class _6_Tu_perfil extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+				btnPregunta = new JButton("");
+				btnPregunta.setBorder(null);
+				btnPregunta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JOptionPane.showMessageDialog(null, "" + "No puedes dejar ningún campo vacío.       \r\n\n"
+								+ "Presta atención al uso de mayúsculas \r\n"
+								+ "y minúsculas \r\n\n",
+								"AYUDA TU PERFIL", JOptionPane.INFORMATION_MESSAGE);
+					}
+				});
+				btnPregunta.setBackground(new Color(255, 204, 153));
+				btnPregunta.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/pregunta-32x32.png")));
+				// Hacen que el bot�n sea transparente.
+				btnPregunta.setOpaque(false);
+				btnPregunta.setContentAreaFilled(false);
+				btnPregunta.setBorderPainted(false);
+				// Cambia el puntero del rator a pointer cursor.
+				btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				
+						btnPregunta.setForeground(new Color(0, 0, 0));
+						btnPregunta.setBounds(367, 60, 32, 32);
+						panel.add(btnPregunta);
 
 		lblTuPerfil = new JLabel("TU PERFIL");
 		lblTuPerfil.setFont(new Font("Dubai", Font.BOLD, 30));
@@ -144,25 +169,6 @@ public class _6_Tu_perfil extends JFrame {
 		btnGuardar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnGuardar.setBounds(526, 611, 162, 56);
 		panel.add(btnGuardar);
-
-		btnPregunta = new JButton("");
-		btnPregunta.setBorder(null);
-		btnPregunta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPregunta.setBackground(new Color(255, 204, 153));
-		btnPregunta.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/pregunta-32x32.png")));
-		// Hacen que el bot�n sea transparente.
-		btnPregunta.setOpaque(false);
-		btnPregunta.setContentAreaFilled(false);
-		btnPregunta.setBorderPainted(false);
-		// Cambia el puntero del rator a pointer cursor.
-		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(367, 60, 32, 32);
-		panel.add(btnPregunta);
 
 		lblPerfil = new JLabel("");
 		lblPerfil.setBorder(null);

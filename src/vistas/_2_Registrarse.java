@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -40,6 +42,27 @@ public class _2_Registrarse extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+				btnPregunta = new JButton("");
+				btnPregunta.setContentAreaFilled(false);
+				btnPregunta.setBorder(null);
+				btnPregunta.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						JOptionPane.showMessageDialog(null, "" + "No puedes dejar ningún campo vacío.      \r\n\n"
+								+ "Presta atención al uso de mayúsculas \r\n"
+								+ "y minúsculas \r\n\n",
+								"AYUDA REGISTRO", JOptionPane.INFORMATION_MESSAGE);
+					}
+				});
+				btnPregunta.setBackground(new Color(255, 204, 153));
+				btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
+				btnPregunta.setOpaque(false);
+				btnPregunta.setBorderPainted(false);
+				btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				
+						btnPregunta.setForeground(new Color(0, 0, 0));
+						btnPregunta.setBounds(380, 64, 32, 32);
+						panel.add(btnPregunta);
 		
 		lblError = new JLabel("");
 		lblError.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -111,23 +134,6 @@ public class _2_Registrarse extends JFrame {
 		btnCrearCuenta.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnCrearCuenta.setBounds(509, 574, 162, 56);
 		panel.add(btnCrearCuenta);
-
-		btnPregunta = new JButton("");
-		btnPregunta.setContentAreaFilled(false);
-		btnPregunta.setBorder(null);
-		btnPregunta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPregunta.setBackground(new Color(255, 204, 153));
-		btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
-		btnPregunta.setOpaque(false);
-		btnPregunta.setBorderPainted(false);
-		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(380, 64, 32, 32);
-		panel.add(btnPregunta);
 
 		btnFlecha = new JButton("");
 		btnFlecha.setBorder(null);

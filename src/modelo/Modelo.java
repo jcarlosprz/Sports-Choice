@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -72,6 +73,8 @@ public class Modelo {
 	private String pwdusr;
 	private String rol;
 	private String estado;
+	//Nombre saludo usuario
+	private String holaNombreUsuario;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
@@ -213,6 +216,8 @@ public class Modelo {
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
+		//Instrucción que devuelve el nombre del usuario que sirve para la pantalla "Hola_Nombre"
+		this.holaNombreUsuario = LoginSQL ("SELECT nombre FROM users WHERE usr=?", usr, "nombre");
 		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
@@ -576,7 +581,8 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace falta new																// falta ponerle new
+				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace
+																				// falta new // falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
 				igualarTablas((DefaultTableModel) misTablas.getTabla());
 				foro.getTable().setModel(misTablas.getTabla());
@@ -624,5 +630,14 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
+
+	public void setTablaAdmin(DefaultTableModel tablaAdmin) {
+		this.tablaAdmin = tablaAdmin;
+	}
+
+	public String getHolaNombreUsuario() {
+		return holaNombreUsuario;
+	}
+
 
 }

@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -62,6 +63,7 @@ public class _91_Crear_Evento extends JFrame {
 		btnFlecha.setBorderPainted(false);
 		btnFlecha.setBorder(null);
 		btnFlecha.setBounds(54, 587, 106, 56);
+		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 
 		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: \"Deporte\"");
@@ -86,6 +88,9 @@ public class _91_Crear_Evento extends JFrame {
 		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "" + "Todos los campos son requeridos            \r\n"
+						+ "Por favor, no te dejes ningún campo  \r\n"
+						+ "sin seleccionar.\r\n\n", "AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
@@ -164,11 +169,12 @@ public class _91_Crear_Evento extends JFrame {
 		lblFecha = new JLabel("Fecha:");
 		lblFecha.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblFecha.setBounds(306, 214, 104, 14);
+		
 		panel.add(lblFecha);
-
 		lblNivel = new JLabel("Nivel:");
 		lblNivel.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNivel.setBounds(677, 214, 104, 14);
+		lblNivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblNivel);
 		
 		lblFondo = new JLabel("");

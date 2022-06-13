@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -72,6 +74,11 @@ public class _7_Mis_Eventos extends JFrame {
 		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "" + "Recuerda seleccionar uno de tus eventos      \r\n"
+						+ "para poder habilitar los botones de \r\n"
+						+ "'Ir al foro'  y  'Abandonar' (en caso \r\n"
+						+ "de que tu deseo sea abandonar el \r\n"
+						+ "evento).", "AYUDA MIS EVENTOS", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));

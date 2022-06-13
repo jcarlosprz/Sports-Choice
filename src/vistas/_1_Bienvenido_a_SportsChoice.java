@@ -1,8 +1,11 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -17,12 +20,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private JPanel panel;
-	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
-			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta, lblRespuesta;
+	public JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena, lblOlvidasteContrasena,
+			lblFondo, lblRegistrarse, lblNoTienesCuenta, lblRespuesta;
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin, btnConfiguracion;
@@ -42,14 +46,15 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.setBounds(0, 0, 856, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		btnConfiguracion = new JButton("");
 		btnConfiguracion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(0, 1);	
+				miControlador.cambiarPantalla(0, 1);
 			}
 		});
-		btnConfiguracion.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/rueda (1).png")));
+		btnConfiguracion
+				.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/rueda (1).png")));
 		btnConfiguracion.setBounds(591, 595, 32, 32);
 		btnConfiguracion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnConfiguracion);
@@ -62,6 +67,26 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.add(lblRespuesta);
 
 		btnAyuda = new JButton("");
+		btnAyuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "" + "Bienvenido a Sports-Choice, una aplicación para conocer             \r\n"
+						+ "gente nueva a la vez que practicas tus deportes favoritos.\r\n\n"
+						+ "Para utilizar la aplicación solo necesitas un ordenador con\r\n"
+						+ "navegación web y una cuenta asociada con tus datos.\r\n"
+						+ "Sports-Choice se basa en un servicio web que gestiona \r\n"
+						+ "las peticiones de multitud de usuarios para desarrollar \r\n"
+						+ "tus actividades deportivas favoritas.\r\n\n"
+						+ "Se trata de una aplicación visual e interactiva muy fácil \r\n"
+						+ "de usar, con la que incluso los menos acostumbrados \r\n"
+						+ "a las nuevas tecnologías podrán usarla sin ningún \r\n"
+						+ "problema. Existen muchas aplicaciones fitness y \r\n"
+						+ "deportivas, pero ninguna fue nunca tan social y divertida\r\n"
+						+ "como Sports Choice. \r\n\n"
+						+ "Tu app personalizada para practicar deporte cuando \r\n" 
+						+ "y donde quieras. \r\n\n",
+						"AYUDA SPORTS CHOICE", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		btnAyuda.setIcon(new ImageIcon(_1_Bienvenido_a_SportsChoice.class.getResource("/images/pregunta-32x32.png")));
 		btnAyuda.setOpaque(false);
 		btnAyuda.setForeground(Color.BLACK);
@@ -155,6 +180,14 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 					btnLogin.setEnabled(true);
 				}
 			}
+
+			// Permite que se pueda realizar el login pulsando la tecla enter.
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					miControlador.login();
+				}
+			}
 		});
 		txtContrasena.setBorder(null);
 		txtContrasena.setColumns(10);
@@ -172,6 +205,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.login();
 			}
+
 		});
 
 		btnLogin.setBounds(267, 438, 316, 59);
@@ -198,7 +232,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	public String getPwd() {
 		return String.valueOf(txtContrasena.getPassword());
 	}
-	
+
 	public void inactivoError() {
 		lblRespuesta.setText("Este usuario está bloqueado");
 		txtContrasena.setText("");
@@ -227,6 +261,5 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			}
 		}
 	}
-	
-}
 
+}

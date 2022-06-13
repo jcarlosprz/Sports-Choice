@@ -10,6 +10,8 @@ import java.awt.Cursor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class _5_Hola_Nombre extends JFrame {
@@ -20,6 +22,8 @@ public class _5_Hola_Nombre extends JFrame {
 	
 	private Controlador miControlador;
 	private Modelo miModelo;
+	private JLabel lblHola;
+	
 
 
 	public _5_Hola_Nombre() {
@@ -35,11 +39,27 @@ public class _5_Hola_Nombre extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		lblHolaNombre = new JLabel("HOLA + \"NOMBRE\"");
+		
+		lblHolaNombre = new JLabel();
 		lblHolaNombre.setFont(new Font("Dubai", Font.BOLD, 45));
-		lblHolaNombre.setBounds(246, 21, 589, 60);
+		lblHolaNombre.setBounds(407, 22, 297, 60);
 		panel.add(lblHolaNombre);
-
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				lblHolaNombre.setText(miModelo.getHolaNombreUsuario());
+			}
+		});
+		
+		
+		lblHola = new JLabel();
+		lblHola.setText("Hola");
+		lblHola.setFont(new Font("Dubai", Font.BOLD, 45));
+		lblHola.setBounds(299, 22, 105, 60);
+		panel.add(lblHola);
+		
+		
 		btnBaloncesto = new JButton("");
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
@@ -149,8 +169,22 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 7);
+				//
+				//
+				//
+				//
+				//
+			
 			}
 		});
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.tuPerfil();
+			}
+		});
+		
+		
 		btnMiPerfil.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMiPerfil.setBackground(new Color(176, 196, 222));
 		btnMiPerfil.setBounds(471, 602, 142, 59);
@@ -173,6 +207,7 @@ public class _5_Hola_Nombre extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
+
 	}
 
 	public void setMiControlador(Controlador miControlador) {

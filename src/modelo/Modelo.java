@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Component;
 import java.awt.ScrollPane;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -26,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -72,6 +74,8 @@ public class Modelo {
 	private String pwdusr;
 	private String rol;
 	private String estado;
+	// Nombre saludo usuario
+	private String holaNombreUsuario;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel borrarFilaTablaMisEventos;
@@ -86,6 +90,41 @@ public class Modelo {
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
+
+	private String usrPerfil;
+	private String nombrePerfil;
+	private String apellidoPerfil;
+	private String telefonoPerfil;
+	private String emailPerfil;
+	private String poblacionPerfil;
+
+	private Date fechaPerfil;
+
+	public void tuPerfil() {
+		String sqlPerfil = "select usr, nombre, apellidos, telefono, email,  fecha_nacimiento, poblacion from users where usr = ? ";
+
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
+			pstmt.setString(1, usr);
+			ResultSet rset = pstmt.executeQuery();
+			rset.next();
+			usrPerfil = rset.getString(1);
+			nombrePerfil = rset.getString(2);
+			apellidoPerfil = rset.getString(3);
+			telefonoPerfil = rset.getString(4);
+			emailPerfil = rset.getString(5);
+			fechaPerfil = rset.getDate(6);
+			Date prueba = fechaPerfil;
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			String dia = new String();
+			dia = formatter.format(getFechaNacimiento());
+			poblacionPerfil = rset.getString(7);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		tuPerfil.actualizarsePerfil();
+	}
 
 	private Properties config;
 	private File miFichero;
@@ -216,6 +255,9 @@ public class Modelo {
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
+		// Instrucción que devuelve el nombre del usuario que sirve para la pantalla
+		// "Hola_Nombre"
+		this.holaNombreUsuario = LoginSQL("SELECT nombre FROM users WHERE usr=?", usr, "nombre");
 		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
@@ -243,6 +285,52 @@ public class Modelo {
 				}
 			}
 		}
+	}
+
+	// Método Registro
+	public boolean Registro(String usr, String nombre, String apellidos, String telefono, String email,
+			String poblacion, Date date, String pwd, String confirmarpwd) {
+
+		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			String fecha_nacimiento = "";
+			if (date != null) {
+				fecha_nacimiento = DateFormat.getDateInstance().format(date);
+
+				if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
+						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
+						&& !confirmarpwd.equals("") && pwd.equals(confirmarpwd)) {
+
+					Conexion();
+					pstmt = conexion.prepareStatement(RegistroSql);
+					pstmt.setString(1, usr);
+					pstmt.setString(2, nombre);
+					pstmt.setString(3, apellidos);
+					pstmt.setString(4, telefono);
+					pstmt.setString(5, email);
+					pstmt.setString(6, poblacion);
+					pstmt.setString(7, fecha_nacimiento);
+					pstmt.setString(8, "usuario");
+					pstmt.setString(9, pwd);
+					pstmt.setString(10, "activo");
+					pstmt.setString(11, null);
+					pstmt.executeUpdate();
+					System.out.println("CUENTA CREADA");
+					return true;
+				} else if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
+						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
+						&& !confirmarpwd.equals("") && !pwd.equals(confirmarpwd)) {
+					registrarse.errorLabelPasswordsDistintas();
+				}
+			} else {
+				registrarse.errorLabelCamposVacios();
+			}
+		} catch (SQLException e) {
+			registrarse.errorUsuarioExistente();
+		}
+		return false;
+
 	}
 
 	private void TablaAdmin() {
@@ -552,7 +640,7 @@ public class Modelo {
 	public void cargarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
+		int seleccion = fc.showOpenDialog(null);
 		if (seleccion == JFileChooser.APPROVE_OPTION) {
 			try {
 				File fichero = fc.getSelectedFile();
@@ -608,7 +696,8 @@ public class Modelo {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace falta new																// falta ponerle new
+				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace
+																				// falta new // falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
 				igualarTablas((DefaultTableModel) misTablas.getTabla());
 				foro.getTable().setModel(misTablas.getTabla());
@@ -657,5 +746,40 @@ public class Modelo {
 		this.config = config;
 	}
 
+	public String getUsrPerfil() {
+		return usrPerfil;
+	}
+
+	public String getNombre() {
+		return nombrePerfil;
+	}
+
+	public String getApellido() {
+		return apellidoPerfil;
+	}
+
+	public String getTelefono() {
+		return telefonoPerfil;
+	}
+
+	public String getEmail() {
+		return emailPerfil;
+	}
+
+	public String getPoblacion() {
+		return poblacionPerfil;
+	}
+
+	public Date getFechaNacimiento() {
+		return fechaPerfil;
+	}
+
+	public void setTablaAdmin(DefaultTableModel tablaAdmin) {
+		this.tablaAdmin = tablaAdmin;
+	}
+
+	public String getHolaNombreUsuario() {
+		return holaNombreUsuario;
+	}
 
 }

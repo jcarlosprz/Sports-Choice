@@ -23,7 +23,7 @@ import java.awt.event.KeyListener;
 public class _1_Bienvenido_a_SportsChoice extends JFrame {
 
 	private JPanel panel;
-	private JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
+	public JLabel lblNombreUsuario, lblSubtitulo, lblBienvenido, lblSportsChoice, lblContrasena,
 			lblOlvidasteContrasena, lblFondo, lblRegistrarse, lblNoTienesCuenta, lblRespuesta;
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;

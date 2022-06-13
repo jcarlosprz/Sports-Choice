@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -73,6 +74,8 @@ public class Modelo {
 	private String pwdusr;
 	private String rol;
 	private String estado;
+	//Nombre saludo usuario
+	private String holaNombreUsuario;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
@@ -267,6 +270,8 @@ public void tuPerfil() {
 		this.pwdusr = LoginSQL("SELECT pwd FROM users WHERE usr=?", usr, "pwd");
 		this.rol = LoginSQL("SELECT rol FROM users WHERE usr=?", usr, "rol");
 		this.estado = LoginSQL("SELECT estado FROM users WHERE usr=?", usr, "estado");
+		//Instrucción que devuelve el nombre del usuario que sirve para la pantalla "Hola_Nombre"
+		this.holaNombreUsuario = LoginSQL ("SELECT nombre FROM users WHERE usr=?", usr, "nombre");
 		if (this.estado.equals("inactivo")) {
 			fallos++;
 			if (fallos == 3) {
@@ -295,6 +300,35 @@ public void tuPerfil() {
 			}
 		}
 	}
+
+	//Método Registro
+	public void Registro(String usr, String nombre, String apellidos, String telefono, String email, String poblacion,
+			String fecha_nacimiento, String pwd, String confirmarpwd) {
+		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			if (pwd.equals(confirmarpwd)) {
+				Conexion();
+				pstmt = conexion.prepareStatement(RegistroSql);
+				pstmt.setString(1, usr);
+				pstmt.setString(2, nombre);
+				pstmt.setString(3, apellidos);
+				pstmt.setString(4, telefono);
+				pstmt.setString(5, email);
+				pstmt.setString(6, poblacion);
+				pstmt.setString(7,fecha_nacimiento);
+				pstmt.setString(8, "usuario");
+				pstmt.setString(9, pwd);
+				pstmt.setString(10, "activo");
+				pstmt.setString(11, null);
+				pstmt.executeUpdate();
+				System.out.println("Se ha registrado correctamente");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	private void TablaAdmin() {
 		tablaAdmin = new DefaultTableModel();
@@ -574,7 +608,7 @@ public void tuPerfil() {
 	public void cargarObjetoAdmin() {
 		File rutaProyecto = new File(System.getProperty("user.dir"));
 		JFileChooser fc = new JFileChooser(rutaProyecto);
-		int seleccion = fc.showOpenDialog(bienvenidaAdmin.getContentPane());
+		int seleccion = fc.showOpenDialog(null);
 		if (seleccion == JFileChooser.APPROVE_OPTION) {
 			try {
 				File fichero = fc.getSelectedFile();
@@ -630,7 +664,8 @@ public void tuPerfil() {
 				File fichero = fc.getSelectedFile();
 				FileInputStream fis = new FileInputStream(fichero);
 				ObjectInputStream ois = new ObjectInputStream(fis);
-				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace falta new																// falta ponerle new
+				exportarTablas misTablas = (exportarTablas) ois.readObject(); // readObject crea el objeto. No hace
+																				// falta new // falta ponerle new
 				foro.getLblConfirmacion().setText("Archivo cargado con éxito");
 				igualarTablas((DefaultTableModel) misTablas.getTabla());
 				foro.getTable().setModel(misTablas.getTabla());
@@ -678,10 +713,6 @@ public void tuPerfil() {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
-
-	
-	
-	
 	
 	
 	public String getNombre() {
@@ -707,6 +738,14 @@ public void tuPerfil() {
 	public String getPoblacion() {
 		// TODO Auto-generated method stub
 		return poblacionPerfil;
+	}
+
+	public void setTablaAdmin(DefaultTableModel tablaAdmin) {
+		this.tablaAdmin = tablaAdmin;
+	}
+
+	public String getHolaNombreUsuario() {
+		return holaNombreUsuario;
 	}
 
 

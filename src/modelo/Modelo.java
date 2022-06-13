@@ -748,6 +748,4 @@ public void tuPerfil() {
 		return holaNombreUsuario;
 	}
 
-
-
 }

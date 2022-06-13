@@ -74,12 +74,12 @@ public class Modelo {
 	private String estado;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
-	private DefaultTableModel borrarTablaMisEventos;
+	private DefaultTableModel borrarFilaTablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
 	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
-	private String sqlBorrarTablaMisEventos = "Delete from eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where codigo_evento.usr = ?;";
+	private String sqlBorrarFilaTablaMisEventos = "Delete * from eventos where eventos.codigo_evento = ?;";
 	
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
@@ -297,8 +297,8 @@ public class Modelo {
 	
 	///
 	
-	private void BorrarTablaMisEventos() {
-		borrarTablaMisEventos = new DefaultTableModel();
+	public void BorrarFilaTablaMisEventos() {
+		borrarFilaTablaMisEventos = new DefaultTableModel();
 		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;

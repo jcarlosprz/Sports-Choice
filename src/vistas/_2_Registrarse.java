@@ -40,6 +40,12 @@ public class _2_Registrarse extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		lblError = new JLabel("");
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblError.setForeground(Color.RED);
+		lblError.setBounds(399, 531, 272, 31);
+		panel.add(lblError);
 
 		lblRegistrarse = new JLabel("REGISTRARSE");
 		lblRegistrarse.setFont(new Font("Dubai", Font.BOLD, 30));
@@ -99,7 +105,7 @@ public class _2_Registrarse extends JFrame {
 		btnCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.DatosRegistro();
+				miControlador.DatosRegistro();		
 			}
 		});
 		btnCrearCuenta.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -206,18 +212,22 @@ public class _2_Registrarse extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-98, 0, 939, 683);
 		panel.add(lblFondo);
-		
-		lblError = new JLabel("");
-		lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblError.setForeground(Color.RED);
-		lblError.setBounds(322, 542, 209, 31);
-		panel.add(lblError);
 	}
 	
-	public void errorLabel() {
+	// Label que saca por pantalla error al dejar campos vacíos.
+	public void errorLabelCamposVacios() {
 		lblError.setText("No puedes dejar campos vacíos");
 	}
 	
+	// Label que saca por pantalla error al introducir contraseñas distintas.
+	public void errorLabelPasswordsDistintas() {
+		lblError.setText("Las contraseñas no coinciden");
+	}
+	
+	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
+	public void errorUsuarioExistente() {
+		lblError.setText("El usuario introducido ya existe");
+	}
 	
 /**Getters y Setters de los campos del formulario*/
 	public String getNombreUsuario() {
@@ -269,4 +279,8 @@ public class _2_Registrarse extends JFrame {
 	public void setLblError(JLabel lblError) {
 		this.lblError = lblError;
 	}
+
+	
+
+	
 }

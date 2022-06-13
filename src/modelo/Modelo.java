@@ -87,42 +87,37 @@ public class Modelo {
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
-	
-	
+
 	private String usrPerfil;
 	private String nombrePerfil;
 	private String apellidoPerfil;
 	private String telefonoPerfil;
 	private String emailPerfil;
 	private String poblacionPerfil;
-	//private Date fechaPerfil; 
-	
+	// private Date fechaPerfil;
 
-public void tuPerfil() {
-	String sqlPerfil = "select usr, nombre, apellidos, telefono, email,  fecha_nacimiento, poblacion from users where usr = ? ";
+	public void tuPerfil() {
+		String sqlPerfil = "select usr, nombre, apellidos, telefono, email,  fecha_nacimiento, poblacion from users where usr = ? ";
 
-	try {
-		PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
-		pstmt.setString(1,usr);
-		ResultSet rset = pstmt.executeQuery();
-		rset.next();
-		//usrPerfil = rset.getString(1);
-		nombrePerfil = rset.getString(2);
-		apellidoPerfil = rset.getString(3);
-		telefonoPerfil = rset.getString(4);
-		emailPerfil = rset.getString(5);
-		// fecha
-		poblacionPerfil = rset.getString(7);
-		
-		
-	} catch (SQLException e) {
-		e.printStackTrace();
-	
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
+			pstmt.setString(1, usr);
+			ResultSet rset = pstmt.executeQuery();
+			rset.next();
+			// usrPerfil = rset.getString(1);
+			nombrePerfil = rset.getString(2);
+			apellidoPerfil = rset.getString(3);
+			telefonoPerfil = rset.getString(4);
+			emailPerfil = rset.getString(5);
+			// fecha
+			poblacionPerfil = rset.getString(7);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		tuPerfil.actualizarsePerfil();
 	}
-	tuPerfil.actualizarsePerfil();
-}
-
-
 
 //				TablaPerfil.addColumn(rsmd.getColumnName(i + 1));
 //			}
@@ -139,7 +134,7 @@ public void tuPerfil() {
 //		return sqlPerfilTabla;
 //	}
 //	
-	
+
 	private Properties config;
 	private File miFichero;
 	private InputStream entrada;
@@ -302,21 +297,20 @@ public void tuPerfil() {
 	}
 
 	// Método Registro
-	public boolean Registro(String usr, String nombre, String apellidos, String telefono, String email, String poblacion,
-			Date date, String pwd, String confirmarpwd) {
+	public boolean Registro(String usr, String nombre, String apellidos, String telefono, String email,
+			String poblacion, Date date, String pwd, String confirmarpwd) {
 
-		boolean respuesta = false;
 		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt;
 		try {
-			String fecha_nacimiento="";
-			if (date!=null) {
+			String fecha_nacimiento = "";
+			if (date != null) {
 				fecha_nacimiento = DateFormat.getDateInstance().format(date);
-			}
-			if (usr != "" || nombre != "" || apellidos != "" || telefono != "" || email != ""
-					|| poblacion != "" || fecha_nacimiento != "" || pwd != "" || confirmarpwd != "") {
 
-				if (pwd.equals(confirmarpwd)) {
+				if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
+						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
+						&& !confirmarpwd.equals("") && pwd.equals(confirmarpwd)) {
+
 					Conexion();
 					pstmt = conexion.prepareStatement(RegistroSql);
 					pstmt.setString(1, usr);
@@ -331,17 +325,21 @@ public void tuPerfil() {
 					pstmt.setString(10, "activo");
 					pstmt.setString(11, null);
 					pstmt.executeUpdate();
-					System.out.println("Se ha registrado correctamente");
+					System.out.println("CUENTA CREADA");
+					return true;
+				} else if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
+						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
+						&& !confirmarpwd.equals("") && !pwd.equals(confirmarpwd)) {
+					registrarse.errorLabelPasswordsDistintas();
 				}
-				respuesta = true;
-			} 	else {
-				registrarse.errorLabel();
-				respuesta = false;	
+			} else {
+				registrarse.errorLabelCamposVacios();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			registrarse.errorUsuarioExistente();
 		}
-		return respuesta;
+		return false;
+
 	}
 
 	private void TablaAdmin() {
@@ -727,8 +725,7 @@ public void tuPerfil() {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
-	
-	
+
 	public String getNombre() {
 		// TODO Auto-generated method stub
 		return nombrePerfil;

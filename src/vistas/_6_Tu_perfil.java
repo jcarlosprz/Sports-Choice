@@ -9,11 +9,13 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
 
 import controlador.Controlador;
 import modelo.Modelo;
+import modelo.exportarTablas;
 
 public class _6_Tu_perfil extends JFrame {
 
@@ -213,6 +215,10 @@ public class _6_Tu_perfil extends JFrame {
 	
 	
 	public void actualizarsePerfil() {
+		
+		String usr = miModelo.getUsrPerfil();
+		txtNombreUsuario.setText(usr);
+		
 		String nombre = miModelo.getNombre();
 		txtNombre.setText(nombre);
 		
@@ -225,7 +231,11 @@ public class _6_Tu_perfil extends JFrame {
 		String email = miModelo.getEmail();
 		txtEmail.setText(email);
 		
-		//String fechaNacimmiento
+		Date fechaNacimmiento = miModelo.getFechaNacimiento();
+		dateChooserFechaNac.setDate(fechaNacimmiento);
+		
+		
+		System.out.println("Este es la fecha de:" + fechaNacimmiento);
 		
 		String poblacion = miModelo.getPoblacion();
 		txtPoblacion.setText(poblacion);
@@ -233,7 +243,7 @@ public class _6_Tu_perfil extends JFrame {
 		
 		
 	}
-	
+		
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

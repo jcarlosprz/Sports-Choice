@@ -95,7 +95,7 @@ public class Modelo {
 	private String telefonoPerfil;
 	private String emailPerfil;
 	private String poblacionPerfil;
-	//private Date fechaPerfil; 
+	private  Date fechaPerfil; 
 	
 
 public void tuPerfil() {
@@ -106,12 +106,30 @@ public void tuPerfil() {
 		pstmt.setString(1,usr);
 		ResultSet rset = pstmt.executeQuery();
 		rset.next();
-		//usrPerfil = rset.getString(1);
+		usrPerfil = rset.getString(1);
 		nombrePerfil = rset.getString(2);
 		apellidoPerfil = rset.getString(3);
 		telefonoPerfil = rset.getString(4);
 		emailPerfil = rset.getString(5);
 		// fecha
+		
+		fechaPerfil  = rset.getDate(6);
+		
+		Date prueba = fechaPerfil;
+			
+
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dia = new String();
+        dia = formatter.format(getFechaNacimiento());
+
+        
+        
+        
+        
+        
+        
+        
 		poblacionPerfil = rset.getString(7);
 		
 		
@@ -715,6 +733,17 @@ public void tuPerfil() {
 	}
 	
 	
+	
+	
+	
+	
+	
+	public String getUsrPerfil() {
+		// TODO Auto-generated method stub
+		return usrPerfil;
+	}
+	
+	
 	public String getNombre() {
 		// TODO Auto-generated method stub
 		return nombrePerfil;
@@ -739,6 +768,15 @@ public void tuPerfil() {
 		// TODO Auto-generated method stub
 		return poblacionPerfil;
 	}
+	
+	public  Date getFechaNacimiento() {
+	
+		return fechaPerfil;
+	}
+	
+	
+	
+	
 
 	public void setTablaAdmin(DefaultTableModel tablaAdmin) {
 		this.tablaAdmin = tablaAdmin;
@@ -747,6 +785,8 @@ public void tuPerfil() {
 	public String getHolaNombreUsuario() {
 		return holaNombreUsuario;
 	}
+
+	
 
 
 

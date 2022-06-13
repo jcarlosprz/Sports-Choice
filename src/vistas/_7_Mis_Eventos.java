@@ -58,7 +58,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnAbandonar = new JButton("ABANDONAR");
 		btnAbandonar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.BorrarFilaTablaMisEventos();
+				
 			}
 		});
 		btnAbandonar.setBorder(null);

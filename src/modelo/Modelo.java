@@ -78,13 +78,11 @@ public class Modelo {
 	private String holaNombreUsuario;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
-	private DefaultTableModel borrarFilaTablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
 	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
-	private String sqlBorrarFilaTablaMisEventos = "Delete * from eventos where eventos.codigo_evento = ?;";
-	
+
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
@@ -119,7 +117,7 @@ public class Modelo {
 			String dia = new String();
 			dia = formatter.format(getFechaNacimiento());
 			poblacionPerfil = rset.getString(7);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -381,36 +379,79 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	///
-	
-	public void BorrarFilaTablaMisEventos() {
-		borrarFilaTablaMisEventos = new DefaultTableModel();
-//		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
-//		Object[] contenido = new Object[numColumnas];
-//		PreparedStatement pstmt;
-//		try {
-//			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
-//
-//			pstmt.setString(1, usr);
-//			System.out.println("METODO: " + usr);
-//			ResultSet rset = pstmt.executeQuery();
-//			ResultSetMetaData rsmd = rset.getMetaData();
-//			for (int i = 0; i < numColumnas; i++) {
-//				tablaMisEventos.addColumn(rsmd.getColumnName(i + 1));
-//			}
-//			while (rset.next()) {
-//				for (int col = 1; col <= numColumnas; col++) {
-//					contenido[col - 1] = rset.getString(col);
-//				}
-//				tablaMisEventos.addRow(contenido);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+
+	// Método Registrar Eventos
+	public boolean RegistroEvento(int codigo_evento, Date date, String hora, String polideportivo, String nivel,
+			int codigo_deporte) {
+
+		String RegistroEventosSql = "INSERT INTO eventos(codigo_evento, fecha, hora, polideportivo, nivel,codigo_deporte) values(?,?,?,?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			String fecha = "";
+			if (date != null) {
+				fecha = DateFormat.getDateInstance().format(date);
+
+				if (!(codigo_evento==0) && !fecha.equals("") && !hora.equals("") && !polideportivo.equals("")
+						&& !nivel.equals("") && !(codigo_deporte==0)) {
+
+					Conexion();
+					pstmt = conexion.prepareStatement(RegistroEventosSql);
+					pstmt.setInt(1, codigo_evento);
+					pstmt.setString(2, fecha);
+					pstmt.setString(3, hora);
+					pstmt.setString(4, polideportivo);
+					pstmt.setString(5, nivel);
+					pstmt.setInt(6, codigo_deporte);
+					pstmt.executeUpdate();
+					System.out.println("EVENTO CREADO");
+					return true;
+				} else {
+					registrarse.errorLabelCamposVacios();
+				}
+			}
+		} catch (SQLException e) {
+			registrarse.errorUsuarioExistente();
+		}
+		return false;
+
 	}
 	
+	// Método Registrar Eventos
+		public boolean BorrarEvento(int codigo_evento, Date date, String hora, String polideportivo, String nivel,
+				int codigo_deporte) {
+
+			String BorrarEventosSql = "Delete * from eventos where eventos.codigo_evento = ?;";
+			PreparedStatement pstmt;
+			try {
+				String fecha = "";
+				if (date != null) {
+					fecha = DateFormat.getDateInstance().format(date);
+
+					if (!(codigo_evento==0) && !fecha.equals("") && !hora.equals("") && !polideportivo.equals("")
+							&& !nivel.equals("") && !(codigo_deporte==0)) {
+
+						Conexion();
+						pstmt = conexion.prepareStatement(BorrarEventosSql);
+						pstmt.setInt(1, codigo_evento);
+						pstmt.setString(2, fecha);
+						pstmt.setString(3, hora);
+						pstmt.setString(4, polideportivo);
+						pstmt.setString(5, nivel);
+						pstmt.setInt(6, codigo_deporte);
+						pstmt.executeUpdate();
+						System.out.println("EVENTO CREADO");
+						return true;
+					} else {
+						registrarse.errorLabelCamposVacios();
+					}
+				}
+			} catch (SQLException e) {
+				registrarse.errorUsuarioExistente();
+			}
+			return false;
+
+		}
+
 	public void TablaEventosBaloncesto() {
 		tablaEventosBaloncesto = new DefaultTableModel();
 

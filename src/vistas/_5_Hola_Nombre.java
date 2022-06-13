@@ -169,8 +169,22 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 7);
+				//
+				//
+				//
+				//
+				//
+			
 			}
 		});
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				miModelo.tuPerfil();
+			}
+		});
+		
+		
 		btnMiPerfil.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMiPerfil.setBackground(new Color(176, 196, 222));
 		btnMiPerfil.setBounds(471, 602, 142, 59);

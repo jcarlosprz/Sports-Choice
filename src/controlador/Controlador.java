@@ -14,10 +14,17 @@ public class Controlador {
 	private Modelo miModelo;
 
 	private JFrame[] pantallas;
+	
+//	private String userPerfil;
 
 	public void cambiarPantalla(int numero1, int numero2) {
 		pantallas[numero1].setVisible(false);
 		pantallas[numero2].setVisible(true);
+		
+//		if(numero2 == 7) {
+//			
+//			miModelo.tuPerfil(userPerfil);
+//		}
 	}
 
 	public void setPantallas(JFrame[] pantallas) {

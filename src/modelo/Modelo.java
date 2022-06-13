@@ -140,7 +140,6 @@ public void tuPerfil() {
 //	}
 //	
 	
-
 	private Properties config;
 	private File miFichero;
 	private InputStream entrada;

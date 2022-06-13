@@ -51,15 +51,19 @@ public class Controlador {
 		String email=((_2_Registrarse) pantallas[3]).getEmail();
 		String poblacion=((_2_Registrarse) pantallas[3]).getPoblacion();
 		Date date =((_2_Registrarse) pantallas[3]).getFechaNacimiento();
-		String fecha_nacimiento = DateFormat.getDateInstance().format(date);
 		String pwd=((_2_Registrarse) pantallas[3]).getContrasena();
 		String confirmarpwd=((_2_Registrarse) pantallas[3]).getConfirmarContrasena();
 		
-		miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, pwd, confirmarpwd);
+		miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd);
+		
+		if (miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd) == true) {
+			cambiarPantalla(3, 0);
+		}
 	}
 
 	public JFrame getPantallas(int indice) {
 		return pantallas[indice];
 	}
+	
 
 }

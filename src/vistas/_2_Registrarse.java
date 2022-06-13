@@ -19,14 +19,14 @@ public class _2_Registrarse extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
-			lblPoblacion, lblRegistrarse, lblFechaNac;
+			lblPoblacion, lblRegistrarse, lblFechaNac, lblFondo, lblError;
 	private JButton btnPregunta, btnFlecha, btnCrearCuenta;
 	private JDateChooser dateChooserFechaNac;
 	private JTextField txtNombreUsuario, txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena,
 			txtPoblacion, txtEmail;
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
+	
 
 	public _2_Registrarse() {
 		setTitle("REGISTRARSE");
@@ -100,7 +100,6 @@ public class _2_Registrarse extends JFrame {
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.DatosRegistro();
-				miControlador.cambiarPantalla(3, 0);
 			}
 		});
 		btnCrearCuenta.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -207,7 +206,19 @@ public class _2_Registrarse extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-98, 0, 939, 683);
 		panel.add(lblFondo);
+		
+		lblError = new JLabel("");
+		lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblError.setForeground(Color.RED);
+		lblError.setBounds(322, 542, 209, 31);
+		panel.add(lblError);
 	}
+	
+	public void errorLabel() {
+		lblError.setText("No puedes dejar campos vacíos");
+	}
+	
+	
 /**Getters y Setters de los campos del formulario*/
 	public String getNombreUsuario() {
 		return txtNombreUsuario.getText();
@@ -251,5 +262,11 @@ public class _2_Registrarse extends JFrame {
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+	public JLabel getLblError() {
+		return lblError;
+	}
+	public void setLblError(JLabel lblError) {
+		this.lblError = lblError;
 	}
 }

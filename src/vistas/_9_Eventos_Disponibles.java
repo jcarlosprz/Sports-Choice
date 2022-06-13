@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -69,6 +71,15 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "" + "Desde esta ventana podrás ver los eventos \r\n"
+						+ "disponibles para ti. \r\n\n"
+						+ "Además, seleccionando uno de ellos, podrás \r\n"
+						+ "pinchar el botón 'Unirse' que se encuentra \r\n"
+						+ "en la parte inferior. De este modo podrás \r\n"
+						+ "comenzar a practicar tu deporte favorito.\r\n\n"
+						+ "También tienes el botón de 'Crear tu evento'\r\n"
+						+ "en caso de que ninguno de los eventos\r\n"
+						+ "disponibles encaje con lo que estás buscando.        \r\n\n", "AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
@@ -81,7 +92,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
-		btnPregunta.setBounds(591, 10, 32, 52);
+		btnPregunta.setBounds(602, 8, 32, 52);
 		panel.add(btnPregunta);
 
 		btnHome = new JButton("");

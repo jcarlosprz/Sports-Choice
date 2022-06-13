@@ -57,7 +57,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		lblRecuperarContrasena.setBounds(229, 21, 376, 60);
 		panel.add(lblRecuperarContrasena);
 
-		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el codigo para crear una nueva contrase�a:");
+		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceEmail.setBounds(175, 163, 549, 26);
 		panel.add(lblIntroduceEmail);
@@ -69,7 +69,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		txtEmail.setBounds(175, 200, 336, 59);
 		panel.add(txtEmail);
 
-		JLabel lblIntroduceElCdigo = new JLabel("Introduce el codigo recibido:");
+		JLabel lblIntroduceElCdigo = new JLabel("Introduce el código recibido:");
 		lblIntroduceElCdigo.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceElCdigo.setBounds(175, 324, 549, 26);
 		panel.add(lblIntroduceElCdigo);

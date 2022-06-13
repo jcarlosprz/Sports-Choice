@@ -14,10 +14,17 @@ public class Controlador {
 	private Modelo miModelo;
 
 	private JFrame[] pantallas;
+	
+//	private String userPerfil;
 
 	public void cambiarPantalla(int numero1, int numero2) {
 		pantallas[numero1].setVisible(false);
 		pantallas[numero2].setVisible(true);
+		
+//		if(numero2 == 7) {
+//			
+//			miModelo.tuPerfil(userPerfil);
+//		}
 	}
 
 	public void setPantallas(JFrame[] pantallas) {
@@ -44,6 +51,7 @@ public class Controlador {
 	}
 
 	public void DatosRegistro() {
+		
 		String usr=((_2_Registrarse) pantallas[3]).getNombreUsuario();
 		String nombre=((_2_Registrarse) pantallas[3]).getNombre();
 		String apellidos=((_2_Registrarse) pantallas[3]).getApellidos();
@@ -51,15 +59,19 @@ public class Controlador {
 		String email=((_2_Registrarse) pantallas[3]).getEmail();
 		String poblacion=((_2_Registrarse) pantallas[3]).getPoblacion();
 		Date date =((_2_Registrarse) pantallas[3]).getFechaNacimiento();
-		String fecha_nacimiento = DateFormat.getDateInstance().format(date);
 		String pwd=((_2_Registrarse) pantallas[3]).getContrasena();
 		String confirmarpwd=((_2_Registrarse) pantallas[3]).getConfirmarContrasena();
 		
-		miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, pwd, confirmarpwd);
+		if (miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd) == true) {
+			cambiarPantalla(3, 0);
+		} 
+		
+			
 	}
 
 	public JFrame getPantallas(int indice) {
 		return pantallas[indice];
 	}
+	
 
 }

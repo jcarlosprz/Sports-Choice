@@ -78,12 +78,16 @@ public class _8_Foro extends JFrame {
 		btnDownload.setBorder(null);
 		btnDownload.setBackground(new Color(176, 196, 222));
 		btnDownload.setBounds(530, 600, 68, 56);
+		btnDownload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnDownload);
+		
 		btnUploadForo.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnUploadForo.setBorder(null);
 		btnUploadForo.setBackground(new Color(176, 196, 222));
 		btnUploadForo.setBounds(436, 600, 68, 56);
+		btnUploadForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUploadForo);
+		
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);

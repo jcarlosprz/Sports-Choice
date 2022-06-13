@@ -74,10 +74,13 @@ public class Modelo {
 	private String estado;
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
+	private DefaultTableModel borrarTablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
 	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
+	private String sqlBorrarTablaMisEventos = "Delete from eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where codigo_evento.usr = ?;";
+	
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
@@ -290,7 +293,36 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	///
+	
+	private void BorrarTablaMisEventos() {
+		borrarTablaMisEventos = new DefaultTableModel();
+		int numColumnas = getNumColumnas2(sqlTablaMisEventos, usr);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
 
+			pstmt.setString(1, usr);
+			System.out.println("METODO: " + usr);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaMisEventos.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaMisEventos.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void TablaEventosBaloncesto() {
 		tablaEventosBaloncesto = new DefaultTableModel();
 
@@ -624,5 +656,6 @@ public class Modelo {
 	public void setConfig(Properties config) {
 		this.config = config;
 	}
+
 
 }

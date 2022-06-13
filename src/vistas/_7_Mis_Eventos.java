@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.Controlador;
 import modelo.Modelo;
@@ -53,6 +54,11 @@ public class _7_Mis_Eventos extends JFrame {
 		panel.add(lblMisEventos);
 
 		btnAbandonar = new JButton("ABANDONAR");
+		btnAbandonar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//modelo.removeRow(tabla.getSelectedRow());
+			}
+		});
 		btnAbandonar.setBorder(null);
 		btnAbandonar.setEnabled(false);
 		btnAbandonar.setBackground(new Color(176, 196, 222));

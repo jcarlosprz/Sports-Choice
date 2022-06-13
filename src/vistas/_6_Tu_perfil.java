@@ -235,7 +235,6 @@ public class _6_Tu_perfil extends JFrame {
 		dateChooserFechaNac.setDate(fechaNacimmiento);
 		
 		
-		System.out.println("Este es la fecha de:" + fechaNacimmiento);
 		
 		String poblacion = miModelo.getPoblacion();
 		txtPoblacion.setText(poblacion);

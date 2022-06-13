@@ -142,21 +142,7 @@ public void tuPerfil() {
 
 
 
-//				TablaPerfil.addColumn(rsmd.getColumnName(i + 1));
-//			}
-//			while (rset.next()) {
-//				for (int col = 1; col <= numColumnas; col++) {
-//					contenido[col - 1] = rset.getString(col);
-//				}
-//				TablaPerfil.addRow(contenido);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		
-//		}
-//		return sqlPerfilTabla;
-//	}
-//	
+
 	
 
 	private Properties config;

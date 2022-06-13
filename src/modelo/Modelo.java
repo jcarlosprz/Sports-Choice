@@ -95,7 +95,7 @@ public class Modelo {
 	private String telefonoPerfil;
 	private String emailPerfil;
 	private String poblacionPerfil;
-	//private Date fechaPerfil; 
+	private  Date fechaPerfil; 
 	
 
 public void tuPerfil() {
@@ -106,12 +106,30 @@ public void tuPerfil() {
 		pstmt.setString(1,usr);
 		ResultSet rset = pstmt.executeQuery();
 		rset.next();
-		//usrPerfil = rset.getString(1);
+		usrPerfil = rset.getString(1);
 		nombrePerfil = rset.getString(2);
 		apellidoPerfil = rset.getString(3);
 		telefonoPerfil = rset.getString(4);
 		emailPerfil = rset.getString(5);
 		// fecha
+		
+		fechaPerfil  = rset.getDate(6);
+		
+		Date prueba = fechaPerfil;
+			
+
+
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dia = new String();
+        dia = formatter.format(getFechaNacimiento());
+
+        
+        
+        
+        
+        
+        
+        
 		poblacionPerfil = rset.getString(7);
 		
 		
@@ -124,21 +142,7 @@ public void tuPerfil() {
 
 
 
-//				TablaPerfil.addColumn(rsmd.getColumnName(i + 1));
-//			}
-//			while (rset.next()) {
-//				for (int col = 1; col <= numColumnas; col++) {
-//					contenido[col - 1] = rset.getString(col);
-//				}
-//				TablaPerfil.addRow(contenido);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		
-//		}
-//		return sqlPerfilTabla;
-//	}
-//	
+
 	
 	private Properties config;
 	private File miFichero;
@@ -729,29 +733,38 @@ public void tuPerfil() {
 	}
 	
 	
+	
+	
+	
+	
+	
+	public String getUsrPerfil() {
+		return usrPerfil;
+	}
+	
+	
 	public String getNombre() {
-		// TODO Auto-generated method stub
 		return nombrePerfil;
 	}
 
 	public String getApellido() {
-		// TODO Auto-generated method stub
 		return apellidoPerfil;
 	}
 
 	public String getTelefono() {
-		// TODO Auto-generated method stub
 		return telefonoPerfil;
 	}
 
 	public String getEmail() {
-		// TODO Auto-generated method stub
 		return emailPerfil;
 	}
 
 	public String getPoblacion() {
-		// TODO Auto-generated method stub
 		return poblacionPerfil;
+	}
+	
+	public  Date getFechaNacimiento() {
+		return fechaPerfil;
 	}
 
 	public void setTablaAdmin(DefaultTableModel tablaAdmin) {

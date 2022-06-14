@@ -117,6 +117,14 @@ public class _2_Bienvenido_admin extends JFrame {
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 		scrollPane.setViewportView(table);
 		btnDesbloquear = new JButton("DESBLOQUEAR");
+		btnDesbloquear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.desbloquearUsuario(table);
+				btnDesbloquear.setEnabled(false);
+				btnBloquear.setEnabled(false);
+				table.clearSelection();
+			}
+		});
 		btnDesbloquear.setEnabled(false);
 		btnDesbloquear.setBorder(null);
 		btnDesbloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -126,6 +134,14 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnDesbloquear);
 
 		btnBloquear = new JButton("BLOQUEAR");
+		btnBloquear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miModelo.bloquearUsuario(table);
+				btnBloquear.setEnabled(false);
+				btnDesbloquear.setEnabled(false);
+				table.clearSelection();
+			}
+		});
 		btnBloquear.setEnabled(false);
 		btnBloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBloquear.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -138,6 +154,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(2, 0);
+				
 			}
 		});
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

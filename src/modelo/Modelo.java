@@ -87,7 +87,8 @@ public class Modelo {
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
-
+	private String sqlBloqueaUsuario = "update users set estado ='inactivo' where usr=?;";
+	private String sqlDesbloqueaUsuario = "update users set estado = 'activo' where usr=?;";
 	private String usrPerfil;
 	private String nombrePerfil;
 	private String apellidoPerfil;
@@ -531,6 +532,42 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void bloquearUsuario(JTable tableAdmin) {
+
+		String usuario = (String) tableAdmin.getValueAt(tableAdmin.getSelectedRow(), 0);
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlBloqueaUsuario);
+			pstmt.setString(1, usuario);
+			pstmt.executeUpdate();
+			System.out.println(pstmt);
+			System.out.println(usuario + " ha sido bloqueado.");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		tablaAdmin.setValueAt("inactivo", tableAdmin.getSelectedRow(), 4);
+	}
+	
+	public void desbloquearUsuario(JTable tableAdmin) {
+
+		String usuario = (String) tableAdmin.getValueAt(tableAdmin.getSelectedRow(), 0);
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlDesbloqueaUsuario);
+			pstmt.setString(1, usuario);
+			pstmt.executeUpdate();
+			System.out.println(pstmt);
+			System.out.println(usuario + " ha sido desbloqueado.");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
 	}
 
 	private int getNumColumnas(String sql) {

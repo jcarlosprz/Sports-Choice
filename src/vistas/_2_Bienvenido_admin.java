@@ -242,3 +242,4 @@ public class _2_Bienvenido_admin extends JFrame {
 	}
 	
 }
+

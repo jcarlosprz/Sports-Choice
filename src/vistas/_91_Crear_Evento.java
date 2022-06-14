@@ -37,6 +37,7 @@ public class _91_Crear_Evento extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblFondo;
+	private JLabel lblDeporteSeleccionado;
 	
 	public _91_Crear_Evento() {
 		setTitle("CREAR EVENTO");
@@ -66,9 +67,9 @@ public class _91_Crear_Evento extends JFrame {
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
 
-		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: \"Deporte\"");
+		lblHasSeleccionadoDeporte = new JLabel("HAS SELECCIONADO: ");
 		lblHasSeleccionadoDeporte.setFont(new Font("Dubai", Font.BOLD, 30));
-		lblHasSeleccionadoDeporte.setBounds(214, 10, 432, 54);
+		lblHasSeleccionadoDeporte.setBounds(214, 10, 298, 54);
 		panel.add(lblHasSeleccionadoDeporte);
 
 		btnCrearEvento = new JButton("CREA TU EVENTO");
@@ -181,6 +182,11 @@ public class _91_Crear_Evento extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-112, 0, 979, 723);
 		panel.add(lblFondo);
+		
+		lblDeporteSeleccionado = new JLabel("deporte");
+		lblDeporteSeleccionado.setFont(new Font("Dubai", Font.BOLD, 30));
+		lblDeporteSeleccionado.setBounds(524, 10, 242, 54);
+		panel.add(lblDeporteSeleccionado);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

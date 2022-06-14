@@ -520,6 +520,20 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 
+	 * El método bloquearUsuario permite acceder a la base de datos para hacer que el estado de un usuario
+	 * pase de activo a inactivo. Toma como parámetro una variable de la clase JTable y hace uso de un objeto
+	 * PreparedStatement para acceder a la base de datos de forma segura y modificar el registro indicado por 
+	 * medio de la query almacenada en el atributo sqlBloqueaUsuario. 
+	 * La primera variable (String usuario) permite almacenar el valor del usr (así se almacena en la base de 
+	 * datos), que servirá para completar el filtro de la query.
+	 * Por último, dado que la tabla no puede actualizarse si no se cierra y se abre de nuevo, se hace uso de
+	 * setValueAt para "forzar" la actualización del apartado estado de la tabla.
+	 * 
+	 * 
+	 */
 
 	public void bloquearUsuario(JTable tableAdmin) {
 
@@ -537,6 +551,21 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("inactivo", tableAdmin.getSelectedRow(), 4);
 	}
+	
+	
+	/**
+	 * 
+	 * El método desbloquearUsuario permite acceder a la base de datos para hacer que el estado de un usuario
+	 * pase de inactivo a activo. Toma como parámetro una variable de la clase JTable y hace uso de un objeto
+	 * PreparedStatement para acceder a la base de datos de forma segura y modificar el registro indicado por 
+	 * medio de la query almacenada en el atributo sqlDesbloqueaUsuario. 
+	 * La primera variable (String usuario) permite almacenar el valor del usr (así se almacena en la base de 
+	 * datos), que servirá para completar el filtro de la query.
+	 * Por último, dado que la tabla no puede actualizarse si no se cierra y se abre de nuevo, se hace uso de
+	 * setValueAt para "forzar" la actualización del apartado estado de la tabla.
+	 * 
+	 * 
+	 */
 
 	public void desbloquearUsuario(JTable tableAdmin) {
 
@@ -556,7 +585,7 @@ public class Modelo {
 		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
 	}
 	
-	/*
+	/**
 	 * 
 	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la pantalla _2_Bienvenido_admin
 	 * en función del estado del usuario (activo o inactivo)

@@ -66,32 +66,25 @@ public class Controlador {
 			cambiarPantalla(3, 0);
 		} 
 		
-			
 	}
 
 	public JFrame getPantallas(int indice) {
 		return pantallas[indice];
 	}
 	
-	
-	public void updatePerfil() {
-		
+	public void updatePerfil() {	
 			String nombre = 	((_6_Tu_perfil) pantallas[7]).getTxtNombre();
 			String apellidos = 	((_6_Tu_perfil) pantallas[7]).getTxtApellidos();
 			String telefono =	((_6_Tu_perfil) pantallas[7]).getTxtTelefono();
 			String email =	((_6_Tu_perfil) pantallas[7]).getTxtEmail();
 			String poblacion =	((_6_Tu_perfil) pantallas[7]).getTxtPoblacion();
-			
 			System.out.println(nombre);
 			System.out.println(apellidos);
 			System.out.println(telefono);
 			System.out.println(email);
 			System.out.println(poblacion);
 		
-		
 		miModelo.updatePerfil(nombre,apellidos, telefono, email, poblacion);			
 	}
 	
-	
-
 }

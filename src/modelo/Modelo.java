@@ -98,7 +98,7 @@ public class Modelo {
 	private Date fechaPerfil;
 
 	public void tuPerfil() {
-		String sqlPerfil = "select usr, nombre, apellidos, telefono, email,  fecha_nacimiento, poblacion from users where usr = ? ";
+		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
@@ -116,7 +116,7 @@ public class Modelo {
 			String dia = new String();
 			dia = formatter.format(getFechaNacimiento());
 			poblacionPerfil = rset.getString(7);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -710,6 +710,27 @@ public class Modelo {
 			}
 		}
 
+	}
+
+	public void recuperarContrasena() {
+
+		Conexion();
+		String sqlEmailExistente = "Select email from users where email = ?";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
+			String textoEmail = recuperarContrasena.getTxtEmail().getText();
+			pstmt.setString(1, textoEmail);
+			ResultSet rset = pstmt.executeQuery();
+			if (!rset.next()) {
+			} else {
+				if (textoEmail.equals(rset.getString(1))) {
+					System.out.println("Encontrado");
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void setUsername(String username) {

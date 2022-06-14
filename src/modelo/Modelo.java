@@ -124,24 +124,24 @@ public class Modelo {
 		tuPerfil.actualizarsePerfil();
 	}
 
-	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil, String poblacionPerfil) {
+	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil,
+			String poblacionPerfil) {
 		String update = "Update users set nombre = ?, apellidos = ?, telefono = ?, email = ?,  poblacion = ? where usr = ? ";
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(update);
-			pstmt.setString(1,nombrePerfil);
-			pstmt.setString(2,apellidoPerfil);
-			pstmt.setString(3,telefonoPerfil);
-			pstmt.setString(4,emailPerfil);
-			pstmt.setString(5,poblacionPerfil);
-			pstmt.setString(6,usr);
+			pstmt.setString(1, nombrePerfil);
+			pstmt.setString(2, apellidoPerfil);
+			pstmt.setString(3, telefonoPerfil);
+			pstmt.setString(4, emailPerfil);
+			pstmt.setString(5, poblacionPerfil);
+			pstmt.setString(6, usr);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
 
 	private Properties config;
 	private File miFichero;
@@ -536,7 +536,7 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("inactivo", tableAdmin.getSelectedRow(), 4);
 	}
-	
+
 	public void desbloquearUsuario(JTable tableAdmin) {
 
 		String usuario = (String) tableAdmin.getValueAt(tableAdmin.getSelectedRow(), 0);
@@ -741,19 +741,19 @@ public class Modelo {
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
 			String textoEmail = recuperarContrasena.getTxtEmail().getText();
-			pstmt.setString(1, textoEmail);
-			ResultSet rset = pstmt.executeQuery();
-			if (!rset.next()) {
-				System.out.println("No encontrado");
+			if (textoEmail.equals("")) {
+				recuperarContrasena.errorUsuarioExistente();
 			} else {
-				if (textoEmail.equals("")) {
-					recuperarContrasena.errorUsuarioExistente();
-				}
-				if (textoEmail.equals(rset.getString(1))) {
-					System.out.println("Encontrado");
+				pstmt.setString(1, textoEmail);
+				ResultSet rset = pstmt.executeQuery();
+				if (!rset.next()) {
+					System.out.println("No encontrado");
+				} else {
+					if (textoEmail.equals(rset.getString(1))) {
+						System.out.println("Encontrado");
+					}
 				}
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

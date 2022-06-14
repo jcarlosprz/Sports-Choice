@@ -588,7 +588,10 @@ public class Modelo {
 	/**
 	 * 
 	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la pantalla _2_Bienvenido_admin
-	 * en función del estado del usuario (activo o inactivo)
+	 * en función del estado del usuario (activo o inactivo). Si el estado de un usuario es inactivo, al 
+	 * seleccionar en la tabla la fila correspondiente a ese usuario se habilitará el botón "desbloquear". 
+	 * Si, por el contrario, el estado de un usuario es activo, al seleccionar dicha fila, se habilitará el 
+	 * botón "bloquear".
 	 * 
 	 */
 	

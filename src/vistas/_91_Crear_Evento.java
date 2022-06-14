@@ -178,15 +178,15 @@ public class _91_Crear_Evento extends JFrame {
 		lblNivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblNivel);
 		
-		lblFondo = new JLabel("");
-		lblFondo.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/fondo_pelotas_5 (1).png")));
-		lblFondo.setBounds(-112, 0, 979, 723);
-		panel.add(lblFondo);
-		
 		lblDeporteSeleccionado = new JLabel("deporte");
 		lblDeporteSeleccionado.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblDeporteSeleccionado.setBounds(524, 10, 242, 54);
 		panel.add(lblDeporteSeleccionado);
+		
+		lblFondo = new JLabel("");
+		lblFondo.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/fondo_pelotas_5 (1).png")));
+		lblFondo.setBounds(-112, 0, 979, 723);
+		panel.add(lblFondo);
 	}
 	
 	public void setMiControlador(Controlador miControlador) {

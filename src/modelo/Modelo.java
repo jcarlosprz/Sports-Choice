@@ -123,40 +123,25 @@ public class Modelo {
 		}
 		tuPerfil.actualizarsePerfil();
 	}
-//
 
-//
-//
-//
-//
-//
-//
-//L
 	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil, String poblacionPerfil) {
 		String update = "Update users set nombre = ?, apellidos = ?, telefono = ?, email = ?,  poblacion = ? where usr = ? ";
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(update);
-
 			pstmt.setString(1,nombrePerfil);
 			pstmt.setString(2,apellidoPerfil);
 			pstmt.setString(3,telefonoPerfil);
 			pstmt.setString(4,emailPerfil);
 			pstmt.setString(5,poblacionPerfil);
 			pstmt.setString(6,usr);
-
-
-			System.out.println(pstmt);
-			
 			pstmt.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 	}
 	
-
 
 	private Properties config;
 	private File miFichero;

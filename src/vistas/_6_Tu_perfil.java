@@ -189,6 +189,7 @@ public class _6_Tu_perfil extends JFrame {
 		btnPapelera = new JButton("");
 		btnPapelera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.deletePerfil();
 				miControlador.cambiarPantalla(7, 0);
 			}
 		});

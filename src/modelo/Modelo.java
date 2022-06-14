@@ -142,6 +142,26 @@ public class Modelo {
 		}
 
 	}
+	
+	
+	public void deletePerfil() {
+		String delete = "Delete from users where usr = ? ";
+
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(delete);
+
+			pstmt.setString(1,usr);
+
+			
+			System.out.println(pstmt);
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	private Properties config;
 	private File miFichero;
@@ -327,7 +347,13 @@ public class Modelo {
 					pstmt.setString(4, telefono);
 					pstmt.setString(5, email);
 					pstmt.setString(6, poblacion);
+					
+					System.out.println(poblacion);
+					
 					pstmt.setString(7, fecha_nacimiento);
+					
+					System.out.println(fecha_nacimiento);
+					
 					pstmt.setString(8, "usuario");
 					pstmt.setString(9, pwd);
 					pstmt.setString(10, "activo");

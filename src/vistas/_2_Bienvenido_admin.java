@@ -126,6 +126,14 @@ public class _2_Bienvenido_admin extends JFrame {
 		panel.add(btnDesbloquear);
 
 		btnBloquear = new JButton("BLOQUEAR");
+		btnBloquear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				System.out.println(table.getValueAt(table.getSelectedRow(), 0));
+//				String usuario = (String) table.getValueAt(table.getSelectedRow(), 0);
+//				System.out.println(usuario);
+				miModelo.bloquearUsuario(table);
+			}
+		});
 		btnBloquear.setEnabled(false);
 		btnBloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBloquear.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -138,6 +146,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(2, 0);
+				
 			}
 		});
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

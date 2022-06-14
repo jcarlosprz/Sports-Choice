@@ -688,7 +688,11 @@ public class Modelo {
 			pstmt.setString(1, textoEmail);
 			ResultSet rset = pstmt.executeQuery();
 			if (!rset.next()) {
+				System.out.println("No encontrado");
 			} else {
+				if (textoEmail.equals("")) {
+					recuperarContrasena.errorUsuarioExistente();
+				}
 				if (textoEmail.equals(rset.getString(1))) {
 					System.out.println("Encontrado");
 				}

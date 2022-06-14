@@ -66,12 +66,10 @@ public class Controlador {
 			cambiarPantalla(3, 0);
 		} 
 		
-			
 	}
 
 	public JFrame getPantallas(int indice) {
 		return pantallas[indice];
 	}
 	
-
 }

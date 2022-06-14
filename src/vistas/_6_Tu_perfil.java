@@ -240,12 +240,8 @@ public class _6_Tu_perfil extends JFrame {
 		Date fechaNacimmiento = miModelo.getFechaNacimiento();
 		dateChooserFechaNac.setDate(fechaNacimmiento);
 		
-		
-		
 		String poblacion = miModelo.getPoblacion();
-		txtPoblacion.setText(poblacion);
-		
-		
+		txtPoblacion.setText(poblacion);	
 		
 	}
 		

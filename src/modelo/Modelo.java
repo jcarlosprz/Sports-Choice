@@ -571,6 +571,12 @@ public class Modelo {
 		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
 	}
 	
+	/*
+	 * 
+	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la pantalla _2_Bienvenido_admin
+	 * en función del estado del usuario (activo o inactivo)
+	 * 
+	 */
 	
 	public void habilitaBoton(JButton button1, JButton button2, JTable table) {
 		String condicion = (String) tablaAdmin.getValueAt(table.getSelectedRow(), 4);

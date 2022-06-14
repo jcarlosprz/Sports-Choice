@@ -88,8 +88,8 @@ public class _2_Bienvenido_admin extends JFrame {
 					btnBloquear.setEnabled(false);
 					btnDesbloquear.setEnabled(false);
 				} else {
-					btnBloquear.setEnabled(true);
-					btnDesbloquear.setEnabled(true);
+					miModelo.habilitaBoton(btnBloquear, btnDesbloquear, table);
+
 				}
 			}
 
@@ -120,8 +120,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnDesbloquear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.desbloquearUsuario(table);
-				btnDesbloquear.setEnabled(false);
-				btnBloquear.setEnabled(false);
 				table.clearSelection();
 			}
 		});
@@ -137,8 +135,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnBloquear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.bloquearUsuario(table);
-				btnBloquear.setEnabled(false);
-				btnDesbloquear.setEnabled(false);
 				table.clearSelection();
 			}
 		});

@@ -14,13 +14,13 @@ public class Controlador {
 	private Modelo miModelo;
 
 	private JFrame[] pantallas;
-	
+
 //	private String userPerfil;
 
 	public void cambiarPantalla(int numero1, int numero2) {
 		pantallas[numero1].setVisible(false);
 		pantallas[numero2].setVisible(true);
-		
+
 //		if(numero2 == 7) {
 //			
 //			miModelo.tuPerfil(userPerfil);
@@ -51,40 +51,40 @@ public class Controlador {
 	}
 
 	public void DatosRegistro() {
-		
-		String usr=((_2_Registrarse) pantallas[3]).getNombreUsuario();
-		String nombre=((_2_Registrarse) pantallas[3]).getNombre();
-		String apellidos=((_2_Registrarse) pantallas[3]).getApellidos();
-		String telefono=((_2_Registrarse) pantallas[3]).getTelefono();
-		String email=((_2_Registrarse) pantallas[3]).getEmail();
-		String poblacion=((_2_Registrarse) pantallas[3]).getPoblacion();
-		Date date =((_2_Registrarse) pantallas[3]).getFechaNacimiento();
-		String pwd=((_2_Registrarse) pantallas[3]).getContrasena();
-		String confirmarpwd=((_2_Registrarse) pantallas[3]).getConfirmarContrasena();
-		
+
+		String usr = ((_2_Registrarse) pantallas[3]).getNombreUsuario();
+		String nombre = ((_2_Registrarse) pantallas[3]).getNombre();
+		String apellidos = ((_2_Registrarse) pantallas[3]).getApellidos();
+		String telefono = ((_2_Registrarse) pantallas[3]).getTelefono();
+		String email = ((_2_Registrarse) pantallas[3]).getEmail();
+		String poblacion = ((_2_Registrarse) pantallas[3]).getPoblacion();
+		Date date = ((_2_Registrarse) pantallas[3]).getFechaNacimiento();
+		String pwd = ((_2_Registrarse) pantallas[3]).getContrasena();
+		String confirmarpwd = ((_2_Registrarse) pantallas[3]).getConfirmarContrasena();
+
 		if (miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd) == true) {
 			cambiarPantalla(3, 0);
-		} 
-		
+		}
+
 	}
 
 	public JFrame getPantallas(int indice) {
 		return pantallas[indice];
 	}
-	
-	public void updatePerfil() {	
-			String nombre = 	((_6_Tu_perfil) pantallas[7]).getTxtNombre();
-			String apellidos = 	((_6_Tu_perfil) pantallas[7]).getTxtApellidos();
-			String telefono =	((_6_Tu_perfil) pantallas[7]).getTxtTelefono();
-			String email =	((_6_Tu_perfil) pantallas[7]).getTxtEmail();
-			String poblacion =	((_6_Tu_perfil) pantallas[7]).getTxtPoblacion();
-			System.out.println(nombre);
-			System.out.println(apellidos);
-			System.out.println(telefono);
-			System.out.println(email);
-			System.out.println(poblacion);
-		
-		miModelo.updatePerfil(nombre,apellidos, telefono, email, poblacion);			
+
+	public void updatePerfil() {
+		String nombre = ((_6_Tu_perfil) pantallas[7]).getTxtNombre();
+		String apellidos = ((_6_Tu_perfil) pantallas[7]).getTxtApellidos();
+		String telefono = ((_6_Tu_perfil) pantallas[7]).getTxtTelefono();
+		String email = ((_6_Tu_perfil) pantallas[7]).getTxtEmail();
+		String poblacion = ((_6_Tu_perfil) pantallas[7]).getTxtPoblacion();
+		System.out.println(nombre);
+		System.out.println(apellidos);
+		System.out.println(telefono);
+		System.out.println(email);
+		System.out.println(poblacion);
+
+		miModelo.updatePerfil(nombre, apellidos, telefono, email, poblacion);
 	}
-	
+
 }

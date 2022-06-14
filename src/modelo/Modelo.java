@@ -26,6 +26,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -544,7 +546,6 @@ public class Modelo {
 			pstmt.executeUpdate();
 			System.out.println(pstmt);
 			System.out.println(usuario + " ha sido bloqueado.");
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -569,6 +570,25 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
 	}
+	
+	
+	public void habilitaBoton(JButton button1, JButton button2, JTable table) {
+		String condicion = (String) tablaAdmin.getValueAt(table.getSelectedRow(), 4);
+		
+		if(condicion.equals("activo")) {
+			button1.setEnabled(true);
+			button2.setEnabled(false);
+		} else {
+			button2.setEnabled(true);
+			button1.setEnabled(false);
+		}
+		
+	}
+	
+	
+	
+	
+	
 
 	private int getNumColumnas(String sql) {
 		int num = 0;

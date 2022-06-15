@@ -63,23 +63,13 @@ public class Controlador {
 
 	}
 
-	/** Método que pasa el código del evento seleccionado en la tabla mis Eventos */
-	public String SeleccionMisEventos() {
-		String codigo_evento = (String) (((_7_Mis_Eventos) pantallas[8]).getTable())
-				.getValueAt(((_7_Mis_Eventos) pantallas[8]).getTable().getSelectedRow(), 0);
-		return codigo_evento;
-	}
-	public void Mensaje(JTable tabla) {
-		String mensaje = (String) (((_8_Foro) pantallas[9]).getEscribeAqui());
-		miModelo.EnviarMensaje(mensaje);
-		
-	}
 
 	/**
-	 * 
-	 * Método para que un usuario pueda actualizar perfil
-	 * 
-	 * 
+	 * Método para que un usuario pueda actualizar perfil. Mediante
+	 * getters se cogen cada uno de los campos los cuales se van a poder modificar.
+	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El update 
+	 * actualiza los valores de dichos campos.
+>>>>>>> refs/remotes/origin/master
 	 */
 	public void updatePerfil() {
 		String nombre = ((_6_Tu_perfil) pantallas[7]).getTxtNombre();
@@ -87,11 +77,6 @@ public class Controlador {
 		String telefono = ((_6_Tu_perfil) pantallas[7]).getTxtTelefono();
 		String email = ((_6_Tu_perfil) pantallas[7]).getTxtEmail();
 		String poblacion = ((_6_Tu_perfil) pantallas[7]).getTxtPoblacion();
-		System.out.println(nombre);
-		System.out.println(apellidos);
-		System.out.println(telefono);
-		System.out.println(email);
-		System.out.println(poblacion);
 		miModelo.updatePerfil(nombre, apellidos, telefono, email, poblacion);
 	}
 

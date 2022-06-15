@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class _5_Hola_Nombre extends JFrame {
 
@@ -24,6 +26,7 @@ public class _5_Hola_Nombre extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblHola;
+
 
 	public _5_Hola_Nombre() {
 		setTitle("HOLA + NOMBRE");
@@ -56,12 +59,18 @@ public class _5_Hola_Nombre extends JFrame {
 		lblHola.setBounds(299, 22, 105, 60);
 		panel.add(lblHola);
 
+		
 		btnBaloncesto = new JButton("");
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
-				miModelo.TablaEventosBaloncesto();
+				miModelo.TablaEventosBaloncesto();		
+				miModelo.setOpcionDeporte("Baloncesto");
+				miModelo.setOpcionDeporteId(1);
+
+
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
@@ -71,11 +80,17 @@ public class _5_Hola_Nombre extends JFrame {
 		btnBaloncesto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBaloncesto.setOpaque(false);
 
+
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosFutbol();
+				miModelo.setOpcionDeporte("Fútbol");
+				miModelo.setOpcionDeporteId(2);
+
+
 			}
 		});
 		btnFutbol.setBorder(null);
@@ -90,9 +105,14 @@ public class _5_Hola_Nombre extends JFrame {
 
 		btnPadel = new JButton("");
 		btnPadel.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosPadel();
+				miModelo.setOpcionDeporte("Pádel");
+				miModelo.setOpcionDeporteId(3);
+
+
 			}
 		});
 		btnPadel.setBorder(null);
@@ -106,9 +126,13 @@ public class _5_Hola_Nombre extends JFrame {
 
 		btnTenis = new JButton("");
 		btnTenis.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosTenis();
+				miModelo.setOpcionDeporte("Tenis");
+				miModelo.setOpcionDeporteId(4);
+
 			}
 		});
 		btnTenis.setBorder(null);
@@ -165,11 +189,6 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 7);
-				//
-				//
-				//
-				//
-				//
 
 			}
 		});
@@ -212,4 +231,7 @@ public class _5_Hola_Nombre extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+
 }
+

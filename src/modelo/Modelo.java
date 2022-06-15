@@ -101,9 +101,19 @@ public class Modelo {
 	private String poblacionPerfil;
 
 	private String numeroRandom;
-
+	
 	private String fechaPerfil;
+	
+	private String opcionDeporte = "";
+	private int opcionDeporteId;
 
+
+
+	
+	
+	/**
+	 * Con el método tuPerfil, el select recoge los valores de la base de datos.
+	 * */
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
@@ -125,7 +135,12 @@ public class Modelo {
 		}
 		tuPerfil.actualizarsePerfil();
 	}
-
+	
+	
+	/**
+	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El update 
+	 * actualiza los valores de dichos campos.
+	 * */
 	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil,
 			String poblacionPerfil) {
 		String update = "Update users set nombre = ?, apellidos = ?, telefono = ?, email = ?,  poblacion = ? where usr = ? ";
@@ -144,6 +159,11 @@ public class Modelo {
 		}
 
 	}
+
+	
+	/**
+	 * Con el método deletePerfil, se borra el usuario
+	 * */
 
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
@@ -841,7 +861,7 @@ public class Modelo {
 		String sqlEmailExistente = "Select email from users where email = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
-			String textoEmail = recuperarContrasena.getEmail();
+			String textoEmail = recuperarContrasena.getTxtEmail();
 			if (textoEmail.equals("")) {
 				recuperarContrasena.errorCampoVacio();
 			} else {
@@ -861,42 +881,110 @@ public class Modelo {
 		}
 	}
 
-	public String updateCodigo() {
 
-		// Conexion();
+		
+	public String updateCodigo() {
 		String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
 		String numeroAleatorio = generadorNumero();
-		try {
+			try {
+				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
+				pstmt.setString(1, numeroAleatorio);
+				pstmt.setString(2, recuperarContrasena.getTxtEmail());
+				pstmt.executeUpdate();
+				recuperarContrasena.numeroRandom(numeroAleatorio);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return numeroAleatorio;
 
-			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
-			pstmt.setString(1, numeroAleatorio);
-			pstmt.setString(2, recuperarContrasena.getEmail());
-			pstmt.executeUpdate();
-			recuperarContrasena.numeroRandom(numeroAleatorio);
+		}
+	
+	
+
+	
+	//Metodo comprueba código introducido con código base de datos.
+
+	public void comparacionCodigos() {		
+		String sqlEmailExistente = "Select codigo_recuperacion from users where codigo_recuperacion = ?";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
+			String codigo = recuperarContrasena.getTxtCodigo();
+				pstmt.setString(1, codigo);
+				ResultSet rset = pstmt.executeQuery();
+				if (!rset.next()) {
+					recuperarContrasena.NoConcuerdanCodigos();
+				} else {
+					if (codigo.equals(rset.getString(1))) {
+						recuperarContrasena.concuerdanCodigos();
+					}
+				}	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return numeroAleatorio;
 	}
 
-	// Metodo que genera un número aleatorio de 6 números y lo convierte a String
-	// quitando los decimales.
-	public String generadorNumero() {
-		double sixDigits = 100000 + Math.random() * 900000;
-		numeroRandom = String.valueOf(sixDigits);
-		numeroRandom = numeroRandom.substring(0, 6);
-		return numeroRandom;
-	}
 
-	public void comparacionCodigos() {
+	
+	//Metodo actualiza contrasena
+	public void actualizarContrasena() {
+		String sqlActualizarContrasena = "update users set pwd = ? where email = ?";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarContrasena);
+			pstmt.setString(1, nuevaContrasena.getTxtNuevaContrasena());
+			pstmt.setString(2, recuperarContrasena.getTxtEmail());	
+			if (nuevaContrasena.getTxtNuevaContrasena().equals(nuevaContrasena.getTxtRepetirContrasena())) {
+				if (nuevaContrasena.getTxtNuevaContrasena().length() >= 6) {
+					pstmt.executeUpdate();
+					nuevaContrasena.concuerdanContrasenas();
+				} else {
+					nuevaContrasena.longitudMenorSeis();
+				}
+			} else {
+				nuevaContrasena.noConcuerdanContrasenas();
+			}
 
-		if (numeroRandom.equals(recuperarContrasena.getTxtCodigo())) {
-			recuperarContrasena.concuerdanCodigos();
-		} else {
-
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 	}
+
+	
+	
+	
+	// Método crearEvento
+		public void crearEvento() {
+
+			String InsertarEvento = "INSERT INTO eventos(fecha, hora, polideportivo, nivel, codigo_deporte) values(?,?,?,?,?)";
+			PreparedStatement pstmt;
+			try {
+				if (!crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getCalendar().equals(null) && !crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getListNivel().isSelectionEmpty()) {
+
+						//Conexion();
+						pstmt = conexion.prepareStatement(InsertarEvento);
+						pstmt.setString(1, DateFormat.getDateInstance().format(crearEvento.getCalendar()));
+						pstmt.setString(2, crearEvento.getSpinnerHora()+crearEvento.getSpinnerMinutos());
+						pstmt.setString(3, crearEvento.getCbxPolideportivo());
+						pstmt.setString(4, crearEvento.getListNivel().getSelectedValue().toString());
+						pstmt.setInt(5, getOpcionDeporteId());
+
+						pstmt.executeUpdate();
+						crearEvento.aceptado();
+				} else {
+					crearEvento.errorCamposVacios();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	
+		}
+	
+	
+	
+	
+	
+	
+
 
 	public void setUsername(String username) {
 		this.username = username;
@@ -974,4 +1062,20 @@ public class Modelo {
 		return numeroRandom;
 	}
 
+	public String getOpcionDeporte() {
+		return opcionDeporte;
+	}
+
+	public void setOpcionDeporte(String opcionDeporte) {
+		this.opcionDeporte = opcionDeporte;
+	}
+
+	public int getOpcionDeporteId() {
+		return opcionDeporteId;
+	}
+
+	public void setOpcionDeporteId(int opcionDeporteId) {
+		this.opcionDeporteId = opcionDeporteId;
+	}
+	
 }

@@ -149,7 +149,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnIrAlForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAlForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miModelo.TablaForo(miControlador.SeleccionMisEventos());
+//				miModelo.TablaForo(miControlador.SeleccionMisEventos());
 				miControlador.cambiarPantalla(8, 9);
 			}
 		});

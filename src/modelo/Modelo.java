@@ -89,7 +89,8 @@ public class Modelo {
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
-	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
+	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr where codigo_foro = ?;";
+	private String codigo_evento;
 	private String sqlBloqueaUsuario = "update users set estado ='inactivo' where usr=?;";
 	private String sqlDesbloqueaUsuario = "update users set estado = 'activo' where usr=?;";
 	private String usrPerfil;
@@ -102,16 +103,13 @@ public class Modelo {
 	private String numeroRandom;
 
 	private String fechaPerfil;
-	
+
 	private String opcionDeporte = "";
 	private int opcionDeporteId;
 
-
-	
-	
 	/**
 	 * Con el método tuPerfil, el select recoge los valores de la base de datos.
-	 * */
+	 */
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
@@ -133,12 +131,11 @@ public class Modelo {
 		}
 		tuPerfil.actualizarsePerfil();
 	}
-	
-	
+
 	/**
-	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El update 
-	 * actualiza los valores de dichos campos.
-	 * */
+	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El
+	 * update actualiza los valores de dichos campos.
+	 */
 	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil,
 			String poblacionPerfil) {
 		String update = "Update users set nombre = ?, apellidos = ?, telefono = ?, email = ?,  poblacion = ? where usr = ? ";
@@ -157,23 +154,23 @@ public class Modelo {
 		}
 
 	}
-	
+
 	/**
 	 * Con el método deletePerfil, se borra el usuario
-	 * */
+	 */
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(delete);
 
-			pstmt.setString(1,usr);
+			pstmt.setString(1, usr);
 			pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private Properties config;
@@ -323,7 +320,7 @@ public class Modelo {
 				bienvenida.actualizar();
 				TablaAdmin();
 				TablaMisEventos();
-				TablaForo();
+
 			} else {
 				fallos++;
 				if (fallos == 3) {
@@ -344,12 +341,11 @@ public class Modelo {
 		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt;
 		try {
-		
+
 			String fecha_nacimiento = "";
 			if (date != null) {
-			
+
 				fecha_nacimiento = DateFormat.getDateInstance().format(date);
-			
 
 				if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
 						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
@@ -363,7 +359,7 @@ public class Modelo {
 					pstmt.setString(4, telefono);
 					pstmt.setString(5, email);
 					pstmt.setString(6, poblacion);
-					pstmt.setString(7, fecha_nacimiento);	
+					pstmt.setString(7, fecha_nacimiento);
 					pstmt.setString(8, "usuario");
 					pstmt.setString(9, pwd);
 					pstmt.setString(10, "activo");
@@ -417,7 +413,7 @@ public class Modelo {
 		try {
 			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
 			pstmt.setString(1, usr);
-			
+
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 
@@ -536,14 +532,19 @@ public class Modelo {
 		}
 	}
 
-	public void TablaForo() {
-		tablaForo = new DefaultTableModel();
-
-		int numColumnas = getNumColumnas(sqlForo);
+	/**
+	 * Este método carga los valores del foro según lo que selecciones en la tabla
+	 * de MisEventos
+	 */
+	public void TablaForo(String codigo_evento) {
+		tablaForo=new DefaultTableModel();
+		this.codigo_evento = codigo_evento;
+		int numColumnas = getNumColumnas2(sqlForo, codigo_evento);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(sqlForo);
+			pstmt.setString(1, codigo_evento);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
@@ -554,22 +555,46 @@ public class Modelo {
 					contenido[col - 1] = rset.getString(col);
 				}
 				tablaForo.addRow(contenido);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 	}
-	
+
+	/**
+	 * El método EnviarMensaje hace un insert del mensaje en la base de datos y lo
+	 * guarda.
+	 */
+	public void EnviarMensaje(String mensaje) {
+		String RegistroSql = "INSERT INTO mensaje(mensaje,codigo_foro,usr) values(?,?,?);";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(RegistroSql);
+			pstmt.setString(1, mensaje);
+			pstmt.setString(2, codigo_evento);
+			pstmt.setString(3, usr);
+			pstmt.executeUpdate();
+
+			System.out.println("MENSAJE CREADA");
+		} catch (SQLException e) {
+
+		}
+	}
+
 	/**
 	 * 
-	 * El método bloquearUsuario permite acceder a la base de datos para hacer que el estado de un usuario
-	 * pase de activo a inactivo. Toma como parámetro una variable de la clase JTable y hace uso de un objeto
-	 * PreparedStatement para acceder a la base de datos de forma segura y modificar el registro indicado por 
-	 * medio de la query almacenada en el atributo sqlBloqueaUsuario. 
-	 * La primera variable (String usuario) permite almacenar el valor del usr (así se almacena en la base de 
-	 * datos), que servirá para completar el filtro de la query.
-	 * Por último, dado que la tabla no puede actualizarse si no se cierra y se abre de nuevo, se hace uso de
-	 * setValueAt para "forzar" la actualización del apartado estado de la tabla.
+	 * El método bloquearUsuario permite acceder a la base de datos para hacer que
+	 * el estado de un usuario pase de activo a inactivo. Toma como parámetro una
+	 * variable de la clase JTable y hace uso de un objeto PreparedStatement para
+	 * acceder a la base de datos de forma segura y modificar el registro indicado
+	 * por medio de la query almacenada en el atributo sqlBloqueaUsuario. La primera
+	 * variable (String usuario) permite almacenar el valor del usr (así se almacena
+	 * en la base de datos), que servirá para completar el filtro de la query. Por
+	 * último, dado que la tabla no puede actualizarse si no se cierra y se abre de
+	 * nuevo, se hace uso de setValueAt para "forzar" la actualización del apartado
+	 * estado de la tabla.
 	 * 
 	 * 
 	 */
@@ -590,18 +615,19 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("inactivo", tableAdmin.getSelectedRow(), 4);
 	}
-	
-	
+
 	/**
 	 * 
-	 * El método desbloquearUsuario permite acceder a la base de datos para hacer que el estado de un usuario
-	 * pase de inactivo a activo. Toma como parámetro una variable de la clase JTable y hace uso de un objeto
-	 * PreparedStatement para acceder a la base de datos de forma segura y modificar el registro indicado por 
-	 * medio de la query almacenada en el atributo sqlDesbloqueaUsuario. 
-	 * La primera variable (String usuario) permite almacenar el valor del usr (así se almacena en la base de 
-	 * datos), que servirá para completar el filtro de la query.
-	 * Por último, dado que la tabla no puede actualizarse si no se cierra y se abre de nuevo, se hace uso de
-	 * setValueAt para "forzar" la actualización del apartado estado de la tabla.
+	 * El método desbloquearUsuario permite acceder a la base de datos para hacer
+	 * que el estado de un usuario pase de inactivo a activo. Toma como parámetro
+	 * una variable de la clase JTable y hace uso de un objeto PreparedStatement
+	 * para acceder a la base de datos de forma segura y modificar el registro
+	 * indicado por medio de la query almacenada en el atributo
+	 * sqlDesbloqueaUsuario. La primera variable (String usuario) permite almacenar
+	 * el valor del usr (así se almacena en la base de datos), que servirá para
+	 * completar el filtro de la query. Por último, dado que la tabla no puede
+	 * actualizarse si no se cierra y se abre de nuevo, se hace uso de setValueAt
+	 * para "forzar" la actualización del apartado estado de la tabla.
 	 * 
 	 * 
 	 */
@@ -623,34 +649,30 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
 	}
-	
+
 	/**
 	 * 
-	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la pantalla _2_Bienvenido_admin
-	 * en función del estado del usuario (activo o inactivo). Si el estado de un usuario es inactivo, al 
-	 * seleccionar en la tabla la fila correspondiente a ese usuario se habilitará el botón "desbloquear". 
-	 * Si, por el contrario, el estado de un usuario es activo, al seleccionar dicha fila, se habilitará el 
-	 * botón "bloquear".
+	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la
+	 * pantalla _2_Bienvenido_admin en función del estado del usuario (activo o
+	 * inactivo). Si el estado de un usuario es inactivo, al seleccionar en la tabla
+	 * la fila correspondiente a ese usuario se habilitará el botón "desbloquear".
+	 * Si, por el contrario, el estado de un usuario es activo, al seleccionar dicha
+	 * fila, se habilitará el botón "bloquear".
 	 * 
 	 */
-	
+
 	public void habilitaBoton(JButton button1, JButton button2, JTable table) {
 		String condicion = (String) tablaAdmin.getValueAt(table.getSelectedRow(), 4);
-		
-		if(condicion.equals("activo")) {
+
+		if (condicion.equals("activo")) {
 			button1.setEnabled(true);
 			button2.setEnabled(false);
 		} else {
 			button2.setEnabled(true);
 			button1.setEnabled(false);
 		}
-		
+
 	}
-	
-	
-	
-	
-	
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
@@ -847,7 +869,7 @@ public class Modelo {
 					recuperarContrasena.errorUsuarioNoExistente();
 				} else {
 					if (textoEmail.equals(rset.getString(1))) {
-						//recuperarContrasena.numeroRandom();
+						// recuperarContrasena.numeroRandom();
 						updateCodigo();
 					}
 				}
@@ -856,61 +878,59 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public String updateCodigo() {
 		String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
 		String numeroAleatorio = generadorNumero();
-			try {
-				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
-				pstmt.setString(1, numeroAleatorio);
-				pstmt.setString(2, recuperarContrasena.getTxtEmail());
-				pstmt.executeUpdate();
-				recuperarContrasena.numeroRandom(numeroAleatorio);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return numeroAleatorio;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
+			pstmt.setString(1, numeroAleatorio);
+			pstmt.setString(2, recuperarContrasena.getTxtEmail());
+			pstmt.executeUpdate();
+			recuperarContrasena.numeroRandom(numeroAleatorio);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-
-
-	//Metodo que genera un número aleatorio de 6 números y lo convierte a String quitando los decimales.
-	public String generadorNumero() {
-	    double sixDigits = 100000 + Math.random() * 900000;
-	    numeroRandom = String.valueOf(sixDigits);
-	    numeroRandom = numeroRandom.substring(0,6);
-	    return numeroRandom;
+		return numeroAleatorio;
 	}
-	
-	//Metodo comprueba código introducido con código base de datos.
+
+	// Metodo que genera un número aleatorio de 6 números y lo convierte a String
+	// quitando los decimales.
+	public String generadorNumero() {
+		double sixDigits = 100000 + Math.random() * 900000;
+		numeroRandom = String.valueOf(sixDigits);
+		numeroRandom = numeroRandom.substring(0, 6);
+		return numeroRandom;
+	}
+
+	// Metodo comprueba código introducido con código base de datos.
 	public void comparacionCodigos() {
-		
+
 		String sqlEmailExistente = "Select codigo_recuperacion from users where codigo_recuperacion = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
 			String codigo = recuperarContrasena.getTxtCodigo();
-				pstmt.setString(1, codigo);
-				ResultSet rset = pstmt.executeQuery();
-				if (!rset.next()) {
-					recuperarContrasena.NoConcuerdanCodigos();
-				} else {
-					if (codigo.equals(rset.getString(1))) {
-						recuperarContrasena.concuerdanCodigos();
-					}
-				}	
+			pstmt.setString(1, codigo);
+			ResultSet rset = pstmt.executeQuery();
+			if (!rset.next()) {
+				recuperarContrasena.NoConcuerdanCodigos();
+			} else {
+				if (codigo.equals(rset.getString(1))) {
+					recuperarContrasena.concuerdanCodigos();
+				}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	
-	//Metodo actualiza contrasena
+	// Metodo actualiza contrasena
 	public void actualizarContrasena() {
 		String sqlActualizarContrasena = "update users set pwd = ? where email = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarContrasena);
 			pstmt.setString(1, nuevaContrasena.getTxtNuevaContrasena());
-			pstmt.setString(2, recuperarContrasena.getTxtEmail());	
+			pstmt.setString(2, recuperarContrasena.getTxtEmail());
 			if (nuevaContrasena.getTxtNuevaContrasena().equals(nuevaContrasena.getTxtRepetirContrasena())) {
 				if (nuevaContrasena.getTxtNuevaContrasena().length() >= 6) {
 					pstmt.executeUpdate();
@@ -925,43 +945,37 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
-	
+
 	// Método crearEvento
-		public void crearEvento() {
+	public void crearEvento() {
 
-			String InsertarEvento = "INSERT INTO eventos(fecha, hora, polideportivo, nivel, codigo_deporte) values(?,?,?,?,?)";
-			PreparedStatement pstmt;
-			try {
-				if (!crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getCalendar().equals(null) && !crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getListNivel().isSelectionEmpty()) {
+		String InsertarEvento = "INSERT INTO eventos(fecha, hora, polideportivo, nivel, codigo_deporte) values(?,?,?,?,?)";
+		PreparedStatement pstmt;
+		try {
+			if (!crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getCalendar().equals(null)
+					&& !crearEvento.getCbxPolideportivo().equals("")
+					&& !crearEvento.getListNivel().isSelectionEmpty()) {
 
-						//Conexion();
-						pstmt = conexion.prepareStatement(InsertarEvento);
-						pstmt.setString(1, DateFormat.getDateInstance().format(crearEvento.getCalendar()));
-						pstmt.setString(2, crearEvento.getSpinnerHora()+crearEvento.getSpinnerMinutos());
-						pstmt.setString(3, crearEvento.getCbxPolideportivo());
-						pstmt.setString(4, crearEvento.getListNivel().getSelectedValue().toString());
-						pstmt.setInt(5, getOpcionDeporteId());
+				// Conexion();
+				pstmt = conexion.prepareStatement(InsertarEvento);
+				pstmt.setString(1, DateFormat.getDateInstance().format(crearEvento.getCalendar()));
+				pstmt.setString(2, crearEvento.getSpinnerHora() + crearEvento.getSpinnerMinutos());
+				pstmt.setString(3, crearEvento.getCbxPolideportivo());
+				pstmt.setString(4, crearEvento.getListNivel().getSelectedValue().toString());
+				pstmt.setInt(5, getOpcionDeporteId());
 
-						pstmt.executeUpdate();
-						crearEvento.aceptado();
-				} else {
-					crearEvento.errorCamposVacios();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
+				pstmt.executeUpdate();
+				crearEvento.aceptado();
+			} else {
+				crearEvento.errorCamposVacios();
 			}
-	
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-	
-	
-	
-	
-	
-	
+
+	}
 
 	public void setUsername(String username) {
 		this.username = username;
@@ -1054,5 +1068,5 @@ public class Modelo {
 	public void setOpcionDeporteId(int opcionDeporteId) {
 		this.opcionDeporteId = opcionDeporteId;
 	}
-	
+
 }

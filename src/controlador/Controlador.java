@@ -3,6 +3,7 @@ package controlador;
 import java.util.Date;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
 
 import modelo.Modelo;
 import vistas._10_Configuracion;
@@ -10,6 +11,8 @@ import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Registrarse;
 import vistas._3_Recuperar_Contrasena;
 import vistas._6_Tu_perfil;
+import vistas._7_Mis_Eventos;
+import vistas._8_Foro;
 
 public class Controlador {
 
@@ -60,10 +63,27 @@ public class Controlador {
 	}
 
 	/**
-	 * Método para que un usuario pueda actualizar perfil. Mediante
-	 * getters se cogen cada uno de los campos los cuales se van a poder modificar.
-	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El update 
-	 * actualiza los valores de dichos campos.
+	 * Método que según la selección de la tabla obtiene el valor de la columna 0,
+	 * es decir, obtiene el código del evento y lo guarda en una variable para
+	 * posteriormente poder hacer una consulta
+	 */
+	public String SeleccionMisEventos() {
+		String codigo_evento = (String) (((_7_Mis_Eventos) pantallas[8]).getTable())
+				.getValueAt(((_7_Mis_Eventos) pantallas[8]).getTable().getSelectedRow(), 0);
+		return codigo_evento;
+	}
+	
+	/**Este método obtiene el mensaje y se lo pasa al método que hace el insert*/
+	public void Mensaje(JTable tabla) {
+		String mensaje = (String) (((_8_Foro) pantallas[9]).getEscribeAqui());
+		miModelo.EnviarMensaje(mensaje);
+
+	}
+	/**
+	 * Método para que un usuario pueda actualizar perfil. Mediante getters se cogen
+	 * cada uno de los campos los cuales se van a poder modificar. Con el método
+	 * metodo(updatePerfil) se pasan los valores de los campos. El update actualiza
+	 * los valores de dichos campos.
 	 */
 	public void updatePerfil() {
 		String nombre = ((_6_Tu_perfil) pantallas[7]).getTxtNombre();

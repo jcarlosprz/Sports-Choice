@@ -13,6 +13,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class _5_Hola_Nombre extends JFrame {
 
@@ -23,7 +25,6 @@ public class _5_Hola_Nombre extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JLabel lblHola;
-	
 
 
 	public _5_Hola_Nombre() {
@@ -59,13 +60,13 @@ public class _5_Hola_Nombre extends JFrame {
 		lblHola.setBounds(299, 22, 105, 60);
 		panel.add(lblHola);
 		
-		
 		btnBaloncesto = new JButton("");
 		btnBaloncesto.setBorder(null);
 		btnBaloncesto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
-				miModelo.TablaEventosBaloncesto();
+				miModelo.TablaEventosBaloncesto();		
+				miModelo.setOpcionDeporte("Baloncesto");
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
@@ -75,11 +76,13 @@ public class _5_Hola_Nombre extends JFrame {
 		btnBaloncesto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBaloncesto.setOpaque(false);
 
+
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosFutbol();
+				miModelo.setOpcionDeporte("Fútbol");
 			}
 		});
 		btnFutbol.setBorder(null);
@@ -97,6 +100,7 @@ public class _5_Hola_Nombre extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosPadel();
+				miModelo.setOpcionDeporte("Pádel");
 			}
 		});
 		btnPadel.setBorder(null);
@@ -113,6 +117,7 @@ public class _5_Hola_Nombre extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosTenis();
+				miModelo.setOpcionDeporte("Tenis");
 			}
 		});
 		btnTenis.setBorder(null);
@@ -217,4 +222,5 @@ public class _5_Hola_Nombre extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
 }

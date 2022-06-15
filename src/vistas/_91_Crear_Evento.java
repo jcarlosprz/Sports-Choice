@@ -22,6 +22,10 @@ import com.toedter.calendar.JCalendar;
 import controlador.Controlador;
 import modelo.Modelo;
 import javax.swing.border.LineBorder;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class _91_Crear_Evento extends JFrame {
 
@@ -40,6 +44,13 @@ public class _91_Crear_Evento extends JFrame {
 	private JLabel lblDeporteSeleccionado;
 	
 	public _91_Crear_Evento() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				lblDeporteSeleccionado.setText(miModelo.getOpcionDeporte());
+			}
+		});
+	
 		setTitle("CREAR EVENTO");
 		setResizable(false);
 		setBounds(140, 50, 850, 720);
@@ -79,6 +90,7 @@ public class _91_Crear_Evento extends JFrame {
 		btnCrearEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(11, 8);
+
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -178,7 +190,7 @@ public class _91_Crear_Evento extends JFrame {
 		lblNivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblNivel);
 		
-		lblDeporteSeleccionado = new JLabel("deporte");
+		lblDeporteSeleccionado = new JLabel();
 		lblDeporteSeleccionado.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblDeporteSeleccionado.setBounds(524, 10, 242, 54);
 		panel.add(lblDeporteSeleccionado);

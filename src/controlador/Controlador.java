@@ -72,12 +72,12 @@ public class Controlador {
 
 	public void DatosEventosRegistro() {
 
-		int codigo_evento = ((_7_Mis_Eventos) pantallas[3]).getNombreUsuario();
-		Date date = ((_7_Mis_Eventos) pantallas[3]).getNombre();
-		String hora = ((_7_Mis_Eventos) pantallas[3]).getApellidos();
-		String polideportivo = ((_7_Mis_Eventos) pantallas[3]).getTelefono();
-		String nivel = ((_7_Mis_Eventos) pantallas[3]).getEmail();
-		int codigo_deporte = ((_7_Mis_Eventos) pantallas[3]).getPoblacion();
+		int codigo_evento = ((_7_Mis_Eventos) pantallas[8]).getNombreUsuario();
+		Date date = ((_7_Mis_Eventos) pantallas[8]).getNombre();
+		String hora = ((_7_Mis_Eventos) pantallas[8]).getApellidos();
+		String polideportivo = ((_7_Mis_Eventos) pantallas[8]).getTelefono();
+		String nivel = ((_7_Mis_Eventos) pantallas[8]).getEmail();
+		int codigo_deporte = ((_7_Mis_Eventos) pantallas[8]).getPoblacion();
 		
 
 		if (miModelo.RegistroEvento(codigo_evento, date, hora, polideportivo, nivel, codigo_deporte) == true) {

@@ -13,6 +13,7 @@ import vistas._3_Recuperar_Contrasena;
 import vistas._6_Tu_perfil;
 import vistas._7_Mis_Eventos;
 import vistas._8_Foro;
+import vistas._9_Eventos_Disponibles;
 
 public class Controlador {
 
@@ -61,6 +62,7 @@ public class Controlador {
 		}
 
 	}
+
 
 	/**
 	 * Método que según la selección de la tabla obtiene el valor de la columna 0,

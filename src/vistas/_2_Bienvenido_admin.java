@@ -54,7 +54,6 @@ public class _2_Bienvenido_admin extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JButton btnLogOut, btnBloquear, btnDownload, btnUpload;
-	
 
 	public _2_Bienvenido_admin() {
 		setTitle("BIENVENIDO ADMINISTRADOR");
@@ -150,7 +149,7 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(2, 0);
-				
+
 			}
 		});
 		btnLogOut.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -168,9 +167,10 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnDownload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnDownload);
 		btnDownload.addActionListener(new ActionListener() {
-            public void actionPerformed (final ActionEvent d) {
-                miModelo.guardarObjetoAdmin();
-            }});
+			public void actionPerformed(final ActionEvent d) {
+				miModelo.guardarObjetoAdmin();
+			}
+		});
 
 		btnUpload = new JButton("Upload");
 		btnUpload.setFont(new Font("Dubai", Font.BOLD, 12));
@@ -180,10 +180,10 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
 		btnUpload.addActionListener(new ActionListener() {
-            public void actionPerformed (final ActionEvent d) {
-            	miModelo.cargarObjetoAdmin();
-            }});
-		
+			public void actionPerformed(final ActionEvent d) {
+				miModelo.cargarObjetoAdmin();
+			}
+		});
 
 		JLabel lblFondo = new JLabel("");
 
@@ -199,16 +199,14 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_2_Bienvenido_admin.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
-		
+
 		lblConfirmacion = new JLabel("");
 		lblConfirmacion.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblConfirmacion.setForeground(Color.RED);
 		lblConfirmacion.setBounds(246, 568, 348, 23);
 		panel.add(lblConfirmacion);
 	}
-	
-	
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -240,6 +238,5 @@ public class _2_Bienvenido_admin extends JFrame {
 	public void setLblConfirmacion(JLabel lblConfirmacion) {
 		this.lblConfirmacion = lblConfirmacion;
 	}
-	
-}
 
+}

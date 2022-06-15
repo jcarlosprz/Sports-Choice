@@ -82,7 +82,7 @@ public class Modelo {
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
-	private DefaultTableModel tablaForo;
+	private DefaultTableModel tablaForo = new DefaultTableModel();
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
@@ -101,11 +101,16 @@ public class Modelo {
 	private String poblacionPerfil;
 
 	private String numeroRandom;
-
+	
 	private String fechaPerfil;
-
+	
 	private String opcionDeporte = "";
 	private int opcionDeporteId;
+
+
+
+
+
 
 	/**
 	 * Con el método tuPerfil, el select recoge los valores de la base de datos.
@@ -155,9 +160,12 @@ public class Modelo {
 
 	}
 
+
+	
+
 	/**
 	 * Con el método deletePerfil, se borra el usuario
-	 */
+	 * */
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
 
@@ -532,6 +540,7 @@ public class Modelo {
 		}
 	}
 
+
 	/**
 	 * Este método carga los valores del foro según lo que selecciones en la tabla
 	 * de MisEventos
@@ -563,6 +572,7 @@ public class Modelo {
 		
 	}
 
+
 	/**
 	 * El método EnviarMensaje hace un insert del mensaje en la base de datos y lo
 	 * guarda.
@@ -582,6 +592,7 @@ public class Modelo {
 
 		}
 	}
+
 
 	/**
 	 * 
@@ -879,19 +890,22 @@ public class Modelo {
 		}
 	}
 
+
+
 	public String updateCodigo() {
 		String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
 		String numeroAleatorio = generadorNumero();
-		try {
-			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
-			pstmt.setString(1, numeroAleatorio);
-			pstmt.setString(2, recuperarContrasena.getTxtEmail());
-			pstmt.executeUpdate();
-			recuperarContrasena.numeroRandom(numeroAleatorio);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return numeroAleatorio;
+
+			try {
+				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
+				pstmt.setString(1, numeroAleatorio);
+				pstmt.setString(2, recuperarContrasena.getTxtEmail());
+				pstmt.executeUpdate();
+				recuperarContrasena.numeroRandom(numeroAleatorio);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return numeroAleatorio;
 	}
 
 	// Metodo que genera un número aleatorio de 6 números y lo convierte a String
@@ -903,9 +917,14 @@ public class Modelo {
 		return numeroRandom;
 	}
 
-	// Metodo comprueba código introducido con código base de datos.
-	public void comparacionCodigos() {
 
+	
+	
+
+	
+	//Metodo comprueba código introducido con código base de datos.
+
+	public void comparacionCodigos() {		
 		String sqlEmailExistente = "Select codigo_recuperacion from users where codigo_recuperacion = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
@@ -923,6 +942,7 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+
 
 	// Metodo actualiza contrasena
 	public void actualizarContrasena() {
@@ -947,6 +967,11 @@ public class Modelo {
 		}
 
 	}
+
+
+	
+	
+	
 
 	// Método crearEvento
 	public void crearEvento() {
@@ -974,6 +999,7 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+
 
 	}
 

@@ -41,8 +41,10 @@ public class _91_Crear_Evento extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+
 	private JLabel lblFondo, lblDeporteSeleccionado, lblMensaje;
 	
+
 	public _91_Crear_Evento() {
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -62,7 +64,7 @@ public class _91_Crear_Evento extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JButton btnFlecha = new JButton("");
 		btnFlecha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,9 +108,10 @@ public class _91_Crear_Evento extends JFrame {
 		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "" + "Todos los campos son requeridos            \r\n"
-						+ "Por favor, no te dejes ningún campo  \r\n"
-						+ "sin seleccionar.\r\n\n", "AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"" + "Todos los campos son requeridos            \r\n"
+								+ "Por favor, no te dejes ningún campo  \r\n" + "sin seleccionar.\r\n\n",
+						"AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
@@ -187,24 +190,26 @@ public class _91_Crear_Evento extends JFrame {
 		lblFecha = new JLabel("Fecha:");
 		lblFecha.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblFecha.setBounds(306, 214, 104, 14);
-		
+
 		panel.add(lblFecha);
 		lblNivel = new JLabel("Nivel:");
 		lblNivel.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNivel.setBounds(677, 214, 104, 14);
 		lblNivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblNivel);
-		
+
 		lblDeporteSeleccionado = new JLabel();
+
 		lblDeporteSeleccionado.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblDeporteSeleccionado.setBounds(524, 10, 242, 54);
 		panel.add(lblDeporteSeleccionado);
-		
+
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-112, 0, 979, 723);
 		panel.add(lblFondo);
 	}
+
 	
 	
 	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
@@ -213,6 +218,7 @@ public class _91_Crear_Evento extends JFrame {
 	}
 	
 	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -220,6 +226,7 @@ public class _91_Crear_Evento extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
 
 
 	public String getCbxPolideportivo() {
@@ -252,3 +259,4 @@ public class _91_Crear_Evento extends JFrame {
 
 	
 }
+

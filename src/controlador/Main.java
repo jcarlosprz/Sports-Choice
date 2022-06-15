@@ -1,4 +1,5 @@
 package controlador;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -41,9 +42,9 @@ public class Main {
 		_9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
 
-		JFrame[] pantallas = { bienvenida, configuracion, bienvenidaAdmin, registrarse, recuperarContrasena, nuevaContrasena,
-				holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
-		
+		JFrame[] pantallas = { bienvenida, configuracion, bienvenidaAdmin, registrarse, recuperarContrasena,
+				nuevaContrasena, holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
+
 		miControlador.setModelo(miModelo);
 		miControlador.setPantallas(pantallas);
 		miModelo.setBienvenida(bienvenida);
@@ -58,7 +59,7 @@ public class Main {
 		miModelo.setForo(foro);
 		miModelo.setEventosDisponibles(eventosDisponibles);
 		miModelo.setCrearEvento(crearEvento);
-		
+
 		bienvenida.setMiControlador(miControlador);
 		configuracion.setMiControlador(miControlador);
 		bienvenidaAdmin.setMiControlador(miControlador);

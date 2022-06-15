@@ -1,4 +1,5 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -65,14 +66,14 @@ public class _8_Foro extends JFrame {
 				miControlador.cambiarPantalla(9, 8);
 			}
 		});
-		
+
 		btnUploadForo = new JButton("Upload");
 		btnUploadForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miModelo.cargarObjetoForo();
 			}
 		});
-		
+
 		JButton btnDownload = new JButton("Download");
 		btnDownload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -85,14 +86,14 @@ public class _8_Foro extends JFrame {
 		btnDownload.setBounds(530, 600, 68, 56);
 		btnDownload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnDownload);
-		
+
 		btnUploadForo.setFont(new Font("Dubai", Font.BOLD, 12));
 		btnUploadForo.setBorder(null);
 		btnUploadForo.setBackground(new Color(176, 196, 222));
 		btnUploadForo.setBounds(436, 600, 68, 56);
 		btnUploadForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUploadForo);
-		
+
 		btnFlecha.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
@@ -112,14 +113,14 @@ public class _8_Foro extends JFrame {
 		table = new JTable();
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
 		table.setRowHeight(50);
-		
+
 		scrollPane.setViewportView(table);
 
 		txtEscribeAqui = new JTextField();
 		txtEscribeAqui.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-				
+
 				if (txtEscribeAqui.getText().isEmpty()) {
 					btnEnviar.setEnabled(false);
 				} else {
@@ -141,19 +142,19 @@ public class _8_Foro extends JFrame {
 		lblEscribeAqui.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblEscribeAqui.setBounds(88, 404, 167, 26);
 		panel.add(lblEscribeAqui);
-		
+
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(_8_Foro.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-87, 0, 969, 693);
 		panel.add(lblFondo);
-		
+
 		lblConfirmacion = new JLabel("");
 		lblConfirmacion.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 		lblConfirmacion.setForeground(Color.RED);
 		lblConfirmacion.setBounds(436, 563, 220, 26);
 		panel.add(lblConfirmacion);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -185,4 +186,9 @@ public class _8_Foro extends JFrame {
 	public String getEscribeAqui() {
 		return txtEscribeAqui.getText();
 	}
+<<<<<<< HEAD
 }
+=======
+	
+}
+>>>>>>> branch 'JuanCarlos' of https://github.com/DAM-UTAD-1-2122/prog---ud6---tarea-2---guardar-tablas-pi-ratatui

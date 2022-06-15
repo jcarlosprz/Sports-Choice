@@ -11,47 +11,36 @@ import vistas._2_Registrarse;
 import vistas._6_Tu_perfil;
 
 public class Controlador {
+	
 	private Modelo miModelo;
-
 	private JFrame[] pantallas;
 	
-//	private String userPerfil;
-
 	public void cambiarPantalla(int numero1, int numero2) {
 		pantallas[numero1].setVisible(false);
 		pantallas[numero2].setVisible(true);
-		
-//		if(numero2 == 7) {
-//			
-//			miModelo.tuPerfil(userPerfil);
-//		}
-	}
-
-	public void setPantallas(JFrame[] pantallas) {
-		this.pantallas = pantallas;
-	}
-
-	public void setModelo(Modelo miModelo) {
-		this.miModelo = miModelo;
 	}
 
 	public void login() {
 		String usr = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getUsr();
 		String pwd = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getPwd();
 		miModelo.login(usr, pwd);
-
 	}
 
+	
 	public void guardar() {
 		String[] datosConexion = { ((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(),
 				((_10_Configuracion) pantallas[1]).getTxtUsuarioConexion().getText(),
 				((_10_Configuracion) pantallas[1]).getTxtPasswordConexion().getText() };
 		miModelo.guardar(datosConexion, ((_10_Configuracion) pantallas[1]).getKeys());
-
 	}
-
-	public void DatosRegistro() {
-		
+	
+	/**
+	 * 
+	 * Método para que un usuario se pueda registrar
+	 * 
+	 * */
+	
+	public void DatosRegistro() {	
 		String usr=((_2_Registrarse) pantallas[3]).getNombreUsuario();
 		String nombre=((_2_Registrarse) pantallas[3]).getNombre();
 		String apellidos=((_2_Registrarse) pantallas[3]).getApellidos();
@@ -64,14 +53,15 @@ public class Controlador {
 		
 		if (miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd) == true) {
 			cambiarPantalla(3, 0);
-		} 
-		
-	}
-
-	public JFrame getPantallas(int indice) {
-		return pantallas[indice];
+		} 	
 	}
 	
+	/**
+	 * 
+	 * Método para que un usuario pueda actualizar perfil
+	 * 
+	 * 
+	 * */
 	public void updatePerfil() {	
 			String nombre = 	((_6_Tu_perfil) pantallas[7]).getTxtNombre();
 			String apellidos = 	((_6_Tu_perfil) pantallas[7]).getTxtApellidos();
@@ -83,8 +73,19 @@ public class Controlador {
 			System.out.println(telefono);
 			System.out.println(email);
 			System.out.println(poblacion);
-		
-		miModelo.updatePerfil(nombre,apellidos, telefono, email, poblacion);			
+			miModelo.updatePerfil(nombre,apellidos, telefono, email, poblacion);			
+	}
+	
+	public JFrame getPantallas(int indice) {
+		return pantallas[indice];
+	}
+	
+	public void setPantallas(JFrame[] pantallas) {
+		this.pantallas = pantallas;
+	}
+
+	public void setModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
 	}
 	
 }

@@ -23,13 +23,15 @@ apellidos varchar (30),
 telefono varchar (15),
 email varchar (30),
 poblacion varchar (30),
-fecha_nacimiento varchar (15),
+fecha_nacimiento varchar (30),
 rol varchar (20),
 pwd varchar(30),
 estado varchar(11),
 codigo_recuperacion int,
 primary key (usr)
 )engine=innodb;
+
+
 
 create table Eventos (
 codigo_evento int AUTO_INCREMENT,
@@ -278,6 +280,4 @@ INSERT INTO users_Eventos values ('RRLOP', 6); -- El que crea evento se une auto
 INSERT INTO users_Eventos values ('LTHSER', 7); -- Se une otro usuario.
 INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
 
--- drop database proyectoIntegrador;
-
-
+ -- drop database proyectoIntegrador;

@@ -96,7 +96,7 @@ public class Modelo {
 	private String emailPerfil;
 	private String poblacionPerfil;
 
-	private Date fechaPerfil;
+	private String fechaPerfil;
 
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
@@ -111,11 +111,26 @@ public class Modelo {
 			apellidoPerfil = rset.getString(3);
 			telefonoPerfil = rset.getString(4);
 			emailPerfil = rset.getString(5);
-			fechaPerfil = rset.getDate(6);
-			Date prueba = fechaPerfil;
-			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			String dia = new String();
-			dia = formatter.format(getFechaNacimiento());
+			fechaPerfil = rset.getString(6);
+//			//
+//			System.out.println("TU PERFIL" + fechaPerfil);
+//			//
+//			String prueba = fechaPerfil;
+//			//
+//			System.out.println("tu perfil " + prueba + "tu perfil " + fechaPerfil);
+//			//
+//			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//			//
+//			System.out.println("aqui lo formateamos " + formatter);
+//			//
+//			String dia = new String();
+//			//
+//			System.out.println("tu perfil string dia " + dia );
+//			//
+//			dia = formatter.format(getFechaNacimiento());
+//			//
+//			System.out.println("aqui dia = formatter get " + dia );
+//			//
 			poblacionPerfil = rset.getString(7);
 
 		} catch (SQLException e) {
@@ -331,9 +346,18 @@ public class Modelo {
 		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt;
 		try {
+			//
+			System.out.println("aqui empieza");
+			//
 			String fecha_nacimiento = "";
 			if (date != null) {
+				//
+				System.out.println("antes de formatear" + fecha_nacimiento);
+				//
 				fecha_nacimiento = DateFormat.getDateInstance().format(date);
+				//
+				System.out.println("aqui lo formateamos" + fecha_nacimiento);
+				//
 
 				if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
 						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
@@ -347,12 +371,14 @@ public class Modelo {
 					pstmt.setString(4, telefono);
 					pstmt.setString(5, email);
 					pstmt.setString(6, poblacion);
-					
+					//
 					System.out.println(poblacion);
+					//
 					
 					pstmt.setString(7, fecha_nacimiento);
-					
+					//
 					System.out.println(fecha_nacimiento);
+					//
 					
 					pstmt.setString(8, "usuario");
 					pstmt.setString(9, pwd);
@@ -406,19 +432,46 @@ public class Modelo {
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
-
 			pstmt.setString(1, usr);
+			System.out.println(" CONEXION PSTMT" + pstmt);
+			////
+			///
+			///
+			//
+			//
+			//
 			System.out.println("METODO: " + usr);
+			///
+			///
+			///
+			///
+			///
+			///
+			System.out.println("1");
 			ResultSet rset = pstmt.executeQuery();
+			System.out.println("2");
+
 			ResultSetMetaData rsmd = rset.getMetaData();
+			System.out.println("3");
+
 			for (int i = 0; i < numColumnas; i++) {
+				System.out.println("4");
+
 				tablaMisEventos.addColumn(rsmd.getColumnName(i + 1));
 			}
+			System.out.println("5");
+
 			while (rset.next()) {
+				System.out.println("6");
+
 				for (int col = 1; col <= numColumnas; col++) {
 					contenido[col - 1] = rset.getString(col);
+					System.out.println("7");
+
 				}
 				tablaMisEventos.addRow(contenido);
+				System.out.println("8");
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -845,7 +898,7 @@ public class Modelo {
 		return poblacionPerfil;
 	}
 
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaPerfil;
 	}
 

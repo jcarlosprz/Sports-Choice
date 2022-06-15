@@ -102,6 +102,8 @@ public class Modelo {
 	private String numeroRandom;
 
 	private String fechaPerfil;
+	
+	private String opcionDeporte = "";
 
 
 	public void tuPerfil() {
@@ -997,6 +999,14 @@ public class Modelo {
 
 	public String getNumeroRandom() {
 		return numeroRandom;
+	}
+
+	public String getOpcionDeporte() {
+		return opcionDeporte;
+	}
+
+	public void setOpcionDeporte(String opcionDeporte) {
+		this.opcionDeporte = opcionDeporte;
 	}
 
 }

@@ -380,7 +380,7 @@ public class Modelo {
 		}
 	}
 
-	// Método Registrar Eventos
+	// Método Registrar Evento
 	public boolean RegistroEvento(int codigo_evento, Date date, String hora, String polideportivo, String nivel,
 			int codigo_deporte) {
 
@@ -416,7 +416,7 @@ public class Modelo {
 
 	}
 	
-	// Método Registrar Eventos
+	// Método Borrar Evento
 		public boolean BorrarEvento(int codigo_evento, Date date, String hora, String polideportivo, String nivel,
 				int codigo_deporte) {
 
@@ -439,7 +439,7 @@ public class Modelo {
 						pstmt.setString(5, nivel);
 						pstmt.setInt(6, codigo_deporte);
 						pstmt.executeUpdate();
-						System.out.println("EVENTO CREADO");
+						System.out.println("EVENTO BORRADO");
 						return true;
 					} else {
 						registrarse.errorLabelCamposVacios();

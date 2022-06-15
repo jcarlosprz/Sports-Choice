@@ -22,7 +22,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
+	private JLabel lblFondo, lblMessageEmail;
 
 	public _3_Recuperar_Contrasena() {
 		setTitle("RECUPERAR CONTRASENA");
@@ -44,6 +44,13 @@ public class _3_Recuperar_Contrasena extends JFrame {
 				miControlador.cambiarPantalla(4, 0);
 			}
 		});
+		
+		lblMessageEmail = new JLabel("");
+		lblMessageEmail.setForeground(Color.RED);
+		lblMessageEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMessageEmail.setBackground(Color.RED);
+		lblMessageEmail.setBounds(175, 260, 341, 34);
+		panel.add(lblMessageEmail);
 		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
@@ -104,6 +111,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		JButton btnComprobar = new JButton("ENVIAR");
 		btnComprobar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.recuperarContrasena();
 			}
 		});
 		btnComprobar.setBorder(null);
@@ -119,11 +127,25 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		panel.add(lblFondo);
 	}
 
+	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
+		public void errorUsuarioExistente() {
+			lblMessageEmail.setText("El campo no puede estar vacío");
+		}
+	
+	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+
+	public JTextField getTxtEmail() {
+		return txtEmail;
+	}
+
+	public void setTxtEmail(JTextField txtEmail) {
+		this.txtEmail = txtEmail;
 	}
 }

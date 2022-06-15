@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
@@ -29,7 +31,11 @@ public class _6_Tu_perfil extends JFrame {
 	private JDateChooser dateChooserFechaNac;
 
 	private Controlador miControlador;
+
+	
 	private Modelo miModelo;
+
+	
 	private JLabel lblFondo;
 
 	public _6_Tu_perfil() {
@@ -162,10 +168,14 @@ public class _6_Tu_perfil extends JFrame {
 		btnGuardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miControlador.updatePerfil();
 				miControlador.cambiarPantalla(7, 6);
 
 			}
 		});
+		
+
+		
 		btnGuardar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnGuardar.setBounds(526, 611, 162, 56);
 		panel.add(btnGuardar);
@@ -208,6 +218,7 @@ public class _6_Tu_perfil extends JFrame {
 		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		dateChooserFechaNac = new JDateChooser();
+		dateChooserFechaNac.setEnabled(false);
 		dateChooserFechaNac.setBorder(null);
 		dateChooserFechaNac.setBounds(163, 480, 525, 40);
 		panel.add(dateChooserFechaNac);
@@ -240,15 +251,56 @@ public class _6_Tu_perfil extends JFrame {
 		Date fechaNacimmiento = miModelo.getFechaNacimiento();
 		dateChooserFechaNac.setDate(fechaNacimmiento);
 		
-		
-		
 		String poblacion = miModelo.getPoblacion();
-		txtPoblacion.setText(poblacion);
-		
-		
+		txtPoblacion.setText(poblacion);	
 		
 	}
+	
+
 		
+	public String getTxtNombreUsuario() {
+		return txtNombreUsuario.getText();
+	}
+
+
+
+	public Date getDateChooserFechaNac() {
+		return dateChooserFechaNac.getDate();
+	}
+
+
+
+	public String getTxtNombre() {
+		return txtNombre.getText();
+	}
+
+	public String getTxtApellidos() {
+		return txtApellidos.getText();
+	}
+
+
+	public String getTxtTelefono() {
+		return txtTelefono.getText();
+	}
+
+	public String getTxtEmail() {
+		return txtEmail.getText();
+	}
+
+
+	public String getTxtPoblacion() {
+		return txtPoblacion.getText();
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

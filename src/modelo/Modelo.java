@@ -88,7 +88,8 @@ public class Modelo {
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
-
+	private String sqlBloqueaUsuario = "update users set estado ='inactivo' where usr=?;";
+	private String sqlDesbloqueaUsuario = "update users set estado = 'activo' where usr=?;";
 	private String usrPerfil;
 	private String nombrePerfil;
 	private String apellidoPerfil;
@@ -99,7 +100,7 @@ public class Modelo {
 	private Date fechaPerfil;
 
 	public void tuPerfil() {
-		String sqlPerfil = "select usr, nombre, apellidos, telefono, email,  fecha_nacimiento, poblacion from users where usr = ? ";
+		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
@@ -122,6 +123,25 @@ public class Modelo {
 			e.printStackTrace();
 		}
 		tuPerfil.actualizarsePerfil();
+	}
+
+	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil,
+			String poblacionPerfil) {
+		String update = "Update users set nombre = ?, apellidos = ?, telefono = ?, email = ?,  poblacion = ? where usr = ? ";
+
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(update);
+			pstmt.setString(1, nombrePerfil);
+			pstmt.setString(2, apellidoPerfil);
+			pstmt.setString(3, telefonoPerfil);
+			pstmt.setString(4, emailPerfil);
+			pstmt.setString(5, poblacionPerfil);
+			pstmt.setString(6, usr);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private Properties config;
@@ -572,6 +592,42 @@ public class Modelo {
 		}
 	}
 
+	public void bloquearUsuario(JTable tableAdmin) {
+
+		String usuario = (String) tableAdmin.getValueAt(tableAdmin.getSelectedRow(), 0);
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlBloqueaUsuario);
+			pstmt.setString(1, usuario);
+			pstmt.executeUpdate();
+			System.out.println(pstmt);
+			System.out.println(usuario + " ha sido bloqueado.");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		tablaAdmin.setValueAt("inactivo", tableAdmin.getSelectedRow(), 4);
+	}
+
+	public void desbloquearUsuario(JTable tableAdmin) {
+
+		String usuario = (String) tableAdmin.getValueAt(tableAdmin.getSelectedRow(), 0);
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlDesbloqueaUsuario);
+			pstmt.setString(1, usuario);
+			pstmt.executeUpdate();
+			System.out.println(pstmt);
+			System.out.println(usuario + " ha sido desbloqueado.");
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
+	}
+
 	private int getNumColumnas(String sql) {
 		int num = 0;
 		try {
@@ -749,6 +805,31 @@ public class Modelo {
 			}
 		}
 
+	}
+
+	public void recuperarContrasena() {
+
+		Conexion();
+		String sqlEmailExistente = "Select email from users where email = ?";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
+			String textoEmail = recuperarContrasena.getTxtEmail().getText();
+			if (textoEmail.equals("")) {
+				recuperarContrasena.errorUsuarioExistente();
+			} else {
+				pstmt.setString(1, textoEmail);
+				ResultSet rset = pstmt.executeQuery();
+				if (!rset.next()) {
+					System.out.println("No encontrado");
+				} else {
+					if (textoEmail.equals(rset.getString(1))) {
+						System.out.println("Encontrado");
+					}
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void setUsername(String username) {

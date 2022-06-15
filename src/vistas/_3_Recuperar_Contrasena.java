@@ -1,4 +1,5 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -18,7 +19,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 	private JPanel panel;
 	private JTextField txtEmail, txtCodigo;
 	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
-	private JButton btnFlecha, btnFlecha_1;
+	private JButton btnFlecha, btnFlecha_1, btnValidar;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -44,12 +45,12 @@ public class _3_Recuperar_Contrasena extends JFrame {
 				miControlador.cambiarPantalla(4, 0);
 			}
 		});
-		
+
 		lblMessageEmail = new JLabel("");
 		lblMessageEmail.setForeground(Color.RED);
 		lblMessageEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblMessageEmail.setBackground(Color.RED);
-		lblMessageEmail.setBounds(175, 260, 341, 34);
+		lblMessageEmail.setBounds(175, 260, 523, 34);
 		panel.add(lblMessageEmail);
 		btnFlecha.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
@@ -64,7 +65,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		lblRecuperarContrasena.setBounds(229, 21, 376, 60);
 		panel.add(lblRecuperarContrasena);
 
-		lblIntroduceEmail = new JLabel("Introduce tu email y te enviaremos el codigo para crear una nueva contraseña:");
+		lblIntroduceEmail = new JLabel("Introduce tu email y te reflejaremos el codigo para recuperar contraseña:");
 		lblIntroduceEmail.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblIntroduceEmail.setBounds(175, 163, 549, 26);
 		panel.add(lblIntroduceEmail);
@@ -88,10 +89,12 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		txtCodigo.setBounds(175, 361, 336, 60);
 		panel.add(txtCodigo);
 
-		JButton btnValidar = new JButton("VALIDAR");
+		btnValidar = new JButton("VALIDAR");
 		btnValidar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(4, 5);
+				
+				//miControlador.cambiarPantalla(4, 5);
+				miModelo.comparacionCodigos();
 			}
 		});
 		btnValidar.setBorder(null);
@@ -120,7 +123,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnComprobar.setBounds(536, 200, 162, 59);
 		btnComprobar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnComprobar);
-		
+
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(_3_Recuperar_Contrasena.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-103, 0, 939, 683);
@@ -128,11 +131,30 @@ public class _3_Recuperar_Contrasena extends JFrame {
 	}
 
 	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
-		public void errorUsuarioExistente() {
-			lblMessageEmail.setText("El campo no puede estar vacío");
-		}
+	public void errorCampoVacio() {
+		lblMessageEmail.setText("El campo no puede estar vacío");
+	}
+
+	// Label que saca por pantalla error al introducir un email no existente.
+	public void errorUsuarioNoExistente() {
+		lblMessageEmail.setText("El email introducido no existe");
+	}
+
+	// Label que saca al usuario código a introducir.
+	public void numeroRandom(String numeroRandom) {
+		lblMessageEmail.setText(getEmail() + ", tu código es -> " + numeroRandom); 
+		//miModelo.comparacionCodigos(numeroRandom);
+	}
+	
+
+	public void concuerdanCodigos() {
+		miControlador.cambiarPantalla(4, 5);
+		
+	}
 	
 	
+	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -141,11 +163,16 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	public JTextField getTxtEmail() {
-		return txtEmail;
+	public String getEmail() {
+		return txtEmail.getText();
 	}
 
-	public void setTxtEmail(JTextField txtEmail) {
-		this.txtEmail = txtEmail;
+	public String getTxtCodigo() {
+		return txtCodigo.getText();
 	}
+
+	public void setTxtCodigo(JTextField txtCodigo) {
+		this.txtCodigo = txtCodigo;
+	}
+
 }

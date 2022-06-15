@@ -1,11 +1,11 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -16,7 +16,6 @@ import java.awt.event.WindowEvent;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JDateChooser;
-
 import controlador.Controlador;
 import modelo.Modelo;
 import modelo.exportarTablas;
@@ -25,18 +24,20 @@ public class _6_Tu_perfil extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
-			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil;
+			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil,lblFondo;
 	private JTextField txtNombreUsuario, txtNombre, txtApellidos, txtTelefono, txtEmail, txtPoblacion;
 	private JButton btnPregunta, btnPapelera, btnHome, btnGuardar;
-	private JDateChooser dateChooserFechaNac;
-
+	
 	private Controlador miControlador;
-
-	
 	private Modelo miModelo;
-
 	
-	private JLabel lblFondo;
+	//
+	//
+	//
+	private JTextField textFechaNac;
+	//
+	//
+	//
 
 	public _6_Tu_perfil() {
 		setTitle("TU PERFIL");
@@ -50,29 +51,37 @@ public class _6_Tu_perfil extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+
+		btnPregunta = new JButton("");
+		btnPregunta.setBorder(null);
+		btnPregunta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+						"" + "No puedes dejar ningún campo vacío.       \r\n\n"
+								+ "Presta atención al uso de mayúsculas \r\n" + "y minúsculas \r\n\n",
+						"AYUDA TU PERFIL", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		
-				btnPregunta = new JButton("");
-				btnPregunta.setBorder(null);
-				btnPregunta.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showMessageDialog(null, "" + "No puedes dejar ningún campo vacío.       \r\n\n"
-								+ "Presta atención al uso de mayúsculas \r\n"
-								+ "y minúsculas \r\n\n",
-								"AYUDA TU PERFIL", JOptionPane.INFORMATION_MESSAGE);
-					}
-				});
-				btnPregunta.setBackground(new Color(255, 204, 153));
-				btnPregunta.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/pregunta-32x32.png")));
-				// Hacen que el bot�n sea transparente.
-				btnPregunta.setOpaque(false);
-				btnPregunta.setContentAreaFilled(false);
-				btnPregunta.setBorderPainted(false);
-				// Cambia el puntero del rator a pointer cursor.
-				btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				
-						btnPregunta.setForeground(new Color(0, 0, 0));
-						btnPregunta.setBounds(367, 60, 32, 32);
-						panel.add(btnPregunta);
+		textFechaNac = new JTextField();
+		textFechaNac.setFont(new Font("Dubai", Font.PLAIN, 16));
+		textFechaNac.setEnabled(false);
+		textFechaNac.setColumns(10);
+		textFechaNac.setBorder(null);
+		textFechaNac.setBounds(163, 480, 525, 40);
+		panel.add(textFechaNac);
+		btnPregunta.setBackground(new Color(255, 204, 153));
+		btnPregunta.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/pregunta-32x32.png")));
+		/* Hacen que el boton sea transparente. */
+		btnPregunta.setOpaque(false);
+		btnPregunta.setContentAreaFilled(false);
+		btnPregunta.setBorderPainted(false);
+		/* Cambia el puntero del rator a pointer cursor. */
+		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		btnPregunta.setForeground(new Color(0, 0, 0));
+		btnPregunta.setBounds(367, 60, 32, 32);
+		panel.add(btnPregunta);
 
 		lblTuPerfil = new JLabel("TU PERFIL");
 		lblTuPerfil.setFont(new Font("Dubai", Font.BOLD, 30));
@@ -173,9 +182,6 @@ public class _6_Tu_perfil extends JFrame {
 
 			}
 		});
-		
-
-		
 		btnGuardar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnGuardar.setBounds(526, 611, 162, 56);
 		panel.add(btnGuardar);
@@ -189,6 +195,7 @@ public class _6_Tu_perfil extends JFrame {
 		btnPapelera = new JButton("");
 		btnPapelera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.deletePerfil();
 				miControlador.cambiarPantalla(7, 0);
 			}
 		});
@@ -196,7 +203,6 @@ public class _6_Tu_perfil extends JFrame {
 		btnPapelera.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/papelera.png")));
 		btnPapelera.setBounds(163, 611, 51, 56);
 		panel.add(btnPapelera);
-
 		btnPapelera.setOpaque(false);
 		btnPapelera.setContentAreaFilled(false);
 		btnPapelera.setBorderPainted(false);
@@ -217,58 +223,52 @@ public class _6_Tu_perfil extends JFrame {
 		btnHome.setBorderPainted(false);
 		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-		dateChooserFechaNac = new JDateChooser();
-		dateChooserFechaNac.setEnabled(false);
-		dateChooserFechaNac.setBorder(null);
-		dateChooserFechaNac.setBounds(163, 480, 525, 40);
-		panel.add(dateChooserFechaNac);
-		
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-99, 0, 939, 683);
 		panel.add(lblFondo);
 	}
-	
-	
-	
+
+	/**
+	 * El método actualizarPerfil sirve para cuando le des al perfil se muestren los
+	 * datos del usuario
+	 */
 	public void actualizarsePerfil() {
-		
+
 		String usr = miModelo.getUsrPerfil();
 		txtNombreUsuario.setText(usr);
-		
+
 		String nombre = miModelo.getNombre();
 		txtNombre.setText(nombre);
-		
+
 		String apellido = miModelo.getApellido();
 		txtApellidos.setText(apellido);
-		
+
 		String telefono = miModelo.getTelefono();
 		txtTelefono.setText(telefono);
-		
+
 		String email = miModelo.getEmail();
 		txtEmail.setText(email);
-		
-		Date fechaNacimmiento = miModelo.getFechaNacimiento();
-		dateChooserFechaNac.setDate(fechaNacimmiento);
-		
-		String poblacion = miModelo.getPoblacion();
-		txtPoblacion.setText(poblacion);	
-		
-	}
-	
 
-		
+		String fechaNacimmiento = miModelo.getFechaNacimiento();
+		textFechaNac.setText(fechaNacimmiento);
+
+		String poblacion = miModelo.getPoblacion();
+		txtPoblacion.setText(poblacion);
+
+	}
+
+	/**
+	 *  Getters  que sirven para actualizar el perfil de los usuarios 
+	 *
+	 */
 	public String getTxtNombreUsuario() {
 		return txtNombreUsuario.getText();
 	}
 
-
-
-	public Date getDateChooserFechaNac() {
-		return dateChooserFechaNac.getDate();
+	public String getDateChooserFechaNac() {
+		return textFechaNac.getText();
 	}
-
-
 
 	public String getTxtNombre() {
 		return txtNombre.getText();
@@ -278,7 +278,6 @@ public class _6_Tu_perfil extends JFrame {
 		return txtApellidos.getText();
 	}
 
-
 	public String getTxtTelefono() {
 		return txtTelefono.getText();
 	}
@@ -287,20 +286,13 @@ public class _6_Tu_perfil extends JFrame {
 		return txtEmail.getText();
 	}
 
-
 	public String getTxtPoblacion() {
 		return txtPoblacion.getText();
 	}
 
-
-
-	
-	
-	
-	
-	
-	
-
+	/**
+	 *  Método para que la vista conozca al controlador y al modelo
+	 */
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

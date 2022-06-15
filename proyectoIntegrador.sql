@@ -103,51 +103,51 @@ ON UPDATE CASCADE ON DELETE CASCADE
 
 
 -- INSERTAMOS DATOS DE USUARIOS:
-INSERT INTO users VALUES ('DGP', 'Daniel','González Pérez','656345678','dangonper@hotmail.com','Villalba','1997-03-20', 'usuario', 'dangonper', 'activo', null);
-INSERT INTO users VALUES ('JPR','José','Pascual Rodríguez','658902345','joparod@gmail.com','Galapagar','1990-07-13','usuario', 'joparod', 'inactivo', null);
-INSERT INTO users VALUES ('IMG','Inés','Martínez Gutiérrez','656882675','inmargut@gmail.com','Las Rozas','1992-12-03', 'usuario', 'inmargut', 'activo', null);
-INSERT INTO users VALUES ('RRM','Rodrigo','Rodríguez Moreno','659382245','rodromo@gmail.com','Torrelodones','1995-08-23', 'usuario', 'rodromo', 'activo', null);
-INSERT INTO users VALUES ('MSE','María','Saldaña Espinosa','651923490','masalesp@yahoo.es','Villalba','2000-02-02', 'usuario', 'masalesp', 'activo', null);
-INSERT INTO users VALUES ('PFO','Pedro','Flores Ortiz','659912456','peflortiz@yahoo.es','Majadahonda','1979-01-03', 'usuario', 'peflortiz', 'activo', null);
-INSERT INTO users VALUES ('JPS','Susana','Benitez Prado','651123987','subepra@gamil.com','Galapagar','1991-05-16', 'usuario', 'subepra', 'activo', null);
-INSERT INTO users VALUES ('CAE','Clara','Alonso Espina','652345768','clalonespi@yahoo.es','Villalba','1985-11-12', 'usuario', 'clalonespi', 'activo', null);
-INSERT INTO users VALUES ('NSF','Nacho','Sánchez Fernández','650234566','nasafer@hotmail.com','Villalba','1985-07-23', 'usuario', 'nasafer', 'activo', null);
-INSERT INTO users VALUES ('SPS','Santiago','Pazos Segura','651234567','sanpase@gmail.com','Galapagar','1977-04-12', 'usuario', 'sanpase', 'activo', null);
-INSERT INTO users VALUES ('MCP','Martin','Cuentos Pérez','652543196','marcupe@yahoo.es','Las Rozas','1979-02-18', 'usuario', 'marcupe', 'activo', null);
-INSERT INTO users VALUES ('MCPI','Marta','Claras Pinto','647890234','marclapi@yahoo.es','Las Rozas','1980-03-03', 'usuario', 'marclapi', 'activo', null);
-INSERT INTO users VALUES ('PVGHA','Paula','Vía Gómez','634781233','pauvigo@hotmail.com','Torrelodones','1984-05-01', 'usuario', 'pauvigo', 'activo', null);
-INSERT INTO users VALUES ('RRLOP','Rocío','Romero López','672345908','rorolop@hotmail.ccom','Pozuelo','1999-04-29', 'usuario', 'rorolop', 'activo', null);
-INSERT INTO users VALUES ('PRRAM','Paula','Ruiz Ramírez','623098123','paururam@gmail.com','Pozuelo','2001-06-03', 'usuario', 'paururam', 'activo', null);
-INSERT INTO users VALUES ('MRPIE', 'Miguel','Ramírez Pérez','678120090','miraper@yahoo.es','Torrelodones','2000-02-21', 'usuario', 'miraper', 'activo', null);
-INSERT INTO users VALUES ('JCMUÑ', 'Jose','Cruz Muñoz','675998877','joscrumu@hotmail.com','Galapagar','1999-06-08', 'usuario', 'joscrumu', 'activo', null);
-INSERT INTO users VALUES ('MSALON', 'Mar','Silva Alonso','623445566','marsial@yahoo.es','Torrelodones','1985-04-23', 'usuario', 'marsial', 'activo', null);
-INSERT INTO users VALUES ('SSCRT', 'Sofía','Soto Contreras','609876161','sosocon@hotmail.com','Villalba','1975-08-06', 'usuario', 'sosocon', 'activo', null);
-INSERT INTO users VALUES ('LTHSER', 'Lidia','Torres Hernández','690324532','litoher@gmail.com','Galapagar','1989-03-25', 'usuario', 'litoher', 'activo', null);
-INSERT INTO users VALUES ('CFCASR', 'Carmen','Flores Castillo','675123432','cafloca@yahoo.es','Las Rozas','2000-02-21', 'usuario', 'cafloca', 'activo', null);
-INSERT INTO users VALUES ('MVPIZA', 'Marco','Valenzuela Pizarro','619830234','marvapi@yahoo.es','Las Rozas','2001-11-20', 'usuario', 'marvapi', 'activo', null);
-INSERT INTO users VALUES ('FRDIZ', 'Francis','Rojas Díaz','657890000','frarodi@hotmail.com','Torrelodones','2000-10-23', 'usuario', 'frarodi', 'activo', null);
-INSERT INTO users VALUES ('ARMIS','Aaron','Ramírez Fuentes','657121213','aarramfu@hotmail.ccom','Pozuelo','2001-10-08', 'usuario', 'aarramfu', 'activo', null);
-INSERT INTO users VALUES ('SMBEN', 'Sergio','Morales Benitez','626982314','semobe@gmail.com','Pozuelo','1998-09-24', 'usuario', 'semobe', 'activo', null);
-INSERT INTO users VALUES ('IJVER', 'Israel','Jara Vergara','656098710','isjave@yahoo.es','Torrelodones','1997-08-06', 'usuario', 'isjave', 'activo', null);
-INSERT INTO users VALUES ('LMCUER', 'Lucía','Miranda Cuervo','610232123','lumicu@hotmail.com','Galapagar','1996-05-13', 'usuario', 'lumicu', 'activo', null);
-INSERT INTO users VALUES ('SCFIER', 'Silvia','Campos Figueroa','689098909','silcafi@yahoo.es','Torrelodones','2001-03-17', 'usuario', 'silcafi', 'activo', null);
-INSERT INTO users VALUES ('GRSAL', 'Ramón','Garrido Salazar','651234567','ragasa@gmail.com','Galapagar','1979-02-12', 'usuario', 'ragasa', 'activo', null);
-INSERT INTO users VALUES ('LAROME', 'Luis','Alarcón Romero','652543196','lualro@yahoo.es','Las Rozas','2001-02-21', 'usuario', 'lualro', 'activo', null);
-INSERT INTO users VALUES ('MVCAC', 'Marcos','Vázquez Cáceres','647890234','mavaca@yahoo.es','Las Rozas','1990-03-28', 'usuario', 'mavaca', 'activo', null);
-INSERT INTO users VALUES ('POSANDO', 'Paula','Orellana Sandoval','634781233','paorsa@hotmail.com','Torrelodones','1992-07-01', 'usuario', 'paorsa', 'activo', null);
-INSERT INTO users VALUES ('INAAGUI', 'Inés','Aguilera Aravena','672345908','inagar@hotmail.ccom','Pozuelo','1997-01-02', 'usuario', 'inagar', 'activo', null);
-INSERT INTO users VALUES ('AELIV','Aureo','Escobar Leiva','623098123','auesle@gmail.com','Pozuelo','2001-05-30', 'usuario', 'auesle', 'activo', null);
-INSERT INTO users VALUES ('FRPER', 'Fernando','Ruiz Pérez','678120090','ferrupe@yahoo.es','Torrelodones','2000-09-12', 'usuario', 'ferrupe', 'activo', null);
-INSERT INTO users VALUES ('PVMOL', 'Pilar','Vega Molina','675998877','pivemo@hotmail.com','Galapagar','1999-08-09', 'usuario', 'pivemo', 'activo', null);
-INSERT INTO users VALUES ('NGMIOE', 'Natalia','García Molinero','623445566','nagamo@yahoo.es','Torrelodones','1985-11-04', 'usuario', 'nagamo', 'activo', null);
-INSERT INTO users VALUES ('IVMOLI', 'Iván','Vera Molina','650234566','ivavemo@hotmail.com','Villalba','1985-07-23', 'usuario', 'ivavemo', 'activo', null);
-INSERT INTO users VALUES ('PSMOLI', 'Pablo','Sánchez Molina','623400066','pasmoo@yahoo.es','Torrelodones','1989-10-04', 'usuario', 'pasmoo', 'activo', null);
-INSERT INTO users VALUES ('IVAGASA', 'Iván','Agapito Sanchez','600234500','ivagasa@hotmail.com','Villalba','1988-02-23', 'usuario', 'ivagasa', 'activo', null);
-INSERT INTO users VALUES ('JCPEREZ', 'Juan','Carlos Pérez','656000000','nuestraapp@hotmail.com','Villalba','1988-02-23', 'administrador', 'nuestraapp', 'activo', null);
-INSERT INTO users VALUES ('PGLOPEZ', 'Pedro','González López','656000000','nuestraapp@hotmail.com','Villalba','1988-02-23', 'administrador', 'nuestraapp', 'activo', null);
-INSERT INTO users VALUES ('JGGRANGE', 'Javier','Guerra Grange','656000000','nuestraapp@hotmail.com','Villalba','1988-02-23', 'administrador', 'nuestraapp', 'activo', null);
-INSERT INTO users VALUES ('APRIVAS', 'Álvaro','Pérez Rivas','656000000','nuestraapp@hotmail.com','Villalba','1988-02-23', 'administrador', 'nuestraapp', 'activo', null);
-INSERT INTO users VALUES ('JMMORENO', 'Jaime','Martí Moreno','656000000','nuestraapp@hotmail.com','Villalba','1988-02-23', 'administrador', 'nuestraapp', 'activo', null);
+INSERT INTO users VALUES ('DGP', 'Daniel','González Pérez','656345678','dangonper@hotmail.com','Villalba','20 jun 2000', 'usuario', 'dangonper', 'activo', null);
+INSERT INTO users VALUES ('JPR','José','Pascual Rodríguez','658902345','joparod@gmail.com','Galapagar','10 jun 2003','usuario', 'joparod', 'inactivo', null);
+INSERT INTO users VALUES ('IMG','Inés','Martínez Gutiérrez','656882675','inmargut@gmail.com','Las Rozas','08 jul 2005', 'usuario', 'inmargut', 'activo', null);
+INSERT INTO users VALUES ('RRM','Rodrigo','Rodríguez Moreno','659382245','rodromo@gmail.com','Torrelodones','21 ene 2003', 'usuario', 'rodromo', 'activo', null);
+INSERT INTO users VALUES ('MSE','María','Saldaña Espinosa','651923490','masalesp@yahoo.es','Villalba','10 sep 2000', 'usuario', 'masalesp', 'activo', null);
+INSERT INTO users VALUES ('PFO','Pedro','Flores Ortiz','659912456','peflortiz@yahoo.es','Majadahonda','14 mar 2002', 'usuario', 'peflortiz', 'activo', null);
+INSERT INTO users VALUES ('JPS','Susana','Benitez Prado','651123987','subepra@gamil.com','Galapagar','12 oct 2000', 'usuario', 'subepra', 'activo', null);
+INSERT INTO users VALUES ('CAE','Clara','Alonso Espina','652345768','clalonespi@yahoo.es','Villalba','10 ago 1990', 'usuario', 'clalonespi', 'activo', null);
+INSERT INTO users VALUES ('NSF','Nacho','Sánchez Fernández','650234566','nasafer@hotmail.com','Villalba','10 sep 1990', 'usuario', 'nasafer', 'activo', null);
+INSERT INTO users VALUES ('SPS','Santiago','Pazos Segura','651234567','sanpase@gmail.com','Galapagar','14 feb 1994', 'usuario', 'sanpase', 'activo', null);
+INSERT INTO users VALUES ('MCP','Martin','Cuentos Pérez','652543196','marcupe@yahoo.es','Las Rozas','10 jul 1992', 'usuario', 'marcupe', 'activo', null);
+INSERT INTO users VALUES ('MCPI','Marta','Claras Pinto','647890234','marclapi@yahoo.es','Las Rozas','12 jul 1994', 'usuario', 'marclapi', 'activo', null);
+INSERT INTO users VALUES ('PVGHA','Paula','Vía Gómez','634781233','pauvigo@hotmail.com','Torrelodones','08 jul 1987', 'usuario', 'pauvigo', 'activo', null);
+INSERT INTO users VALUES ('RRLOP','Rocío','Romero López','672345908','rorolop@hotmail.ccom','Pozuelo','06 ago 1990', 'usuario', 'rorolop', 'activo', null);
+INSERT INTO users VALUES ('PRRAM','Paula','Ruiz Ramírez','623098123','paururam@gmail.com','Pozuelo','28 sep 1992', 'usuario', 'paururam', 'activo', null);
+INSERT INTO users VALUES ('MRPIE', 'Miguel','Ramírez Pérez','678120090','miraper@yahoo.es','Torrelodones','13 ene 1992', 'usuario', 'miraper', 'activo', null);
+INSERT INTO users VALUES ('JCMUÑ', 'Jose','Cruz Muñoz','675998877','joscrumu@hotmail.com','Galapagar','14 feb 1993', 'usuario', 'joscrumu', 'activo', null);
+INSERT INTO users VALUES ('MSALON', 'Mar','Silva Alonso','623445566','marsial@yahoo.es','Torrelodones','15 mar 1984', 'usuario', 'marsial', 'activo', null);
+INSERT INTO users VALUES ('SSCRT', 'Sofía','Soto Contreras','609876161','sosocon@hotmail.com','Villalba','16 abr 1982', 'usuario', 'sosocon', 'activo', null);
+INSERT INTO users VALUES ('LTHSER', 'Lidia','Torres Hernández','690324532','litoher@gmail.com','Galapagar','17 may 1982', 'usuario', 'litoher', 'activo', null);
+INSERT INTO users VALUES ('CFCASR', 'Carmen','Flores Castillo','675123432','cafloca@yahoo.es','Las Rozas','19 abr 1983', 'usuario', 'cafloca', 'activo', null);
+INSERT INTO users VALUES ('MVPIZA', 'Marco','Valenzuela Pizarro','619830234','marvapi@yahoo.es','Las Rozas','11 oct 1996', 'usuario', 'marvapi', 'activo', null);
+INSERT INTO users VALUES ('FRDIZ', 'Francis','Rojas Díaz','657890000','frarodi@hotmail.com','Torrelodones','02 jul 1994', 'usuario', 'frarodi', 'activo', null);
+INSERT INTO users VALUES ('ARMIS','Aaron','Ramírez Fuentes','657121213','aarramfu@hotmail.ccom','Pozuelo','02 dic 1987', 'usuario', 'aarramfu', 'activo', null);
+INSERT INTO users VALUES ('SMBEN', 'Sergio','Morales Benitez','626982314','semobe@gmail.com','Pozuelo','03 sep 1995', 'usuario', 'semobe', 'activo', null);
+INSERT INTO users VALUES ('IJVER', 'Israel','Jara Vergara','656098710','isjave@yahoo.es','Torrelodones','02 nov 1988', 'usuario', 'isjave', 'activo', null);
+INSERT INTO users VALUES ('LMCUER', 'Lucía','Miranda Cuervo','610232123','lumicu@hotmail.com','Galapagar','11 nov 1997', 'usuario', 'lumicu', 'activo', null);
+INSERT INTO users VALUES ('SCFIER', 'Silvia','Campos Figueroa','689098909','silcafi@yahoo.es','Torrelodones','20 nov 1992', 'usuario', 'silcafi', 'activo', null);
+INSERT INTO users VALUES ('GRSAL', 'Ramón','Garrido Salazar','651234567','ragasa@gmail.com','Galapagar','23 jul 1998', 'usuario', 'ragasa', 'activo', null);
+INSERT INTO users VALUES ('LAROME', 'Luis','Alarcón Romero','652543196','lualro@yahoo.es','Las Rozas','10 oct 1987', 'usuario', 'lualro', 'activo', null);
+INSERT INTO users VALUES ('MVCAC', 'Marcos','Vázquez Cáceres','647890234','mavaca@yahoo.es','Las Rozas','03 ene 1982', 'usuario', 'mavaca', 'activo', null);
+INSERT INTO users VALUES ('POSANDO', 'Paula','Orellana Sandoval','634781233','paorsa@hotmail.com','Torrelodones','29 ago 1992', 'usuario', 'paorsa', 'activo', null);
+INSERT INTO users VALUES ('INAAGUI', 'Inés','Aguilera Aravena','672345908','inagar@hotmail.ccom','Pozuelo','20 feb 1988', 'usuario', 'inagar', 'activo', null);
+INSERT INTO users VALUES ('AELIV','Aureo','Escobar Leiva','623098123','auesle@gmail.com','Pozuelo','11 ene 1995', 'usuario', 'auesle', 'activo', null);
+INSERT INTO users VALUES ('FRPER', 'Fernando','Ruiz Pérez','678120090','ferrupe@yahoo.es','Torrelodones','13 mar 1998', 'usuario', 'ferrupe', 'activo', null);
+INSERT INTO users VALUES ('PVMOL', 'Pilar','Vega Molina','675998877','pivemo@hotmail.com','Galapagar','10 jul 1992', 'usuario', 'pivemo', 'activo', null);
+INSERT INTO users VALUES ('NGMIOE', 'Natalia','García Molinero','623445566','nagamo@yahoo.es','Torrelodones','12 feb 1995', 'usuario', 'nagamo', 'activo', null);
+INSERT INTO users VALUES ('IVMOLI', 'Iván','Vera Molina','650234566','ivavemo@hotmail.com','Villalba','13 sep 1999', 'usuario', 'ivavemo', 'activo', null);
+INSERT INTO users VALUES ('PSMOLI', 'Pablo','Sánchez Molina','623400066','pasmoo@yahoo.es','Torrelodones','12 ago 1992', 'usuario', 'pasmoo', 'activo', null);
+INSERT INTO users VALUES ('IVAGASA', 'Iván','Agapito Sanchez','600234500','ivagasa@hotmail.com','Villalba','23 jun 1980', 'usuario', 'ivagasa', 'activo', null);
+INSERT INTO users VALUES ('JCPEREZ', 'Juan','Carlos Pérez','656000000','nuestraapp@hotmail.com','Villalba','14 jun 1988', 'administrador', 'nuestraapp', 'activo', null);
+INSERT INTO users VALUES ('PGLOPEZ', 'Pedro','González López','656000000','nuestraapp@hotmail.com','Villalba','24 sep 1990', 'administrador', 'nuestraapp', 'activo', null);
+INSERT INTO users VALUES ('JGGRANGE', 'Javier','Guerra Grange','656000000','nuestraapp@hotmail.com','Villalba','18 ene 1999', 'administrador', 'nuestraapp', 'activo', null);
+INSERT INTO users VALUES ('APRIVAS', 'Álvaro','Pérez Rivas','656000000','nuestraapp@hotmail.com','Villalba','23 ago 1998', 'administrador', 'nuestraapp', 'activo', null);
+INSERT INTO users VALUES ('JMMORENO', 'Jaime','Martí Moreno','656000000','nuestraapp@hotmail.com','Villalba','28 feb 1999', 'administrador', 'nuestraapp', 'activo', null);
 
 -- INSERTAMOS DATOS DE POLIDEPORTIVO:
 INSERT INTO polideportivo VALUES ('Enrique Blas','918505311','Villalba');
@@ -170,38 +170,37 @@ INSERT INTO deportes VALUES (null, 'Tenis');
 INSERT INTO deportes VALUES (null, 'Padel');
 
 -- INSERTAMOS EVENTOS:
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 1);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 1);
-INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 1);
-INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 1);
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 1);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '28 oct 2022', '18:00', 'Enrique Blas', 'Avanzado', 1);
+INSERT INTO Eventos VALUES (null, '20 ago 2022', '15:00', 'La Granadilla', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '24 sep 2022', '20:00', 'El Torreón', 'Medio', 1);
+INSERT INTO Eventos VALUES (null, '18 jul 2022', '19:00', 'Enrique Blas', 'Avanzado', 1);
+INSERT INTO Eventos VALUES (null, '28 jun 2022', '18:00', 'El Torreón', 'Principiante', 1);
+INSERT INTO Eventos VALUES (null, '23 jul 2022', '15:00', 'La Granadilla', 'Principiante', 1);
 
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 2);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 2);
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 2);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 2);
-INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 2);
-INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 2);
+INSERT INTO Eventos VALUES (null, '19 jul 2022', '18:00', 'El Torreón', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '18 ago 2022', '15:00', 'La Granadilla', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '08 jul 2022', '18:00', 'Enrique Blas', 'Avanzado', 2);
+INSERT INTO Eventos VALUES (null, '13 jun 2022', '15:00', 'La Granadilla', 'Principiante', 2);
+INSERT INTO Eventos VALUES (null, '12 jul 2022', '20:00', 'El Torreón', 'Medio', 2);
+INSERT INTO Eventos VALUES (null, '11 jun 2022', '19:00', 'Enrique Blas', 'Avanzado', 2);
 
-INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 3);
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 3);
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 3);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 3);
-INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 3);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '11 ago 2022', '19:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '02 jul 2022', '18:00', 'El Torreón', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '04 jul 2022', '18:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '05 oct 2022', '15:00', 'La Granadilla', 'Principiante', 3);
+INSERT INTO Eventos VALUES (null, '12 jul 2022', '20:00', 'El Torreón', 'Medio', 3);
+INSERT INTO Eventos VALUES (null, '13 sep 2022', '15:00', 'La Granadilla', 'Principiante', 3);
 
-INSERT INTO Eventos VALUES (null, '2022-09-16', '19:00', 'Enrique Blas', 'Avanzado', 4);
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'El Torreón', 'Principiante', 4);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
-INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanzado', 4);
-INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
-INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 4);
+INSERT INTO Eventos VALUES (null, '10 sep 2022', '19:00', 'Enrique Blas', 'Avanzado', 4);
+INSERT INTO Eventos VALUES (null, '12 jul 2022', '18:00', 'El Torreón', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '10 ago 2022', '15:00', 'La Granadilla', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '02 ago 2022', '18:00', 'Enrique Blas', 'Avanzado', 4);
+INSERT INTO Eventos VALUES (null, '24 jun 2022', '15:00', 'La Granadilla', 'Principiante', 4);
+INSERT INTO Eventos VALUES (null, '28 jun 2022', '20:00', 'El Torreón', 'Medio', 4);
 
--- INSERTAMOS FORO:
-INSERT INTO Foro VALUES (null, 1);
 
 -- INSERTAMOS MENSAJES:
+INSERT INTO Foro VALUES (1, 1);
 INSERT INTO Mensaje VALUES (null, 'Hola, yo llevo el balón', 1, 'FRPER');
 INSERT INTO Mensaje VALUES (null, 'Ok, genial', 1, 'ARMIS');
 INSERT INTO Mensaje VALUES (null, 'Nos vemos allí a las 18:00', 1, 'JCMUÑ');
@@ -220,7 +219,7 @@ update users set estado = 'activo' where usr = 'IMG'; -- Ejemplo 'JPR'. Volverí
 
 -- REGISTRARSE:
 select usr from users where usr = 'RPSANT'; -- Comprueba si está el nickname 
-INSERT INTO users VALUES ('RPSANT', 'Rodrigo','Pintos Santos','657890909','rpsant@hotmail.com','Torrelodones','1994-07-01', 'usuario', 'rpsnt', 'activo', null); -- Inserta si no está
+INSERT INTO users VALUES ('RPSANT', 'Rodrigo','Pintos Santos','657890909','rpsant@hotmail.com','Torrelodones','28 oct 1996', 'usuario', 'rpsnt', 'activo', null); -- Inserta si no está
 -- Si está, error
 
 -- RECUPERAR CONTRASEÑA:
@@ -238,7 +237,7 @@ update users set codigo_recuperacion = null where email = 'frarodi@hotmail.com';
 select usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento from users;
 update users set usr = 'Jose10', nombre = 'Jose', apellidos = 'Romero Saldaña', 
 telefono = 656721212, email = 'jorosald@hotmail.com', poblacion = 'Torrelodones', 
-fecha_nacimiento = '1991-05-16' where usr = 'IVAGASA'; -- Ejemplo codigo: 40
+fecha_nacimiento = '14 jun 1989' where usr = 'IVAGASA'; -- Ejemplo codigo: 40
 
 delete from users WHERE usr = 'NGMIOE'; -- Este para la basura. Usuario desaparece en eventos.
 
@@ -274,10 +273,41 @@ select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.u
 where codigo_foro = 1; -- Actualizar mensajes 
 
 -- CREAR EVENTO:
-INSERT INTO Eventos VALUES (null, '2022-10-28', '12:00', 'El Torreón', 'Medio', 3);
-INSERT INTO Eventos VALUES (null, '2022-09-06', '10:00', 'Enrique Blas', 'Avanzado', 3);
+INSERT INTO Eventos VALUES (null, '20 jun 2022', '12:00', 'El Torreón', 'Medio', 3);
+INSERT INTO Eventos VALUES (null, '23 jun 2022', '10:00', 'Enrique Blas', 'Avanzado', 3);
 INSERT INTO users_Eventos values ('RRLOP', 6); -- El que crea evento se une automaticamente
 INSERT INTO users_Eventos values ('LTHSER', 7); -- Se une otro usuario.
-INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
+-- INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
+-- INSERTS FORO
 
- -- drop database proyectoIntegrador;
+-- INSERTAMOS FORO:
+
+INSERT INTO Foro VALUES (2, 2);
+INSERT INTO Foro VALUES (3, 3);
+INSERT INTO Foro VALUES (4, 4);
+INSERT INTO Foro VALUES (5, 5);
+INSERT INTO Foro VALUES (6, 6);
+INSERT INTO Foro VALUES (7, 7);
+INSERT INTO Foro VALUES (8, 8);
+INSERT INTO Foro VALUES (9, 9);
+INSERT INTO Foro VALUES (10, 10);
+INSERT INTO Foro VALUES (11, 11);
+INSERT INTO Foro VALUES (12, 12);
+INSERT INTO Foro VALUES (13, 13);
+INSERT INTO Foro VALUES (14, 14);
+INSERT INTO Foro VALUES (15, 15);
+INSERT INTO Foro VALUES (16, 16);
+INSERT INTO Foro VALUES (17, 17);
+INSERT INTO Foro VALUES (18, 18);
+INSERT INTO Foro VALUES (19, 19);
+INSERT INTO Foro VALUES (20, 20);
+INSERT INTO Foro VALUES (21, 21);
+INSERT INTO Foro VALUES (22, 22);
+INSERT INTO Foro VALUES (23, 23);
+INSERT INTO Foro VALUES (24, 24);
+INSERT INTO Foro VALUES (25, 25);
+
+
+
+-- INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
+-- drop database proyectoIntegrador;

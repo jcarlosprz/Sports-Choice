@@ -933,7 +933,6 @@ public class Modelo {
 			try {
 				if (!crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getCalendar().equals(null) && !crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getListNivel().isSelectionEmpty()) {
 
-						//Conexion();
 						pstmt = conexion.prepareStatement(InsertarEvento);
 						pstmt.setString(1, DateFormat.getDateInstance().format(crearEvento.getCalendar()));
 						pstmt.setString(2, crearEvento.getSpinnerHora()+crearEvento.getSpinnerMinutos());
@@ -942,11 +941,10 @@ public class Modelo {
 						pstmt.setInt(5, getOpcionDeporteId());
 
 						pstmt.executeUpdate();
+						
 						crearUserEvento();
 						crearEvento.aceptado();
 						getTablaMisEventos();
-						//Tiene que meterlo en mis eventos y eventos disponibles
-						
 						
 				} else {
 					crearEvento.errorCamposVacios();

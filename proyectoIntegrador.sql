@@ -198,8 +198,6 @@ INSERT INTO Eventos VALUES (null, '2022-09-24', '18:00', 'Enrique Blas', 'Avanza
 INSERT INTO Eventos VALUES (null, '2022-08-20', '15:00', 'La Granadilla', 'Principiante', 4);
 INSERT INTO Eventos VALUES (null, '2022-08-11', '20:00', 'El Torreón', 'Medio', 4);
 
--- INSERTAMOS FORO:
-INSERT INTO Foro VALUES (null, 1);
 
 -- INSERTAMOS MENSAJES:
 INSERT INTO Mensaje VALUES (null, 'Hola, yo llevo el balón', 1, 'FRPER');
@@ -278,6 +276,37 @@ INSERT INTO Eventos VALUES (null, '2022-10-28', '12:00', 'El Torreón', 'Medio',
 INSERT INTO Eventos VALUES (null, '2022-09-06', '10:00', 'Enrique Blas', 'Avanzado', 3);
 INSERT INTO users_Eventos values ('RRLOP', 6); -- El que crea evento se une automaticamente
 INSERT INTO users_Eventos values ('LTHSER', 7); -- Se une otro usuario.
-INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
+-- INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
+-- INSERTS FORO
 
+-- INSERTAMOS FORO:
+INSERT INTO Foro VALUES (1, 1);
+INSERT INTO Foro VALUES (2, 2);
+INSERT INTO Foro VALUES (3, 3);
+INSERT INTO Foro VALUES (4, 4);
+INSERT INTO Foro VALUES (5, 5);
+INSERT INTO Foro VALUES (6, 6);
+INSERT INTO Foro VALUES (7, 7);
+INSERT INTO Foro VALUES (8, 8);
+INSERT INTO Foro VALUES (9, 9);
+INSERT INTO Foro VALUES (10, 10);
+INSERT INTO Foro VALUES (11, 11);
+INSERT INTO Foro VALUES (12, 12);
+INSERT INTO Foro VALUES (13, 13);
+INSERT INTO Foro VALUES (14, 14);
+INSERT INTO Foro VALUES (15, 15);
+INSERT INTO Foro VALUES (16, 16);
+INSERT INTO Foro VALUES (17, 17);
+INSERT INTO Foro VALUES (18, 18);
+INSERT INTO Foro VALUES (19, 19);
+INSERT INTO Foro VALUES (20, 20);
+INSERT INTO Foro VALUES (21, 21);
+INSERT INTO Foro VALUES (22, 22);
+INSERT INTO Foro VALUES (23, 23);
+INSERT INTO Foro VALUES (24, 24);
+INSERT INTO Foro VALUES (25, 25);
+
+
+
+-- INSERT INTO Foro values (null, 6); -- Al crear evento se genera foro.
  -- drop database proyectoIntegrador;

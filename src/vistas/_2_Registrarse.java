@@ -1,4 +1,5 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -28,7 +29,6 @@ public class _2_Registrarse extends JFrame {
 			txtPoblacion, txtEmail;
 	private Controlador miControlador;
 	private Modelo miModelo;
-	
 
 	public _2_Registrarse() {
 		setTitle("REGISTRARSE");
@@ -42,28 +42,28 @@ public class _2_Registrarse extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
-				btnPregunta = new JButton("");
-				btnPregunta.setContentAreaFilled(false);
-				btnPregunta.setBorder(null);
-				btnPregunta.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						JOptionPane.showMessageDialog(null, "" + "No puedes dejar ningún campo vacío.      \r\n\n"
-								+ "Presta atención al uso de mayúsculas \r\n"
-								+ "y minúsculas \r\n\n",
-								"AYUDA REGISTRO", JOptionPane.INFORMATION_MESSAGE);
-					}
-				});
-				btnPregunta.setBackground(new Color(255, 204, 153));
-				btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
-				btnPregunta.setOpaque(false);
-				btnPregunta.setBorderPainted(false);
-				btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				
-						btnPregunta.setForeground(new Color(0, 0, 0));
-						btnPregunta.setBounds(380, 64, 32, 32);
-						panel.add(btnPregunta);
-		
+
+		btnPregunta = new JButton("");
+		btnPregunta.setContentAreaFilled(false);
+		btnPregunta.setBorder(null);
+		btnPregunta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,
+						"" + "No puedes dejar ningún campo vacío.      \r\n\n"
+								+ "Presta atención al uso de mayúsculas \r\n" + "y minúsculas \r\n\n",
+						"AYUDA REGISTRO", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnPregunta.setBackground(new Color(255, 204, 153));
+		btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
+		btnPregunta.setOpaque(false);
+		btnPregunta.setBorderPainted(false);
+		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+		btnPregunta.setForeground(new Color(0, 0, 0));
+		btnPregunta.setBounds(380, 64, 32, 32);
+		panel.add(btnPregunta);
+
 		lblError = new JLabel("");
 		lblError.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblError.setForeground(Color.RED);
@@ -128,7 +128,7 @@ public class _2_Registrarse extends JFrame {
 		btnCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.DatosRegistro();		
+				miControlador.DatosRegistro();
 			}
 		});
 		btnCrearCuenta.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -213,45 +213,46 @@ public class _2_Registrarse extends JFrame {
 		lblEmail_1.setFont(new Font("Dubai", Font.PLAIN, 15));
 		lblEmail_1.setBounds(179, 385, 192, 26);
 		panel.add(lblEmail_1);
-		
+
 		lblFondo = new JLabel("");
 		lblFondo.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-98, 0, 939, 683);
 		panel.add(lblFondo);
 	}
-	
+
 	// Label que saca por pantalla error al dejar campos vacíos.
 	public void errorLabelCamposVacios() {
 		lblError.setText("No puedes dejar campos vacíos");
 	}
-	
+
 	// Label que saca por pantalla error al introducir contraseñas distintas.
 	public void errorLabelPasswordsDistintas() {
 		lblError.setText("Las contraseñas no coinciden");
 	}
-	
-	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
+
+	// Label que saca por pantalla error al intentar registrar un usuario que ya
+	// existe.
 	public void errorUsuarioExistente() {
 		lblError.setText("El usuario introducido ya existe");
 	}
-	
-/**Getters y Setters de los campos del formulario*/
+
+	/** Getters y Setters de los campos del formulario */
 	public String getNombreUsuario() {
 		return txtNombreUsuario.getText();
 	}
-	
+
 	public String getNombre() {
 		return txtNombre.getText();
 	}
-	
+
 	public String getApellidos() {
 		return txtApellidos.getText();
 	}
-	
+
 	public Date getFechaNacimiento() {
 		return dateChooserFechaNac.getDate();
 	}
-	
+
 	public String getTelefono() {
 		return txtTfno.getText();
 	}
@@ -259,6 +260,7 @@ public class _2_Registrarse extends JFrame {
 	public String getContrasena() {
 		return txtContrasena.getText();
 	}
+
 	public String getConfirmarContrasena() {
 		return txtConfirmarContrasena.getText();
 	}
@@ -266,12 +268,12 @@ public class _2_Registrarse extends JFrame {
 	public String getPoblacion() {
 		return txtPoblacion.getText();
 	}
-	
+
 	public String getEmail() {
 		return txtEmail.getText();
 	}
 
-	/**Getters y Setters del controlador y modelo*/
+	/** Getters y Setters del controlador y modelo */
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -279,14 +281,13 @@ public class _2_Registrarse extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
 	public JLabel getLblError() {
 		return lblError;
 	}
+
 	public void setLblError(JLabel lblError) {
 		this.lblError = lblError;
 	}
 
-	
-
-	
 }

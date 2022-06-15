@@ -1,4 +1,5 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -63,7 +64,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnAbandonar.setEnabled(false);
 		btnAbandonar.setBackground(new Color(176, 196, 222));
 		btnAbandonar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-	
+
 		btnAbandonar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnAbandonar.setBounds(457, 591, 162, 56);
 		panel.add(btnAbandonar);
@@ -73,10 +74,9 @@ public class _7_Mis_Eventos extends JFrame {
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "" + "Recuerda seleccionar uno de tus eventos      \r\n"
-						+ "para poder habilitar los botones de \r\n"
-						+ "'Ir al foro'  y  'Abandonar' (en caso \r\n"
-						+ "de que tu deseo sea abandonar el \r\n"
-						+ "evento).", "AYUDA MIS EVENTOS", JOptionPane.INFORMATION_MESSAGE);
+						+ "para poder habilitar los botones de \r\n" + "'Ir al foro'  y  'Abandonar' (en caso \r\n"
+						+ "de que tu deseo sea abandonar el \r\n" + "evento).", "AYUDA MIS EVENTOS",
+						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		btnPregunta.setBackground(new Color(255, 204, 153));
@@ -115,7 +115,7 @@ public class _7_Mis_Eventos extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if(table.getSelectedRow() == -1) {
+				if (table.getSelectedRow() == -1) {
 					btnIrAlForo.setEnabled(false);
 					btnAbandonar.setEnabled(false);
 				} else {
@@ -130,12 +130,11 @@ public class _7_Mis_Eventos extends JFrame {
 				table.setModel(miModelo.getTablaMisEventos());
 			}
 		});
-	
 
-		
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		table.setDefaultRenderer(String.class, centerRenderer);
+
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setToolTipText("");
@@ -161,7 +160,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnIrAlForo.setBounds(240, 591, 162, 56);
 		btnIrAlForo.setBackground(new Color(176, 196, 222));
 		panel.add(btnIrAlForo);
-		
+
 		lblFondo = new JLabel("");
 		lblFondo.addMouseListener(new MouseAdapter() {
 			@Override
@@ -175,7 +174,7 @@ public class _7_Mis_Eventos extends JFrame {
 		lblFondo.setBounds(-93, 0, 939, 683);
 		panel.add(lblFondo);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -183,5 +182,5 @@ public class _7_Mis_Eventos extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
-	
+
 }

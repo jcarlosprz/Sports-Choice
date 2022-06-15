@@ -1,4 +1,5 @@
 package vistas;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -119,7 +120,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 		btnFlecha.setBounds(133, 589, 106, 56);
 		btnFlecha.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnFlecha);
-		
+
 		lblFondo = new JLabel("");
 		lblFondo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblFondo.setIcon(new ImageIcon(_4_Nueva_Contrasena.class.getResource("/images/fondo_pelotas_5 (1).png")));
@@ -140,7 +141,6 @@ public class _4_Nueva_Contrasena extends JFrame {
 	public void concuerdanContrasenas() {
 		miControlador.cambiarPantalla(5, 0);
 	}
-	
 	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
@@ -163,3 +163,4 @@ public class _4_Nueva_Contrasena extends JFrame {
 	}
 	
 }
+

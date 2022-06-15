@@ -740,17 +740,18 @@ public class Modelo {
 		String sqlEmailExistente = "Select email from users where email = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
-			String textoEmail = recuperarContrasena.getTxtEmail().getText();
+			String textoEmail = recuperarContrasena.getEmail();
 			if (textoEmail.equals("")) {
-				recuperarContrasena.errorUsuarioExistente();
+				recuperarContrasena.errorCampoVacio();
 			} else {
 				pstmt.setString(1, textoEmail);
 				ResultSet rset = pstmt.executeQuery();
 				if (!rset.next()) {
-					System.out.println("No encontrado");
+					recuperarContrasena.errorUsuarioNoExistente();
 				} else {
 					if (textoEmail.equals(rset.getString(1))) {
-						System.out.println("Encontrado");
+						//recuperarContrasena.numeroRandom();
+						updateCodigo();
 					}
 				}
 			}
@@ -758,6 +759,39 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+	
+	
+		public String updateCodigo() {
+		
+			//Conexion();
+			String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
+			String numeroAleatorio = generadorNumero();
+			try {
+				
+				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
+				pstmt.setString(1, numeroAleatorio);
+				pstmt.setString(2, recuperarContrasena.getEmail());
+				pstmt.executeUpdate();
+				recuperarContrasena.numeroRandom(numeroAleatorio);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return numeroAleatorio;
+		}
+	
+
+	//Metodo que genera un número aleatorio de 6 números y lo convierte a String quitando los decimales.
+	public String generadorNumero() {
+	    double sixDigits = 100000 + Math.random() * 900000;
+	    String numeros = String.valueOf(sixDigits);
+	    numeros = numeros.substring(0,6);
+	    return numeros;
+	}
+	
+	
+	
+	
+	
 
 	public void setUsername(String username) {
 		this.username = username;

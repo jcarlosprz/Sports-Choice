@@ -8,6 +8,7 @@ import modelo.Modelo;
 import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Registrarse;
+import vistas._3_Recuperar_Contrasena;
 import vistas._6_Tu_perfil;
 
 public class Controlador {
@@ -67,6 +68,16 @@ public class Controlador {
 		} 
 		
 	}
+	
+//public void recuperar() {
+//		
+//		String email=((_3_Recuperar_Contrasena) pantallas[4]).getEmail();
+//			
+//		if (miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd) == true) {
+//			cambiarPantalla(3, 0);
+//		} 
+//		
+//	}
 
 	public JFrame getPantallas(int indice) {
 		return pantallas[indice];

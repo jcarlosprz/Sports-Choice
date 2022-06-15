@@ -155,6 +155,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(10, 8);
+				//miModelo.unirseEvento(table,"2");
 			}
 		});
 		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));

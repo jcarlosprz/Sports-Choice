@@ -98,6 +98,8 @@ public class Modelo {
 	private String telefonoPerfil;
 	private String emailPerfil;
 	private String poblacionPerfil;
+
+
 	private String numeroRandom;
 	private String fechaPerfil;
 	private String opcionDeporte = "";
@@ -107,6 +109,7 @@ public class Modelo {
 	/**
 	 * Con el método tuPerfil, el select recoge los valores de la base de datos.
 	 * */
+
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
@@ -153,10 +156,12 @@ public class Modelo {
 
 	}
 
+
 	
 	/**
 	 * Con el método deletePerfil, se borra el usuario
 	 * */
+
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
 
@@ -555,6 +560,35 @@ public class Modelo {
 		}
 	}
 
+
+	public void unirseEvento(JTable tablaEventos) {
+		String polideportivo = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 2);
+		String fecha = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 3);
+		
+		String hora = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 4);
+		String nivel = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 5);
+		
+
+		String sqlCodigoEvento = "Select codigo_evento from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte;";
+		String eventoSeleccionado = "Select codigo_evento from eventos where polideportivo = ? and fecha = ? and hora = ? and nivel = ? and codigo_deporte = ?;";
+
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(eventoSeleccionado);
+			pstmt.setString(0, polideportivo);
+			pstmt.setString(1, fecha);
+			pstmt.setString(2, hora);
+			pstmt.setString(3, nivel);
+		
+
+		System.out.println(nivel + hora + polideportivo);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+
 	/**
 	 * 
 	 * El método bloquearUsuario permite acceder a la base de datos para hacer que
@@ -632,20 +666,21 @@ public class Modelo {
 	 * fila, se habilitará el botón "bloquear".
 	 * 
 	 */
-	
-	public void habilitaBoton(JButton button1, JButton Button2, JTable table) {
+
+
+	public void habilitaBoton(JButton button1, JButton button2, JTable table) {
 		String condicion = (String) tablaAdmin.getValueAt(table.getSelectedRow(), 4);
-		
+
 		if (condicion.equals("activo")) {
 			button1.setEnabled(true);
-			Button2.setEnabled(false);
+			button2.setEnabled(false);
 		} else {
-			Button2.setEnabled(true);
+			button2.setEnabled(true);
 			button1.setEnabled(false);
 		}
+
 	}
 
-	
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
@@ -851,6 +886,7 @@ public class Modelo {
 		}
 	}
 
+
 	
 //Metodo comprueba código introducido con código base de datos.
 	public String updateCodigo() {
@@ -878,6 +914,7 @@ public class Modelo {
 		numeroRandom = numeroRandom.substring(0, 6);
 		return numeroRandom;
 	}
+
 
 
 	public void comparacionCodigos() {
@@ -957,6 +994,7 @@ public class Modelo {
 			}
 	
 		}
+
 		
 			
 		public void crearUserEvento() {
@@ -992,6 +1030,7 @@ public class Modelo {
 			}
 	
 		}
+
 
 
 	public void setUsername(String username) {

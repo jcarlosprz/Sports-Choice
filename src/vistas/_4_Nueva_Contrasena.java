@@ -22,7 +22,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 	private JButton btnFlecha, btnActualizar;
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
+	private JLabel lblFondo, lblMessageCodigo;
 	
 	public _4_Nueva_Contrasena() {
 		setTitle("NUEVA CONTRASENA");
@@ -36,6 +36,12 @@ public class _4_Nueva_Contrasena extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		lblMessageCodigo = new JLabel("");
+		lblMessageCodigo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMessageCodigo.setForeground(Color.RED);
+		lblMessageCodigo.setBounds(287, 282, 338, 27);
+		panel.add(lblMessageCodigo);
 
 		lblNuevaContrasenaTitulo = new JLabel("NUEVA CONTRASE\u00D1A");
 		lblNuevaContrasenaTitulo.setFont(new Font("Dubai", Font.BOLD, 30));
@@ -45,7 +51,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 		btnActualizar = new JButton("ACTUALIZAR");
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(5, 0);
+				miModelo.actualizarContrasena();
 			}
 		});
 		btnActualizar.setBorder(null);
@@ -115,10 +121,26 @@ public class _4_Nueva_Contrasena extends JFrame {
 		panel.add(btnFlecha);
 		
 		lblFondo = new JLabel("");
+		lblFondo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblFondo.setIcon(new ImageIcon(_4_Nueva_Contrasena.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-124, 0, 939, 693);
 		panel.add(lblFondo);
 	}
+	
+	// Label que saca por pantalla error al introducir contraseñas distintas.
+	public void noConcuerdanContrasenas() {
+		lblMessageCodigo.setText("Las contraseñas no concuerdan");
+	}
+	
+	// Label que saca por pantalla error al introducir contraseñas distintas.
+	public void longitudMenorSeis() {		
+		lblMessageCodigo.setText("Las contraseñas tienen menos de 6 digitos");
+	}
+	
+	public void concuerdanContrasenas() {
+		miControlador.cambiarPantalla(5, 0);
+	}
+	
 	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
@@ -127,4 +149,17 @@ public class _4_Nueva_Contrasena extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+	public JLabel getLblNuevaContrasena() {
+		return lblNuevaContrasena;
+	}
+	
+	public String getTxtNuevaContrasena() {
+		return txtNuevaContrasena.getText();
+	}
+
+	public String getTxtRepetirContrasena() {
+		return txtRepetirContrasena.getText();
+	}
+	
 }

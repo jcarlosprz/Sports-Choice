@@ -60,10 +60,7 @@ public class Controlador {
 	}
 
 	/**
-	 * 
 	 * Método para que un usuario pueda actualizar perfil
-	 * 
-	 * 
 	 */
 	public void updatePerfil() {
 		String nombre = ((_6_Tu_perfil) pantallas[7]).getTxtNombre();

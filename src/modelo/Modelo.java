@@ -822,7 +822,7 @@ public class Modelo {
 		String sqlEmailExistente = "Select email from users where email = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
-			String textoEmail = recuperarContrasena.getEmail();
+			String textoEmail = recuperarContrasena.getTxtEmail();
 			if (textoEmail.equals("")) {
 				recuperarContrasena.errorCampoVacio();
 			} else {
@@ -843,16 +843,13 @@ public class Modelo {
 	}
 	
 	
-		public String updateCodigo() {
-		
-			//Conexion();
-			String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
-			String numeroAleatorio = generadorNumero();
+	public String updateCodigo() {
+		String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
+		String numeroAleatorio = generadorNumero();
 			try {
-				
 				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
 				pstmt.setString(1, numeroAleatorio);
-				pstmt.setString(2, recuperarContrasena.getEmail());
+				pstmt.setString(2, recuperarContrasena.getTxtEmail());
 				pstmt.executeUpdate();
 				recuperarContrasena.numeroRandom(numeroAleatorio);
 			} catch (SQLException e) {
@@ -870,14 +867,55 @@ public class Modelo {
 	    return numeroRandom;
 	}
 	
-	
+	//Metodo comprueba código introducido con código base de datos.
 	public void comparacionCodigos() {
 		
-	
-		if (numeroRandom.equals(recuperarContrasena.getTxtCodigo())) {
-			recuperarContrasena.concuerdanCodigos();
-		} else {
+		String sqlEmailExistente = "Select codigo_recuperacion from users where codigo_recuperacion = ?";
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
+			String codigo = recuperarContrasena.getTxtCodigo();
+				pstmt.setString(1, codigo);
+				ResultSet rset = pstmt.executeQuery();
+				if (!rset.next()) {
+					recuperarContrasena.NoConcuerdanCodigos();
+				} else {
+					if (codigo.equals(rset.getString(1))) {
+						recuperarContrasena.concuerdanCodigos();
+					}
+				}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
+	
+	//Metodo actualiza contrasena
+	public void actualizarContrasena() {
+		
+		String sqlActualizarContrasena = "update users set pwd = ? where email = ?";
+		try {
+			
+			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarContrasena);
+			pstmt.setString(1, nuevaContrasena.getTxtNuevaContrasena());
+			pstmt.setString(2, recuperarContrasena.getTxtEmail());
+			
+			
+			
+			if (nuevaContrasena.getTxtNuevaContrasena().equals(nuevaContrasena.getTxtRepetirContrasena())) {
+				if (nuevaContrasena.getTxtNuevaContrasena().length() >= 6) {
+					pstmt.executeUpdate();
+					nuevaContrasena.concuerdanContrasenas();
+				} else {
+					nuevaContrasena.longitudMenorSeis();
+				}
+			} else {
+				nuevaContrasena.noConcuerdanContrasenas();
+			}
+			
+			
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 	}

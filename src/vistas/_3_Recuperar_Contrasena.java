@@ -23,7 +23,8 @@ public class _3_Recuperar_Contrasena extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo, lblMessageEmail;
+	private JLabel lblFondo, lblMessageEmail, lblMessageCodigo;
+	
 
 	public _3_Recuperar_Contrasena() {
 		setTitle("RECUPERAR CONTRASENA");
@@ -45,6 +46,13 @@ public class _3_Recuperar_Contrasena extends JFrame {
 				miControlador.cambiarPantalla(4, 0);
 			}
 		});
+		
+		lblMessageCodigo = new JLabel("");
+		lblMessageCodigo.setForeground(Color.RED);
+		lblMessageCodigo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMessageCodigo.setBackground(Color.RED);
+		lblMessageCodigo.setBounds(175, 421, 523, 34);
+		panel.add(lblMessageCodigo);
 
 		lblMessageEmail = new JLabel("");
 		lblMessageEmail.setForeground(Color.RED);
@@ -142,19 +150,19 @@ public class _3_Recuperar_Contrasena extends JFrame {
 
 	// Label que saca al usuario código a introducir.
 	public void numeroRandom(String numeroRandom) {
-		lblMessageEmail.setText(getEmail() + ", tu código es -> " + numeroRandom); 
-		//miModelo.comparacionCodigos(numeroRandom);
+		lblMessageEmail.setText(getTxtEmail() + ", tu código es -> " + numeroRandom); 
 	}
 	
 
 	public void concuerdanCodigos() {
 		miControlador.cambiarPantalla(4, 5);
-		
 	}
 	
+	// Label que saca por pantalla error al introducir un email no existente.
+	public void NoConcuerdanCodigos() {
+		lblMessageCodigo.setText("Los códigos no concuerdan");
+	}
 	
-	
-
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -163,7 +171,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-	public String getEmail() {
+	public String getTxtEmail() {
 		return txtEmail.getText();
 	}
 
@@ -174,5 +182,4 @@ public class _3_Recuperar_Contrasena extends JFrame {
 	public void setTxtCodigo(JTextField txtCodigo) {
 		this.txtCodigo = txtCodigo;
 	}
-
 }

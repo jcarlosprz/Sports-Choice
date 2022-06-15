@@ -938,7 +938,6 @@ public class Modelo {
 	}
 
 
-	
 	//Metodo actualiza contrasena
 	public void actualizarContrasena() {
 		String sqlActualizarContrasena = "update users set pwd = ? where email = ?";

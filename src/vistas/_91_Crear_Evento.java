@@ -247,8 +247,11 @@ public class _91_Crear_Evento extends JFrame {
 	}
 
 	public void aceptado() {
+		
 		miControlador.cambiarPantalla(11, 8);
 	}
+	
+	
 
 	
 }

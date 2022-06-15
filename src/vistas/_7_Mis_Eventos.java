@@ -17,12 +17,14 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import controlador.Controlador;
 import modelo.Modelo;
 
 import java.awt.Dimension;
+import javax.swing.JScrollBar;
 
 public class _7_Mis_Eventos extends JFrame {
 
@@ -49,6 +51,8 @@ public class _7_Mis_Eventos extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
+		
+		
 		lblMisEventos = new JLabel("MIS EVENTOS");
 		lblMisEventos.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblMisEventos.setBounds(327, 8, 192, 54);
@@ -102,8 +106,9 @@ public class _7_Mis_Eventos extends JFrame {
 		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
-		scrollPane.setBounds(106, 93, 640, 476);
+		scrollPane.setBounds(106, 99, 640, 476);
 		panel.add(scrollPane);
 
 		table = new JTable();
@@ -126,10 +131,11 @@ public class _7_Mis_Eventos extends JFrame {
 			}
 		});
 	
+
+		
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment( JLabel.CENTER );
 		table.setDefaultRenderer(String.class, centerRenderer);
-		
 		table.getTableHeader().setReorderingAllowed(false);
 		table.setDefaultEditor(Object.class, null);
 		table.setToolTipText("");
@@ -177,4 +183,5 @@ public class _7_Mis_Eventos extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+	
 }

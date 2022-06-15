@@ -18,6 +18,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import controlador.Controlador;
 import modelo.Modelo;
@@ -111,6 +112,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnHome.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setFont(new Font("Dubai", Font.PLAIN, 15));
 		scrollPane.setBounds(106, 93, 640, 476);
 		panel.add(scrollPane);
@@ -144,7 +146,6 @@ public class _9_Eventos_Disponibles extends JFrame {
 		table.setShowVerticalLines(false);
 		table.setRowHeight(50);
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
-
 		scrollPane.setViewportView(table);
 
 		btnUnirse = new JButton("UNIRSE");

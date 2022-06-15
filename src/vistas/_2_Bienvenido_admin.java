@@ -26,6 +26,8 @@ import modelo.exportarTablas;
 
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -184,7 +186,6 @@ public class _2_Bienvenido_admin extends JFrame {
             	miModelo.cargarObjetoAdmin();
             }});
 		
-
 		JLabel lblFondo = new JLabel("");
 
 		lblFondo.addMouseListener(new MouseAdapter() {
@@ -206,8 +207,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		lblConfirmacion.setBounds(246, 568, 348, 23);
 		panel.add(lblConfirmacion);
 	}
-	
-	
 	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;

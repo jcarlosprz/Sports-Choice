@@ -84,7 +84,7 @@ public class Modelo {
 	private DefaultTableModel tablaEventosBaloncesto;
 	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
-	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
+	private String sqlTablaMisEventos = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
@@ -647,10 +647,6 @@ public class Modelo {
 		
 	}
 	
-	
-	
-	
-	
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
@@ -832,7 +828,6 @@ public class Modelo {
 	}
 
 	public void recuperarContrasena() {
-
 		Conexion();
 		String sqlEmailExistente = "Select email from users where email = ?";
 		try {
@@ -947,7 +942,12 @@ public class Modelo {
 						pstmt.setInt(5, getOpcionDeporteId());
 
 						pstmt.executeUpdate();
+						crearUserEvento();
 						crearEvento.aceptado();
+						getTablaMisEventos();
+						//Tiene que meterlo en mis eventos y eventos disponibles
+						
+						
 				} else {
 					crearEvento.errorCamposVacios();
 				}
@@ -956,11 +956,41 @@ public class Modelo {
 			}
 	
 		}
+		
+			
+		public void crearUserEvento() {
+
+			String queryCodigoUser = "Select codigo_evento from eventos order by codigo_evento desc limit 1";
+			
+			try {
+			PreparedStatement pstmt;
+			pstmt = conexion.prepareStatement(queryCodigoUser);
+			ResultSet rset = pstmt.executeQuery();
+			rset.next();
+			String codigo_user = rset.getString(1);
+			
+			System.out.println(codigo_user);
+			
+			String InsertarEvento = "INSERT INTO users_eventos(usr, codigo_evento) values(?,?)";
+			PreparedStatement pstmt2;
+			
+						//Conexion();
+						pstmt2 = conexion.prepareStatement(InsertarEvento);
+						pstmt2.setString(1, usr);
+						pstmt2.setString(2, codigo_user);
+
+						System.out.println(usr + "AQUI2");
+
+						pstmt2.executeUpdate();
+						//Tiene que meterlo en mis eventos y eventos disponibles
+						
+						getTablaMisEventos();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 	
-	
-	
-	
-	
+		}
 	
 
 	public void setUsername(String username) {

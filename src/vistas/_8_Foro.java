@@ -178,4 +178,9 @@ public class _8_Foro extends JFrame {
 	public void setTable(JTable table) {
 		this.table = table;
 	}
+
+	public String getEscribeAqui() {
+		return txtEscribeAqui.getText();
+	}
+	
 }

@@ -3,6 +3,7 @@ package controlador;
 import java.util.Date;
 
 import javax.swing.JFrame;
+import javax.swing.JTable;
 
 import modelo.Modelo;
 import vistas._10_Configuracion;
@@ -10,6 +11,9 @@ import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._2_Registrarse;
 import vistas._3_Recuperar_Contrasena;
 import vistas._6_Tu_perfil;
+import vistas._7_Mis_Eventos;
+import vistas._8_Foro;
+import vistas._9_Eventos_Disponibles;
 
 public class Controlador {
 
@@ -57,6 +61,18 @@ public class Controlador {
 
 		}
 
+	}
+
+	/** Método que pasa el código del evento seleccionado en la tabla mis Eventos */
+	public String SeleccionMisEventos() {
+		String codigo_evento = (String) (((_7_Mis_Eventos) pantallas[8]).getTable())
+				.getValueAt(((_7_Mis_Eventos) pantallas[8]).getTable().getSelectedRow(), 0);
+		return codigo_evento;
+	}
+	public void Mensaje(JTable tabla) {
+		String mensaje = (String) (((_8_Foro) pantallas[9]).getEscribeAqui());
+		miModelo.EnviarMensaje(mensaje);
+		
 	}
 
 	/**

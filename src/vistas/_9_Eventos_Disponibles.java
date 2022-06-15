@@ -26,6 +26,8 @@ import java.awt.Dimension;
 
 public class _9_Eventos_Disponibles extends JFrame {
 
+
+
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnCrearEvento, btnUnirse;
 	private JScrollPane scrollPane;

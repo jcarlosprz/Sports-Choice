@@ -82,14 +82,15 @@ public class Modelo {
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
-	private DefaultTableModel tablaForo;
+	private DefaultTableModel tablaForo = new DefaultTableModel();
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
 	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
 	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
 	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
 	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
-	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
+	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr where codigo_foro = ?;";
+	private String codigo_evento;
 	private String sqlBloqueaUsuario = "update users set estado ='inactivo' where usr=?;";
 	private String sqlDesbloqueaUsuario = "update users set estado = 'activo' where usr=?;";
 	private String usrPerfil;
@@ -306,7 +307,7 @@ public class Modelo {
 				bienvenida.actualizar();
 				TablaAdmin();
 				TablaMisEventos();
-				TablaForo();
+
 			} else {
 				fallos++;
 				if (fallos == 3) {
@@ -518,14 +519,15 @@ public class Modelo {
 		}
 	}
 
-	public void TablaForo() {
-		tablaForo = new DefaultTableModel();
-
-		int numColumnas = getNumColumnas(sqlForo);
+	public void TablaForo(String codigo_evento) {
+		this.codigo_evento = codigo_evento;
+		System.out.println(codigo_evento);
+		int numColumnas = getNumColumnas2(sqlForo, codigo_evento);
 		Object[] contenido = new Object[numColumnas];
 		PreparedStatement pstmt;
 		try {
 			pstmt = conexion.prepareStatement(sqlForo);
+			pstmt.setString(1, codigo_evento);
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 			for (int i = 0; i < numColumnas; i++) {
@@ -541,6 +543,27 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
+
+	public void EnviarMensaje(String mensaje) {
+		String RegistroSql = "INSERT INTO mensaje(mensaje,codigo_foro,usr) values(?,?,?);";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(RegistroSql);
+			pstmt.setString(1, mensaje);
+			pstmt.setString(2, codigo_evento);
+			pstmt.setString(3, usr);
+			pstmt.executeUpdate();
+
+			System.out.println("CUENTA CREADA");
+		} catch (SQLException e) {
+
+		}
+
+	}
+	
+
+
+	
 
 	/**
 	 * 

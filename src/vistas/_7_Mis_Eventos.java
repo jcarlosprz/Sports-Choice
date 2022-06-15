@@ -35,6 +35,7 @@ public class _7_Mis_Eventos extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+
 	private JLabel lblFondo;
 
 	public _7_Mis_Eventos() {
@@ -148,6 +149,7 @@ public class _7_Mis_Eventos extends JFrame {
 		btnIrAlForo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnIrAlForo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.TablaForo(miControlador.SeleccionMisEventos());
 				miControlador.cambiarPantalla(8, 9);
 			}
 		});
@@ -168,6 +170,10 @@ public class _7_Mis_Eventos extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-93, 0, 939, 683);
 		panel.add(lblFondo);
+	}
+
+	public JTable getTable() {
+		return table;
 	}
 
 	public void setMiControlador(Controlador miControlador) {

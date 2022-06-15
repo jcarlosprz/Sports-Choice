@@ -19,7 +19,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 	private JPanel panel;
 	private JTextField txtEmail, txtCodigo;
 	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
-	private JButton btnFlecha, btnFlecha_1;
+	private JButton btnFlecha, btnFlecha_1, btnValidar;
 
 	private Controlador miControlador;
 	private Modelo miModelo;
@@ -89,10 +89,12 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		txtCodigo.setBounds(175, 361, 336, 60);
 		panel.add(txtCodigo);
 
-		JButton btnValidar = new JButton("VALIDAR");
+		btnValidar = new JButton("VALIDAR");
 		btnValidar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(4, 5);
+				
+				//miControlador.cambiarPantalla(4, 5);
+				miModelo.comparacionCodigos();
 			}
 		});
 		btnValidar.setBorder(null);
@@ -141,7 +143,17 @@ public class _3_Recuperar_Contrasena extends JFrame {
 	// Label que saca al usuario código a introducir.
 	public void numeroRandom(String numeroRandom) {
 		lblMessageEmail.setText(getEmail() + ", tu código es -> " + numeroRandom); 
+		//miModelo.comparacionCodigos(numeroRandom);
 	}
+	
+
+	public void concuerdanCodigos() {
+		miControlador.cambiarPantalla(4, 5);
+		
+	}
+	
+	
+	
 
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
@@ -154,4 +166,13 @@ public class _3_Recuperar_Contrasena extends JFrame {
 	public String getEmail() {
 		return txtEmail.getText();
 	}
+
+	public String getTxtCodigo() {
+		return txtCodigo.getText();
+	}
+
+	public void setTxtCodigo(JTextField txtCodigo) {
+		this.txtCodigo = txtCodigo;
+	}
+
 }

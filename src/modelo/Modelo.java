@@ -29,6 +29,7 @@ import java.util.Properties;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -97,6 +98,7 @@ public class Modelo {
 	private String poblacionPerfil;
 
 	private Date fechaPerfil;
+	private String numeroRandom;
 
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
@@ -778,17 +780,27 @@ public class Modelo {
 			}
 			return numeroAleatorio;
 		}
-	
+
 
 	//Metodo que genera un número aleatorio de 6 números y lo convierte a String quitando los decimales.
 	public String generadorNumero() {
 	    double sixDigits = 100000 + Math.random() * 900000;
-	    String numeros = String.valueOf(sixDigits);
-	    numeros = numeros.substring(0,6);
-	    return numeros;
+	    numeroRandom = String.valueOf(sixDigits);
+	    numeroRandom = numeroRandom.substring(0,6);
+	    return numeroRandom;
 	}
 	
 	
+	public void comparacionCodigos() {
+		
+	
+		if (numeroRandom.equals(recuperarContrasena.getTxtCodigo())) {
+			recuperarContrasena.concuerdanCodigos();
+		} else {
+
+		}
+		
+	}
 	
 	
 	
@@ -863,6 +875,10 @@ public class Modelo {
 
 	public String getHolaNombreUsuario() {
 		return holaNombreUsuario;
+	}
+
+	public String getNumeroRandom() {
+		return numeroRandom;
 	}
 
 }

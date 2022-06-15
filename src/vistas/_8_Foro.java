@@ -186,9 +186,7 @@ public class _8_Foro extends JFrame {
 	public String getEscribeAqui() {
 		return txtEscribeAqui.getText();
 	}
-<<<<<<< HEAD
-}
-=======
+
 	
 }
->>>>>>> branch 'JuanCarlos' of https://github.com/DAM-UTAD-1-2122/prog---ud6---tarea-2---guardar-tablas-pi-ratatui
+

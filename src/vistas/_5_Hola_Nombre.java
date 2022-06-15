@@ -174,12 +174,6 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMiPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 7);
-				//
-				//
-				//
-				//
-				//
-			
 			}
 		});
 		addWindowListener(new WindowAdapter() {

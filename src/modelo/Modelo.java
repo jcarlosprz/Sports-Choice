@@ -103,7 +103,6 @@ public class Modelo {
 
 	private String fechaPerfil;
 
-
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
@@ -144,21 +143,20 @@ public class Modelo {
 		}
 
 	}
-	
-	
+
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
 
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(delete);
 
-			pstmt.setString(1,usr);
+			pstmt.setString(1, usr);
 			pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	private Properties config;
@@ -329,12 +327,11 @@ public class Modelo {
 		String RegistroSql = "INSERT INTO users(usr, nombre, apellidos, telefono, email, poblacion, fecha_nacimiento, rol, pwd, estado, codigo_recuperacion) values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt;
 		try {
-		
+
 			String fecha_nacimiento = "";
 			if (date != null) {
-			
+
 				fecha_nacimiento = DateFormat.getDateInstance().format(date);
-			
 
 				if (!usr.equals("") && !nombre.equals("") && !apellidos.equals("") && !telefono.equals("")
 						&& !email.equals("") && !poblacion.equals("") && !fecha_nacimiento.equals("") && !pwd.equals("")
@@ -348,7 +345,7 @@ public class Modelo {
 					pstmt.setString(4, telefono);
 					pstmt.setString(5, email);
 					pstmt.setString(6, poblacion);
-					pstmt.setString(7, fecha_nacimiento);	
+					pstmt.setString(7, fecha_nacimiento);
 					pstmt.setString(8, "usuario");
 					pstmt.setString(9, pwd);
 					pstmt.setString(10, "activo");
@@ -402,7 +399,7 @@ public class Modelo {
 		try {
 			pstmt = conexion.prepareStatement(sqlTablaMisEventos);
 			pstmt.setString(1, usr);
-			
+
 			ResultSet rset = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rset.getMetaData();
 
@@ -544,17 +541,19 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * 
-	 * El método bloquearUsuario permite acceder a la base de datos para hacer que el estado de un usuario
-	 * pase de activo a inactivo. Toma como parámetro una variable de la clase JTable y hace uso de un objeto
-	 * PreparedStatement para acceder a la base de datos de forma segura y modificar el registro indicado por 
-	 * medio de la query almacenada en el atributo sqlBloqueaUsuario. 
-	 * La primera variable (String usuario) permite almacenar el valor del usr (así se almacena en la base de 
-	 * datos), que servirá para completar el filtro de la query.
-	 * Por último, dado que la tabla no puede actualizarse si no se cierra y se abre de nuevo, se hace uso de
-	 * setValueAt para "forzar" la actualización del apartado estado de la tabla.
+	 * El método bloquearUsuario permite acceder a la base de datos para hacer que
+	 * el estado de un usuario pase de activo a inactivo. Toma como parámetro una
+	 * variable de la clase JTable y hace uso de un objeto PreparedStatement para
+	 * acceder a la base de datos de forma segura y modificar el registro indicado
+	 * por medio de la query almacenada en el atributo sqlBloqueaUsuario. La primera
+	 * variable (String usuario) permite almacenar el valor del usr (así se almacena
+	 * en la base de datos), que servirá para completar el filtro de la query. Por
+	 * último, dado que la tabla no puede actualizarse si no se cierra y se abre de
+	 * nuevo, se hace uso de setValueAt para "forzar" la actualización del apartado
+	 * estado de la tabla.
 	 * 
 	 * 
 	 */
@@ -575,18 +574,19 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("inactivo", tableAdmin.getSelectedRow(), 4);
 	}
-	
-	
+
 	/**
 	 * 
-	 * El método desbloquearUsuario permite acceder a la base de datos para hacer que el estado de un usuario
-	 * pase de inactivo a activo. Toma como parámetro una variable de la clase JTable y hace uso de un objeto
-	 * PreparedStatement para acceder a la base de datos de forma segura y modificar el registro indicado por 
-	 * medio de la query almacenada en el atributo sqlDesbloqueaUsuario. 
-	 * La primera variable (String usuario) permite almacenar el valor del usr (así se almacena en la base de 
-	 * datos), que servirá para completar el filtro de la query.
-	 * Por último, dado que la tabla no puede actualizarse si no se cierra y se abre de nuevo, se hace uso de
-	 * setValueAt para "forzar" la actualización del apartado estado de la tabla.
+	 * El método desbloquearUsuario permite acceder a la base de datos para hacer
+	 * que el estado de un usuario pase de inactivo a activo. Toma como parámetro
+	 * una variable de la clase JTable y hace uso de un objeto PreparedStatement
+	 * para acceder a la base de datos de forma segura y modificar el registro
+	 * indicado por medio de la query almacenada en el atributo
+	 * sqlDesbloqueaUsuario. La primera variable (String usuario) permite almacenar
+	 * el valor del usr (así se almacena en la base de datos), que servirá para
+	 * completar el filtro de la query. Por último, dado que la tabla no puede
+	 * actualizarse si no se cierra y se abre de nuevo, se hace uso de setValueAt
+	 * para "forzar" la actualización del apartado estado de la tabla.
 	 * 
 	 * 
 	 */
@@ -608,34 +608,30 @@ public class Modelo {
 		}
 		tablaAdmin.setValueAt("activo", tableAdmin.getSelectedRow(), 4);
 	}
-	
+
 	/**
 	 * 
-	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la pantalla _2_Bienvenido_admin
-	 * en función del estado del usuario (activo o inactivo). Si el estado de un usuario es inactivo, al 
-	 * seleccionar en la tabla la fila correspondiente a ese usuario se habilitará el botón "desbloquear". 
-	 * Si, por el contrario, el estado de un usuario es activo, al seleccionar dicha fila, se habilitará el 
-	 * botón "bloquear".
+	 * Método que permite habilitar los botones btnBloquear y btnDesbloquear de la
+	 * pantalla _2_Bienvenido_admin en función del estado del usuario (activo o
+	 * inactivo). Si el estado de un usuario es inactivo, al seleccionar en la tabla
+	 * la fila correspondiente a ese usuario se habilitará el botón "desbloquear".
+	 * Si, por el contrario, el estado de un usuario es activo, al seleccionar dicha
+	 * fila, se habilitará el botón "bloquear".
 	 * 
 	 */
-	
+
 	public void habilitaBoton(JButton button1, JButton button2, JTable table) {
 		String condicion = (String) tablaAdmin.getValueAt(table.getSelectedRow(), 4);
-		
-		if(condicion.equals("activo")) {
+
+		if (condicion.equals("activo")) {
 			button1.setEnabled(true);
 			button2.setEnabled(false);
 		} else {
 			button2.setEnabled(true);
 			button1.setEnabled(false);
 		}
-		
+
 	}
-	
-	
-	
-	
-	
 
 	private int getNumColumnas(String sql) {
 		int num = 0;
@@ -832,7 +828,7 @@ public class Modelo {
 					recuperarContrasena.errorUsuarioNoExistente();
 				} else {
 					if (textoEmail.equals(rset.getString(1))) {
-						//recuperarContrasena.numeroRandom();
+						// recuperarContrasena.numeroRandom();
 						updateCodigo();
 					}
 				}
@@ -841,49 +837,43 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-	
-	
-		public String updateCodigo() {
-		
-			//Conexion();
-			String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
-			String numeroAleatorio = generadorNumero();
-			try {
-				
-				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
-				pstmt.setString(1, numeroAleatorio);
-				pstmt.setString(2, recuperarContrasena.getEmail());
-				pstmt.executeUpdate();
-				recuperarContrasena.numeroRandom(numeroAleatorio);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return numeroAleatorio;
+
+	public String updateCodigo() {
+
+		// Conexion();
+		String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
+		String numeroAleatorio = generadorNumero();
+		try {
+
+			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
+			pstmt.setString(1, numeroAleatorio);
+			pstmt.setString(2, recuperarContrasena.getEmail());
+			pstmt.executeUpdate();
+			recuperarContrasena.numeroRandom(numeroAleatorio);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-
-
-	//Metodo que genera un número aleatorio de 6 números y lo convierte a String quitando los decimales.
-	public String generadorNumero() {
-	    double sixDigits = 100000 + Math.random() * 900000;
-	    numeroRandom = String.valueOf(sixDigits);
-	    numeroRandom = numeroRandom.substring(0,6);
-	    return numeroRandom;
+		return numeroAleatorio;
 	}
-	
-	
+
+	// Metodo que genera un número aleatorio de 6 números y lo convierte a String
+	// quitando los decimales.
+	public String generadorNumero() {
+		double sixDigits = 100000 + Math.random() * 900000;
+		numeroRandom = String.valueOf(sixDigits);
+		numeroRandom = numeroRandom.substring(0, 6);
+		return numeroRandom;
+	}
+
 	public void comparacionCodigos() {
-		
-	
+
 		if (numeroRandom.equals(recuperarContrasena.getTxtCodigo())) {
 			recuperarContrasena.concuerdanCodigos();
 		} else {
 
 		}
-		
+
 	}
-	
-	
-	
 
 	public void setUsername(String username) {
 		this.username = username;

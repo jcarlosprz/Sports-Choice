@@ -24,13 +24,13 @@ public class _6_Tu_perfil extends JFrame {
 
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
-			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil,lblFondo;
+			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil, lblFondo;
 	private JTextField txtNombreUsuario, txtNombre, txtApellidos, txtTelefono, txtEmail, txtPoblacion;
 	private JButton btnPregunta, btnPapelera, btnHome, btnGuardar;
-	
+
 	private Controlador miControlador;
 	private Modelo miModelo;
-	
+
 	//
 	//
 	//
@@ -62,7 +62,7 @@ public class _6_Tu_perfil extends JFrame {
 						"AYUDA TU PERFIL", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		
+
 		textFechaNac = new JTextField();
 		textFechaNac.setFont(new Font("Dubai", Font.PLAIN, 16));
 		textFechaNac.setEnabled(false);
@@ -259,7 +259,7 @@ public class _6_Tu_perfil extends JFrame {
 	}
 
 	/**
-	 *  Getters  que sirven para actualizar el perfil de los usuarios 
+	 * Getters que sirven para actualizar el perfil de los usuarios
 	 *
 	 */
 	public String getTxtNombreUsuario() {
@@ -291,7 +291,7 @@ public class _6_Tu_perfil extends JFrame {
 	}
 
 	/**
-	 *  Método para que la vista conozca al controlador y al modelo
+	 * Método para que la vista conozca al controlador y al modelo
 	 */
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;

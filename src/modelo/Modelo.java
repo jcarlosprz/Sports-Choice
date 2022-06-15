@@ -104,6 +104,7 @@ public class Modelo {
 	private String fechaPerfil;
 	
 	private String opcionDeporte = "";
+	private int opcionDeporteId;
 
 
 	
@@ -905,16 +906,11 @@ public class Modelo {
 	
 	//Metodo actualiza contrasena
 	public void actualizarContrasena() {
-		
 		String sqlActualizarContrasena = "update users set pwd = ? where email = ?";
 		try {
-			
 			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarContrasena);
 			pstmt.setString(1, nuevaContrasena.getTxtNuevaContrasena());
-			pstmt.setString(2, recuperarContrasena.getTxtEmail());
-			
-			
-			
+			pstmt.setString(2, recuperarContrasena.getTxtEmail());	
 			if (nuevaContrasena.getTxtNuevaContrasena().equals(nuevaContrasena.getTxtRepetirContrasena())) {
 				if (nuevaContrasena.getTxtNuevaContrasena().length() >= 6) {
 					pstmt.executeUpdate();
@@ -925,14 +921,44 @@ public class Modelo {
 			} else {
 				nuevaContrasena.noConcuerdanContrasenas();
 			}
-			
-			
-		
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 	}
+	
+	
+	
+	// Método crearEvento
+		public void crearEvento() {
+
+			String InsertarEvento = "INSERT INTO eventos(fecha, hora, polideportivo, nivel, codigo_deporte) values(?,?,?,?,?)";
+			PreparedStatement pstmt;
+			try {
+				if (!crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getCalendar().equals(null) && !crearEvento.getCbxPolideportivo().equals("") && !crearEvento.getListNivel().isSelectionEmpty()) {
+
+						//Conexion();
+						pstmt = conexion.prepareStatement(InsertarEvento);
+						pstmt.setString(1, DateFormat.getDateInstance().format(crearEvento.getCalendar()));
+						pstmt.setString(2, crearEvento.getSpinnerHora()+crearEvento.getSpinnerMinutos());
+						pstmt.setString(3, crearEvento.getCbxPolideportivo());
+						pstmt.setString(4, crearEvento.getListNivel().getSelectedValue().toString());
+						pstmt.setInt(5, getOpcionDeporteId());
+
+						pstmt.executeUpdate();
+						crearEvento.aceptado();
+				} else {
+					crearEvento.errorCamposVacios();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	
+		}
+	
+	
+	
 	
 	
 	
@@ -1021,4 +1047,12 @@ public class Modelo {
 		this.opcionDeporte = opcionDeporte;
 	}
 
+	public int getOpcionDeporteId() {
+		return opcionDeporteId;
+	}
+
+	public void setOpcionDeporteId(int opcionDeporteId) {
+		this.opcionDeporteId = opcionDeporteId;
+	}
+	
 }

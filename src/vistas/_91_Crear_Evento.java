@@ -24,6 +24,7 @@ import modelo.Modelo;
 import javax.swing.border.LineBorder;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Date;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -40,8 +41,7 @@ public class _91_Crear_Evento extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo;
-	private JLabel lblDeporteSeleccionado;
+	private JLabel lblFondo, lblDeporteSeleccionado, lblMensaje;
 	
 	public _91_Crear_Evento() {
 		addWindowListener(new WindowAdapter() {
@@ -69,6 +69,12 @@ public class _91_Crear_Evento extends JFrame {
 				miControlador.cambiarPantalla(11, 10);
 			}
 		});
+		
+		lblMensaje = new JLabel("");
+		lblMensaje.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMensaje.setForeground(Color.RED);
+		lblMensaje.setBounds(214, 488, 315, 40);
+		panel.add(lblMensaje);
 		btnFlecha.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/back-arrow-icon-10.png")));
 		btnFlecha.setOpaque(false);
 		btnFlecha.setContentAreaFilled(false);
@@ -89,8 +95,7 @@ public class _91_Crear_Evento extends JFrame {
 		btnCrearEvento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCrearEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miControlador.cambiarPantalla(11, 8);
-
+				miModelo.crearEvento();
 			}
 		});
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -127,7 +132,7 @@ public class _91_Crear_Evento extends JFrame {
 		cbxPolideportivo = new JComboBox();
 		cbxPolideportivo.setBackground(Color.WHITE);
 		cbxPolideportivo.setFont(new Font("Dubai", Font.PLAIN, 15));
-		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] { "-Polideportivo", "Enrique Blas",
+		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] { "", "Enrique Blas",
 				"Galapagar Sports ", "Dehesa de Navalcarb\u00F3n", "El Abaj\u00F3n", "Principe Felipe" }));
 		cbxPolideportivo.setBounds(65, 233, 207, 21);
 		panel.add(cbxPolideportivo);
@@ -201,6 +206,13 @@ public class _91_Crear_Evento extends JFrame {
 		panel.add(lblFondo);
 	}
 	
+	
+	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
+	public void errorCamposVacios() {
+		lblMensaje.setText("Te has dejado algún campo sin seleccionar");
+	}
+	
+	
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -208,4 +220,35 @@ public class _91_Crear_Evento extends JFrame {
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
 	}
+
+
+	public String getCbxPolideportivo() {
+		return cbxPolideportivo.getSelectedItem().toString();
+	}
+
+
+	public String getSpinnerHora() {
+		return spinnerHora.getValue().toString();
+	}
+
+
+	public String getSpinnerMinutos() {
+		return spinnerMinutos.getValue().toString();
+	}
+
+
+	public Date getCalendar() {
+		return calendar.getDate();
+	}
+	
+	
+	public JList getListNivel() {
+		return listNivel;
+	}
+
+	public void aceptado() {
+		miControlador.cambiarPantalla(11, 8);
+	}
+
+	
 }

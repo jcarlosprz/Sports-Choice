@@ -67,6 +67,8 @@ public class _5_Hola_Nombre extends JFrame {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosBaloncesto();		
 				miModelo.setOpcionDeporte("Baloncesto");
+				miModelo.setOpcionDeporteId(1);
+
 			}
 		});
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
@@ -83,6 +85,8 @@ public class _5_Hola_Nombre extends JFrame {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosFutbol();
 				miModelo.setOpcionDeporte("Fútbol");
+				miModelo.setOpcionDeporteId(2);
+
 			}
 		});
 		btnFutbol.setBorder(null);
@@ -101,6 +105,8 @@ public class _5_Hola_Nombre extends JFrame {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosPadel();
 				miModelo.setOpcionDeporte("Pádel");
+				miModelo.setOpcionDeporteId(3);
+
 			}
 		});
 		btnPadel.setBorder(null);
@@ -118,6 +124,8 @@ public class _5_Hola_Nombre extends JFrame {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosTenis();
 				miModelo.setOpcionDeporte("Tenis");
+				miModelo.setOpcionDeporteId(4);
+
 			}
 		});
 		btnTenis.setBorder(null);

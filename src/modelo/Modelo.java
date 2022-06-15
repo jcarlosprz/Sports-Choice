@@ -103,7 +103,11 @@ public class Modelo {
 
 	private String fechaPerfil;
 
-
+	
+	
+	/**
+	 * Con el método tuPerfil, el select recoge los valores de la base de datos.
+	 * */
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
 
@@ -125,7 +129,12 @@ public class Modelo {
 		}
 		tuPerfil.actualizarsePerfil();
 	}
-
+	
+	
+	/**
+	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El update 
+	 * actualiza los valores de dichos campos.
+	 * */
 	public void updatePerfil(String nombrePerfil, String apellidoPerfil, String telefonoPerfil, String emailPerfil,
 			String poblacionPerfil) {
 		String update = "Update users set nombre = ?, apellidos = ?, telefono = ?, email = ?,  poblacion = ? where usr = ? ";
@@ -145,7 +154,9 @@ public class Modelo {
 
 	}
 	
-	
+	/**
+	 * Con el método deletePerfil, se borra el usuario
+	 * */
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
 

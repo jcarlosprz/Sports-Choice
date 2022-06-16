@@ -205,7 +205,6 @@ public class _91_Crear_Evento extends JFrame {
 		panel.add(lblFondo);
 	}
 
-
 	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
 	public void errorCamposVacios() {
 		lblMensaje.setText("Te has dejado algún campo sin seleccionar");

@@ -18,11 +18,13 @@ public class _4_Nueva_Contrasena extends JFrame {
 
 	private Controlador miControlador;
 	private Modelo miModelo;
+
 	private JPanel panel;
 	private JLabel lblNuevaContrasenaTitulo, lblNuevaContrasena, lblRepetirContrasena, lblConsejoTitulo, lblConsejo1,
 			lblConsejo2, lblConsejo3, lblFondo, lblMessageCodigo;
 	private JTextField txtNuevaContrasena, txtRepetirContrasena;
 	private JButton btnFlecha, btnActualizar;
+
 	
 	public _4_Nueva_Contrasena() {
 		setTitle("NUEVA CONTRASENA");
@@ -36,7 +38,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 		panel.setBounds(0, 0, 1266, 693);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		lblMessageCodigo = new JLabel("");
 		lblMessageCodigo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblMessageCodigo.setForeground(Color.RED);
@@ -126,14 +128,14 @@ public class _4_Nueva_Contrasena extends JFrame {
 		lblFondo.setBounds(-124, 0, 939, 693);
 		panel.add(lblFondo);
 	}
-	
+
 	// Label que saca por pantalla error al introducir contraseñas distintas.
 	public void noConcuerdanContrasenas() {
 		lblMessageCodigo.setText("Las contraseñas no concuerdan");
 	}
-	
+
 	// Label que saca por pantalla error al introducir contraseñas distintas.
-	public void longitudMenorSeis() {		
+	public void longitudMenorSeis() {
 		lblMessageCodigo.setText("Las contraseñas tienen menos de 6 digitos");
 	}
 	
@@ -141,7 +143,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 	public void concuerdanContrasenas() {
 		miControlador.cambiarPantalla(5, 0);
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -153,7 +155,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 	public JLabel getLblNuevaContrasena() {
 		return lblNuevaContrasena;
 	}
-	
+
 	public String getTxtNuevaContrasena() {
 		return txtNuevaContrasena.getText();
 	}
@@ -161,6 +163,5 @@ public class _4_Nueva_Contrasena extends JFrame {
 	public String getTxtRepetirContrasena() {
 		return txtRepetirContrasena.getText();
 	}
-	
-}
 
+}

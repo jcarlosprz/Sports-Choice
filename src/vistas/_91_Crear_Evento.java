@@ -41,6 +41,7 @@ public class _91_Crear_Evento extends JFrame {
 	private JSpinner spinnerHora, spinnerMinutos;
 	private JCalendar calendar;
 
+
 	public _91_Crear_Evento() {
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -192,6 +193,7 @@ public class _91_Crear_Evento extends JFrame {
 		lblNivel.setBounds(677, 214, 104, 14);
 		lblNivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(lblNivel);
+
 		lblDeporteSeleccionado = new JLabel();
 		lblDeporteSeleccionado.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblDeporteSeleccionado.setBounds(524, 10, 242, 54);
@@ -203,8 +205,8 @@ public class _91_Crear_Evento extends JFrame {
 		panel.add(lblFondo);
 	}
 
-	// Label que saca por pantalla error al intentar registrar un usuario que ya
-	// existe.
+
+	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
 	public void errorCamposVacios() {
 		lblMensaje.setText("Te has dejado algún campo sin seleccionar");
 	}

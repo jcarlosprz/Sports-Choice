@@ -46,6 +46,11 @@ public class _8_Foro extends JFrame {
 		panel.setLayout(null);
 
 		btnEnviar = new JButton("ENVIAR");
+		btnEnviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				miControlador.Mensaje(table);
+			}
+		});
 		btnEnviar.setEnabled(false);
 		btnEnviar.setBorder(null);
 		btnEnviar.setBackground(SystemColor.activeCaption);
@@ -173,4 +178,11 @@ public class _8_Foro extends JFrame {
 	public void setTable(JTable table) {
 		this.table = table;
 	}
+
+	public String getEscribeAqui() {
+		return txtEscribeAqui.getText();
+	}
+
+	
 }
+

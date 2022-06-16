@@ -25,6 +25,7 @@ public class _5_Hola_Nombre extends JFrame {
 	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
 	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta, lblFondo, lblHola;
 
+
 	public _5_Hola_Nombre() {
 		setTitle("HOLA + NOMBRE");
 		setResizable(false);
@@ -164,7 +165,6 @@ public class _5_Hola_Nombre extends JFrame {
 		btnMisEventos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 8);
-
 			}
 		});
 		
@@ -220,3 +220,4 @@ public class _5_Hola_Nombre extends JFrame {
 		this.miModelo = miModelo;
 	}
 }
+

@@ -33,6 +33,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._10_Configuracion;
 import vistas._2_Bienvenido_admin;
@@ -83,14 +84,17 @@ public class Modelo {
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
-	private DefaultTableModel tablaForo;
+	private DefaultTableModel tablaForo = new DefaultTableModel();
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
-	private String sqlTablaMisEventos = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
-	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
-	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
-	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
-	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
-	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr inner join eventos on codigo_evento=eventos.codigo_evento where codigo_foro=codigo_evento;";
+
+	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
+	private String sqlTablaEventosFutbol = "Select codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
+	private String sqlTablaEventosBaloncesto = "Select codigo_evento,nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
+	private String sqlTablaEventosTenis = "Select codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
+	private String sqlTablaEventosPadel = "Select codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
+	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr where codigo_foro = ?;";
+	private String codigo_evento;
+
 	private String sqlBloqueaUsuario = "update users set estado ='inactivo' where usr=?;";
 	private String sqlDesbloqueaUsuario = "update users set estado = 'activo' where usr=?;";
 	private String usrPerfil;
@@ -102,6 +106,7 @@ public class Modelo {
 	private String resultado;
 	private int fallos;
 	private String numeroRandom;
+
 	private String fechaPerfil;
 	private String opcionDeporte = "";
 	private int opcionDeporteId;
@@ -112,7 +117,6 @@ public class Modelo {
 	 */
 	public void tuPerfil() {
 		String sqlPerfil = "select usr, nombre, apellidos, telefono, email, fecha_nacimiento, poblacion from users where usr = ? ";
-
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlPerfil);
 			pstmt.setString(1, usr);
@@ -125,7 +129,6 @@ public class Modelo {
 			emailPerfil = rset.getString(5);
 			fechaPerfil = rset.getString(6);
 			poblacionPerfil = rset.getString(7);
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -515,26 +518,46 @@ public class Modelo {
 	}
 
 	/**
-	 * Método unirseEvento: Método que permite unirse a un evento.
+	 * Método que te permite unirte a un evento haciendo un insert en la tabla
+	 * user_eventos
 	 */
-	public void unirseEvento(JTable tablaEventos) {
-		String polideportivo = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 2);
-		String fecha = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 3);
-		String hora = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 4);
-		String nivel = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 5);
-		String sqlCodigoEvento = "Select codigo_evento from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte;";
-		String eventoSeleccionado = "Select codigo_evento from eventos where polideportivo = ? and fecha = ? and hora = ? and nivel = ? and codigo_deporte = ?;";
 
+	public void UnirseEvento(String codigo_evento_sel) {
+		String RegistroSql = "INSERT INTO users_eventos(usr,codigo_evento) values(?,?);";
+		PreparedStatement pstmt;
 		try {
-			PreparedStatement pstmt = conexion.prepareStatement(eventoSeleccionado);
-			pstmt.setString(0, polideportivo);
-			pstmt.setString(1, fecha);
-			pstmt.setString(2, hora);
-			pstmt.setString(3, nivel);
+			pstmt = conexion.prepareStatement(RegistroSql);
+			pstmt.setString(1, usr);
+			pstmt.setString(2, codigo_evento_sel);
+			pstmt.executeUpdate();
+
+			System.out.println("TE HAS UNIDO AL EVENTO");
 		} catch (SQLException e) {
-			e.printStackTrace();
+
 		}
 	}
+
+//	/**
+//	 * Método unirseEvento: Método que permite unirse a un evento.
+//	 */
+//	public void unirseEvento(JTable tablaEventos) {
+//		String polideportivo = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 2);
+//		String fecha = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 3);
+//		String hora = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 4);
+//		String nivel = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 5);
+//		String sqlCodigoEvento = "Select codigo_evento from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte;";
+//		String eventoSeleccionado = "Select codigo_evento from eventos where polideportivo = ? and fecha = ? and hora = ? and nivel = ? and codigo_deporte = ?;";
+//
+//		try {
+//			PreparedStatement pstmt = conexion.prepareStatement(eventoSeleccionado);
+//			pstmt.setString(0, polideportivo);
+//			pstmt.setString(1, fecha);
+//			pstmt.setString(2, hora);
+//			pstmt.setString(3, nivel);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * Método bloquearUsuario: permite acceder a la base de datos para hacer que el
@@ -946,6 +969,68 @@ public class Modelo {
 			getTablaMisEventos();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Método que te permite abandonar a un evento haciendo un delete en la tabla
+	 * user_eventos
+	 */
+	public void AbandonarEvento(String codigo_evento_sel) {
+		String RegistroSql = "DELETE from users_eventos where codigo_evento=?;";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(RegistroSql);
+			pstmt.setString(1, codigo_evento_sel);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+
+		}
+	}
+
+	/**
+	 * Este método carga los valores del foro según lo que selecciones en la tabla
+	 * de MisEventos
+	 */
+	public void TablaForo(String codigo_evento) {
+		this.codigo_evento = codigo_evento;
+		int numColumnas = getNumColumnas2(sqlForo, codigo_evento);
+		Object[] contenido = new Object[numColumnas];
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(sqlForo);
+			pstmt.setString(1, codigo_evento);
+			ResultSet rset = pstmt.executeQuery();
+			ResultSetMetaData rsmd = rset.getMetaData();
+			for (int i = 0; i < numColumnas; i++) {
+				tablaForo.addColumn(rsmd.getColumnName(i + 1));
+			}
+			while (rset.next()) {
+				for (int col = 1; col <= numColumnas; col++) {
+					contenido[col - 1] = rset.getString(col);
+				}
+				tablaForo.addRow(contenido);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * El método EnviarMensaje hace un insert del mensaje en la base de datos y lo
+	 * guarda.
+	 */
+	public void EnviarMensaje(String mensaje) {
+		String RegistroSql = "INSERT INTO mensaje(mensaje,codigo_foro,usr) values(?,?,?);";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(RegistroSql);
+			pstmt.setString(1, mensaje);
+			pstmt.setString(2, codigo_evento);
+			pstmt.setString(3, usr);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+
 		}
 	}
 

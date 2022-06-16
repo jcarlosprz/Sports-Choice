@@ -229,7 +229,7 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	/**
 	 * Método actualizar: Metodo que actualiza y muetra una pantalla u otra
 	 * dependiendo de si la persona que hace login es usuario o administrador. En
-	 * caso de error lanza label informativo.
+	 * caso de error lanza label informativo.  
 	 */
 	public void actualizar() {
 		String resultado = miModelo.getResultado();

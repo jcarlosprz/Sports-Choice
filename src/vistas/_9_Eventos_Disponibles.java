@@ -19,6 +19,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+
 import controlador.Controlador;
 import modelo.Modelo;
 
@@ -132,6 +135,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 			@Override
 			public void windowActivated(WindowEvent e) {
 				table.setModel(miModelo.getTablaEventosBaloncesto());
+				ocultarColumnas(table.getModel(),0);
 			}
 		});
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -155,6 +159,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnUnirse.setEnabled(false);
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				miModelo.UnirseEvento(miControlador.SeleccionEventosDisp());
 				miControlador.cambiarPantalla(10, 8);
 			}
 		});
@@ -178,11 +183,33 @@ public class _9_Eventos_Disponibles extends JFrame {
 		panel.add(lblFondo);
 	}
 
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
+	public void setBtnHome(JButton btnHome) {
+		this.btnHome = btnHome;
+	}
+
+	public JTable getTable() {
+		return table;
+	}
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
 
 	public void setMiModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
+	}
+	public void ocultarColumnas(TableModel tableModel,int numColumnas) {
+		String nombreColumna=tableModel.getColumnName(numColumnas);
+			TableColumn col = table.getColumn(nombreColumna);
+			col.setWidth(0);
+			col.setMaxWidth(0);
+			col.setMinWidth(0);
+			col.setPreferredWidth(0);
+			col.setResizable(false);
+		doLayout();
 	}
 }

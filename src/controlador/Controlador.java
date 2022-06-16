@@ -74,6 +74,17 @@ public class Controlador {
 				.getValueAt(((_7_Mis_Eventos) pantallas[8]).getTable().getSelectedRow(), 0);
 		return codigo_evento;
 	}
+
+	/**
+	 * Método que según la selección de la tabla obtiene el valor de la columna 0,
+	 * es decir, obtiene el código del evento y lo guarda en una variable para
+	 * posteriormente poder hacer una consulta
+	 */
+	public String SeleccionEventosDisp() {
+		String codigo_evento = (String) (((_9_Eventos_Disponibles) pantallas[10]).getTable())
+				.getValueAt(((_9_Eventos_Disponibles) pantallas[10]).getTable().getSelectedRow(), 0);
+		return codigo_evento;
+	}
 	
 	/**Este método obtiene el mensaje y se lo pasa al método que hace el insert*/
 	public void Mensaje(JTable tabla) {

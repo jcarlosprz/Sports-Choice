@@ -34,6 +34,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 import vistas._1_Bienvenido_a_SportsChoice;
 import vistas._10_Configuracion;
@@ -85,10 +86,10 @@ public class Modelo {
 	private DefaultTableModel tablaForo = new DefaultTableModel();
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
-	private String sqlTablaEventosFutbol = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
-	private String sqlTablaEventosBaloncesto = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
-	private String sqlTablaEventosTenis = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
-	private String sqlTablaEventosPadel = "Select nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
+	private String sqlTablaEventosFutbol = "Select codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 1;";
+	private String sqlTablaEventosBaloncesto = "Select codigo_evento,nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 2;";
+	private String sqlTablaEventosTenis = "Select codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 3;";
+	private String sqlTablaEventosPadel = "Select codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte where deportes.codigo_deporte = 4;";
 	private String sqlForo = "Select users.usr, mensaje from mensaje inner join users on mensaje.usr = users.usr where codigo_foro = ?;";
 	private String codigo_evento;
 	private String sqlBloqueaUsuario = "update users set estado ='inactivo' where usr=?;";
@@ -101,16 +102,11 @@ public class Modelo {
 	private String poblacionPerfil;
 
 	private String numeroRandom;
-	
+
 	private String fechaPerfil;
-	
+
 	private String opcionDeporte = "";
 	private int opcionDeporteId;
-
-
-
-
-
 
 	/**
 	 * Con el método tuPerfil, el select recoge los valores de la base de datos.
@@ -160,12 +156,9 @@ public class Modelo {
 
 	}
 
-
-	
-
 	/**
 	 * Con el método deletePerfil, se borra el usuario
-	 * */
+	 */
 	public void deletePerfil() {
 		String delete = "Delete from users where usr = ? ";
 
@@ -538,15 +531,52 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		
+		/**
+		 * Método que te permite unirte a un evento haciendo un insert en la tabla
+		 * user_eventos
+		 */
 	}
 
+	public void UnirseEvento(String codigo_evento_sel) {
+		String RegistroSql = "INSERT INTO users_eventos(usr,codigo_evento) values(?,?);";
+		PreparedStatement pstmt;
+		try {
+			pstmt = conexion.prepareStatement(RegistroSql);
+			pstmt.setString(1, usr);
+			pstmt.setString(2, codigo_evento_sel);
+			pstmt.executeUpdate();
 
+			System.out.println("TE HAS UNIDO AL EVENTO");
+		} catch (SQLException e) {
+
+		}
+	}
+	/**
+	 * Método que te permite abandonar a un evento haciendo un delete en la tabla
+	 * user_eventos
+	 */
+
+public void AbandonarEvento(String codigo_evento_sel) {
+	String RegistroSql = "DELETE from users_eventos where codigo_evento=?;";
+	PreparedStatement pstmt;
+	try {
+		pstmt = conexion.prepareStatement(RegistroSql);
+		pstmt.setString(1, codigo_evento_sel);
+		pstmt.executeUpdate();
+
+		System.out.println("HAS ABANDONADO EL EVENTO");
+	} catch (SQLException e) {
+
+	}
+}
 	/**
 	 * Este método carga los valores del foro según lo que selecciones en la tabla
 	 * de MisEventos
 	 */
 	public void TablaForo(String codigo_evento) {
-		tablaForo=new DefaultTableModel();
+
 		this.codigo_evento = codigo_evento;
 		int numColumnas = getNumColumnas2(sqlForo, codigo_evento);
 		Object[] contenido = new Object[numColumnas];
@@ -564,14 +594,13 @@ public class Modelo {
 					contenido[col - 1] = rset.getString(col);
 				}
 				tablaForo.addRow(contenido);
-				
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-	}
 
+	}
 
 	/**
 	 * El método EnviarMensaje hace un insert del mensaje en la base de datos y lo
@@ -592,7 +621,6 @@ public class Modelo {
 
 		}
 	}
-
 
 	/**
 	 * 
@@ -890,22 +918,20 @@ public class Modelo {
 		}
 	}
 
-
-
 	public String updateCodigo() {
 		String sqlActualizarCodigo = "update users set codigo_recuperacion = ? where email = ?";
 		String numeroAleatorio = generadorNumero();
 
-			try {
-				PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
-				pstmt.setString(1, numeroAleatorio);
-				pstmt.setString(2, recuperarContrasena.getTxtEmail());
-				pstmt.executeUpdate();
-				recuperarContrasena.numeroRandom(numeroAleatorio);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return numeroAleatorio;
+		try {
+			PreparedStatement pstmt = conexion.prepareStatement(sqlActualizarCodigo);
+			pstmt.setString(1, numeroAleatorio);
+			pstmt.setString(2, recuperarContrasena.getTxtEmail());
+			pstmt.executeUpdate();
+			recuperarContrasena.numeroRandom(numeroAleatorio);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return numeroAleatorio;
 	}
 
 	// Metodo que genera un número aleatorio de 6 números y lo convierte a String
@@ -917,14 +943,9 @@ public class Modelo {
 		return numeroRandom;
 	}
 
+	// Metodo comprueba código introducido con código base de datos.
 
-	
-	
-
-	
-	//Metodo comprueba código introducido con código base de datos.
-
-	public void comparacionCodigos() {		
+	public void comparacionCodigos() {
 		String sqlEmailExistente = "Select codigo_recuperacion from users where codigo_recuperacion = ?";
 		try {
 			PreparedStatement pstmt = conexion.prepareStatement(sqlEmailExistente);
@@ -942,7 +963,6 @@ public class Modelo {
 			e.printStackTrace();
 		}
 	}
-
 
 	// Metodo actualiza contrasena
 	public void actualizarContrasena() {
@@ -967,11 +987,6 @@ public class Modelo {
 		}
 
 	}
-
-
-	
-	
-	
 
 	// Método crearEvento
 	public void crearEvento() {
@@ -999,7 +1014,6 @@ public class Modelo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 
 	}
 

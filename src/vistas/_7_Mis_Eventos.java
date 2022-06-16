@@ -19,6 +19,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
 
 import controlador.Controlador;
 import modelo.Modelo;
@@ -57,6 +60,11 @@ public class _7_Mis_Eventos extends JFrame {
 		panel.add(lblMisEventos);
 
 		btnAbandonar = new JButton("ABANDONAR");
+		btnAbandonar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			miModelo.AbandonarEvento(miControlador.SeleccionMisEventos());
+			}
+		});
 		btnAbandonar.setBorder(null);
 		btnAbandonar.setEnabled(false);
 		btnAbandonar.setBackground(new Color(176, 196, 222));
@@ -124,6 +132,7 @@ public class _7_Mis_Eventos extends JFrame {
 			@Override
 			public void windowActivated(WindowEvent e) {
 				table.setModel(miModelo.getTablaMisEventos());
+				ocultarColumnas(table.getModel(),0);
 			}
 		});
 
@@ -170,6 +179,16 @@ public class _7_Mis_Eventos extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-93, 0, 939, 683);
 		panel.add(lblFondo);
+	}
+	public void ocultarColumnas(TableModel tableModel,int numColumnas) {
+		String nombreColumna=tableModel.getColumnName(numColumnas);
+			TableColumn col = table.getColumn(nombreColumna);
+			col.setWidth(0);
+			col.setMaxWidth(0);
+			col.setMinWidth(0);
+			col.setPreferredWidth(0);
+			col.setResizable(false);
+		doLayout();
 	}
 
 	public JTable getTable() {

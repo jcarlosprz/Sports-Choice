@@ -84,7 +84,7 @@ public class Modelo {
 	private DefaultTableModel tablaAdmin;
 	private DefaultTableModel tablaMisEventos;
 	private DefaultTableModel tablaEventosBaloncesto;
-	private DefaultTableModel tablaForo = new DefaultTableModel();
+	private DefaultTableModel tablaForo;
 	private String sqlTablaAdmin = "Select usr, nombre, apellidos, email, estado from users WHERE rol='usuario'";
 
 	private String sqlTablaMisEventos = "Select eventos.codigo_evento, nombre_deporte, polideportivo, fecha, hora, nivel from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte inner join users_eventos on eventos.codigo_evento = users_eventos.codigo_evento where users_eventos.usr = ?;";
@@ -264,7 +264,6 @@ public class Modelo {
 				bienvenida.actualizar();
 				TablaAdmin();
 				TablaMisEventos();
-				TablaForo();
 			} else {
 				fallos++;
 				if (fallos == 3) {
@@ -490,34 +489,6 @@ public class Modelo {
 	}
 
 	/**
-	 * Método tablaForo: Método que saca columnas y filas y las añade para
-	 * mostrarlas en la tabla de los eventos de baloncesto.
-	 */
-	public void TablaForo() {
-		tablaForo = new DefaultTableModel();
-
-		int numColumnas = getNumColumnas(sqlForo);
-		Object[] contenido = new Object[numColumnas];
-		PreparedStatement pstmt;
-		try {
-			pstmt = conexion.prepareStatement(sqlForo);
-			ResultSet rset = pstmt.executeQuery();
-			ResultSetMetaData rsmd = rset.getMetaData();
-			for (int i = 0; i < numColumnas; i++) {
-				tablaForo.addColumn(rsmd.getColumnName(i + 1));
-			}
-			while (rset.next()) {
-				for (int col = 1; col <= numColumnas; col++) {
-					contenido[col - 1] = rset.getString(col);
-				}
-				tablaForo.addRow(contenido);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
 	 * Método que te permite unirte a un evento haciendo un insert en la tabla
 	 * user_eventos
 	 */
@@ -536,28 +507,6 @@ public class Modelo {
 
 		}
 	}
-
-//	/**
-//	 * Método unirseEvento: Método que permite unirse a un evento.
-//	 */
-//	public void unirseEvento(JTable tablaEventos) {
-//		String polideportivo = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 2);
-//		String fecha = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 3);
-//		String hora = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 4);
-//		String nivel = (String) tablaEventos.getValueAt(tablaEventos.getSelectedRow(), 5);
-//		String sqlCodigoEvento = "Select codigo_evento from deportes inner join eventos on deportes.codigo_deporte = eventos.codigo_deporte;";
-//		String eventoSeleccionado = "Select codigo_evento from eventos where polideportivo = ? and fecha = ? and hora = ? and nivel = ? and codigo_deporte = ?;";
-//
-//		try {
-//			PreparedStatement pstmt = conexion.prepareStatement(eventoSeleccionado);
-//			pstmt.setString(0, polideportivo);
-//			pstmt.setString(1, fecha);
-//			pstmt.setString(2, hora);
-//			pstmt.setString(3, nivel);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
 
 	/**
 	 * Método bloquearUsuario: permite acceder a la base de datos para hacer que el
@@ -745,7 +694,6 @@ public class Modelo {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	/**
@@ -808,7 +756,6 @@ public class Modelo {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	/**
@@ -993,6 +940,7 @@ public class Modelo {
 	 * de MisEventos
 	 */
 	public void TablaForo(String codigo_evento) {
+		tablaForo = new DefaultTableModel();
 		this.codigo_evento = codigo_evento;
 		int numColumnas = getNumColumnas2(sqlForo, codigo_evento);
 		Object[] contenido = new Object[numColumnas];
@@ -1217,5 +1165,4 @@ public class Modelo {
 	public void setOpcionDeporteId(int opcionDeporteId) {
 		this.opcionDeporteId = opcionDeporteId;
 	}
-
 }

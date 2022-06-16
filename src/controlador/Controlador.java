@@ -1,9 +1,7 @@
 package controlador;
 
 import java.util.Date;
-
 import javax.swing.JFrame;
-
 import modelo.Modelo;
 import vistas._10_Configuracion;
 import vistas._1_Bienvenido_a_SportsChoice;
@@ -16,17 +14,28 @@ public class Controlador {
 	private Modelo miModelo;
 	private JFrame[] pantallas;
 
+	/**
+	 * Método cambiarPantalla: oculta una pantalla y muetra otra. Método utilizado
+	 * en todas las vistas de la aplicación.
+	 */
 	public void cambiarPantalla(int numero1, int numero2) {
 		pantallas[numero1].setVisible(false);
 		pantallas[numero2].setVisible(true);
 	}
 
+	/**
+	 * Método login: Establece el login de la apliccación comprobando si el Usr y
+	 * pwd introducidos concuerdan y son correctos.
+	 */
 	public void login() {
 		String usr = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getUsr();
 		String pwd = ((_1_Bienvenido_a_SportsChoice) pantallas[0]).getPwd();
 		miModelo.login(usr, pwd);
 	}
 
+	/**
+	 * Método guardar: Guarda los datos de conexión de la aplicación.
+	 */
 	public void guardar() {
 		String[] datosConexion = { ((_10_Configuracion) pantallas[1]).getTxtUrlConexion().getText(),
 				((_10_Configuracion) pantallas[1]).getTxtUsuarioConexion().getText(),
@@ -35,13 +44,10 @@ public class Controlador {
 	}
 
 	/**
-	 * 
-	 * Método para que un usuario se pueda registrar
-	 * 
+	 * Método DatosRegistro: Método para que un usuario se pueda registrar mediante
+	 * un insert en la BBDD
 	 */
-
 	public void DatosRegistro() {
-
 		String usr = ((_2_Registrarse) pantallas[3]).getNombreUsuario();
 		String nombre = ((_2_Registrarse) pantallas[3]).getNombre();
 		String apellidos = ((_2_Registrarse) pantallas[3]).getApellidos();
@@ -54,16 +60,14 @@ public class Controlador {
 
 		if (miModelo.Registro(usr, nombre, apellidos, telefono, email, poblacion, date, pwd, confirmarpwd) == true) {
 			cambiarPantalla(3, 0);
-
 		}
-
 	}
 
 	/**
-	 * Método para que un usuario pueda actualizar perfil. Mediante
-	 * getters se cogen cada uno de los campos los cuales se van a poder modificar.
-	 * Con el método metodo(updatePerfil) se pasan los valores de los campos. El update 
-	 * actualiza los valores de dichos campos.
+	 * Método updatePerfil: Actualización del perfil. Mediante getters se cogen cada
+	 * uno de los campos los cuales se van a poder modificar. Con el método
+	 * (updatePerfil) se pasan los valores de los campos. El update actualiza los
+	 * valores de dichos campos.
 	 */
 	public void updatePerfil() {
 		String nombre = ((_6_Tu_perfil) pantallas[7]).getTxtNombre();
@@ -84,7 +88,6 @@ public class Controlador {
 
 	public void setModelo(Modelo miModelo) {
 		this.miModelo = miModelo;
-
 	}
 
 }

@@ -26,15 +26,8 @@ public class _10_Configuracion extends JFrame {
 	private Controlador miControlador;
 	private Modelo miModelo;
 	private JPanel contentPane;
-	private JLabel lblResultado;
-	private JButton btnEscribe3;
-	private JLabel lblInfo;
-	private JLabel lblUsuarioConexion;
-	private JLabel lblPasswordConexion;
-	private JLabel lblUrlConexion;
-	private JTextField txtUsuarioConexion;
-	private JTextField txtPasswordConexion;
-	private JTextField txtUrlConexion;
+	private JLabel lblResultado, lblInfo, lblUsuarioConexion, lblPasswordConexion, lblUrlConexion;
+	private JTextField txtUsuarioConexion, txtPasswordConexion, txtUrlConexion;
 	private String [] keys = {"url", "username", "pwd"};
 
 	public _10_Configuracion() {

@@ -22,22 +22,13 @@ import modelo.exportarTablas;
 
 public class _6_Tu_perfil extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
 			lblPoblacion, lblPerfil, lblFechaNac, lblTuPerfil, lblFondo;
-	private JTextField txtNombreUsuario, txtNombre, txtApellidos, txtTelefono, txtEmail, txtPoblacion;
+	private JTextField txtNombreUsuario, txtNombre, txtApellidos, txtTelefono, txtEmail, txtPoblacion, textFechaNac;
 	private JButton btnPregunta, btnPapelera, btnHome, btnGuardar;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
-
-	//
-	//
-	//
-	private JTextField textFechaNac;
-	//
-	//
-	//
 
 	public _6_Tu_perfil() {
 		setTitle("TU PERFIL");
@@ -72,11 +63,9 @@ public class _6_Tu_perfil extends JFrame {
 		panel.add(textFechaNac);
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/pregunta-32x32.png")));
-		/* Hacen que el boton sea transparente. */
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);
-		/* Cambia el puntero del rator a pointer cursor. */
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
@@ -179,9 +168,9 @@ public class _6_Tu_perfil extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.updatePerfil();
 				miControlador.cambiarPantalla(7, 6);
-
 			}
 		});
+
 		btnGuardar.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnGuardar.setBounds(526, 611, 162, 56);
 		panel.add(btnGuardar);
@@ -199,6 +188,7 @@ public class _6_Tu_perfil extends JFrame {
 				miControlador.cambiarPantalla(7, 0);
 			}
 		});
+
 		btnPapelera.setBorder(null);
 		btnPapelera.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/papelera.png")));
 		btnPapelera.setBounds(163, 611, 51, 56);
@@ -215,6 +205,7 @@ public class _6_Tu_perfil extends JFrame {
 				miControlador.cambiarPantalla(7, 6);
 			}
 		});
+
 		btnHome.setIcon(new ImageIcon(_6_Tu_perfil.class.getResource("/images/home-icon.png")));
 		btnHome.setBounds(645, 65, 45, 44);
 		panel.add(btnHome);
@@ -230,8 +221,8 @@ public class _6_Tu_perfil extends JFrame {
 	}
 
 	/**
-	 * El método actualizarPerfil sirve para cuando le des al perfil se muestren los
-	 * datos del usuario
+	 * Método actualizarPerfil: Al seleccionar perfil se muestren los datos del
+	 * usuario.
 	 */
 	public void actualizarsePerfil() {
 
@@ -255,13 +246,8 @@ public class _6_Tu_perfil extends JFrame {
 
 		String poblacion = miModelo.getPoblacion();
 		txtPoblacion.setText(poblacion);
-
 	}
 
-	/**
-	 * Getters que sirven para actualizar el perfil de los usuarios
-	 *
-	 */
 	public String getTxtNombreUsuario() {
 		return txtNombreUsuario.getText();
 	}
@@ -290,9 +276,6 @@ public class _6_Tu_perfil extends JFrame {
 		return txtPoblacion.getText();
 	}
 
-	/**
-	 * Método para que la vista conozca al controlador y al modelo
-	 */
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

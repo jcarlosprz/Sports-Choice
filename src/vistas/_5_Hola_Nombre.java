@@ -19,13 +19,11 @@ import java.awt.event.MouseEvent;
 
 public class _5_Hola_Nombre extends JFrame {
 
-	private JPanel panel;
-	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
-	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta, lblFondo;
-
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblHola;
+	private JPanel panel;
+	private JButton btnBaloncesto, btnFutbol, btnPadel, btnTenis, btnMisEventos, btnMiPerfil, btnLogOut;
+	private JLabel lblHolaNombre, lblBaloncesto, lblFutbol, lblPadel, lblTenis, lblPregunta, lblFondo, lblHola;
 
 	public _5_Hola_Nombre() {
 		setTitle("HOLA + NOMBRE");
@@ -44,7 +42,6 @@ public class _5_Hola_Nombre extends JFrame {
 		lblHolaNombre.setFont(new Font("Dubai", Font.BOLD, 45));
 		lblHolaNombre.setBounds(407, 22, 297, 60);
 		panel.add(lblHolaNombre);
-
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowActivated(WindowEvent e) {
@@ -64,19 +61,18 @@ public class _5_Hola_Nombre extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
-				miModelo.TablaEventosBaloncesto();		
+				miModelo.TablaEventosBaloncesto();
 				miModelo.setOpcionDeporte("Baloncesto");
 				miModelo.setOpcionDeporteId(1);
 			}
 		});
-		
+
 		btnBaloncesto.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Basket_resized.png")));
 		btnBaloncesto.setBounds(226, 136, 180, 180);
 		panel.add(btnBaloncesto);
 		btnBaloncesto.setBackground(new Color(0, 0, 0, 0));
 		btnBaloncesto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBaloncesto.setOpaque(false);
-
 
 		btnFutbol = new JButton("");
 		btnFutbol.addActionListener(new ActionListener() {
@@ -86,9 +82,9 @@ public class _5_Hola_Nombre extends JFrame {
 				miModelo.TablaEventosFutbol();
 				miModelo.setOpcionDeporte("Fútbol");
 				miModelo.setOpcionDeporteId(2);
-}
-
+			}
 		});
+		
 		btnFutbol.setBorder(null);
 		btnFutbol.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/Futbol_resized.png")));
 		btnFutbol.setOpaque(false);
@@ -101,7 +97,6 @@ public class _5_Hola_Nombre extends JFrame {
 
 		btnPadel = new JButton("");
 		btnPadel.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosPadel();
@@ -109,6 +104,7 @@ public class _5_Hola_Nombre extends JFrame {
 				miModelo.setOpcionDeporteId(3);
 			}
 		});
+		
 		btnPadel.setBorder(null);
 		btnPadel.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/padel_resized.png")));
 		btnPadel.setOpaque(false);
@@ -120,7 +116,6 @@ public class _5_Hola_Nombre extends JFrame {
 
 		btnTenis = new JButton("");
 		btnTenis.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(6, 10);
 				miModelo.TablaEventosTenis();
@@ -128,6 +123,7 @@ public class _5_Hola_Nombre extends JFrame {
 				miModelo.setOpcionDeporteId(4);
 			}
 		});
+		
 		btnTenis.setBorder(null);
 		btnTenis.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/tennis_ball_resized.png")));
 		btnTenis.setOpaque(false);
@@ -171,6 +167,7 @@ public class _5_Hola_Nombre extends JFrame {
 
 			}
 		});
+		
 		btnMisEventos.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnMisEventos.setBackground(new Color(176, 196, 222));
 		btnMisEventos.setBounds(264, 602, 142, 59);
@@ -213,7 +210,6 @@ public class _5_Hola_Nombre extends JFrame {
 		lblFondo.setIcon(new ImageIcon(_5_Hola_Nombre.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-104, 0, 939, 683);
 		panel.add(lblFondo);
-
 	}
 
 	public void setMiControlador(Controlador miControlador) {

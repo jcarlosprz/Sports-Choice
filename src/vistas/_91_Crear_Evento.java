@@ -30,20 +30,16 @@ import java.awt.event.MouseEvent;
 
 public class _91_Crear_Evento extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JButton btnPregunta, btnCrearEvento;
 	private JLabel lblHasSeleccionadoDeporte, lblSeleccionaTusPreferencias, lblHoraDosPuntos, lblUbicacion, lblHora,
-			lblFecha, lblNivel;
+			lblFecha, lblNivel, lblFondo, lblDeporteSeleccionado, lblMensaje;
 	private JComboBox cbxPolideportivo;
 	private JList listNivel;
 	private JSpinner spinnerHora, spinnerMinutos;
 	private JCalendar calendar;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
-
-	private JLabel lblFondo, lblDeporteSeleccionado, lblMensaje;
-	
 
 	public _91_Crear_Evento() {
 		addWindowListener(new WindowAdapter() {
@@ -52,7 +48,7 @@ public class _91_Crear_Evento extends JFrame {
 				lblDeporteSeleccionado.setText(miModelo.getOpcionDeporte());
 			}
 		});
-	
+
 		setTitle("CREAR EVENTO");
 		setResizable(false);
 		setBounds(140, 50, 850, 720);
@@ -71,7 +67,7 @@ public class _91_Crear_Evento extends JFrame {
 				miControlador.cambiarPantalla(11, 10);
 			}
 		});
-		
+
 		lblMensaje = new JLabel("");
 		lblMensaje.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblMensaje.setForeground(Color.RED);
@@ -100,6 +96,7 @@ public class _91_Crear_Evento extends JFrame {
 				miModelo.crearEvento();
 			}
 		});
+
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnCrearEvento.setBounds(603, 587, 162, 56);
 		panel.add(btnCrearEvento);
@@ -114,15 +111,13 @@ public class _91_Crear_Evento extends JFrame {
 						"AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_91_Crear_Evento.class.getResource("/images/pregunta-32x32.png")));
-		// Hacen que el bot�n sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);
-		// Cambia el puntero del rator a pointer cursor.
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
 		btnPregunta.setForeground(new Color(0, 0, 0));
 		btnPregunta.setBounds(553, 55, 32, 52);
 		panel.add(btnPregunta);
@@ -135,8 +130,8 @@ public class _91_Crear_Evento extends JFrame {
 		cbxPolideportivo = new JComboBox();
 		cbxPolideportivo.setBackground(Color.WHITE);
 		cbxPolideportivo.setFont(new Font("Dubai", Font.PLAIN, 15));
-		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] { "", "Enrique Blas",
-				"Galapagar Sports ", "Dehesa de Navalcarb\u00F3n", "El Abaj\u00F3n", "Principe Felipe" }));
+		cbxPolideportivo.setModel(new DefaultComboBoxModel(new String[] { "", "Enrique Blas", "Galapagar Sports ",
+				"Dehesa de Navalcarb\u00F3n", "El Abaj\u00F3n", "Principe Felipe" }));
 		cbxPolideportivo.setBounds(65, 233, 207, 21);
 		panel.add(cbxPolideportivo);
 
@@ -196,7 +191,7 @@ public class _91_Crear_Evento extends JFrame {
 		lblNivel.setFont(new Font("Dubai", Font.BOLD, 15));
 		lblNivel.setBounds(677, 214, 104, 14);
 		lblNivel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		panel.add(lblNivel);		
+		panel.add(lblNivel);
 		lblDeporteSeleccionado = new JLabel();
 		lblDeporteSeleccionado.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblDeporteSeleccionado.setBounds(524, 10, 242, 54);
@@ -208,13 +203,12 @@ public class _91_Crear_Evento extends JFrame {
 		panel.add(lblFondo);
 	}
 
-	
-	
-	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
+	// Label que saca por pantalla error al intentar registrar un usuario que ya
+	// existe.
 	public void errorCamposVacios() {
 		lblMensaje.setText("Te has dejado algún campo sin seleccionar");
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}
@@ -223,13 +217,11 @@ public class _91_Crear_Evento extends JFrame {
 		this.miModelo = miModelo;
 	}
 
-
-
 	public String getCbxPolideportivo() {
 		return cbxPolideportivo.getSelectedItem().toString();
 	}
 
-
+	// Devuelve la hora y se le añade un 0 delante si solo tiene un digito.
 	public String getSpinnerHora() {
 		String prueba = "";
 		if (spinnerHora.getValue().toString().length() == 1) {
@@ -238,7 +230,7 @@ public class _91_Crear_Evento extends JFrame {
 		return prueba;
 	}
 
-
+	// Devuelve los minutos y se le añade un 0 delante si solo tiene un digito.
 	public String getSpinnerMinutos() {
 		String prueba = "";
 		if (spinnerMinutos.getValue().toString().length() == 1) {
@@ -246,24 +238,18 @@ public class _91_Crear_Evento extends JFrame {
 		}
 		return prueba;
 	}
-	
+
 	public Date getCalendar() {
 		return calendar.getDate();
 	}
-	
-	
+
 	public JList getListNivel() {
 		return listNivel;
 	}
 
 	public void aceptado() {
-		
+
 		miControlador.cambiarPantalla(11, 8);
 	}
-	
-	
 
-	
 }
-
-

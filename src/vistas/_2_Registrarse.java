@@ -20,6 +20,8 @@ import modelo.Modelo;
 
 public class _2_Registrarse extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JLabel lblInformacionPersonal, lblNombreUsuario, lblNombre, lblApellidos, lblTelefono, lblEmail,
 			lblPoblacion, lblRegistrarse, lblFechaNac, lblFondo, lblError;
@@ -27,8 +29,6 @@ public class _2_Registrarse extends JFrame {
 	private JDateChooser dateChooserFechaNac;
 	private JTextField txtNombreUsuario, txtTfno, txtNombre, txtContrasena, txtApellidos, txtConfirmarContrasena,
 			txtPoblacion, txtEmail;
-	private Controlador miControlador;
-	private Modelo miModelo;
 
 	public _2_Registrarse() {
 		setTitle("REGISTRARSE");
@@ -54,12 +54,12 @@ public class _2_Registrarse extends JFrame {
 						"AYUDA REGISTRO", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+		
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_2_Registrarse.class.getResource("/images/pregunta-32x32.png")));
 		btnPregunta.setOpaque(false);
 		btnPregunta.setBorderPainted(false);
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
 		btnPregunta.setForeground(new Color(0, 0, 0));
 		btnPregunta.setBounds(380, 64, 32, 32);
 		panel.add(btnPregunta);
@@ -131,6 +131,7 @@ public class _2_Registrarse extends JFrame {
 				miControlador.DatosRegistro();
 			}
 		});
+		
 		btnCrearCuenta.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnCrearCuenta.setBounds(509, 574, 162, 56);
 		panel.add(btnCrearCuenta);
@@ -235,8 +236,7 @@ public class _2_Registrarse extends JFrame {
 	public void errorUsuarioExistente() {
 		lblError.setText("El usuario introducido ya existe");
 	}
-
-	/** Getters y Setters de los campos del formulario */
+	
 	public String getNombreUsuario() {
 		return txtNombreUsuario.getText();
 	}
@@ -273,7 +273,6 @@ public class _2_Registrarse extends JFrame {
 		return txtEmail.getText();
 	}
 
-	/** Getters y Setters del controlador y modelo */
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

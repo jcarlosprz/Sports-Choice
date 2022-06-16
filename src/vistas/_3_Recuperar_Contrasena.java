@@ -16,15 +16,13 @@ import java.awt.event.ActionEvent;
 
 public class _3_Recuperar_Contrasena extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JTextField txtEmail, txtCodigo;
 	private JLabel lblRecuperarContrasena, lblIntroduceEmail;
 	private JButton btnFlecha, btnFlecha_1, btnValidar;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
 	private JLabel lblFondo, lblMessageEmail, lblMessageCodigo;
-	
 
 	public _3_Recuperar_Contrasena() {
 		setTitle("RECUPERAR CONTRASENA");
@@ -46,7 +44,7 @@ public class _3_Recuperar_Contrasena extends JFrame {
 				miControlador.cambiarPantalla(4, 0);
 			}
 		});
-		
+
 		lblMessageCodigo = new JLabel("");
 		lblMessageCodigo.setForeground(Color.RED);
 		lblMessageCodigo.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -100,8 +98,6 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		btnValidar = new JButton("VALIDAR");
 		btnValidar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				//miControlador.cambiarPantalla(4, 5);
 				miModelo.comparacionCodigos();
 			}
 		});
@@ -138,7 +134,8 @@ public class _3_Recuperar_Contrasena extends JFrame {
 		panel.add(lblFondo);
 	}
 
-	// Label que saca por pantalla error al intentar registrar un usuario que ya existe.
+	// Label que saca por pantalla error al intentar registrar un usuario que ya
+	// existe.
 	public void errorCampoVacio() {
 		lblMessageEmail.setText("El campo no puede estar vacío");
 	}
@@ -150,19 +147,19 @@ public class _3_Recuperar_Contrasena extends JFrame {
 
 	// Label que saca al usuario código a introducir.
 	public void numeroRandom(String numeroRandom) {
-		lblMessageEmail.setText(getTxtEmail() + ", tu código es -> " + numeroRandom); 
+		lblMessageEmail.setText(getTxtEmail() + ", tu código es -> " + numeroRandom);
 	}
-	
 
+	// Si ambos codigos introducidos concuerdan se cambia de pantalla
 	public void concuerdanCodigos() {
 		miControlador.cambiarPantalla(4, 5);
 	}
-	
+
 	// Label que saca por pantalla error al introducir un email no existente.
 	public void NoConcuerdanCodigos() {
 		lblMessageCodigo.setText("Los códigos no concuerdan");
 	}
-	
+
 	public void setMiControlador(Controlador miControlador) {
 		this.miControlador = miControlador;
 	}

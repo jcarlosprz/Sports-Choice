@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,24 +19,20 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableCellRenderer;
-
 import controlador.Controlador;
 import modelo.Modelo;
-
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
 
 public class _7_Mis_Eventos extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnAbandonar, btnIrAlForo;
 	private JScrollPane scrollPane;
 	private JTable table;
-	private JLabel lblMisEventos;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
-	private JLabel lblFondo;
+	private JLabel lblMisEventos, lblFondo;
 
 	public _7_Mis_Eventos() {
 		setTitle("MIS EVENTOS");
@@ -52,8 +47,6 @@ public class _7_Mis_Eventos extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
-		
-		
 		lblMisEventos = new JLabel("MIS EVENTOS");
 		lblMisEventos.setFont(new Font("Dubai", Font.BOLD, 30));
 		lblMisEventos.setBounds(327, 8, 192, 54);
@@ -79,13 +72,13 @@ public class _7_Mis_Eventos extends JFrame {
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/pregunta-32x32.png")));
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
 		btnPregunta.setForeground(new Color(0, 0, 0));
 		btnPregunta.setBounds(528, 8, 32, 52);
 		panel.add(btnPregunta);
@@ -97,6 +90,7 @@ public class _7_Mis_Eventos extends JFrame {
 				miControlador.cambiarPantalla(8, 6);
 			}
 		});
+
 		btnHome.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/home-icon.png")));
 		btnHome.setBounds(700, 38, 45, 44);
 		panel.add(btnHome);
@@ -156,6 +150,7 @@ public class _7_Mis_Eventos extends JFrame {
 				miControlador.cambiarPantalla(8, 9);
 			}
 		});
+
 		btnIrAlForo.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnIrAlForo.setBounds(240, 591, 162, 56);
 		btnIrAlForo.setBackground(new Color(176, 196, 222));
@@ -170,6 +165,7 @@ public class _7_Mis_Eventos extends JFrame {
 				table.clearSelection();
 			}
 		});
+
 		lblFondo.setIcon(new ImageIcon(_7_Mis_Eventos.class.getResource("/images/fondo_pelotas_5 (1).png")));
 		lblFondo.setBounds(-93, 0, 939, 683);
 		panel.add(lblFondo);

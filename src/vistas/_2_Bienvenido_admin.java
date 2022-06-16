@@ -6,12 +6,10 @@ import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
@@ -19,15 +17,12 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import controlador.Controlador;
 import modelo.Modelo;
 import modelo.exportarTablas;
-
 import java.awt.Dimension;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -47,15 +42,13 @@ import java.text.SimpleDateFormat;
 
 public class _2_Bienvenido_admin extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
-	private JButton btnDesbloquear;
 	private JScrollPane scrollPane;
 	private JTable table;
 	private JLabel lblBienvenidoAdmin, lblConfirmacion;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
-	private JButton btnLogOut, btnBloquear, btnDownload, btnUpload;
+	private JButton btnDesbloquear, btnLogOut, btnBloquear, btnDownload, btnUpload;
 
 	public _2_Bienvenido_admin() {
 		setTitle("BIENVENIDO ADMINISTRADOR");
@@ -90,10 +83,8 @@ public class _2_Bienvenido_admin extends JFrame {
 					btnDesbloquear.setEnabled(false);
 				} else {
 					miModelo.habilitaBoton(btnBloquear, btnDesbloquear, table);
-
 				}
 			}
-
 		});
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -103,7 +94,6 @@ public class _2_Bienvenido_admin extends JFrame {
 		});
 
 		scrollPane.setViewportView(table);
-
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		table.setDefaultRenderer(String.class, centerRenderer);
@@ -124,6 +114,7 @@ public class _2_Bienvenido_admin extends JFrame {
 				table.clearSelection();
 			}
 		});
+		
 		btnDesbloquear.setEnabled(false);
 		btnDesbloquear.setBorder(null);
 		btnDesbloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -139,6 +130,7 @@ public class _2_Bienvenido_admin extends JFrame {
 				table.clearSelection();
 			}
 		});
+		
 		btnBloquear.setEnabled(false);
 		btnBloquear.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBloquear.setFont(new Font("Dubai", Font.BOLD, 15));
@@ -182,14 +174,12 @@ public class _2_Bienvenido_admin extends JFrame {
 		btnUpload.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		panel.add(btnUpload);
 		btnUpload.addActionListener(new ActionListener() {
-
 			public void actionPerformed(final ActionEvent d) {
 				miModelo.cargarObjetoAdmin();
 			}
 		});
 
 		JLabel lblFondo = new JLabel("");
-
 		lblFondo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {

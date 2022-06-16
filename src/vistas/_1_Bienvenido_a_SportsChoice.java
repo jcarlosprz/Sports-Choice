@@ -30,7 +30,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField txtContrasena;
 	private JButton btnAyuda, btnLogin, btnConfiguracion;
-
 	private Controlador miControlador;
 	private Modelo miModelo;
 
@@ -69,21 +68,21 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnAyuda = new JButton("");
 		btnAyuda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "" + "Bienvenido a Sports-Choice, una aplicación para conocer             \r\n"
-						+ "gente nueva a la vez que practicas tus deportes favoritos.\r\n\n"
-						+ "Para utilizar la aplicación solo necesitas un ordenador con\r\n"
-						+ "navegación web y una cuenta asociada con tus datos.\r\n"
-						+ "Sports-Choice se basa en un servicio web que gestiona \r\n"
-						+ "las peticiones de multitud de usuarios para desarrollar \r\n"
-						+ "tus actividades deportivas favoritas.\r\n\n"
-						+ "Se trata de una aplicación visual e interactiva muy fácil \r\n"
-						+ "de usar, con la que incluso los menos acostumbrados \r\n"
-						+ "a las nuevas tecnologías podrán usarla sin ningún \r\n"
-						+ "problema. Existen muchas aplicaciones fitness y \r\n"
-						+ "deportivas, pero ninguna fue nunca tan social y divertida\r\n"
-						+ "como Sports Choice. \r\n\n"
-						+ "Tu app personalizada para practicar deporte cuando \r\n" 
-						+ "y donde quieras. \r\n\n",
+				JOptionPane.showMessageDialog(null,
+						"" + "Bienvenido a Sports-Choice, una aplicación para conocer             \r\n"
+								+ "gente nueva a la vez que practicas tus deportes favoritos.\r\n\n"
+								+ "Para utilizar la aplicación solo necesitas un ordenador con\r\n"
+								+ "navegación web y una cuenta asociada con tus datos.\r\n"
+								+ "Sports-Choice se basa en un servicio web que gestiona \r\n"
+								+ "las peticiones de multitud de usuarios para desarrollar \r\n"
+								+ "tus actividades deportivas favoritas.\r\n\n"
+								+ "Se trata de una aplicación visual e interactiva muy fácil \r\n"
+								+ "de usar, con la que incluso los menos acostumbrados \r\n"
+								+ "a las nuevas tecnologías podrán usarla sin ningún \r\n"
+								+ "problema. Existen muchas aplicaciones fitness y \r\n"
+								+ "deportivas, pero ninguna fue nunca tan social y divertida\r\n"
+								+ "como Sports Choice. \r\n\n"
+								+ "Tu app personalizada para practicar deporte cuando \r\n" + "y donde quieras. \r\n\n",
 						"AYUDA SPORTS CHOICE", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -205,7 +204,6 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.login();
 			}
-
 		});
 
 		btnLogin.setBounds(267, 438, 316, 59);
@@ -217,22 +215,10 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		panel.add(lblFondo);
 	}
 
-	public void setMiControlador(Controlador miControlador) {
-		this.miControlador = miControlador;
-	}
-
-	public void setMiModelo(Modelo miModelo) {
-		this.miModelo = miModelo;
-	}
-
-	public String getUsr() {
-		return txtUsuario.getText();
-	}
-
-	public String getPwd() {
-		return String.valueOf(txtContrasena.getPassword());
-	}
-
+	/**
+	 * Método inactivoError: Metodo que alanza error si el usuario está bloqueado y
+	 * está intentando acceder haciendo login.
+	 */
 	public void inactivoError() {
 		lblRespuesta.setText("Este usuario está bloqueado");
 		txtContrasena.setText("");
@@ -240,10 +226,14 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 		btnLogin.setEnabled(false);
 	}
 
+	/**
+	 * Método actualizar: Metodo que actualiza y muetra una pantalla u otra
+	 * dependiendo de si la persona que hace login es usuario o administrador. En
+	 * caso de error lanza label informativo.
+	 */
 	public void actualizar() {
 		String resultado = miModelo.getResultado();
 		String rol = miModelo.getRol();
-
 		if (resultado.equals("Correcto")) {
 			if (rol.equals("administrador")) {
 				miControlador.cambiarPantalla(0, 2);
@@ -260,6 +250,22 @@ public class _1_Bienvenido_a_SportsChoice extends JFrame {
 				System.exit(0);
 			}
 		}
+	}
+
+	public void setMiControlador(Controlador miControlador) {
+		this.miControlador = miControlador;
+	}
+
+	public void setMiModelo(Modelo miModelo) {
+		this.miModelo = miModelo;
+	}
+
+	public String getUsr() {
+		return txtUsuario.getText();
+	}
+
+	public String getPwd() {
+		return String.valueOf(txtContrasena.getPassword());
 	}
 
 }

@@ -1,4 +1,5 @@
 package modelo;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,8 +9,7 @@ public class exportarTablas implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private DefaultTableModel tabla;
-	
-	
+
 	public exportarTablas(DefaultTableModel tabla) {
 		super();
 		this.tabla = tabla;
@@ -26,5 +26,5 @@ public class exportarTablas implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

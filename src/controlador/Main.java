@@ -26,9 +26,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		//Creación objetos controlador y modelo
 		Controlador miControlador = new Controlador();
-
 		Modelo miModelo = new Modelo();
+		
+		//Creación objetos de las pantallas.
 		_1_Bienvenido_a_SportsChoice bienvenida = new _1_Bienvenido_a_SportsChoice();
 		_10_Configuracion configuracion = new _10_Configuracion();
 		_2_Bienvenido_admin bienvenidaAdmin = new _2_Bienvenido_admin();
@@ -42,11 +44,15 @@ public class Main {
 		_9_Eventos_Disponibles eventosDisponibles = new _9_Eventos_Disponibles();
 		_91_Crear_Evento crearEvento = new _91_Crear_Evento();
 
+		//Creamos array pantallas con cada una de las pantallas de la aplicación.
 		JFrame[] pantallas = { bienvenida, configuracion, bienvenidaAdmin, registrarse, recuperarContrasena,
 				nuevaContrasena, holaNombre, tuPerfil, misEventos, foro, eventosDisponibles, crearEvento };
 
+		//miControlador conoce al modelo y a las vistas.
 		miControlador.setModelo(miModelo);
 		miControlador.setPantallas(pantallas);
+		
+		//miModelo conoce a las vistas.
 		miModelo.setBienvenida(bienvenida);
 		miModelo.setConfiguracion(configuracion);
 		miModelo.setBienvenidaAdmin(bienvenidaAdmin);
@@ -60,6 +66,7 @@ public class Main {
 		miModelo.setEventosDisponibles(eventosDisponibles);
 		miModelo.setCrearEvento(crearEvento);
 
+		//Las vistas conocen al controldor.
 		bienvenida.setMiControlador(miControlador);
 		configuracion.setMiControlador(miControlador);
 		bienvenidaAdmin.setMiControlador(miControlador);
@@ -73,6 +80,7 @@ public class Main {
 		eventosDisponibles.setMiControlador(miControlador);
 		crearEvento.setMiControlador(miControlador);
 
+		//Las vistas conocen al modelo.
 		bienvenida.setMiModelo(miModelo);
 		configuracion.setMiModelo(miModelo);
 		bienvenidaAdmin.setMiModelo(miModelo);
@@ -83,10 +91,10 @@ public class Main {
 		tuPerfil.setMiModelo(miModelo);
 		misEventos.setMiModelo(miModelo);
 		foro.setMiModelo(miModelo);
-
 		eventosDisponibles.setMiModelo(miModelo);
 		crearEvento.setMiModelo(miModelo);
 
+		//Inicializamos primera ventana de la aplicación.
 		bienvenida.setVisible(true);
 
 	}

@@ -16,14 +16,13 @@ import java.awt.event.ActionEvent;
 
 public class _4_Nueva_Contrasena extends JFrame {
 
-	private JPanel panel;
-	private JLabel lblNuevaContrasenaTitulo, lblNuevaContrasena, lblRepetirContrasena, lblConsejoTitulo, lblConsejo1,
-			lblConsejo2, lblConsejo3;
-	private JTextField txtNuevaContrasena, txtRepetirContrasena;
-	private JButton btnFlecha, btnActualizar;
 	private Controlador miControlador;
 	private Modelo miModelo;
-	private JLabel lblFondo, lblMessageCodigo;
+	private JPanel panel;
+	private JLabel lblNuevaContrasenaTitulo, lblNuevaContrasena, lblRepetirContrasena, lblConsejoTitulo, lblConsejo1,
+			lblConsejo2, lblConsejo3, lblFondo, lblMessageCodigo;
+	private JTextField txtNuevaContrasena, txtRepetirContrasena;
+	private JButton btnFlecha, btnActualizar;
 	
 	public _4_Nueva_Contrasena() {
 		setTitle("NUEVA CONTRASENA");
@@ -138,6 +137,7 @@ public class _4_Nueva_Contrasena extends JFrame {
 		lblMessageCodigo.setText("Las contraseñas tienen menos de 6 digitos");
 	}
 	
+	// Si ambas contraseñas introducidas concuerdan se cambia de pantalla
 	public void concuerdanContrasenas() {
 		miControlador.cambiarPantalla(5, 0);
 	}

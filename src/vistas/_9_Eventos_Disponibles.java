@@ -6,7 +6,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,20 +21,17 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import controlador.Controlador;
 import modelo.Modelo;
-
 import java.awt.Dimension;
 
 public class _9_Eventos_Disponibles extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JButton btnPregunta, btnHome, btnCrearEvento, btnUnirse;
 	private JScrollPane scrollPane;
 	private JTable table;
-	private JLabel lblEventosDisponibles;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
-	private JLabel lblFondo;
+	private JLabel lblEventosDisponibles, lblFondo;
 
 	public _9_Eventos_Disponibles() {
 		setTitle("EVENTOS DISPONIBLES");
@@ -64,6 +60,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 				miControlador.cambiarPantalla(10, 11);
 			}
 		});
+
 		btnCrearEvento.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnCrearEvento.setBounds(457, 591, 162, 56);
 		panel.add(btnCrearEvento);
@@ -72,24 +69,24 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnPregunta.setBorder(null);
 		btnPregunta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "" + "Desde esta ventana podrás ver los eventos \r\n"
-						+ "disponibles para ti. \r\n\n"
-						+ "Además, seleccionando uno de ellos, podrás \r\n"
-						+ "pinchar el botón 'Unirse' que se encuentra \r\n"
-						+ "en la parte inferior. De este modo podrás \r\n"
-						+ "comenzar a practicar tu deporte favorito.\r\n\n"
-						+ "También tienes el botón de 'Crear tu evento'\r\n"
-						+ "en caso de que ninguno de los eventos\r\n"
-						+ "disponibles encaje con lo que estás buscando.        \r\n\n", "AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"" + "Desde esta ventana podrás ver los eventos \r\n" + "disponibles para ti. \r\n\n"
+								+ "Además, seleccionando uno de ellos, podrás \r\n"
+								+ "pinchar el botón 'Unirse' que se encuentra \r\n"
+								+ "en la parte inferior. De este modo podrás \r\n"
+								+ "comenzar a practicar tu deporte favorito.\r\n\n"
+								+ "También tienes el botón de 'Crear tu evento'\r\n"
+								+ "en caso de que ninguno de los eventos\r\n"
+								+ "disponibles encaje con lo que estás buscando.        \r\n\n",
+						"AYUDA EVENTOS DISPONIBLES", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
+
 		btnPregunta.setBackground(new Color(255, 204, 153));
 		btnPregunta.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/pregunta-32x32.png")));
-		// Hacen que el bot�n sea transparente.
 		btnPregunta.setOpaque(false);
 		btnPregunta.setContentAreaFilled(false);
 		btnPregunta.setBorderPainted(false);
-		// Cambia el puntero del rator a pointer cursor.
 		btnPregunta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		btnPregunta.setForeground(new Color(0, 0, 0));
@@ -103,6 +100,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 				miControlador.cambiarPantalla(10, 6);
 			}
 		});
+
 		btnHome.setIcon(new ImageIcon(_9_Eventos_Disponibles.class.getResource("/images/home-icon.png")));
 		btnHome.setBounds(700, 38, 45, 44);
 		panel.add(btnHome);
@@ -134,6 +132,7 @@ public class _9_Eventos_Disponibles extends JFrame {
 				table.setModel(miModelo.getTablaEventosBaloncesto());
 			}
 		});
+
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 		table.setDefaultRenderer(String.class, centerRenderer);
@@ -155,9 +154,10 @@ public class _9_Eventos_Disponibles extends JFrame {
 		btnUnirse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miControlador.cambiarPantalla(10, 8);
-				//miModelo.unirseEvento(table,"2");
+				// miModelo.unirseEvento(table,"2");
 			}
 		});
+
 		btnUnirse.setFont(new Font("Dubai", Font.BOLD, 15));
 		btnUnirse.setBounds(240, 591, 162, 56);
 		btnUnirse.setBackground(new Color(176, 196, 222));

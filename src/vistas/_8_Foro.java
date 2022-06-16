@@ -23,17 +23,14 @@ import java.awt.SystemColor;
 
 public class _8_Foro extends JFrame {
 
+	private Controlador miControlador;
+	private Modelo miModelo;
 	private JPanel panel;
 	private JScrollPane scrollPane;
 	private JTextField txtEscribeAqui;
 	private JTable table;
-	private JLabel lblEscribeAqui;
-	private JButton btnFlecha, btnEnviar;
-
-	private Controlador miControlador;
-	private Modelo miModelo;
-	private JLabel lblFondo, lblConfirmacion;
-	private JButton btnUploadForo;
+	private JButton btnUploadForo, btnFlecha, btnEnviar;
+	private JLabel lblEscribeAqui, lblFondo, lblConfirmacion;
 
 	public _8_Foro() {
 		setTitle("FORO");
@@ -107,9 +104,7 @@ public class _8_Foro extends JFrame {
 
 		table = new JTable();
 		table.setFont(new Font("Dubai", Font.PLAIN, 15));
-
 		table.setRowHeight(50);
-
 		scrollPane.setViewportView(table);
 
 		txtEscribeAqui = new JTextField();
